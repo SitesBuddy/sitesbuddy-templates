@@ -45,5 +45,16 @@
     "html": "widgets/marquee-colorful/base.html",
     "thumbnail_bg": "#0f172a",
     "thumbnail_delay": 2000
+  },
+  {
+    "id": "spinning-text-bw",
+    "name": "Spinning Text — Black & White",
+    "widget_type": "spinning-text",
+    "category": "Interactive",
+    "description": "Circular rotating text with a minimal outlined style",
+    "version": "1.0.0",
+    "tags": ["spinning", "rotating", "text", "circle", "minimal"],
+    "thumbnail": "widgets/spinning-text-bw/thumbnail.png",
+    "html": "widgets/spinning-text-bw/base.html"
   }
 ]
