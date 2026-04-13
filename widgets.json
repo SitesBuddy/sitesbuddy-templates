@@ -52,7 +52,7 @@
     "widget_type": "spinning-text",
     "category": "Interactive",
     "description": "Circular rotating text with a minimal outlined style",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "tags": ["spinning", "rotating", "text", "circle", "minimal"],
     "thumbnail": "widgets/spinning-text-bw/thumbnail.png",
     "html": "widgets/spinning-text-bw/base.html"
