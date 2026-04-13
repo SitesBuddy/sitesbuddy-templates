@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lana.Social - About Me</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset & Base ─────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;line-height:1.5}
+img,svg{display:block;max-width:100%}
+button,input,textarea{font:inherit}
+a{color:inherit;text-decoration:none}
+
+:root{
+  --primary:#6366f1;
+  --secondary:#ec4899;
+  --accent:#facc15;
+  --cream:#fffbf5;
+  --slate-900:#0f172a;
+  --slate-800:#1e293b;
+  --slate-700:#334155;
+  --slate-600:#475569;
+  --slate-500:#64748b;
+  --slate-400:#94a3b8;
+  --slate-300:#cbd5e1;
+  --slate-200:#e2e8f0;
+  --shadow-playful:4px 4px 0px 0px rgba(0,0,0,1);
+  --shadow-playful-hover:2px 2px 0px 0px rgba(0,0,0,1);
+}
+
+body{
+  background:var(--cream);
+  font-family:'Plus Jakarta Sans',sans-serif;
+  color:var(--slate-900);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+::selection{background:var(--accent);color:#000}
+.font-display{font-family:'Fredoka',sans-serif}
+
+/* ── Layout ───────────────────────────────────────── */
+.wrapper{position:relative;display:flex;flex-direction:column;min-height:100vh;width:100%}
+.main{flex-grow:1;position:relative;z-index:10}
+
+/* ── Background blobs ─────────────────────────────── */
+.bg-blobs{position:fixed;top:0;left:0;width:100%;height:100%;overflow:hidden;pointer-events:none;z-index:0}
+.blob{position:absolute;border-radius:60% 40% 30% 70% / 60% 30% 70% 40%;filter:blur(60px)}
+.blob-1{top:-10%;left:-5%;width:384px;height:384px;background:rgba(99,102,241,.1);animation:pulse 3s ease-in-out infinite}
+.blob-2{bottom:20%;right:-10%;width:500px;height:500px;background:rgba(236,72,153,.1)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+
+/* ── Header / Navbar ──────────────────────────────── */
+.header{position:sticky;top:16px;z-index:50;padding:0 16px;margin-bottom:16px}
+.navbar{max-width:960px;margin:0 auto;background:rgba(255,255,255,.8);backdrop-filter:blur(12px);border:2px solid var(--slate-900);border-radius:9999px;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;box-shadow:var(--shadow-playful);transition:all .3s}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-icon{width:32px;height:32px;color:var(--primary);background:rgba(99,102,241,.1);border-radius:50%;padding:6px;display:flex;align-items:center;justify-content:center}
+.nav-icon svg{width:100%;height:100%}
+.nav-title{font-size:1.25rem;font-weight:700;letter-spacing:-.02em}
+.nav-title span{color:var(--secondary)}
+.nav-links{display:none;align-items:center;gap:32px}
+.nav-links a{font-size:.875rem;font-weight:700;transition:color .2s}
+.nav-links a:hover{color:var(--primary)}
+.nav-links .active{color:var(--primary);background:rgba(99,102,241,.1);padding:4px 12px;border-radius:9999px}
+.nav-cta{display:none;background:var(--slate-900);color:#fff;font-size:.875rem;font-weight:700;height:40px;padding:0 24px;border-radius:9999px;border:none;cursor:pointer;transition:all .2s;box-shadow:0 4px 6px rgba(0,0,0,.1)}
+.nav-cta:hover{background:var(--slate-700);box-shadow:0 10px 15px rgba(0,0,0,.1)}
+
+/* ── Hero Section ─────────────────────────────────── */
+.hero{padding:48px 16px 48px}
+.hero-inner{max-width:1152px;margin:0 auto;display:flex;flex-direction:column-reverse;gap:48px;align-items:center}
+.hero-text{flex:1;text-align:center;position:relative;display:flex;flex-direction:column;gap:32px}
+.hero-sun{position:absolute;top:-40px;left:-24px;font-size:3.5rem;color:var(--accent);transform:rotate(-12deg);opacity:.5;display:none}
+.hero-heading{font-family:'Fredoka',sans-serif;font-size:3rem;font-weight:900;line-height:1;letter-spacing:-.02em}
+.hero-heading .gradient{background:linear-gradient(to right,var(--primary),var(--secondary),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-desc{color:var(--slate-600);font-size:1.25rem;font-weight:500;line-height:1.6;max-width:560px;margin:0 auto}
+.hero-buttons{display:flex;flex-direction:column;gap:16px;justify-content:center;align-items:center}
+.btn-primary{background:var(--primary);color:#fff;font-size:1rem;font-weight:700;height:56px;padding:0 32px;border-radius:9999px;border:2px solid var(--slate-900);box-shadow:var(--shadow-playful);transition:all .2s;display:flex;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+.btn-primary:hover{transform:translateY(-4px);background:rgba(99,102,241,.9)}
+.btn-secondary{background:#fff;color:var(--slate-900);font-size:1rem;font-weight:700;height:56px;padding:0 32px;border-radius:9999px;border:2px solid var(--slate-900);box-shadow:var(--shadow-playful);transition:all .2s;cursor:pointer}
+.btn-secondary:hover{transform:translateY(-4px);background:#f8fafc}
+
+/* Hero Image */
+.hero-image-wrap{width:100%;max-width:450px;flex-shrink:0;position:relative}
+.hero-bg-1{position:absolute;inset:0;background:var(--secondary);border-radius:3rem;transform:rotate(3deg) scale(1.05);opacity:.2}
+.hero-bg-2{position:absolute;inset:0;background:var(--accent);border-radius:3rem;transform:rotate(-2deg);opacity:.2}
+.hero-photo-frame{position:relative;width:100%;aspect-ratio:1/1;border-radius:2.5rem;overflow:hidden;border:4px solid var(--slate-900);box-shadow:var(--shadow-playful);background:#fff}
+.hero-photo{width:100%;height:100%;background-size:cover;background-position:center;background-repeat:no-repeat;transition:transform .7s}
+.hero-photo:hover{transform:scale(1.1)}
+.hero-wave{position:absolute;bottom:24px;right:24px;background:#fff;padding:12px;border-radius:1rem;box-shadow:0 10px 15px rgba(0,0,0,.1);border:2px solid var(--slate-900);transform:rotate(-6deg);animation:bounce 3s infinite}
+.hero-wave span{font-size:1.875rem}
+@keyframes bounce{0%,100%{transform:rotate(-6deg) translateY(0)}50%{transform:rotate(-6deg) translateY(-12px)}}
+
+/* ── Stats Section ────────────────────────────────── */
+.stats{padding:0 16px 48px}
+.stats-inner{max-width:1152px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:24px}
+.stat-card{display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;border-radius:1.5rem;padding:32px;background:#fff;border:2px solid var(--slate-900);box-shadow:var(--shadow-playful);transition:all .2s}
+.stat-card:hover{transform:translate(2px,2px);box-shadow:var(--shadow-playful-hover)}
+.stat-icon{padding:16px;border-radius:50%;transition:all .3s}
+.stat-card:hover .stat-icon{color:#fff!important}
+.stat-card:nth-child(1) .stat-icon{background:rgba(99,102,241,.1);color:var(--primary)}
+.stat-card:nth-child(1):hover .stat-icon{background:var(--primary)}
+.stat-card:nth-child(2) .stat-icon{background:rgba(236,72,153,.1);color:var(--secondary)}
+.stat-card:nth-child(2):hover .stat-icon{background:var(--secondary)}
+.stat-card:nth-child(3) .stat-icon{background:rgba(250,204,21,.1);color:var(--accent)}
+.stat-card:nth-child(3):hover .stat-icon{background:var(--accent)}
+.stat-icon .material-symbols-outlined{font-size:2.25rem}
+.stat-label{color:var(--slate-500);font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-top:8px;font-family:'Fredoka',sans-serif}
+.stat-value{color:var(--slate-900);font-size:2.25rem;font-weight:900;font-family:'Fredoka',sans-serif}
+
+/* ── Quote Section ────────────────────────────────── */
+.quote-section{padding:0 16px;margin:64px 0}
+.quote-inner{max-width:896px;margin:0 auto;text-align:center;position:relative}
+.quote-mark{position:absolute;top:-20px;left:0;font-size:8rem;color:rgba(99,102,241,.1);font-weight:900;font-family:serif;line-height:1}
+.quote-card{background:linear-gradient(135deg,#eef2ff,#fce7f3);padding:40px;border-radius:3rem;border:2px dashed var(--slate-300);transform:rotate(1deg)}
+.quote-text{font-size:1.5rem;font-family:'Fredoka',sans-serif;font-weight:700;line-height:1.3;color:var(--slate-900);margin-bottom:24px}
+.quote-text .highlight{background:rgba(250,204,21,.3);padding:0 8px;border-radius:8px;display:inline-block;transform:rotate(-1deg)}
+.quote-text .underline-wavy{color:var(--primary);text-decoration:underline;text-decoration-style:wavy;text-decoration-thickness:2px;text-underline-offset:4px}
+.quote-divider{display:flex;align-items:center;justify-content:center;gap:12px}
+.quote-line{height:4px;width:40px;background:var(--slate-300);border-radius:9999px}
+.quote-label{color:var(--slate-500);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-family:'Fredoka',sans-serif}
+
+/* ── Toolkit Section ──────────────────────────────── */
+.toolkit{padding:64px 16px}
+.toolkit-inner{max-width:1152px;margin:0 auto}
+.toolkit-header{margin-bottom:48px}
+.toolkit-title{font-family:'Fredoka',sans-serif;font-size:2.25rem;font-weight:900;margin-bottom:8px}
+.toolkit-subtitle{color:var(--slate-500);font-size:1.125rem;font-weight:500}
+.toolkit-grid{display:grid;grid-template-columns:1fr;gap:24px}
+.skill-card{padding:24px;border-radius:1.5rem;border:2px solid var(--slate-900);box-shadow:var(--shadow-playful);transition:transform .2s;display:flex;flex-direction:column;height:100%}
+.skill-card:hover{transform:translateY(-8px)}
+.skill-card:nth-child(1){background:#eff6ff}
+.skill-card:nth-child(2){background:#fdf2f8}
+.skill-card:nth-child(3){background:#fefce8}
+.skill-card:nth-child(4){background:#f0fdf4}
+.skill-icon{width:56px;height:56px;background:#fff;border-radius:1rem;display:flex;align-items:center;justify-content:center;margin-bottom:16px;border:2px solid var(--slate-900);box-shadow:0 1px 3px rgba(0,0,0,.05)}
+.skill-card:nth-child(1) .skill-icon{color:#3b82f6}
+.skill-card:nth-child(2) .skill-icon{color:#ec4899}
+.skill-card:nth-child(3) .skill-icon{color:#eab308}
+.skill-card:nth-child(4) .skill-icon{color:#22c55e}
+.skill-icon .material-symbols-outlined{font-size:1.875rem}
+.skill-name{font-size:1.25rem;font-weight:900;font-family:'Fredoka',sans-serif;margin-bottom:8px}
+.skill-desc{color:var(--slate-700);font-size:.875rem;font-weight:500;line-height:1.6;flex-grow:1}
+
+/* ── Journey / Timeline ───────────────────────────── */
+.journey{padding:64px 16px;background:#fff;position:relative;overflow:hidden}
+.journey .dot-bg{position:absolute;inset:0;opacity:.05;background-image:radial-gradient(currentColor 2px,transparent 2px);background-size:40px 40px;pointer-events:none}
+.journey-inner{max-width:896px;margin:0 auto;position:relative;z-index:10}
+.journey-title{font-family:'Fredoka',sans-serif;font-size:2.25rem;font-weight:900;text-align:center;margin-bottom:48px}
+.timeline{position:relative}
+.timeline-line{position:absolute;left:28px;top:0;bottom:0;width:4px;background:var(--slate-200);border-radius:9999px}
+.timeline-items{display:flex;flex-direction:column;gap:40px}
+.timeline-item{display:grid;grid-template-columns:60px 1fr;gap:24px;align-items:flex-start}
+.timeline-dot{position:relative;display:flex;justify-content:center}
+.timeline-circle{width:56px;height:56px;border-radius:50%;border:4px solid #fff;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 15px rgba(0,0,0,.1);position:relative;z-index:10;transition:transform .2s}
+.timeline-item:hover .timeline-circle{transform:scale(1.1)}
+.timeline-item:nth-child(1) .timeline-circle{background:var(--primary)}
+.timeline-item:nth-child(2) .timeline-circle{background:var(--secondary)}
+.timeline-item:nth-child(3) .timeline-circle{background:var(--accent)}
+.timeline-circle .material-symbols-outlined{font-size:1.5rem}
+.timeline-card{background:#fff;padding:24px;border-radius:1rem;border:1px solid var(--slate-200);box-shadow:0 1px 3px rgba(0,0,0,.05);transition:box-shadow .2s}
+.timeline-card:hover{box-shadow:0 4px 6px rgba(0,0,0,.1)}
+.timeline-card-header{display:flex;flex-direction:column;gap:8px;margin-bottom:8px}
+.timeline-role{font-size:1.25rem;font-weight:700;font-family:'Fredoka',sans-serif}
+.timeline-badge{display:inline-block;font-size:.75rem;font-weight:700;padding:6px 12px;border-radius:9999px;text-transform:uppercase;letter-spacing:.05em;width:fit-content}
+.timeline-item:nth-child(1) .timeline-badge{background:rgba(99,102,241,.1);color:var(--primary)}
+.timeline-item:nth-child(2) .timeline-badge{background:rgba(236,72,153,.1);color:var(--secondary)}
+.timeline-item:nth-child(3) .timeline-badge{background:rgba(250,204,21,.1);color:var(--accent)}
+.timeline-company{color:var(--slate-700);font-weight:600;margin-bottom:8px}
+.timeline-desc{color:var(--slate-600);font-size:.875rem;line-height:1.6}
+
+/* ── Beyond The Feed ──────────────────────────────── */
+.beyond{padding:80px 16px;background:var(--cream)}
+.beyond-inner{max-width:1152px;margin:0 auto;display:grid;grid-template-columns:1fr;gap:64px;align-items:center}
+.beyond-photos{position:relative;width:100%;aspect-ratio:4/3;max-width:448px;margin:0 auto}
+.photo-card{position:absolute;background:#fff;padding:8px;box-shadow:0 10px 15px rgba(0,0,0,.1);border-radius:8px;transition:transform .5s}
+.photo-card:hover{transform:scale(1.05)!important}
+.photo-card-1{top:0;right:32px;width:256px;aspect-ratio:3/4;transform:rotate(6deg);z-index:10}
+.photo-card-2{bottom:0;left:16px;width:240px;aspect-ratio:3/4;transform:rotate(-6deg);z-index:20}
+.photo-img{width:100%;height:100%;background-size:cover;background-position:center;border-radius:4px;background-color:var(--slate-200)}
+.tape{position:absolute;width:96px;height:32px;z-index:30}
+.tape-1{top:-16px;right:40%;background:rgba(254,240,138,.8);transform:rotate(45deg)}
+.tape-2{bottom:-10px;left:10%;background:rgba(251,207,232,.8);transform:rotate(-12deg)}
+.beyond-text h2{font-family:'Fredoka',sans-serif;font-size:3rem;font-weight:900;margin-bottom:24px}
+.beyond-text p{color:var(--slate-600);font-size:1.125rem;line-height:1.6;font-weight:500;margin-bottom:32px}
+.hobby-tags{display:flex;flex-wrap:wrap;gap:12px}
+.hobby-tag{padding:10px 20px;border-radius:9999px;background:#fff;border:2px solid var(--slate-900);font-size:.875rem;font-weight:700;display:flex;align-items:center;gap:8px;cursor:default;box-shadow:var(--shadow-playful);transition:all .3s}
+.hobby-tag:nth-child(1):hover{background:var(--primary);color:#fff;border-color:var(--primary)}
+.hobby-tag:nth-child(2):hover{background:var(--secondary);color:#fff;border-color:var(--secondary)}
+.hobby-tag:nth-child(3):hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+.hobby-tag:nth-child(4):hover{background:#22c55e;color:#fff;border-color:#22c55e}
+.hobby-tag .material-symbols-outlined{font-size:1.125rem}
+
+/* ── CTA / Footer Section ─────────────────────────── */
+.cta-section{margin-top:48px;background:var(--slate-900);color:#fff;padding:96px 16px;border-radius:3rem 3rem 0 0;position:relative;overflow:hidden}
+.cta-glow-1{position:absolute;top:-50px;left:-50px;width:256px;height:256px;background:var(--primary);border-radius:50%;filter:blur(100px);opacity:.3}
+.cta-glow-2{position:absolute;bottom:-50px;right:-50px;width:256px;height:256px;background:var(--secondary);border-radius:50%;filter:blur(100px);opacity:.3}
+.cta-inner{max-width:896px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;gap:32px;position:relative;z-index:10}
+.cta-title{font-family:'Fredoka',sans-serif;font-size:2.25rem;font-weight:900;line-height:1.1}
+.cta-desc{color:var(--slate-300);font-size:1.125rem;max-width:560px;font-weight:500}
+.cta-btn{background:var(--accent);color:var(--slate-900);font-size:1.125rem;font-weight:700;height:64px;padding:0 48px;border-radius:9999px;border:4px solid transparent;cursor:pointer;transition:all .2s;box-shadow:0 0 20px rgba(250,204,21,.5)}
+.cta-btn:hover{border-color:#fff;transform:scale(1.05)}
+.social-links{display:flex;gap:24px;margin-top:32px}
+.social-link{padding:12px;background:rgba(255,255,255,.1);border-radius:50%;transition:all .2s;font-weight:700;font-size:.875rem;width:42px;height:42px;display:flex;align-items:center;justify-content:center}
+.social-link:hover{background:#fff;color:var(--slate-900)}
+.social-link .material-symbols-outlined{font-size:.875rem}
+.footer{max-width:1152px;margin:80px auto 0;padding-top:32px;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;gap:16px;align-items:center;font-size:.875rem;color:var(--slate-400);font-weight:500}
+.footer-links{display:flex;gap:24px}
+.footer-links a:hover{color:#fff}
+
+/* ── Responsive ───────────────────────────────────── */
+@media(min-width:640px){
+  .stats-inner{grid-template-columns:repeat(3,1fr)}
+  .hero-buttons{flex-direction:row}
+  .toolkit-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(min-width:768px){
+  .nav-links,.nav-cta{display:flex}
+  .hero{padding:96px 40px 96px}
+  .hero-inner{flex-direction:row;gap:80px}
+  .hero-text{text-align:left}
+  .hero-desc{margin:0}
+  .hero-buttons{justify-content:flex-start}
+  .hero-heading{font-size:3.75rem}
+  .hero-sun{display:block}
+  .hero-photo-frame{aspect-ratio:4/5}
+  .hero-image-wrap{width:450px}
+  .stats{padding:0 40px 48px}
+  .quote-section{padding:0 40px}
+  .quote-mark{left:-40px}
+  .quote-card{padding:56px}
+  .quote-text{font-size:2.25rem}
+  .toolkit{padding:64px 40px}
+  .toolkit-title{font-size:3rem}
+  .journey{padding:64px 40px}
+  .beyond{padding:80px 40px}
+  .beyond-inner{grid-template-columns:1fr 1fr;gap:64px}
+  .beyond-photos{order:-1}
+  .cta-section{padding:96px 40px}
+  .cta-title{font-size:3.75rem}
+  .footer{flex-direction:row;justify-content:space-between}
+  .timeline-card-header{flex-direction:row;align-items:center;justify-content:space-between}
+}
+@media(min-width:1024px){
+  .hero-heading{font-size:4.5rem}
+  .toolkit-grid{grid-template-columns:repeat(4,1fr)}
+}
+</style>
+</head>
+<body>
+<div class="wrapper">
+<div class="bg-blobs">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+</div>
+
+<header class="header">
+<div class="navbar">
+<div class="nav-brand">
+<div class="nav-icon">
+<svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path clip-rule="evenodd" d="M24 18.4228L42 11.475V34.3663C42 34.7796 41.7457 35.1504 41.3601 35.2992L24 42V18.4228Z" fill="currentColor" fill-rule="evenodd"></path>
+<path clip-rule="evenodd" d="M24 8.18819L33.4123 11.574L24 15.2071L14.5877 11.574L24 8.18819ZM9 15.8487L21 20.4805V37.6263L9 32.9945V15.8487ZM27 37.6263V20.4805L39 15.8487V32.9945L27 37.6263ZM25.354 2.29885C24.4788 1.98402 23.5212 1.98402 22.646 2.29885L4.98454 8.65208C3.7939 9.08038 3 10.2097 3 11.475V34.3663C3 36.0196 4.01719 37.5026 5.55962 38.098L22.9197 44.7987C23.6149 45.0671 24.3851 45.0671 25.0803 44.7987L42.4404 38.098C43.9828 37.5026 45 36.0196 45 34.3663V11.475C45 10.2097 44.2061 9.08038 43.0155 8.65208L25.354 2.29885Z" fill="currentColor" fill-rule="evenodd"></path>
+</svg>
+</div>
+<h2 class="nav-title font-display">Lana<span>.Social</span></h2>
+</div>
+<nav class="nav-links font-display">
+<a href="#">Work</a>
+<a class="active" href="#">About</a>
+<a href="#">Services</a>
+<a href="#">Contact</a>
+</nav>
+<button class="nav-cta">Let's Talk</button>
+</div>
+</header>
+
+<main class="main">
+<!-- Hero -->
+<section class="hero">
+<div class="hero-inner">
+<div class="hero-text">
+<span class="hero-sun material-symbols-outlined">wb_sunny</span>
+<div>
+<h1 class="hero-heading font-display">
+Hi, I'm Lana. <br/>
+<span class="gradient">Social Manager</span> <br/>
+&amp; Digital Storyteller.
+</h1>
+<p class="hero-desc">
+I turn followers into fan clubs and likes into love. Let's make your brand the loudest voice in the room (in a good way!).
+</p>
+</div>
+<div class="hero-buttons">
+<button class="btn-primary">
+<span class="material-symbols-outlined" style="font-size:20px">download</span>
+Download Resume
+</button>
+<button class="btn-secondary">View Portfolio</button>
+</div>
+</div>
+<div class="hero-image-wrap">
+<div class="hero-bg-1"></div>
+<div class="hero-bg-2"></div>
+<div class="hero-photo-frame">
+<div class="hero-photo" style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuAEGI8KZakDyqu0nkG8619Da24q9GJi3WNuWhA2rlWto4ZPpIJDY8hMXJVAdnF3Y-xPO908kqXSaJihhS3SBIz-hsE3bKWDXccS_K4KhKoZeGqwZm9XI-hzze8Sz9Pw9_yj9gC4YjHkcn1aOQC4SyXVFRjPTNhcYC3lVxFAE3l_Yp26D9BbT4WYhxueqeZ80RFI2lPFxmps2r1IafgRF_Smh2CYvWP-iWi4gtymbSK3Kw8qL2jaU5JD8RdXLAMLRCSMo7m8ryiiUAA")'></div>
+<div class="hero-wave"><span>👋</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+<div class="stats-inner">
+<div class="stat-card">
+<div class="stat-icon"><span class="material-symbols-outlined">workspace_premium</span></div>
+<p class="stat-label font-display">Experience</p>
+<p class="stat-value font-display">5+ Years</p>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><span class="material-symbols-outlined">groups</span></div>
+<p class="stat-label font-display">Community</p>
+<p class="stat-value font-display">200k+</p>
+</div>
+<div class="stat-card">
+<div class="stat-icon"><span class="material-symbols-outlined">verified</span></div>
+<p class="stat-label font-display">Brands</p>
+<p class="stat-value font-display">50+</p>
+</div>
+</div>
+</section>
+
+<!-- Quote -->
+<section class="quote-section">
+<div class="quote-inner">
+<span class="quote-mark">"</span>
+<div class="quote-card">
+<blockquote class="quote-text font-display">
+"I believe social media isn't just about posting content; it's about <span class="highlight">listening</span>. Real engagement happens when brands stop broadcasting and start <span class="underline-wavy">conversing</span>."
+</blockquote>
+<div class="quote-divider">
+<div class="quote-line"></div>
+<p class="quote-label font-display">My Philosophy</p>
+<div class="quote-line"></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Toolkit -->
+<section class="toolkit">
+<div class="toolkit-inner">
+<div class="toolkit-header">
+<h2 class="toolkit-title font-display">My Toolkit 🛠️</h2>
+<p class="toolkit-subtitle">Skills sharpened over a decade of scrolling &amp; creating.</p>
+</div>
+<div class="toolkit-grid">
+<div class="skill-card">
+<div class="skill-icon"><span class="material-symbols-outlined">trending_up</span></div>
+<h3 class="skill-name font-display">Strategic Growth</h3>
+<p class="skill-desc">Developing comprehensive roadmaps that align social KPIs with business goals. Sustainable, organic growth &gt; viral flukes.</p>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><span class="material-symbols-outlined">edit_note</span></div>
+<h3 class="skill-name font-display">Copywriting</h3>
+<p class="skill-desc">Crafting narratives that stop the scroll. From witty tweets to long-form articles, adapting tone perfectly.</p>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><span class="material-symbols-outlined">campaign</span></div>
+<h3 class="skill-name font-display">Paid Media</h3>
+<p class="skill-desc">Managing ad budgets on Meta &amp; TikTok. Precise targeting to ensure every dollar spent yields ROI.</p>
+</div>
+<div class="skill-card">
+<div class="skill-icon"><span class="material-symbols-outlined">analytics</span></div>
+<h3 class="skill-name font-display">Analytics</h3>
+<p class="skill-desc">Turning data into insights. I track engagement rates and conversions, not just vanity metrics.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Journey -->
+<section class="journey">
+<div class="dot-bg"></div>
+<div class="journey-inner">
+<h2 class="journey-title font-display">The Journey So Far 🚀</h2>
+<div class="timeline">
+<div class="timeline-line"></div>
+<div class="timeline-items">
+<div class="timeline-item">
+<div class="timeline-dot">
+<div class="timeline-circle"><span class="material-symbols-outlined">work</span></div>
+</div>
+<div class="timeline-card">
+<div class="timeline-card-header">
+<h3 class="timeline-role font-display">Senior Social Strategist</h3>
+<span class="timeline-badge">2021 - Present</span>
+</div>
+<p class="timeline-company">Agency X</p>
+<p class="timeline-desc">Leading a team of 5 creatives managing social presence for Fortune 500 clients. Spearheaded the "Summer of Tech" campaign resulting in 40% YoY engagement increase.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot">
+<div class="timeline-circle"><span class="material-symbols-outlined">storefront</span></div>
+</div>
+<div class="timeline-card">
+<div class="timeline-card-header">
+<h3 class="timeline-role font-display">Community Manager</h3>
+<span class="timeline-badge">2018 - 2021</span>
+</div>
+<p class="timeline-company">Tech Startup Y</p>
+<p class="timeline-desc">Built the Discord community from 0 to 15,000 active members. Implemented UGC strategies that reduced content production costs by 30%.</p>
+</div>
+</div>
+<div class="timeline-item">
+<div class="timeline-dot">
+<div class="timeline-circle"><span class="material-symbols-outlined">edit</span></div>
+</div>
+<div class="timeline-card">
+<div class="timeline-card-header">
+<h3 class="timeline-role font-display">Freelance Creator</h3>
+<span class="timeline-badge">2016 - 2018</span>
+</div>
+<p class="timeline-company">Self-Employed</p>
+<p class="timeline-desc">Managed Instagram and Pinterest accounts for local lifestyle brands. Specialized in photography and caption writing.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Beyond The Feed -->
+<section class="beyond">
+<div class="beyond-inner">
+<div class="beyond-photos">
+<div class="photo-card photo-card-1">
+<div class="photo-img" style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuCQpJUhiBBLxBtrvkFUjvXx-Hz_EnsOzA6OooZDbPi9247AKxljWsugeYOsi4jArAaEFtyYvYYVtzHQafm0ccUEdrKli1h7IByfuzRe4KP_64UHfqpM7hLPvH-OLY1XHrn4v-n8X8T35SGV8T9dSLO1ziYflpwGD4Fbxb2YeEn8kdZ3JbeZb860aP10UoVZ5A0Nrj8_BJSkrtEg43HP-VuGEVcxF3iFCmNf-R9Ou1cU_0tIX5mir4CTKXi5mvi3DVs79aXZai5_LIY")'></div>
+</div>
+<div class="photo-card photo-card-2">
+<div class="photo-img" style='background-image:url("https://lh3.googleusercontent.com/aida-public/AB6AXuC5jyt89ynAS0sja89JENj0lbI6cpEZkTdD4oPnWstsLiyjbBDfsztqejZoO6LxQp9pFIOhG6KzAA0_qvrzWHq8eyVgpbDDGy3Ezp9aMfvRlpDAPPdIomvoXFGroP2-L9Bva_l6wf4f03uXhQzth7VeBc_aJWKOvUQ9dmrwF1sQ0OyOjGSb7jBWX-BU40F-8LaKMW-XQgQ7IkcLMn1154vsF_zzuihtEiVbHMKraK0zMn4LfEeX0U2AZ8Skj799kcPSudq4OX-zvE0")'></div>
+</div>
+<div class="tape tape-1"></div>
+<div class="tape tape-2"></div>
+</div>
+<div class="beyond-text">
+<h2 class="font-display">Beyond the Feed</h2>
+<p>When I'm not optimizing profiles, you can find me disconnecting to reconnect. I believe the best inspiration comes from the offline world.</p>
+<div class="hobby-tags">
+<span class="hobby-tag"><span class="material-symbols-outlined">camera_alt</span> Photography</span>
+<span class="hobby-tag"><span class="material-symbols-outlined">coffee</span> Coffee</span>
+<span class="hobby-tag"><span class="material-symbols-outlined">flight</span> Travel</span>
+<span class="hobby-tag"><span class="material-symbols-outlined">pets</span> Dog Mom</span>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CTA + Footer -->
+<section class="cta-section">
+<div class="cta-glow-1"></div>
+<div class="cta-glow-2"></div>
+<div class="cta-inner">
+<h2 class="cta-title font-display">Ready to amplify your voice? 📣</h2>
+<p class="cta-desc">Whether you need a full audit or a monthly management plan, I'm here to help you navigate the digital landscape.</p>
+<button class="cta-btn">Start a Project</button>
+<div class="social-links">
+<a class="social-link" href="#"><span style="font-weight:700;font-size:.875rem">LI</span></a>
+<a class="social-link" href="#"><span style="font-weight:700;font-size:.875rem">TW</span></a>
+<a class="social-link" href="#"><span style="font-weight:700;font-size:.875rem">IG</span></a>
+<a class="social-link" href="#"><span class="material-symbols-outlined">mail</span></a>
+</div>
+</div>
+<div class="footer">
+<p>© 2024 Lana.Social. All rights reserved.</p>
+<div class="footer-links">
+<a href="#">Privacy Policy</a>
+<a href="#">Terms of Service</a>
+</div>
+</div>
+</section>
+</main>
+</div>
+</body>
+</html>

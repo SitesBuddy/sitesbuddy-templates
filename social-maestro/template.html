@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lana - Social Media Manager Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<style>
+/* ── Reset & Base ──────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;line-height:1.5}
+img,svg{display:block;max-width:100%}
+button,input,textarea{font:inherit}
+a{color:inherit;text-decoration:none}
+
+/* ── CSS Variables ─────────────────────────────────────── */
+:root{
+  --primary:#E85D4E;
+  --secondary:#2A2A2A;
+  --bg:#FDFBF7;
+  --bg-dark:#1a1a1a;
+  --text:#2A2A2A;
+  --muted:#666666;
+  --beige:#F2EBE3;
+  --orange-400:#fb923c;
+}
+
+/* ── Body & Typography ─────────────────────────────────── */
+body{
+  font-family:'Lato',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  transition:background-color .2s,color .2s;
+}
+html.dark body{background:var(--bg-dark);color:#fff}
+::selection{background:var(--primary);color:#fff}
+.font-display{font-family:'Oswald',sans-serif}
+
+/* ── Page Wrapper ──────────────────────────────────────── */
+.page-wrapper{position:relative;display:flex;flex-direction:column;min-height:100vh;overflow-x:hidden}
+
+/* ── HEADER ────────────────────────────────────────────── */
+.header-outer{position:fixed;top:0;width:100%;z-index:50;padding:16px}
+.nav-inner{
+  max-width:1200px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  border:1px solid rgba(42,42,42,.1);
+  padding:12px 24px;
+  background:rgba(255,255,255,.8);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-radius:9999px;
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+}
+html.dark .nav-inner{border-color:rgba(255,255,255,.1);background:rgba(26,26,26,.8)}
+
+.nav-brand{display:flex;align-items:center;gap:8px;color:var(--text)}
+html.dark .nav-brand{color:#fff}
+.nav-logo{
+  width:32px;height:32px;border-radius:50%;
+  background:var(--secondary);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+}
+.nav-logo-letter{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.25rem}
+.nav-title{font-family:'Oswald',sans-serif;font-size:1.25rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+html.dark .nav-title{color:#fff}
+
+.nav-center{display:none;align-items:center;gap:32px}
+.nav-center a{font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;transition:color .2s;color:var(--text)}
+html.dark .nav-center a{color:#e5e7eb}
+.nav-center a:hover{color:var(--primary)}
+
+.nav-cta{
+  display:flex;align-items:center;justify-content:center;
+  border-radius:9999px;height:40px;padding:0 24px;
+  background:var(--secondary);color:#fff;
+  font-size:.875rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  transition:background .3s;
+}
+.nav-cta:hover{background:var(--primary)}
+.nav-cta-icon{font-size:.875rem;margin-left:8px;display:inline-block;vertical-align:middle;transition:transform .2s}
+.nav-cta:hover .nav-cta-icon{transform:translateX(4px)}
+
+/* ── MAIN ──────────────────────────────────────────────── */
+main{flex:1;width:100%;padding-top:96px}
+
+/* ── HERO ──────────────────────────────────────────────── */
+.hero{position:relative;width:100%;overflow:hidden}
+.hero-blob-1{
+  position:absolute;top:80px;right:0;
+  width:256px;height:256px;
+  background:rgba(232,93,78,.1);border-radius:50%;
+  filter:blur(48px);z-index:-1;transform:translateX(50%);
+}
+.hero-blob-2{
+  position:absolute;bottom:0;left:0;
+  width:384px;height:384px;
+  background:rgba(42,42,42,.05);border-radius:50%;
+  filter:blur(48px);z-index:-1;transform:translate(-50%,50%);
+}
+.hero-inner{max-width:1280px;margin:0 auto;padding:40px 16px 80px}
+.hero-flex{display:flex;flex-direction:column;align-items:center;gap:48px}
+
+/* hero text column */
+.hero-text{display:flex;flex-direction:column;gap:32px;flex:1;text-align:center;z-index:10}
+
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:6px 16px;border-radius:9999px;
+  border:1px solid rgba(42,42,42,.2);background:#fff;
+  width:fit-content;margin:0 auto;
+}
+html.dark .hero-badge{background:rgba(255,255,255,.05);border-color:rgba(255,255,255,.2)}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--primary);animation:blink 2s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
+.badge-text{font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+html.dark .badge-text{color:#d1d5db}
+
+.hero-heading{
+  font-family:'Oswald',sans-serif;
+  font-size:clamp(2.5rem,8vw,5rem);
+  font-weight:700;line-height:.9;letter-spacing:-.03em;
+  color:var(--secondary);text-transform:uppercase;margin-bottom:16px;
+}
+html.dark .hero-heading{color:#fff}
+.hero-heading .gradient-text{
+  background:linear-gradient(to right,var(--primary),var(--orange-400));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  font-style:italic;font-weight:400;text-transform:none;
+  letter-spacing:normal;padding:0 8px;
+}
+
+.hero-desc{font-size:1.125rem;color:var(--muted);max-width:512px;margin:0 auto;line-height:1.7}
+html.dark .hero-desc{color:#9ca3af}
+
+.hero-buttons{display:flex;flex-direction:column;gap:16px;justify-content:center;margin-top:8px}
+
+.btn-primary{
+  display:flex;align-items:center;justify-content:center;
+  border-radius:9999px;height:56px;padding:0 40px;
+  background:var(--secondary);color:#fff;
+  font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  border:none;cursor:pointer;
+  transition:background .2s,box-shadow .2s,transform .2s;
+}
+.btn-primary:hover{background:var(--primary);box-shadow:0 20px 25px rgba(0,0,0,.15);transform:translateY(-4px)}
+
+.btn-outline{
+  display:flex;align-items:center;justify-content:center;
+  border-radius:9999px;height:56px;padding:0 40px;
+  background:transparent;border:2px solid var(--secondary);color:var(--secondary);
+  font-size:1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  cursor:pointer;transition:all .2s;
+}
+html.dark .btn-outline{border-color:#fff;color:#fff}
+.btn-outline:hover{background:var(--secondary);color:#fff}
+html.dark .btn-outline:hover{background:#fff;color:var(--bg-dark)}
+
+.hero-proof{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:24px}
+
+.avatar-stack{display:flex}
+.avatar{
+  width:40px;height:40px;border-radius:50%;
+  border:2px solid var(--bg);
+  background-size:cover;background-position:center;
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+  margin-left:-12px;
+}
+html.dark .avatar{border-color:var(--bg-dark)}
+.avatar:first-child{margin-left:0}
+.avatar-plus{
+  width:40px;height:40px;border-radius:50%;
+  border:2px solid var(--bg);
+  background:var(--secondary);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:.75rem;font-weight:700;
+  box-shadow:0 1px 3px rgba(0,0,0,.1);
+  margin-left:-12px;
+}
+html.dark .avatar-plus{border-color:var(--bg-dark)}
+
+.proof-text{display:flex;flex-direction:column;text-align:left}
+.proof-label{font-size:.875rem;font-weight:700;color:var(--secondary)}
+html.dark .proof-label{color:#fff}
+.proof-stars{display:flex;color:var(--primary);font-size:14px}
+.proof-stars .material-symbols-outlined{font-size:14px}
+
+/* hero image column */
+.hero-image-side{flex:1;width:100%;position:relative}
+.hero-deco-1{
+  position:absolute;top:40px;right:40px;width:80px;height:80px;
+  background:var(--primary);border-radius:50%;mix-blend-mode:multiply;
+  opacity:.8;z-index:20;display:none;
+  animation:float1 4s ease-in-out infinite;
+}
+.hero-deco-2{
+  position:absolute;bottom:80px;left:0;width:64px;height:64px;
+  background:#fdba74;border-radius:50%;mix-blend-mode:multiply;
+  opacity:.8;z-index:20;display:none;
+  animation:float2 3s ease-in-out infinite;animation-delay:.7s;
+}
+@keyframes float1{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes float2{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+
+.hero-frame-wrap{position:relative;z-index:10;margin:0 auto;max-width:420px}
+.hero-frame{
+  position:relative;overflow:hidden;
+  border-radius:10rem 10rem 2rem 2rem;
+  border:4px solid #fff;
+  box-shadow:0 25px 50px rgba(0,0,0,.2);
+  transition:transform .5s;
+}
+html.dark .hero-frame{border-color:rgba(255,255,255,.1)}
+.hero-frame:hover{transform:scale(1.02)}
+.hero-img-bg{
+  aspect-ratio:3/4;width:100%;
+  object-fit:cover;object-position:center;
+  display:block;
+}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent,transparent);opacity:.6;pointer-events:none}
+.hero-img-card{
+  position:absolute;bottom:24px;left:24px;right:24px;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  padding:16px;border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.15);
+  border:1px solid rgba(255,255,255,.2);
+}
+html.dark .hero-img-card{background:rgba(17,24,39,.95)}
+.hero-img-card-row{display:flex;justify-content:space-between;align-items:center}
+.hero-img-card-left .card-label{font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:700;margin-bottom:4px}
+html.dark .card-label{color:#9ca3af}
+.hero-img-card-left .card-value{font-family:'Oswald',sans-serif;font-size:1.125rem;font-weight:700;color:var(--secondary);line-height:1}
+html.dark .card-value{color:#fff}
+.card-icon{width:40px;height:40px;background:var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff}
+
+/* ── MARQUEE BAR ───────────────────────────────────────── */
+.marquee-bar{
+  width:100%;background:var(--secondary);color:#fff;
+  padding:16px 0;overflow:hidden;
+  transform:rotate(-1deg) scaleX(1.05);
+  border-top:4px solid var(--primary);border-bottom:4px solid var(--primary);
+  box-shadow:0 4px 6px rgba(0,0,0,.07);
+  position:relative;z-index:20;
+}
+.marquee-track{display:flex;white-space:nowrap;gap:32px;animation:marquee 22s linear infinite}
+.marquee-item{
+  font-family:'Oswald',sans-serif;font-size:1.5rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.1em;
+  display:flex;align-items:center;gap:16px;flex-shrink:0;
+}
+.marquee-star{color:var(--primary)}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── BRANDS SECTION ────────────────────────────────────── */
+.brands-section{width:100%;background:var(--beige);padding:80px 0}
+html.dark .brands-section{background:rgba(26,26,26,.3)}
+.brands-inner{max-width:1200px;margin:0 auto;padding:0 16px}
+.brands-flex{display:flex;flex-direction:column;align-items:center;gap:40px}
+.brands-head{text-align:center}
+.brands-title-text{
+  font-family:'Oswald',sans-serif;font-size:2.25rem;font-weight:700;
+  text-transform:uppercase;line-height:1.1;color:var(--secondary);
+}
+html.dark .brands-title-text{color:#fff}
+.brands-rule{width:80px;height:4px;background:var(--primary);margin-top:16px;margin-left:auto;margin-right:auto}
+.brands-grid{width:100%; display:grid;grid-template-columns:repeat(2,1fr);gap:40px 32px}
+.brand-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer}
+.brand-icon{font-size:2.25rem;color:var(--secondary);transition:color .2s}
+html.dark .brand-icon{color:#fff}
+.brand-item:hover .brand-icon{color:var(--primary)}
+.brand-name{font-family:'Oswald',sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.875rem}
+
+/* ── WORK SECTION ──────────────────────────────────────── */
+.work-section{width:100%;background:var(--bg);padding:80px 16px}
+html.dark .work-section{background:var(--bg-dark)}
+.work-inner{max-width:1200px;margin:0 auto}
+.work-header{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;margin-bottom:48px;padding:0 16px}
+.work-title{
+  font-family:'Oswald',sans-serif;font-size:3rem;font-weight:700;
+  text-transform:uppercase;color:var(--secondary);line-height:1;
+}
+html.dark .work-title{color:#fff}
+.work-view-link{
+  display:none;align-items:center;gap:8px;
+  font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  border-bottom:2px solid var(--primary);padding-bottom:4px;transition:color .2s;
+}
+.work-view-link:hover{color:var(--primary)}
+
+.work-grid{
+  display:grid;grid-template-columns:1fr;
+  gap:24px;grid-auto-rows:300px;
+}
+.work-card{position:relative;border-radius:24px;overflow:hidden}
+.work-card-arrow{
+  position:absolute;top:16px;right:16px;
+  background:#fff;border-radius:50%;padding:12px;
+  opacity:0;transition:all .3s;transform:translateY(16px);
+  display:flex;align-items:center;justify-content:center;
+  z-index:10;
+}
+.work-card:hover .work-card-arrow{opacity:1;transform:translateY(0)}
+.work-card-arrow .material-symbols-outlined{color:#000}
+
+/* luxe card */
+.card-luxe{background:var(--secondary)}
+.card-luxe-bg{
+  position:absolute;inset:0;
+  background-image:url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1000&auto=format&fit=crop');
+  background-size:cover;background-position:center;
+  opacity:.8;transition:opacity .5s;
+}
+.card-luxe:hover .card-luxe-bg{opacity:.6}
+.card-luxe-body{position:absolute;bottom:0;left:0;padding:32px}
+.card-tag{
+  display:inline-block;padding:4px 12px;
+  background:rgba(255,255,255,.2);backdrop-filter:blur(8px);
+  border-radius:9999px;font-size:.75rem;font-weight:700;color:#fff;margin-bottom:12px;
+}
+.card-title{font-family:'Oswald',sans-serif;font-size:1.875rem;font-weight:700;color:#fff;text-transform:uppercase}
+
+/* audit card */
+.card-audit{background:#EAEAEA}
+.card-audit-center{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.audit-glow{
+  position:absolute;width:128px;height:128px;
+  background:var(--primary);border-radius:50%;filter:blur(32px);
+  opacity:.2;transition:opacity .3s;
+}
+.card-audit:hover .audit-glow{opacity:.4}
+.audit-heading{
+  position:relative;z-index:10;
+  font-family:'Oswald',sans-serif;font-size:2.25rem;font-weight:700;
+  color:var(--secondary);text-transform:uppercase;text-align:center;line-height:1;
+}
+.card-audit-footer{
+  position:absolute;bottom:0;left:0;padding:24px;width:100%;
+  display:flex;justify-content:space-between;align-items:flex-end;
+}
+.audit-svc{font-size:.875rem;font-weight:700;color:var(--muted)}
+.audit-add{
+  background:var(--secondary);color:#fff;border-radius:50%;
+  padding:8px;display:flex;align-items:center;justify-content:center;
+}
+.audit-add .material-symbols-outlined{font-size:.875rem}
+
+.work-mobile-cta{margin-top:32px;text-align:center}
+.btn-outline-sm{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.875rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  border:2px solid var(--secondary);border-radius:9999px;padding:12px 24px;
+  transition:all .2s;cursor:pointer;background:transparent;color:var(--text);
+}
+.btn-outline-sm:hover{background:var(--secondary);color:#fff}
+html.dark .btn-outline-sm{border-color:#fff;color:#fff}
+
+/* ── FOOTER ────────────────────────────────────────────── */
+footer{
+  width:100%;background:var(--secondary);color:#fff;
+  padding:80px 0 40px;
+  border-radius:48px 48px 0 0;margin-top:40px;
+}
+.footer-inner{max-width:1200px;margin:0 auto;padding:0 24px}
+.footer-top{
+  display:flex;flex-direction:column;justify-content:space-between;
+  align-items:flex-start;gap:48px;margin-bottom:64px;
+}
+.footer-left{max-width:448px}
+.footer-left h2{
+  font-family:'Oswald',sans-serif;font-size:2.25rem;font-weight:700;
+  text-transform:uppercase;margin-bottom:24px;line-height:1;
+}
+.footer-left p{color:#9ca3af;margin-bottom:32px;font-size:1.125rem;line-height:1.7}
+.footer-email{
+  display:inline-block;font-size:1.5rem;font-weight:700;
+  border-bottom:2px solid var(--primary);padding-bottom:4px;transition:color .2s;
+}
+.footer-email:hover{color:var(--primary)}
+.footer-right{display:flex;flex-direction:column;gap:24px}
+.footer-socials{display:flex;gap:16px}
+.social-btn{
+  width:48px;height:48px;border-radius:50%;
+  background:rgba(255,255,255,.1);
+  display:flex;align-items:center;justify-content:center;transition:background .2s;
+}
+.social-btn:hover{background:var(--primary)}
+.footer-nav{display:flex;flex-direction:column;gap:8px}
+.footer-nav a{
+  color:#9ca3af;text-transform:uppercase;
+  letter-spacing:.1em;font-size:.875rem;font-weight:700;transition:color .2s;
+}
+.footer-nav a:hover{color:#fff}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.1);padding-top:32px;
+  display:flex;flex-direction:column;justify-content:space-between;
+  align-items:center;gap:16px;
+  font-size:.75rem;color:#6b7280;text-transform:uppercase;letter-spacing:.1em;
+}
+.footer-brand-name{font-family:'Oswald',sans-serif;font-weight:700;font-size:1.125rem;color:#fff}
+.footer-legal{display:flex;gap:24px}
+.footer-legal a:hover{color:#fff}
+
+/* ── RESPONSIVE ────────────────────────────────────────── */
+@media(min-width:640px){
+  .hero-inner{padding-left:40px;padding-right:40px}
+  .hero-desc{font-size:1.25rem}
+  .hero-buttons{flex-direction:row}
+  .brands-inner{padding:0 40px}
+  .footer-inner{padding:0 40px}
+  .footer-email{font-size:1.875rem}
+  .footer-left h2{font-size:3rem}
+}
+@media(min-width:768px){
+  .nav-center{display:flex}
+  .brands-flex{flex-direction:row}
+  .brands-head{width:33.333%;text-align:left}
+  .brands-rule{margin-left:0}
+  .brands-grid{width:66.667%;grid-template-columns:repeat(3,1fr)}
+  .work-header{flex-direction:row;align-items:flex-end}
+  .work-title{font-size:3.75rem}
+  .work-view-link{display:flex}
+  .work-grid{grid-template-columns:repeat(3,1fr)}
+  .card-luxe{grid-column:span 2}
+  .work-mobile-cta{display:none}
+  .footer-top{flex-direction:row}
+  .footer-bottom{flex-direction:row}
+}
+@media(min-width:1024px){
+  .hero-flex{flex-direction:row;gap:80px}
+  .hero-text{text-align:left}
+  .hero-badge{margin:0}
+  .hero-heading{font-size:clamp(3rem,6vw,5rem)}
+  .hero-desc{margin:0}
+  .hero-buttons{justify-content:flex-start}
+  .hero-proof{justify-content:flex-start}
+  .hero-deco-1,.hero-deco-2{display:block}
+  .hero-frame-wrap{max-width:100%}
+}
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- Fixed Header -->
+  <div class="header-outer">
+    <header class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-logo"><span class="nav-logo-letter">L</span></div>
+        <h2 class="nav-title">Lana.</h2>
+      </div>
+      <div class="nav-center">
+        <nav style="display:flex;gap:24px">
+          <a href="#">About</a>
+          <a href="#">Portfolio</a>
+          <a href="#">Services</a>
+        </nav>
+      </div>
+      <div>
+        <button class="nav-cta">
+          <span>Let's Talk</span>
+          <span class="material-symbols-outlined nav-cta-icon">arrow_forward</span>
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <main>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-blob-1"></div>
+      <div class="hero-blob-2"></div>
+      <div class="hero-inner">
+        <div class="hero-flex">
+
+          <!-- Text Column -->
+          <div class="hero-text">
+            <div>
+              <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">Available for new projects</span>
+              </div>
+              <h1 class="hero-heading">
+                Social Media <br/>
+                <span class="gradient-text">Maestro</span> &amp; <br/>
+                Strategist
+              </h1>
+              <p class="hero-desc">
+                Hi, I'm Lana. I help brands find their voice, build authentic communities, and turn followers into superfans through strategic storytelling.
+              </p>
+            </div>
+            <div class="hero-buttons">
+              <button class="btn-primary">View My Work</button>
+              <button class="btn-outline">Contact Me</button>
+            </div>
+            <div class="hero-proof">
+              <div class="avatar-stack">
+                <div class="avatar" style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuDNP2rEJqQ9nouNRjH11kmW-d83VUwOrWSFKY_rBaSJwsh0XWcjBizYsVzRZOIyT8tuTeajHiG0mE7-wGv6_aZU41FlPF1CopETP90TPbWwYN0Ta6WcoZgWO3Lo_FVbvYhm6xrtvCZNprRyf4ArM3lh7F04h8xmYBzfS35f697mzdEP693kSsANVMqRR9MHxNQ9bfXVILPlqvJ7OMOX96nNgQSy6YDD-r9YX07ajYvVy74ovqJbYUpK0yo5NA9fMSS38EXgH5F4dxU')"></div>
+                <div class="avatar" style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuCSo43gOvrdpaVihOP-zD0lX25yyMMpJi1a5nPDiTAecN-dJNMskDr3zeEkDU46hSLQ8j4qAobeqHFY2wjLJtpByWrPkLMnaCZxC-TumC6EMTo1orWsyL0qYpk6BoWO2yPnibFwUQJTljYkGGtYR4kyGZtEWLdw1t66EH7G5Px1ETJwtFwd5Dmcwu9_mfUyFNABEIDNDZEN64-Sg-PnJFkE1eJkPiCIcrEWf7T_eORhkGNGDDSey2X60s4y2b2b-6NxDmdwXGJYQ8A')"></div>
+                <div class="avatar" style="background-image:url('https://lh3.googleusercontent.com/aida-public/AB6AXuDuuPxiQTJ-Tppx1poSAYX26ETwTXXTcf99N3tl9Ks-wLD1cbwSNwsdKCUA0C0Rv3i78QJtQoN-b9ijrMU03gcuYHQoim8g7PpSb0hTbakBqc3cxn30ZhpfFsCj3Mt4AcadfnkERXm6pzQ0sHLBaTCSDUJo2TI7rETIip7kDF71Cl-cTGInbP-hc5x01w-6TrczeG52kG4dr2DWLtWHxolGzmBsGT61VcG3tXpEBY62i7ktRfLYrFtS4e4B-owoiB5ehtif69a_ikw')"></div>
+                <div class="avatar-plus">+50</div>
+              </div>
+              <div class="proof-text">
+                <span class="proof-label">Trusted by brands</span>
+                <div class="proof-stars">
+                  <span class="material-symbols-outlined">star</span>
+                  <span class="material-symbols-outlined">star</span>
+                  <span class="material-symbols-outlined">star</span>
+                  <span class="material-symbols-outlined">star</span>
+                  <span class="material-symbols-outlined">star</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Image Column -->
+          <div class="hero-image-side">
+            <div class="hero-deco-1"></div>
+            <div class="hero-deco-2"></div>
+            <div class="hero-frame-wrap">
+              <div class="hero-frame">
+                <img class="hero-img-bg" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLTSj6fZXL_sWFjP7hOZysTArRCaOq5ShXLGLIfdl4l20Qe5ix2G5Z8LCKHT9UCb73fy5V-aeEirKo0wsLLNyrLx_nfFhG_9wWpNIJ2jCeMSeCBsTBA0m7q812hirnuyK2ZUxAczfMSaED5Us2yEIYZRjF09U8_v_sMHGsmBedznKj5QBiWjnaohfVgLgA2l1C4wCnYmUDIBWNkqLO65UvT916xU8BUEbEymtLr7QJEkhT5KCGMqMTR4g-24eYkpR8Sepn89XCRL4" alt="Lana - Social Media Manager"/>
+                <div class="hero-img-overlay"></div>
+                <div class="hero-img-card">
+                  <div class="hero-img-card-row">
+                    <div class="hero-img-card-left">
+                      <p class="card-label">Current Focus</p>
+                      <p class="card-value">Organic Growth</p>
+                    </div>
+                    <div class="card-icon">
+                      <span class="material-symbols-outlined">trending_up</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Marquee Bar -->
+    <div class="marquee-bar">
+      <div class="marquee-track">
+        <span class="marquee-item">CONTENT CREATION <span class="material-symbols-outlined marquee-star">emergency</span></span>
+        <span class="marquee-item">COMMUNITY MANAGEMENT <span class="material-symbols-outlined marquee-star">emergency</span></span>
+        <span class="marquee-item">BRAND STRATEGY <span class="material-symbols-outlined marquee-star">emergency</span></span>
+        <span class="marquee-item">INFLUENCER MARKETING <span class="material-symbols-outlined marquee-star">emergency</span></span>
+        <span class="marquee-item">CONTENT CREATION <span class="material-symbols-outlined marquee-star">emergency</span></span>
+        <span class="marquee-item">COMMUNITY MANAGEMENT <span class="material-symbols-outlined marquee-star">emergency</span></span>
+        <span class="marquee-item">BRAND STRATEGY <span class="material-symbols-outlined marquee-star">emergency</span></span>
+        <span class="marquee-item">INFLUENCER MARKETING <span class="material-symbols-outlined marquee-star">emergency</span></span>
+      </div>
+    </div>
+
+    <!-- Brands Section -->
+    <div class="brands-section">
+      <div class="brands-inner">
+        <div class="brands-flex">
+          <div class="brands-head">
+            <h3 class="brands-title-text">Brands I've <br/> Worked With</h3>
+            <div class="brands-rule"></div>
+          </div>
+          <div class="brands-grid">
+            <div class="brand-item">
+              <span class="material-symbols-outlined brand-icon">token</span>
+              <span class="brand-name">Nexus</span>
+            </div>
+            <div class="brand-item">
+              <span class="material-symbols-outlined brand-icon">all_inclusive</span>
+              <span class="brand-name">Infinity</span>
+            </div>
+            <div class="brand-item">
+              <span class="material-symbols-outlined brand-icon">eco</span>
+              <span class="brand-name">Bloom</span>
+            </div>
+            <div class="brand-item">
+              <span class="material-symbols-outlined brand-icon">bolt</span>
+              <span class="brand-name">Spark</span>
+            </div>
+            <div class="brand-item">
+              <span class="material-symbols-outlined brand-icon">diamond</span>
+              <span class="brand-name">Luxe</span>
+            </div>
+            <div class="brand-item">
+              <span class="material-symbols-outlined brand-icon">pets</span>
+              <span class="brand-name">Wild</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Recent Work Section -->
+    <div class="work-section">
+      <div class="work-inner">
+        <div class="work-header">
+          <h2 class="work-title">Recent <br/> Work</h2>
+          <a class="work-view-link" href="#">
+            View Portfolio <span class="material-symbols-outlined" style="font-size:.875rem">arrow_outward</span>
+          </a>
+        </div>
+        <div class="work-grid">
+          <!-- Luxe Boutique card -->
+          <div class="work-card card-luxe">
+            <div class="card-luxe-bg"></div>
+            <div class="card-luxe-body">
+              <span class="card-tag">Instagram Strategy</span>
+              <h3 class="card-title">The Luxe Boutique</h3>
+            </div>
+            <div class="work-card-arrow">
+              <span class="material-symbols-outlined">arrow_outward</span>
+            </div>
+          </div>
+          <!-- Audit card -->
+          <div class="work-card card-audit">
+            <div class="card-audit-center">
+              <div class="audit-glow"></div>
+              <h3 class="audit-heading">Social<br/>Audit</h3>
+            </div>
+            <div class="card-audit-footer">
+              <p class="audit-svc">Services</p>
+              <div class="audit-add">
+                <span class="material-symbols-outlined">add</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="work-mobile-cta">
+          <button class="btn-outline-sm">View Full Portfolio</button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-left">
+          <h2>Ready to amplify your brand?</h2>
+          <p>Let's create something extraordinary together. Whether you need a full strategy overhaul or just a content refresh.</p>
+          <a class="footer-email" href="mailto:hello@lana.com">hello@lana.com</a>
+        </div>
+        <div class="footer-right">
+          <div class="footer-socials">
+            <a class="social-btn" href="#"><span class="material-symbols-outlined">photo_camera</span></a>
+            <a class="social-btn" href="#"><span class="material-symbols-outlined">work</span></a>
+            <a class="social-btn" href="#"><span class="material-symbols-outlined">chat_bubble</span></a>
+          </div>
+          <nav class="footer-nav">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Services</a>
+          </nav>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div><span class="footer-brand-name">Lana.</span></div>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+        <p>&copy; 2023 Lana Portfolio.</p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>

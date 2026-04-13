@@ -1,0 +1,68 @@
+[
+  {
+    "id": "midnight-luxe",
+    "name": "Midnight Luxe",
+    "category": "Landing Page",
+    "description": "Premium dark editorial landing page — exclusive, high-end",
+    "version": "1.0.0",
+    "tags": ["dark", "luxury", "editorial", "minimal", "premium"],
+    "thumbnail": "midnight-luxe/preview.jpg",
+    "html": "midnight-luxe/template.html",
+    "prompt": "midnight-luxe/prompt.md"
+  },
+  {
+    "id": "organic-tech",
+    "name": "Organic Tech",
+    "category": "Landing Page",
+    "description": "Clinical boutique — lab meets luxury magazine",
+    "version": "1.0.0",
+    "tags": ["light", "organic", "earthy", "clinical", "boutique"],
+    "thumbnail": "organic-tech/preview.jpg",
+    "html": "organic-tech/template.html",
+    "prompt": "organic-tech/prompt.md"
+  },
+  {
+    "id": "brutalist-signal",
+    "name": "Brutalist Signal",
+    "category": "Landing Page",
+    "description": "Raw precision — bold, direct, information-first",
+    "version": "1.0.0",
+    "tags": ["brutalist", "bold", "minimal", "stark", "monospace"],
+    "thumbnail": "brutalist-signal/preview.jpg",
+    "html": "brutalist-signal/template.html",
+    "prompt": "brutalist-signal/prompt.md"
+  },
+  {
+    "id": "vapor-clinic",
+    "name": "Vapor Clinic",
+    "category": "Landing Page",
+    "description": "Neon biotech — futuristic, electric, dark",
+    "version": "1.0.0",
+    "tags": ["dark", "neon", "futuristic", "biotech", "gradient"],
+    "thumbnail": "vapor-clinic/preview.jpg",
+    "html": "vapor-clinic/template.html",
+    "prompt": "vapor-clinic/prompt.md"
+  },
+  {
+    "id": "playful-social",
+    "name": "Playful Social",
+    "category": "Bio Page",
+    "description": "Bold & bubbly — fun personality pages",
+    "version": "1.0.0",
+    "tags": ["colorful", "playful", "rounded", "bio", "social"],
+    "thumbnail": "playful-social/preview.jpg",
+    "html": "playful-social/template.html",
+    "prompt": "playful-social/prompt.md"
+  },
+  {
+    "id": "social-maestro",
+    "name": "Social Maestro",
+    "category": "Portfolio",
+    "description": "Bold editorial — social media manager portfolio",
+    "version": "1.0.0",
+    "tags": ["portfolio", "editorial", "dark", "social-media", "professional"],
+    "thumbnail": "social-maestro/preview.jpg",
+    "html": "social-maestro/template.html",
+    "prompt": "social-maestro/prompt.md"
+  }
+]

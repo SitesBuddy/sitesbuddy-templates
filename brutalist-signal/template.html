@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brutalist Signal — Sales Page</title>
+  <meta name="description" content="Your professional sales page — powered by SitesBuddyAI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=DM+Serif+Display:ital@1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --paper:  #E8E4DD;
+      --signal: #E63B2E;
+      --off:    #F5F3EE;
+      --black:  #111111;
+      --dark:   #1a1a1a;
+      --muted:  #888;
+      --border: #111;
+      --radius-lg: 0;
+      --radius-md: 0;
+      --radius-sm: 0;
+    }
+    body { font-family: 'Space Grotesk', system-ui, sans-serif; background: var(--paper); color: var(--black); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+    body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E"); pointer-events: none; z-index: 9999; }
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 4vw; background: var(--paper); border-bottom: 2px solid var(--black); transition: all 0.3s; }
+    .nav-brand { font-family: 'Space Mono', monospace; font-size: 0.9rem; font-weight: 700; letter-spacing: -0.02em; text-decoration: none; color: var(--black); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--black); }
+    .nav-cta { background: var(--signal); color: white; text-decoration: none; padding: 0.6rem 1.4rem; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; border: 2px solid var(--black); transition: all 0.2s; }
+    .nav-cta:hover { background: var(--black); }
+    .hero { min-height: 100dvh; display: flex; align-items: flex-end; padding: 0 6vw 8vh; padding-top: 100px; background: var(--off); border-bottom: 3px solid var(--black); position: relative; }
+    .hero-content { max-width: 800px; }
+    .hero-eyebrow { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; color: var(--muted); text-transform: uppercase; margin-bottom: 2rem; }
+    .hero-headline { font-family: 'Space Grotesk', sans-serif; font-size: clamp(3rem, 8vw, 7rem); font-weight: 700; letter-spacing: -0.05em; color: var(--black); line-height: 0.95; margin-bottom: 0.5rem; border-left: 8px solid var(--signal); padding-left: 1.5rem; }
+    .hero-drama { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(3rem, 8vw, 7rem); color: var(--signal); display: block; letter-spacing: -0.02em; line-height: 1.0; margin-bottom: 2.5rem; padding-left: 2.5rem; }
+    .hero-sub { font-size: 1.05rem; color: var(--muted); line-height: 1.7; max-width: 480px; margin-bottom: 2.5rem; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--black); color: var(--paper); text-decoration: none; padding: 1.1rem 2.5rem; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; border: 2px solid var(--black); transition: all 0.2s; }
+    .hero-cta:hover { background: var(--signal); border-color: var(--signal); }
+    .section { padding: clamp(5rem, 10vw, 9rem) 6vw; }
+    .section-label { font-family: 'Space Mono', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--signal); margin-bottom: 1.5rem; }
+    .problem { background: var(--black); }
+    .problem-heading { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(2rem, 4vw, 3.5rem); color: var(--paper); margin-bottom: 3rem; }
+    .problem-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; list-style: none; }
+    .problem-item { background: #1a1a1a; border: 2px solid #333; padding: 2rem; display: flex; gap: 1rem; }
+    .problem-icon { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--signal); flex-shrink: 0; padding-top: 0.15rem; }
+    .problem-text { font-size: 0.9rem; color: rgba(232,228,221,0.6); line-height: 1.65; }
+    .features-heading { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 700; letter-spacing: -0.04em; color: var(--black); margin-bottom: 1rem; }
+    .features-sub { font-size: 1rem; color: var(--muted); max-width: 480px; line-height: 1.7; margin-bottom: 3.5rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+    .feature-card { background: var(--off); border: 2px solid var(--black); padding: 2.5rem; transition: all 0.2s; }
+    .feature-card:hover { background: var(--black); color: var(--paper); }
+    .feature-card:hover .feature-desc { color: rgba(232,228,221,0.6); }
+    .feature-icon { width: 48px; height: 48px; background: var(--signal); border: 2px solid var(--black); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: white; }
+    .feature-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; letter-spacing: -0.02em; }
+    .feature-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.7; transition: color 0.2s; }
+    .proof { background: var(--off); border-top: 3px solid var(--black); border-bottom: 3px solid var(--black); }
+    .proof-heading { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(1.8rem, 3.5vw, 3rem); color: var(--black); margin-bottom: 3rem; }
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2px; }
+    .testimonial { background: var(--paper); border: 2px solid var(--black); padding: 2rem; }
+    .testimonial-quote { font-size: 0.95rem; color: var(--dark); line-height: 1.75; margin-bottom: 1.5rem; border-left: 3px solid var(--signal); padding-left: 1rem; }
+    .testimonial-name { font-weight: 700; font-size: 0.85rem; color: var(--black); letter-spacing: -0.01em; }
+    .testimonial-role { font-family: 'Space Mono', monospace; font-size: 0.7rem; color: var(--muted); margin-top: 2px; }
+    .cta-block { background: var(--signal); padding: clamp(6rem, 10vw, 10rem) 6vw; text-align: center; border-top: 3px solid var(--black); }
+    .cta-block-heading { font-size: clamp(2.5rem, 7vw, 6rem); font-weight: 700; letter-spacing: -0.05em; color: white; line-height: 0.95; }
+    .cta-block-drama { font-family: 'DM Serif Display', serif; font-style: italic; font-size: clamp(2.5rem, 7vw, 6rem); color: var(--paper); display: block; letter-spacing: -0.02em; margin-bottom: 2rem; }
+    .cta-block-sub { font-size: 1rem; color: rgba(255,255,255,0.7); max-width: 400px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-block a { display: inline-flex; align-items: center; gap: 0.75rem; background: var(--black); color: white; text-decoration: none; padding: 1.1rem 2.5rem; font-weight: 700; font-size: 0.9rem; letter-spacing: 0.05em; text-transform: uppercase; border: 2px solid var(--black); transition: all 0.2s; }
+    .cta-block a:hover { background: var(--paper); color: var(--black); border-color: var(--paper); }
+    footer { background: var(--black); padding: 3rem 6vw 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 3px solid var(--signal); }
+    .footer-brand { font-family: 'Space Mono', monospace; font-size: 0.9rem; font-weight: 700; color: var(--paper); }
+    .footer-tagline { font-size: 0.75rem; color: rgba(232,228,221,0.4); margin-top: 0.25rem; font-family: 'Space Mono', monospace; }
+    .footer-status { display: flex; align-items: center; gap: 0.5rem; font-family: 'Space Mono', monospace; font-size: 0.65rem; color: rgba(232,228,221,0.35); letter-spacing: 0.08em; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf7d; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="navbar">
+    <a href="#" class="nav-brand">YOURBRAND</a>
+    <ul class="nav-links"><li><a href="#features">Features</a></li><li><a href="#proof">Results</a></li></ul>
+    <a href="#cta" class="nav-cta">Get started</a>
+  </nav>
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">// Your category · Your niche</div>
+      <h1 class="hero-headline">Control the</h1>
+      <span class="hero-drama">signal.</span>
+      <p class="hero-sub">Direct, no-nonsense subheadline that tells your audience exactly what you do and who you do it for.</p>
+      <a href="#cta" class="hero-cta">Your call to action →</a>
+    </div>
+  </section>
+  <section class="section problem" id="problem">
+    <div class="section-label">// The problem</div>
+    <p class="problem-heading">"Sound familiar?"</p>
+    <ul class="problem-list">
+      <li class="problem-item"><span class="problem-icon">01</span><span class="problem-text">You've tried everything, but nothing seems to work the way it should. You're frustrated and stuck.</span></li>
+      <li class="problem-item"><span class="problem-icon">02</span><span class="problem-text">The tools out there are either too complicated, too expensive, or not built for people like you.</span></li>
+      <li class="problem-item"><span class="problem-icon">03</span><span class="problem-text">You know the result you want, but the path to get there feels unclear and overwhelming.</span></li>
+    </ul>
+  </section>
+  <section class="section" id="features">
+    <div class="section-label">// The solution</div>
+    <h2 class="features-heading">Exactly how we help.</h2>
+    <p class="features-sub">Clear, direct statement of what you do and what changes for the people you serve.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><h3 class="feature-title">FEATURE ONE</h3><p class="feature-desc">Describe the first major benefit and the outcome it creates for your customer.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 class="feature-title">FEATURE TWO</h3><p class="feature-desc">Describe the second major benefit. Focus on the outcome, not the process.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 class="feature-title">FEATURE THREE</h3><p class="feature-desc">Describe the third major benefit. What's the fastest win they experience?</p></div>
+    </div>
+  </section>
+  <section class="section proof" id="proof">
+    <div class="section-label">// Social proof</div>
+    <p class="proof-heading">What people are saying</p>
+    <div class="testimonials">
+      <div class="testimonial"><p class="testimonial-quote">This completely changed how I approach my work. Results were faster than expected.</p><div class="testimonial-name">Alex Morgan</div><div class="testimonial-role">// Founder, Example Co.</div></div>
+      <div class="testimonial"><p class="testimonial-quote">I was skeptical at first, but after seeing results I couldn't imagine going back.</p><div class="testimonial-name">Samira Khan</div><div class="testimonial-role">// Coach & Consultant</div></div>
+      <div class="testimonial"><p class="testimonial-quote">Exactly what I needed. Simple, effective, and the support was incredible.</p><div class="testimonial-name">James O'Brien</div><div class="testimonial-role">// Marketing Director</div></div>
+    </div>
+  </section>
+  <section class="cta-block" id="cta">
+    <div class="section-label" style="justify-content:center; color:rgba(255,255,255,0.5)">// Ready to start</div>
+    <h2 class="cta-block-heading">Stop waiting.</h2>
+    <span class="cta-block-drama">Start doing.</span>
+    <p class="cta-block-sub">Everything you need is here. No excuses. Take the first step today.</p>
+    <a href="#">YOUR CALL TO ACTION →</a>
+  </section>
+  <footer>
+    <div><div class="footer-brand">YOURBRAND</div><div class="footer-tagline">// Your tagline here</div></div>
+    <div class="footer-status"><div class="status-dot"></div>SYSTEM OPERATIONAL</div>
+  </footer>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from(['.hero-eyebrow','.hero-headline','.hero-drama','.hero-sub','.hero-cta'], { opacity:0, y:40, duration:0.9, stagger:0.12, ease:'power3.out', delay:0.2 });
+    ['.problem-heading','.problem-item','.features-heading','.feature-card','.proof-heading','.testimonial','.cta-block-heading','.cta-block-drama'].forEach(s => {
+      gsap.from(s, { scrollTrigger:{ trigger:s, start:'top 88%' }, opacity:0, y:36, duration:0.75, ease:'power2.out', stagger:0.12 });
+    });
+  </script>
+</body>
+</html>

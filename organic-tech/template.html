@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Organic Tech — Sales Page</title>
+  <meta name="description" content="Your professional sales page — powered by SitesBuddyAI">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Cormorant+Garamond:ital,wght@1,400;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --moss:    #2E4036;
+      --clay:    #CC5833;
+      --cream:   #F2F0E9;
+      --dark:    #1A1A1A;
+      --muted:   #7a7a6a;
+      --border:  rgba(46,64,54,0.25);
+      --radius-lg: 2.5rem;
+      --radius-md: 1.5rem;
+      --radius-sm: 0.75rem;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+    /* NAVBAR */
+    .nav {
+      position: fixed; top: 1.5rem; left: 50%; transform: translateX(-50%);
+      z-index: 100; display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; padding: 0.75rem 1.5rem; border-radius: 9999px;
+      background: transparent; border: 1px solid transparent;
+      transition: all 0.4s; width: min(700px, calc(100% - 3rem));
+    }
+    .nav.scrolled {
+      background: rgba(242,240,233,0.88); backdrop-filter: blur(20px);
+      border-color: var(--border); box-shadow: 0 4px 30px rgba(46,64,54,0.15);
+    }
+    .nav-brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--moss); text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; font-weight: 600; transition: all 0.2s; letter-spacing: 0.02em; }
+    .nav-links a:hover { color: var(--dark); transform: translateY(-1px); }
+    .nav-cta { background: var(--moss); color: var(--cream); text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 700; transition: all 0.2s; }
+    .nav-cta:hover { transform: scale(1.03); background: #3d5449; }
+    /* HERO */
+    .hero { min-height: 100dvh; display: flex; align-items: flex-end; padding: 0 6vw 8vh; position: relative; background: var(--moss); overflow: hidden; }
+    .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(46,64,54,0) 40%, rgba(26,26,26,0.9) 100%); }
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+    .hero-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; color: rgba(242,240,233,0.55); text-transform: uppercase; margin-bottom: 1.5rem; }
+    .hero-headline { font-family: 'Plus Jakarta Sans', sans-serif; font-size: clamp(2.5rem, 5.5vw, 5rem); font-weight: 800; letter-spacing: -0.04em; color: var(--cream); line-height: 1.0; margin-bottom: 0.5rem; }
+    .hero-drama { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(2.8rem, 6vw, 5.5rem); color: #d4956a; display: block; line-height: 1.1; margin-bottom: 2rem; }
+    .hero-sub { font-size: 1rem; color: rgba(242,240,233,0.55); line-height: 1.7; max-width: 480px; margin-bottom: 2.5rem; }
+    .hero-cta { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--clay); color: var(--cream); text-decoration: none; padding: 1rem 2rem; border-radius: 9999px; font-weight: 700; font-size: 0.9rem; transition: all 0.25s; }
+    .hero-cta:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(204,88,51,0.4); }
+    /* SECTIONS */
+    .section { padding: clamp(5rem, 10vw, 9rem) 6vw; }
+    .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--clay); margin-bottom: 1.5rem; }
+    .problem { background: var(--dark); }
+    .problem .problem-heading { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(2rem, 4vw, 3.5rem); color: var(--cream); margin-bottom: 3rem; }
+    .problem-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; list-style: none; }
+    .problem-item { background: #222; border: 1px solid rgba(242,240,233,0.08); border-radius: var(--radius-md); padding: 1.75rem; display: flex; gap: 1rem; }
+    .problem-icon { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--clay); opacity: 0.7; flex-shrink: 0; padding-top: 0.15rem; }
+    .problem-text { font-size: 0.9rem; color: rgba(242,240,233,0.6); line-height: 1.65; }
+    .features-heading { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.03em; color: var(--dark); margin-bottom: 1rem; }
+    .features-sub { font-size: 1rem; color: var(--muted); max-width: 480px; line-height: 1.7; margin-bottom: 3.5rem; }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .feature-card { background: white; border: 1px solid rgba(46,64,54,0.12); border-radius: var(--radius-lg); padding: 2.5rem; transition: all 0.3s; }
+    .feature-card:hover { border-color: var(--moss); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(46,64,54,0.15); }
+    .feature-icon { width: 48px; height: 48px; background: rgba(46,64,54,0.08); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; color: var(--moss); }
+    .feature-title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.75rem; }
+    .feature-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.7; }
+    .proof { background: var(--moss); }
+    .proof-heading { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(1.8rem, 3.5vw, 3rem); color: var(--cream); margin-bottom: 3rem; }
+    .testimonials { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .testimonial { background: rgba(242,240,233,0.08); border: 1px solid rgba(242,240,233,0.1); border-radius: var(--radius-md); padding: 2rem; }
+    .testimonial-quote { font-size: 0.95rem; color: rgba(242,240,233,0.7); line-height: 1.75; margin-bottom: 1.5rem; font-style: italic; }
+    .testimonial-quote::before { content: '"'; color: var(--clay); font-size: 1.2em; }
+    .testimonial-quote::after  { content: '"'; color: var(--clay); font-size: 1.2em; }
+    .testimonial-name { font-weight: 600; font-size: 0.85rem; color: var(--cream); }
+    .testimonial-role { font-size: 0.8rem; color: rgba(242,240,233,0.5); margin-top: 2px; }
+    .cta-block { text-align: center; padding: clamp(6rem, 10vw, 10rem) 6vw; background: var(--cream); }
+    .cta-block-heading { font-size: clamp(2rem, 5vw, 4rem); font-weight: 800; letter-spacing: -0.04em; color: var(--dark); }
+    .cta-block-drama { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: clamp(2rem, 5vw, 4rem); color: var(--clay); display: block; margin-bottom: 1.5rem; }
+    .cta-block-sub { font-size: 1rem; color: var(--muted); max-width: 400px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-block a { display: inline-flex; align-items: center; gap: 0.6rem; background: var(--clay); color: white; text-decoration: none; padding: 1.1rem 2.5rem; border-radius: 9999px; font-weight: 700; font-size: 0.95rem; transition: all 0.25s; }
+    .cta-block a:hover { transform: scale(1.03); box-shadow: 0 10px 36px rgba(204,88,51,0.35); }
+    footer { background: var(--dark); border-radius: 2.5rem 2.5rem 0 0; padding: 3rem 6vw 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.1rem; color: var(--clay); }
+    .footer-tagline { font-size: 0.8rem; color: rgba(242,240,233,0.4); margin-top: 0.25rem; }
+    .footer-status { display: flex; align-items: center; gap: 0.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; color: rgba(242,240,233,0.35); letter-spacing: 0.08em; }
+    .status-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf7d; animation: pulse 2s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+    @media (max-width: 640px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+  <nav class="nav" id="navbar">
+    <a href="#" class="nav-brand">Your Brand</a>
+    <ul class="nav-links"><li><a href="#features">Features</a></li><li><a href="#proof">Results</a></li></ul>
+    <a href="#cta" class="nav-cta">Get started</a>
+  </nav>
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-eyebrow">Your category · Your niche</div>
+      <h1 class="hero-headline">Nature-powered results</h1>
+      <span class="hero-drama">rooted in science.</span>
+      <p class="hero-sub">A clear, compelling subheadline that speaks directly to your ideal client's desire and situation.</p>
+      <a href="#cta" class="hero-cta">Your call to action →</a>
+    </div>
+  </section>
+  <section class="section problem" id="problem">
+    <div class="section-label">The problem</div>
+    <p class="problem-heading">"Sound familiar?"</p>
+    <ul class="problem-list">
+      <li class="problem-item"><span class="problem-icon">01</span><span class="problem-text">You've tried everything, but nothing seems to work the way it should. You're frustrated and stuck.</span></li>
+      <li class="problem-item"><span class="problem-icon">02</span><span class="problem-text">The tools out there are either too complicated, too expensive, or just not built for people like you.</span></li>
+      <li class="problem-item"><span class="problem-icon">03</span><span class="problem-text">You know the result you want, but the path to get there feels unclear and overwhelming.</span></li>
+    </ul>
+  </section>
+  <section class="section" id="features">
+    <div class="section-label">The solution</div>
+    <h2 class="features-heading">Here is exactly how we help</h2>
+    <p class="features-sub">A clear, direct statement of what your product or service does and the transformation it delivers.</p>
+    <div class="features-grid">
+      <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div><h3 class="feature-title">Feature One</h3><p class="feature-desc">Describe the first major benefit and the outcome it creates for your customer.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><h3 class="feature-title">Feature Two</h3><p class="feature-desc">Describe the second major benefit. Focus on the outcome, not the process.</p></div>
+      <div class="feature-card"><div class="feature-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3 class="feature-title">Feature Three</h3><p class="feature-desc">Describe the third major benefit. What's the fastest win they'll experience?</p></div>
+    </div>
+  </section>
+  <section class="section proof" id="proof">
+    <div class="section-label">Social proof</div>
+    <p class="proof-heading">What people are saying</p>
+    <div class="testimonials">
+      <div class="testimonial"><p class="testimonial-quote">This completely changed how I approach my work. Results were faster than expected.</p><div class="testimonial-name">Alex Morgan</div><div class="testimonial-role">Founder, Example Co.</div></div>
+      <div class="testimonial"><p class="testimonial-quote">I was skeptical at first, but after seeing results I couldn't imagine going back.</p><div class="testimonial-name">Samira Khan</div><div class="testimonial-role">Coach & Consultant</div></div>
+      <div class="testimonial"><p class="testimonial-quote">Exactly what I needed. Simple, effective, and the support was incredible.</p><div class="testimonial-name">James O'Brien</div><div class="testimonial-role">Marketing Director</div></div>
+    </div>
+  </section>
+  <section class="cta-block" id="cta">
+    <div class="section-label" style="justify-content:center">Ready to start</div>
+    <h2 class="cta-block-heading">Stop waiting.</h2>
+    <span class="cta-block-drama">Start transforming.</span>
+    <p class="cta-block-sub">Everything you need to achieve your goal is here. Take the first step today.</p>
+    <a href="#">Your call to action →</a>
+  </section>
+  <footer>
+    <div><div class="footer-brand">Your Brand</div><div class="footer-tagline">Your tagline here</div></div>
+    <div class="footer-status"><div class="status-dot"></div>SYSTEM OPERATIONAL</div>
+  </footer>
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+    const nav = document.getElementById('navbar');
+    new IntersectionObserver(([e]) => nav.classList.toggle('scrolled', !e.isIntersecting), { threshold: 0.1 }).observe(document.getElementById('hero'));
+    gsap.from(['.hero-eyebrow','.hero-headline','.hero-drama','.hero-sub','.hero-cta'], { opacity:0, y:40, duration:0.9, stagger:0.12, ease:'power3.out', delay:0.2 });
+    ['.problem-heading','.problem-item','.features-heading','.features-sub','.feature-card','.proof-heading','.testimonial','.cta-block-heading','.cta-block-drama','.cta-block-sub'].forEach(s => {
+      gsap.from(s, { scrollTrigger:{ trigger:s, start:'top 88%' }, opacity:0, y:36, duration:0.75, ease:'power2.out', stagger:0.12 });
+    });
+  </script>
+</body>
+</html>
