@@ -1,0 +1,46 @@
+[
+  {
+    "id": "button-dark-gradient",
+    "name": "Dark Gradient Button",
+    "widget_type": "responsive-button",
+    "category": "Interactive",
+    "description": "Bold call-to-action for dark sections",
+    "version": "1.0.0",
+    "tags": ["button", "dark", "gradient", "cta"],
+    "thumbnail": "widgets/button-dark-gradient/thumbnail.png",
+    "html": "widgets/button-dark-gradient/base.html"
+  },
+  {
+    "id": "button-minimal-outline",
+    "name": "Minimal Outline Button",
+    "widget_type": "responsive-button",
+    "category": "Interactive",
+    "description": "Clean outlined CTA for light layouts",
+    "version": "1.0.0",
+    "tags": ["button", "minimal", "outline", "cta"],
+    "thumbnail": "widgets/button-minimal-outline/thumbnail.png",
+    "html": "widgets/button-minimal-outline/base.html"
+  },
+  {
+    "id": "countdown-card",
+    "name": "Countdown Card",
+    "widget_type": "countdown-timer",
+    "category": "Urgency",
+    "description": "Card-style timer with clear segments",
+    "version": "1.0.0",
+    "tags": ["countdown", "timer", "launch"],
+    "thumbnail": "widgets/countdown-card/thumbnail.png",
+    "html": "widgets/countdown-card/base.html"
+  },
+  {
+    "id": "marquee-colorful",
+    "name": "Colorful Marquee",
+    "widget_type": "marquee-bar",
+    "category": "Announcement",
+    "description": "Animated promo strip with gradient color",
+    "version": "1.0.0",
+    "tags": ["marquee", "announcement", "promo"],
+    "thumbnail": "widgets/marquee-colorful/thumbnail.png",
+    "html": "widgets/marquee-colorful/base.html"
+  }
+]
