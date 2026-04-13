@@ -8,7 +8,8 @@
     "version": "1.0.0",
     "tags": ["button", "dark", "gradient", "cta"],
     "thumbnail": "widgets/button-dark-gradient/thumbnail.png",
-    "html": "widgets/button-dark-gradient/base.html"
+    "html": "widgets/button-dark-gradient/base.html",
+    "thumbnail_bg": "#111827"
   },
   {
     "id": "button-minimal-outline",
@@ -41,6 +42,8 @@
     "version": "1.0.0",
     "tags": ["marquee", "announcement", "promo"],
     "thumbnail": "widgets/marquee-colorful/thumbnail.png",
-    "html": "widgets/marquee-colorful/base.html"
+    "html": "widgets/marquee-colorful/base.html",
+    "thumbnail_bg": "#0f172a",
+    "thumbnail_delay": 2000
   }
 ]
