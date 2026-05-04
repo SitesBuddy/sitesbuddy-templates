@@ -64,5 +64,82 @@
 		"thumbnail": "templates/social-maestro/preview.jpg",
 		"html": "templates/social-maestro/template.html",
 		"prompt": "templates/social-maestro/prompt.md"
+	},
+	{
+		"id": "bandcamp-discography",
+		"name": "Bandcamp Discography",
+		"category": "Music",
+		"description": "Dark music discography page — album grid with detail view",
+		"version": "1.0.0",
+		"tags": ["music", "bandcamp", "dark", "discography", "albums", "artist"],
+		"thumbnail": "templates/bandcamp-discography/preview.jpg",
+		"html": "templates/bandcamp-discography/template.html",
+		"prompt": "templates/bandcamp-discography/prompt.md"
+	},
+	{
+		"id": "farm-direct",
+		"name": "Farm Direct",
+		"category": "Local Business",
+		"description": "Farm-to-table sales page — seasonal produce, eggs, CSA pickup",
+		"version": "1.0.0",
+		"tags": ["farm", "local", "food", "seasonal", "earthy", "green", "produce"],
+		"thumbnail": "templates/farm-direct/preview.jpg",
+		"html": "templates/farm-direct/template.html",
+		"prompt": "templates/farm-direct/prompt.md"
+	},
+	{
+		"id": "local-essentials",
+		"name": "Local Essentials",
+		"category": "Local Business",
+		"description": "Neighbourhood convenience shop — hours, departments, weekly specials",
+		"version": "1.0.0",
+		"tags": ["shop", "local", "convenience", "grocery", "community", "navy", "retail"],
+		"thumbnail": "templates/local-essentials/preview.jpg",
+		"html": "templates/local-essentials/template.html",
+		"prompt": "templates/local-essentials/prompt.md"
+	},
+	{
+		"id": "neighborhood-services",
+		"name": "Neighborhood Services",
+		"category": "Local Business",
+		"description": "Local tradesperson site — plumbing, electrical, home maintenance",
+		"version": "1.0.0",
+		"tags": ["tradesperson", "services", "local", "professional", "plumber", "orange", "navy"],
+		"thumbnail": "templates/neighborhood-services/preview.jpg",
+		"html": "templates/neighborhood-services/template.html",
+		"prompt": "templates/neighborhood-services/prompt.md"
+	},
+	{
+		"id": "local-alternatives",
+		"name": "Local Alternatives",
+		"category": "Local Business",
+		"description": "Artisan marketplace — locally made food, crafts, and goods",
+		"version": "1.0.0",
+		"tags": ["artisan", "local", "makers", "marketplace", "earthy", "community", "handmade"],
+		"thumbnail": "templates/local-alternatives/preview.jpg",
+		"html": "templates/local-alternatives/template.html",
+		"prompt": "templates/local-alternatives/prompt.md"
+	},
+	{
+		"id": "price-lock-bundles",
+		"name": "Price Lock Bundles",
+		"category": "Local Business",
+		"description": "Price-stable subscription bundles — lock in today's prices against inflation",
+		"version": "1.0.0",
+		"tags": ["subscription", "bundles", "inflation", "local", "grocery", "dark", "green"],
+		"thumbnail": "templates/price-lock-bundles/preview.jpg",
+		"html": "templates/price-lock-bundles/template.html",
+		"prompt": "templates/price-lock-bundles/prompt.md"
+	},
+	{
+		"id": "group-order",
+		"name": "Group Order",
+		"category": "Local Business",
+		"description": "Community group buying co-op — bulk orders, progress tracking, local savings",
+		"version": "1.0.0",
+		"tags": ["community", "group-buy", "co-op", "local", "bulk", "purple", "savings"],
+		"thumbnail": "templates/group-order/preview.jpg",
+		"html": "templates/group-order/template.html",
+		"prompt": "templates/group-order/prompt.md"
 	}
 ]

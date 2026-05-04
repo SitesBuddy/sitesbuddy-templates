@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Corner & Co. — Your Local Essentials Shop</title>
+  <meta name="description" content="Open 7 days. Groceries, household goods, fresh bread, and more — all within walking distance.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --navy:   #1c2e4a;
+      --blue:   #2563eb;
+      --sky:    #eff6ff;
+      --red:    #dc2626;
+      --cream:  #fffef7;
+      --warm:   #fdf8f0;
+      --dark:   #18181b;
+      --muted:  #6b7280;
+      --border: #e5e7eb;
+      --green:  #16a34a;
+    }
+    body { font-family: 'DM Sans', system-ui, sans-serif; background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* TOP STRIP */
+    .top-strip { background: var(--navy); color: white; padding: 0.55rem 6vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.78rem; }
+    .strip-open { display: flex; align-items: center; gap: 6px; }
+    .open-dot { width: 7px; height: 7px; border-radius: 50%; background: #4ade80; animation: pulse 2s infinite; flex-shrink: 0; }
+    .strip-phone a { color: #93c5fd; text-decoration: none; font-weight: 600; }
+    .strip-phone a:hover { color: white; }
+
+    /* NAV */
+    .nav { background: var(--cream); border-bottom: 2px solid var(--navy); padding: 0 6vw; height: 68px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-brand-wrap { display: flex; flex-direction: column; }
+    .nav-brand { font-family: 'DM Serif Display', serif; font-size: 1.4rem; color: var(--navy); text-decoration: none; line-height: 1; }
+    .nav-tagline { font-size: 0.7rem; color: var(--muted); margin-top: 2px; letter-spacing: 0.03em; }
+    .nav-links { display: flex; gap: 1.75rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: var(--navy); }
+    .nav-cta { background: var(--blue); color: white; text-decoration: none; padding: 0.55rem 1.25rem; border-radius: 7px; font-size: 0.85rem; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: all 0.2s; }
+    .nav-cta:hover { background: #1d4ed8; transform: translateY(-1px); }
+    @media(max-width:680px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero { background: var(--navy); padding: 5rem 6vw 5.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
+    .hero-content { animation: fadeUp 0.8s ease both; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: #93c5fd; padding: 0.4rem 0.9rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1.75rem; }
+    .hero-h1 { font-family: 'DM Serif Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem); color: white; line-height: 1.1; margin-bottom: 1.25rem; }
+    .hero-h1 em { font-style: italic; color: #93c5fd; }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.6); line-height: 1.75; max-width: 420px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-white { display: inline-flex; align-items: center; gap: 8px; background: white; color: var(--navy); text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.2s; }
+    .btn-white:hover { background: #f0f4ff; transform: translateY(-1px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .btn-ghost { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.8); text-decoration: none; padding: 0.85rem 1.75rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.25); transition: all 0.2s; }
+    .btn-ghost:hover { border-color: rgba(255,255,255,0.5); background: rgba(255,255,255,0.06); }
+    .hero-card { background: white; border-radius: 16px; padding: 2rem; animation: fadeUp 0.8s 0.2s ease both; }
+    .hero-card-title { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 1.5rem; }
+    .info-row { display: flex; align-items: flex-start; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); }
+    .info-row:last-child { border-bottom: none; }
+    .info-row-icon { width: 36px; height: 36px; border-radius: 9px; background: var(--sky); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--blue); }
+    .info-row-label { font-size: 0.75rem; color: var(--muted); margin-bottom: 3px; }
+    .info-row-value { font-size: 0.9rem; font-weight: 600; color: var(--dark); }
+    .status-open { color: var(--green); font-weight: 700; }
+    @media(max-width:720px) { .hero { grid-template-columns: 1fr; } }
+
+    /* SECTION */
+    .section { padding: clamp(3.5rem, 7vw, 6rem) 6vw; }
+    .section-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); margin-bottom: 0.75rem; }
+    .section-heading { font-family: 'DM Serif Display', serif; font-size: clamp(1.75rem, 3.5vw, 2.5rem); color: var(--dark); line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 0.95rem; color: var(--muted); line-height: 1.7; max-width: 500px; margin-bottom: 2.5rem; }
+
+    /* DEPARTMENTS */
+    .depts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .dept { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; gap: 0.75rem; transition: all 0.2s; cursor: default; }
+    .dept:hover { border-color: var(--blue); box-shadow: 0 4px 20px rgba(37,99,235,0.08); transform: translateY(-2px); }
+    .dept-icon { font-size: 2rem; }
+    .dept-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); }
+    .dept-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.55; }
+
+    /* SPECIALS */
+    .specials { background: var(--warm); }
+    .specials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+    .special-card { background: white; border-radius: 12px; padding: 1.5rem; border: 1px solid var(--border); display: flex; gap: 1rem; align-items: flex-start; }
+    .special-emoji { font-size: 2.2rem; flex-shrink: 0; }
+    .special-name { font-weight: 700; font-size: 0.95rem; color: var(--dark); margin-bottom: 4px; }
+    .special-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.5; margin-bottom: 0.75rem; }
+    .special-pricing { display: flex; align-items: baseline; gap: 8px; }
+    .special-new { font-size: 1.05rem; font-weight: 700; color: var(--red); }
+    .special-old { font-size: 0.82rem; color: var(--muted); text-decoration: line-through; }
+    .special-badge { margin-left: auto; background: #fef2f2; color: var(--red); font-size: 0.68rem; font-weight: 700; padding: 0.2rem 0.5rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; align-self: flex-start; }
+
+    /* ABOUT STRIP */
+    .about-strip { background: var(--navy); padding: 4rem 6vw; display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
+    .about-text-block .section-eyebrow { color: #93c5fd; }
+    .about-strip h2 { font-family: 'DM Serif Display', serif; font-size: clamp(1.75rem, 3vw, 2.4rem); color: white; margin-bottom: 1.25rem; line-height: 1.25; }
+    .about-strip p { font-size: 0.9rem; color: rgba(255,255,255,0.6); line-height: 1.75; margin-bottom: 1rem; }
+    .about-strip p:last-child { margin-bottom: 0; }
+    .about-img-block { background: rgba(255,255,255,0.06); border-radius: 16px; border: 1px solid rgba(255,255,255,0.1); padding: 2rem; display: flex; flex-direction: column; gap: 1rem; }
+    .trust-item { display: flex; align-items: center; gap: 1rem; }
+    .trust-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(37,99,235,0.2); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #93c5fd; }
+    .trust-label { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 2px; }
+    .trust-value { font-size: 0.92rem; font-weight: 600; color: white; }
+    @media(max-width:720px) { .about-strip { grid-template-columns: 1fr; } }
+
+    /* CONTACT */
+    .contact-block { background: var(--sky); border-radius: 16px; padding: 2.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center; }
+    .contact-block h3 { font-family: 'DM Serif Display', serif; font-size: 1.6rem; color: var(--navy); margin-bottom: 0.75rem; }
+    .contact-block p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; margin-bottom: 1.5rem; }
+    .contact-info-list { display: flex; flex-direction: column; gap: 1rem; }
+    .contact-info-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; }
+    .contact-info-item strong { color: var(--dark); }
+    .contact-info-item a { color: var(--blue); text-decoration: none; }
+    .contact-info-item a:hover { text-decoration: underline; }
+    .contact-map { background: #d1dff7; border-radius: 12px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    @media(max-width:620px) { .contact-block { grid-template-columns: 1fr; } }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 2.5rem 6vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'DM Serif Display', serif; font-size: 1.1rem; color: white; }
+    .footer-note { font-size: 0.75rem; color: rgba(255,255,255,0.35); margin-top: 3px; }
+    .footer-hours { font-size: 0.78rem; color: rgba(255,255,255,0.45); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- TOP INFO STRIP -->
+  <div class="top-strip">
+    <div class="strip-open">
+      <div class="open-dot"></div>
+      Open now · Mon–Sat 7:30am–8pm · Sun 9am–5pm
+    </div>
+    <div class="strip-phone">Call us: <a href="tel:+35301000000">01 000 0000</a></div>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav-brand-wrap">
+      <span class="nav-brand">Corner &amp; Co.</span>
+      <span class="nav-tagline">Your neighbourhood essential</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#departments">What we stock</a></li>
+      <li><a href="#specials">Specials</a></li>
+      <li><a href="#contact">Find us</a></li>
+    </ul>
+    <a href="tel:+35301000000" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call us
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">📍 123 Main Street · Open 7 days</div>
+      <h1 class="hero-h1">Everything you need,<br><em>right on your street.</em></h1>
+      <p class="hero-sub">Fresh bread daily, groceries, household goods, and a friendly face. We've been serving this neighbourhood for over 20 years.</p>
+      <div class="hero-actions">
+        <a href="#departments" class="btn-white">See what we stock →</a>
+        <a href="tel:+35301000000" class="btn-ghost">Call us now</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-title">Store info</div>
+      <div class="info-row">
+        <div class="info-row-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <div class="info-row-label">Today's hours</div>
+          <div class="info-row-value"><span class="status-open">Open now</span> · until 8pm</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div>
+          <div class="info-row-label">Address</div>
+          <div class="info-row-value">123 Main Street, Millbrook</div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        </div>
+        <div>
+          <div class="info-row-label">Phone</div>
+          <div class="info-row-value"><a href="tel:+35301000000" style="color:var(--blue);text-decoration:none;font-weight:600">01 000 0000</a></div>
+        </div>
+      </div>
+      <div class="info-row">
+        <div class="info-row-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+        </div>
+        <div>
+          <div class="info-row-label">Payment</div>
+          <div class="info-row-value">Cash · Card · Contactless</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPARTMENTS -->
+  <section class="section" id="departments">
+    <div class="section-eyebrow">What we stock</div>
+    <h2 class="section-heading reveal">Your one-stop neighbourhood shop</h2>
+    <p class="section-sub reveal">We carry the essentials along with a rotating selection of local produce and artisan foods. If there's something you'd like us to stock regularly, just ask.</p>
+    <div class="depts-grid">
+      <div class="dept reveal">
+        <div class="dept-icon">🍞</div>
+        <div class="dept-name">Fresh Bread & Bakery</div>
+        <div class="dept-desc">Delivered fresh each morning. Sliced pan, rolls, soda bread, and seasonal pastries.</div>
+      </div>
+      <div class="dept reveal">
+        <div class="dept-icon">🥛</div>
+        <div class="dept-name">Dairy & Eggs</div>
+        <div class="dept-desc">Local milk, butter, cheese, and free-range eggs. We restock every other day.</div>
+      </div>
+      <div class="dept reveal">
+        <div class="dept-icon">🥩</div>
+        <div class="dept-name">Deli Counter</div>
+        <div class="dept-desc">Fresh cut meats, cooked chicken, salads, and hot food at lunchtime.</div>
+      </div>
+      <div class="dept reveal">
+        <div class="dept-icon">🥦</div>
+        <div class="dept-name">Fruit & Veg</div>
+        <div class="dept-desc">Weekly delivery of seasonal fruit and vegetables. Local produce where possible.</div>
+      </div>
+      <div class="dept reveal">
+        <div class="dept-icon">🧹</div>
+        <div class="dept-name">Household Essentials</div>
+        <div class="dept-desc">Cleaning products, paper goods, laundry supplies, and basic DIY items.</div>
+      </div>
+      <div class="dept reveal">
+        <div class="dept-icon">🧃</div>
+        <div class="dept-name">Drinks & Snacks</div>
+        <div class="dept-desc">Cold drinks, juices, water, tea, coffee, and a full range of snacks.</div>
+      </div>
+      <div class="dept reveal">
+        <div class="dept-icon">💊</div>
+        <div class="dept-name">Health & Pharmacy Basics</div>
+        <div class="dept-desc">Vitamins, pain relief, first aid, cold & flu essentials, and baby items.</div>
+      </div>
+      <div class="dept reveal">
+        <div class="dept-icon">📦</div>
+        <div class="dept-name">Grocery & Tinned Goods</div>
+        <div class="dept-desc">Pasta, rice, tinned goods, sauces, and all your pantry staples.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WEEKLY SPECIALS -->
+  <section class="section specials" id="specials">
+    <div class="section-eyebrow">This week's deals</div>
+    <h2 class="section-heading reveal">Special offers — updated every Monday</h2>
+    <p class="section-sub reveal">We keep a handful of great-value deals running each week. Stock up while they last.</p>
+    <div class="specials-grid">
+      <div class="special-card reveal">
+        <div class="special-emoji">🥛</div>
+        <div>
+          <div class="special-name">Whole Milk 2L</div>
+          <div class="special-desc">Full-fat local milk. Fresh delivery Tuesday and Friday.</div>
+          <div class="special-pricing">
+            <span class="special-new">€1.89</span>
+            <span class="special-old">€2.20</span>
+            <span class="special-badge">14% off</span>
+          </div>
+        </div>
+      </div>
+      <div class="special-card reveal">
+        <div class="special-emoji">🍞</div>
+        <div>
+          <div class="special-name">Sliced Pan (800g)</div>
+          <div class="special-desc">White or brown — freshly baked, delivered every morning.</div>
+          <div class="special-pricing">
+            <span class="special-new">€1.50</span>
+            <span class="special-old">€1.80</span>
+            <span class="special-badge">17% off</span>
+          </div>
+        </div>
+      </div>
+      <div class="special-card reveal">
+        <div class="special-emoji">🧻</div>
+        <div>
+          <div class="special-name">Toilet Rolls 9pk</div>
+          <div class="special-desc">Soft and strong. Stock up — this price won't last all month.</div>
+          <div class="special-pricing">
+            <span class="special-new">€4.50</span>
+            <span class="special-old">€5.99</span>
+            <span class="special-badge">25% off</span>
+          </div>
+        </div>
+      </div>
+      <div class="special-card reveal">
+        <div class="special-emoji">☕</div>
+        <div>
+          <div class="special-name">Nescafé Gold 200g</div>
+          <div class="special-desc">A regular ask at the counter. Stocked up this week.</div>
+          <div class="special-pricing">
+            <span class="special-new">€5.20</span>
+            <span class="special-old">€6.40</span>
+            <span class="special-badge">19% off</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <div class="about-strip" id="about">
+    <div class="about-text-block">
+      <div class="section-eyebrow">Our story</div>
+      <h2 class="reveal">Part of this street<br>for over 20 years.</h2>
+      <p class="reveal">Corner &amp; Co. opened in 2004 as a small convenience store. Since then we've grown to carry over 2,000 products while keeping the feel of a local shop where staff know your name.</p>
+      <p class="reveal">We believe in fair prices, fresh stock, and being there when the bigger shops are closed. That's what a neighbourhood shop is for.</p>
+    </div>
+    <div class="about-img-block reveal">
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div>
+          <div class="trust-label">Open 7 days a week</div>
+          <div class="trust-value">Mon–Sat 7:30am–8pm · Sun 9am–5pm</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div>
+          <div class="trust-label">Family-owned</div>
+          <div class="trust-value">Run by the same family since day one</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
+        <div>
+          <div class="trust-label">Locally rooted</div>
+          <div class="trust-value">Serving Millbrook village since 2004</div>
+        </div>
+      </div>
+      <div class="trust-item">
+        <div class="trust-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+        <div>
+          <div class="trust-label">Stock over 2,000 products</div>
+          <div class="trust-value">Groceries, fresh food, household & more</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTACT/FIND US -->
+  <section class="section" id="contact">
+    <div class="section-eyebrow">Find us</div>
+    <h2 class="section-heading reveal">We're easy to find</h2>
+    <div class="contact-block reveal">
+      <div>
+        <h3>Come visit us</h3>
+        <p>We're right on the main street, next to the post office. Parking available on the street and behind the church on Sundays.</p>
+        <div class="contact-info-list">
+          <div class="contact-info-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <strong>123 Main Street, Millbrook</strong>
+          </div>
+          <div class="contact-info-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            <span>Mon–Sat <strong>7:30am–8pm</strong> · Sun <strong>9am–5pm</strong></span>
+          </div>
+          <div class="contact-info-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <a href="tel:+35301000000">01 000 0000</a>
+          </div>
+          <div class="contact-info-item">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:hello@cornerandco.ie">hello@cornerandco.ie</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-map">🗺️</div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Corner &amp; Co.</div>
+      <div class="footer-note">123 Main Street, Millbrook · 01 000 0000</div>
+    </div>
+    <div class="footer-hours">Open today until 8pm</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brennan Trades — Local Plumbing, Electrical & General Maintenance</title>
+  <meta name="description" content="Fast, reliable local tradesperson. Plumbing, electrics, and home maintenance. Call for a same-day quote.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Barlow+Condensed:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --navy:   #1a3050;
+      --orange: #e55a00;
+      --orange-l: #ff6b10;
+      --light:  #f4f6f8;
+      --cream:  #fffcf9;
+      --dark:   #161b26;
+      --muted:  #6b7280;
+      --border: #e4e7ef;
+      --green:  #16a34a;
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--cream); color: var(--dark); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* CALLOUT STRIP */
+    .callout-strip { background: var(--orange); display: flex; align-items: center; justify-content: center; gap: 1.5rem; padding: 0.7rem 6vw; flex-wrap: wrap; }
+    .callout-strip span { font-size: 0.82rem; font-weight: 600; color: white; }
+    .callout-strip a { color: white; font-weight: 800; font-size: 1rem; text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.4); }
+    .callout-strip a:hover { border-bottom-color: white; }
+
+    /* NAV */
+    .nav { background: var(--navy); padding: 0 6vw; height: 72px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-family: 'Barlow Condensed', sans-serif; font-size: 1.5rem; font-weight: 700; color: white; text-decoration: none; letter-spacing: 0.02em; }
+    .nav-brand span { color: var(--orange-l); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: white; }
+    .nav-cta { display: flex; align-items: center; gap: 8px; background: var(--orange); color: white; text-decoration: none; padding: 0.65rem 1.4rem; border-radius: 7px; font-size: 0.87rem; font-weight: 700; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--orange-l); transform: translateY(-1px); box-shadow: 0 4px 16px rgba(229,90,0,0.35); }
+    @media(max-width:680px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero { background: var(--navy); padding: 5rem 6vw 0; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; right: -5%; top: -10%; width: 55%; height: 130%; background: radial-gradient(ellipse at 60% 50%, rgba(229,90,0,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { max-width: 680px; position: relative; padding-bottom: 4.5rem; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(229,90,0,0.15); border: 1px solid rgba(229,90,0,0.3); color: #ff9057; padding: 0.4rem 0.9rem; border-radius: 9999px; font-size: 0.73rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1.75rem; }
+    .hero-h1 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 800; color: white; line-height: 1.0; margin-bottom: 1.25rem; letter-spacing: -0.01em; }
+    .hero-h1 .accent { color: var(--orange-l); }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.55); line-height: 1.75; margin-bottom: 2.5rem; max-width: 520px; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+    .btn-orange { display: inline-flex; align-items: center; gap: 10px; background: var(--orange); color: white; text-decoration: none; padding: 1rem 2rem; border-radius: 9px; font-weight: 700; font-size: 1rem; transition: all 0.2s; }
+    .btn-orange:hover { background: var(--orange-l); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(229,90,0,0.4); }
+    .btn-outline-navy { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.7); text-decoration: none; padding: 1rem 1.5rem; border-radius: 9px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.2); transition: all 0.2s; }
+    .btn-outline-navy:hover { border-color: rgba(255,255,255,0.4); color: white; }
+    .hero-badges { display: flex; gap: 1.25rem; flex-wrap: wrap; margin-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem; }
+    .hero-trust-badge { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.55); font-size: 0.8rem; font-weight: 500; }
+    .hero-trust-badge .icon { width: 28px; height: 28px; border-radius: 7px; background: rgba(255,255,255,0.07); display: flex; align-items: center; justify-content: center; }
+
+    /* SECTION WRAPPER */
+    .section { padding: clamp(3.5rem, 7vw, 5.5rem) 6vw; }
+    .section-eyebrow { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--orange); margin-bottom: 0.75rem; }
+    .section-heading { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(1.9rem, 4vw, 2.8rem); font-weight: 700; color: var(--dark); line-height: 1.15; margin-bottom: 1rem; }
+    .section-sub { font-size: 0.92rem; color: var(--muted); line-height: 1.7; max-width: 520px; margin-bottom: 2.5rem; }
+
+    /* SERVICES */
+    .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1.25rem; }
+    .service-card { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; transition: all 0.2s; }
+    .service-card:hover { border-color: var(--orange); box-shadow: 0 4px 24px rgba(229,90,0,0.08); transform: translateY(-2px); }
+    .service-icon { width: 44px; height: 44px; border-radius: 11px; background: #fff3ec; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 1.1rem; }
+    .service-name { font-weight: 700; font-size: 1rem; color: var(--dark); margin-bottom: 0.5rem; }
+    .service-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.6; margin-bottom: 1rem; }
+    .service-jobs { display: flex; flex-wrap: wrap; gap: 6px; }
+    .service-job { background: var(--light); color: var(--muted); font-size: 0.72rem; font-weight: 600; padding: 0.25rem 0.6rem; border-radius: 5px; }
+
+    /* HOW IT WORKS */
+    .how-it-works { background: var(--light); }
+    .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+    .how-step { background: white; border-radius: 14px; padding: 2rem; position: relative; border: 1px solid var(--border); }
+    .step-num { font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; font-weight: 800; color: rgba(229,90,0,0.1); line-height: 1; margin-bottom: 0.5rem; position: absolute; top: 1.25rem; right: 1.5rem; }
+    .step-icon { font-size: 1.6rem; margin-bottom: 1rem; }
+    .step-title { font-weight: 700; font-size: 1rem; color: var(--dark); margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.65; }
+
+    /* ABOUT */
+    .about-split { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
+    .about-img-placeholder { background: linear-gradient(135deg, #1a3050 60%, #1e3f6f); border-radius: 16px; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 4rem; }
+    .about-credentials { display: flex; flex-direction: column; gap: 0.75rem; margin-top: 1.5rem; }
+    .cred-item { display: flex; align-items: center; gap: 0.75rem; font-size: 0.875rem; color: var(--muted); }
+    .cred-check { width: 20px; height: 20px; border-radius: 50%; background: #dcfce7; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    @media(max-width:680px) { .about-split { grid-template-columns: 1fr; } }
+
+    /* REVIEWS */
+    .reviews-bg { background: var(--navy); }
+    .reviews-bg .section-eyebrow { color: #ff9057; }
+    .reviews-bg .section-heading { color: white; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; }
+    .review-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 1.5rem; }
+    .review-stars { color: #fbbf24; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.75rem; }
+    .review-text { font-size: 0.88rem; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 1rem; font-style: italic; }
+    .review-author { font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,0.5); }
+    .star-summary { display: flex; align-items: center; gap: 1rem; margin-bottom: 2.5rem; }
+    .star-score { font-family: 'Barlow Condensed', sans-serif; font-size: 3.5rem; font-weight: 800; color: white; line-height: 1; }
+    .star-detail { }
+    .star-detail .stars { color: #fbbf24; font-size: 1.1rem; }
+    .star-detail .star-note { font-size: 0.78rem; color: rgba(255,255,255,0.4); margin-top: 4px; }
+
+    /* COVERAGE */
+    .coverage { background: var(--light); }
+    .coverage-list { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 0.5rem; }
+    .coverage-tag { background: white; border: 1px solid var(--border); color: var(--dark); font-size: 0.8rem; font-weight: 500; padding: 0.4rem 0.9rem; border-radius: 9999px; display: flex; align-items: center; gap: 6px; }
+    .coverage-tag::before { content: '📍'; font-size: 0.7rem; }
+
+    /* CTA SECTION */
+    .cta-section { background: linear-gradient(135deg, var(--navy) 0%, #112040 100%); padding: 5rem 6vw; text-align: center; }
+    .cta-section h2 { font-family: 'Barlow Condensed', sans-serif; font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; color: white; margin-bottom: 1rem; }
+    .cta-section p { font-size: 0.95rem; color: rgba(255,255,255,0.5); margin-bottom: 2.5rem; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.7; }
+    .cta-phone-big { display: inline-flex; align-items: center; gap: 1rem; background: var(--orange); color: white; text-decoration: none; padding: 1.1rem 2.5rem; border-radius: 10px; font-size: 1.3rem; font-weight: 800; transition: all 0.2s; margin-bottom: 1rem; }
+    .cta-phone-big:hover { background: var(--orange-l); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(229,90,0,0.4); }
+    .cta-note { font-size: 0.78rem; color: rgba(255,255,255,0.3); }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 2rem 6vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-name { font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem; font-weight: 700; color: white; }
+    .footer-meta { font-size: 0.75rem; color: rgba(255,255,255,0.3); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+    .hero-inner { animation: fadeUp 0.8s ease both; }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- URGENT CALLOUT -->
+  <div class="callout-strip">
+    <span>⚡ Same-day call-outs available</span>
+    <a href="tel:+35301000000">01 000 0000</a>
+    <span>· Usually with you within 2 hours</span>
+  </div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav-brand">Brennan<span>Trades</span></a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+    </ul>
+    <a href="tel:+35301000000" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      Call now
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-badge">⚡ Fast local response · Est. 2009</div>
+      <h1 class="hero-h1">Local trades.<br><span class="accent">Done right.</span></h1>
+      <p class="hero-sub">Plumbing, electrical, tiling, and general home maintenance — handled by a trusted local professional. No call centres. You speak directly to the person doing the job.</p>
+      <div class="hero-ctas">
+        <a href="tel:+35301000000" class="btn-orange">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          01 000 0000
+        </a>
+        <a href="#services" class="btn-outline-navy">View all services →</a>
+      </div>
+      <div class="hero-badges">
+        <div class="hero-trust-badge">
+          <div class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff9057" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Registered &amp; insured
+        </div>
+        <div class="hero-trust-badge">
+          <div class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff9057" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          15+ years experience
+        </div>
+        <div class="hero-trust-badge">
+          <div class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff9057" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          No call-centre — speak direct
+        </div>
+        <div class="hero-trust-badge">
+          <div class="icon"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#ff9057" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></div>
+          Free quotes
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" id="services">
+    <div class="section-eyebrow">What we cover</div>
+    <h2 class="section-heading reveal">Services offered</h2>
+    <p class="section-sub reveal">From a leaky tap to a full bathroom fit-out, we handle a wide range of residential maintenance and trade work.</p>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">🔧</div>
+        <div class="service-name">Plumbing</div>
+        <div class="service-desc">Leaks, burst pipes, boiler servicing, radiator replacements, and full bathroom installs.</div>
+        <div class="service-jobs">
+          <span class="service-job">Leak repairs</span>
+          <span class="service-job">Boiler service</span>
+          <span class="service-job">Bathroom fit-out</span>
+          <span class="service-job">Radiators</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Electrical</div>
+        <div class="service-desc">Safe and certified electrical work — sockets, lighting, fuse boards, and EV charger installs.</div>
+        <div class="service-jobs">
+          <span class="service-job">Socket install</span>
+          <span class="service-job">Lighting</span>
+          <span class="service-job">Fuse board</span>
+          <span class="service-job">EV charger</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🏠</div>
+        <div class="service-name">General Maintenance</div>
+        <div class="service-desc">Handyman jobs, doors, locks, minor carpentry, pressure washing, and gutter clearing.</div>
+        <div class="service-jobs">
+          <span class="service-job">Doors & locks</span>
+          <span class="service-job">Carpentry</span>
+          <span class="service-job">Gutters</span>
+          <span class="service-job">Pressure wash</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🚿</div>
+        <div class="service-name">Tiling & Bathrooms</div>
+        <div class="service-desc">Floor and wall tiling, bathroom renovations, wetroom conversions, and grab rail installs.</div>
+        <div class="service-jobs">
+          <span class="service-job">Floor tiling</span>
+          <span class="service-job">Wall tiling</span>
+          <span class="service-job">Wet room</span>
+          <span class="service-job">Accessible bath</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔥</div>
+        <div class="service-name">Heating & Gas</div>
+        <div class="service-desc">Boiler installs, annual service plans, gas certificate, and heating system upgrades.</div>
+        <div class="service-jobs">
+          <span class="service-job">Boiler install</span>
+          <span class="service-job">Gas cert</span>
+          <span class="service-job">Service plan</span>
+          <span class="service-job">Heat pump</span>
+        </div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🪟</div>
+        <div class="service-name">Windows & Doors</div>
+        <div class="service-desc">Double glazing repairs, door fitting, lock replacements, and draught proofing.</div>
+        <div class="service-jobs">
+          <span class="service-job">Glazing repair</span>
+          <span class="service-job">Lock change</span>
+          <span class="service-job">Door fitting</span>
+          <span class="service-job">Draught seal</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how-it-works" id="how">
+    <div class="section-eyebrow">Simple process</div>
+    <h2 class="section-heading reveal">From call to done — in 3 steps</h2>
+    <p class="section-sub reveal">No complicated booking systems. No mysterious pricing. Just a straightforward process from start to finish.</p>
+    <div class="how-grid">
+      <div class="how-step reveal">
+        <div class="step-num">1</div>
+        <div class="step-icon">📞</div>
+        <div class="step-title">You call or message</div>
+        <div class="step-desc">Call, text, or WhatsApp on 01 000 0000. Tell us what needs doing and where you're located. No holding music — you speak directly to me.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">2</div>
+        <div class="step-icon">🗓️</div>
+        <div class="step-title">We agree a time and price</div>
+        <div class="step-desc">I'll give you a clear quote before any work starts. No surprises. For simple jobs I can often be there same day or next morning.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">3</div>
+        <div class="step-icon">✅</div>
+        <div class="step-title">Job done right, first time</div>
+        <div class="step-desc">I arrive on time, clean up after myself, and stand behind my work. If it's not right, I come back — no argument.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="about-split">
+      <div class="about-img-placeholder reveal">🔧</div>
+      <div class="reveal">
+        <div class="section-eyebrow">About</div>
+        <h2 class="section-heading">15 years. Same phone number. Same standards.</h2>
+        <p class="section-sub" style="margin-bottom:1.25rem">I'm Pat Brennan — I've been working as a local tradesperson in this area since 2009. Everything from a dripping tap to a full bathroom renovation.</p>
+        <p style="font-size:0.88rem;color:var(--muted);line-height:1.75;margin-bottom:1.5rem">In 15 years I've built my reputation on showing up when I say I will, pricing fairly, and doing the job properly. Referrals from happy customers are how most of my new work comes in — that tells you what you need to know.</p>
+        <div class="about-credentials">
+          <div class="cred-item">
+            <div class="cred-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            RGI Registered Gas Installer
+          </div>
+          <div class="cred-item">
+            <div class="cred-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Safe Electric registered electrician
+          </div>
+          <div class="cred-item">
+            <div class="cred-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            Fully insured — public liability &amp; employer's
+          </div>
+          <div class="cred-item">
+            <div class="cred-check"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            4.9 ★ average across 200+ reviews
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="section coverage">
+    <div class="section-eyebrow">Service area</div>
+    <h2 class="section-heading reveal">We cover these areas</h2>
+    <p class="section-sub reveal">Based in Millbrook — covering the town and all surrounding villages within a 20km radius. Not sure if we cover you? Just call.</p>
+    <div class="coverage-list reveal">
+      <span class="coverage-tag">Millbrook</span>
+      <span class="coverage-tag">Castleton</span>
+      <span class="coverage-tag">Hartley</span>
+      <span class="coverage-tag">Ferndale</span>
+      <span class="coverage-tag">Oakfield</span>
+      <span class="coverage-tag">Bridgeview</span>
+      <span class="coverage-tag">Thornbury</span>
+      <span class="coverage-tag">Riverstone</span>
+      <span class="coverage-tag">Westmount</span>
+      <span class="coverage-tag">Greenvale</span>
+      <span class="coverage-tag">Holloway</span>
+      <span class="coverage-tag">Stoneleigh</span>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews-bg" id="reviews">
+    <div class="section-eyebrow">Customer reviews</div>
+    <div class="star-summary reveal">
+      <div class="star-score">4.9</div>
+      <div class="star-detail">
+        <div class="stars">★★★★★</div>
+        <div class="star-note">Based on 200+ verified reviews</div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Pat fixed a leak that two other plumbers failed to properly diagnose. Straight to it, done in under an hour, and cheaper than the previous quotes."</div>
+        <div class="review-author">— Siobhán M., Millbrook</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Had the bathroom fully retiled and a new shower fitted. Pat was on time every day, tidy as anything, and the result is fantastic. Would recommend to anyone."</div>
+        <div class="review-author">— Derek F., Castleton</div>
+      </div>
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <div class="review-text">"Emergency call on a Sunday morning. Pat was at the door within 90 minutes. Fair charge for weekend callout and sorted the burst pipe fast. Legend."</div>
+        <div class="review-author">— Karen O., Ferndale</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to get it sorted?</h2>
+    <p>Give us a call or send a text. Free quotes, honest pricing, and a tradesperson you can rely on to turn up.</p>
+    <a href="tel:+35301000000" class="cta-phone-big">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      01 000 0000
+    </a>
+    <div class="cta-note">Call or text · Mon–Sat 7am–7pm · Emergency callouts available</div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-name">BrennanTrades</div>
+      <div class="footer-meta">123 Main Street, Millbrook · Reg: IE12345678 · Fully insured</div>
+    </div>
+    <div class="footer-meta">© 2025 BrennanTrades · All rights reserved</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

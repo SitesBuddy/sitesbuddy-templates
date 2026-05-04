@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gather &amp; Order — Community Group Buying</title>
+  <meta name="description" content="Join your neighbours in group orders for local food, produce, and supplies. Better prices when we buy together.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --purple:   #5b4fcf;
+      --purple2:  #7c6fda;
+      --indigo:   #1e1b5e;
+      --lavender: #eef0ff;
+      --pale:     #f8f7ff;
+      --dark:     #0f0d2e;
+      --muted:    #7b7aaf;
+      --border:   #dddaf5;
+      --green:    #22c55e;
+      --orange:   #f97316;
+      --yellow:   #fbbf24;
+    }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--pale); color: var(--dark); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* NAV */
+    .nav { background: var(--indigo); padding: 0 6vw; height: 70px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-size: 1.25rem; font-weight: 800; color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-brand .amp { color: #a5b4fc; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.84rem; font-weight: 500; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: white; }
+    .nav-cta { background: var(--purple); color: white; text-decoration: none; padding: 0.6rem 1.4rem; border-radius: 8px; font-size: 0.84rem; font-weight: 700; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--purple2); transform: translateY(-1px); }
+    @media(max-width:640px){ .nav-links { display: none; } }
+
+    /* HERO */
+    .hero { background: var(--indigo); padding: 6rem 6vw 5rem; position: relative; overflow: hidden; }
+    .hero-bg-shapes { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+    .hero-bg-shapes::before { content: ''; position: absolute; top: -20%; right: -10%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(91,79,207,0.2) 0%, transparent 70%); }
+    .hero-bg-shapes::after { content: ''; position: absolute; bottom: -15%; left: -5%; width: 380px; height: 380px; border-radius: 50%; background: radial-gradient(circle, rgba(99,102,241,0.12) 0%, transparent 70%); }
+    .hero-inner { max-width: 660px; position: relative; animation: fadeUp 0.9s ease both; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(91,79,207,0.25); border: 1px solid rgba(91,79,207,0.4); color: #a5b4fc; padding: 0.4rem 1rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; margin-bottom: 2rem; }
+    .hero h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; color: white; line-height: 1.1; margin-bottom: 1.25rem; letter-spacing: -0.025em; }
+    .hero h1 em { font-style: normal; color: #a5b4fc; }
+    .hero-sub { font-size: 1rem; color: rgba(255,255,255,0.5); line-height: 1.8; max-width: 520px; margin-bottom: 2.75rem; }
+    .hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-purple { display: inline-flex; align-items: center; gap: 8px; background: var(--purple); color: white; text-decoration: none; padding: 0.9rem 1.9rem; border-radius: 9px; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; }
+    .btn-purple:hover { background: var(--purple2); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(91,79,207,0.35); }
+    .btn-ghost-indigo { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: rgba(255,255,255,0.6); text-decoration: none; padding: 0.9rem 1.6rem; border-radius: 9px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(255,255,255,0.15); transition: all 0.2s; }
+    .btn-ghost-indigo:hover { border-color: rgba(255,255,255,0.3); color: white; }
+    .hero-social-proof { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+    .avatars { display: flex; }
+    .avatar { width: 32px; height: 32px; border-radius: 50%; background: linear-gradient(135deg, #7c6fda, #5b4fcf); border: 2px solid var(--indigo); margin-left: -8px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: white; font-weight: 700; }
+    .avatar:first-child { margin-left: 0; }
+    .social-text { font-size: 0.82rem; color: rgba(255,255,255,0.45); }
+    .social-text strong { color: rgba(255,255,255,0.8); }
+
+    /* SECTION */
+    .section { padding: clamp(3.5rem, 7vw, 5.5rem) 6vw; }
+    .section-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--purple); margin-bottom: 0.75rem; }
+    .section-heading { font-size: clamp(1.7rem, 3.5vw, 2.5rem); font-weight: 800; color: var(--dark); line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .section-sub { font-size: 0.92rem; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 2.5rem; }
+
+    /* CURRENT ORDER */
+    .current-order { background: var(--indigo); }
+    .current-order .section-eyebrow { color: #a5b4fc; }
+    .current-order .section-heading { color: white; }
+    .current-order .section-sub { color: rgba(255,255,255,0.45); }
+    .order-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .order-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 14px; padding: 1.5rem; }
+    .order-card.open { border-color: rgba(91,79,207,0.4); background: rgba(91,79,207,0.08); }
+    .order-card-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 1.25rem; }
+    .order-card-title { font-weight: 700; font-size: 0.95rem; color: white; }
+    .order-card-supplier { font-size: 0.72rem; color: rgba(255,255,255,0.4); margin-top: 3px; }
+    .order-status { font-size: 0.68rem; font-weight: 700; padding: 0.28rem 0.65rem; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .status-open   { background: rgba(34,197,94,0.15); color: #4ade80; }
+    .status-full   { background: rgba(251,191,36,0.12); color: #fbbf24; }
+    .status-closed { background: rgba(148,163,184,0.1); color: rgba(255,255,255,0.3); }
+    .progress-bar-wrap { margin-bottom: 0.5rem; }
+    .progress-label { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.4rem; }
+    .progress-label .spots-left { color: #4ade80; font-weight: 600; }
+    .progress-label .spots-total { color: rgba(255,255,255,0.3); }
+    .progress-bar { height: 6px; background: rgba(255,255,255,0.08); border-radius: 99px; overflow: hidden; }
+    .progress-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--purple), var(--purple2)); transition: width 0.5s ease; }
+    .progress-fill.full { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .order-meta { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+    .order-meta-item { font-size: 0.75rem; color: rgba(255,255,255,0.4); display: flex; align-items: center; gap: 5px; }
+    .order-meta-item span { color: rgba(255,255,255,0.7); font-weight: 500; }
+    .join-btn { display: block; text-align: center; background: var(--purple); color: white; text-decoration: none; padding: 0.7rem; border-radius: 8px; font-size: 0.84rem; font-weight: 700; margin-top: 1.25rem; transition: all 0.2s; }
+    .join-btn:hover { background: var(--purple2); }
+    .join-btn.disabled { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.25); cursor: default; pointer-events: none; }
+    .deadline-timer { display: flex; align-items: center; gap: 6px; font-size: 0.75rem; color: #fbbf24; margin-top: 0.75rem; }
+
+    /* HOW IT WORKS */
+    .how-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.25rem; }
+    .how-step { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; position: relative; }
+    .step-num { font-size: 3rem; font-weight: 800; color: rgba(91,79,207,0.08); line-height: 1; position: absolute; top: 1.25rem; right: 1.5rem; letter-spacing: -0.03em; }
+    .step-emoji { font-size: 1.75rem; margin-bottom: 1rem; }
+    .step-title { font-weight: 700; font-size: 0.95rem; color: var(--dark); margin-bottom: 0.5rem; }
+    .step-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+    /* BENEFITS */
+    .benefits { background: var(--lavender); }
+    .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: center; }
+    .benefit-list { display: flex; flex-direction: column; gap: 1rem; }
+    .benefit-item { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem 1.5rem; display: flex; align-items: flex-start; gap: 1rem; }
+    .benefit-icon { width: 40px; height: 40px; border-radius: 10px; background: var(--lavender); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .benefit-title { font-weight: 700; font-size: 0.9rem; color: var(--dark); margin-bottom: 3px; }
+    .benefit-desc { font-size: 0.78rem; color: var(--muted); line-height: 1.55; }
+    .benefit-visual { background: var(--indigo); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; gap: 1.5rem; }
+    .saving-demo { }
+    .saving-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(255,255,255,0.35); margin-bottom: 0.75rem; }
+    .saving-comparison { display: flex; flex-direction: column; gap: 0.5rem; }
+    .saving-row { display: flex; align-items: center; justify-content: space-between; }
+    .saving-row-label { font-size: 0.82rem; color: rgba(255,255,255,0.5); }
+    .saving-row-price { font-size: 0.92rem; font-weight: 700; color: white; }
+    .saving-row.win .saving-row-price { color: #4ade80; }
+    .saving-divider { border: none; border-top: 1px solid rgba(255,255,255,0.08); margin: 0.5rem 0; }
+    .saving-total { display: flex; align-items: center; justify-content: space-between; }
+    .saving-total-label { font-size: 0.85rem; font-weight: 600; color: rgba(255,255,255,0.7); }
+    .saving-total-val { font-size: 1.2rem; font-weight: 800; color: #4ade80; }
+    @media(max-width:680px){ .benefits-grid { grid-template-columns: 1fr; } }
+
+    /* CATEGORIES */
+    .cat-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+    .cat-card { background: white; border: 1px solid var(--border); border-radius: 12px; padding: 1.5rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.75rem; transition: all 0.2s; cursor: default; }
+    .cat-card:hover { border-color: var(--purple); box-shadow: 0 4px 20px rgba(91,79,207,0.1); transform: translateY(-2px); }
+    .cat-icon { font-size: 1.75rem; }
+    .cat-name { font-weight: 700; font-size: 0.9rem; color: var(--dark); }
+    .cat-freq { font-size: 0.75rem; color: var(--muted); }
+    .cat-active { display: inline-flex; align-items: center; gap: 5px; background: #f0fdf4; color: var(--green); font-size: 0.7rem; font-weight: 700; padding: 0.2rem 0.55rem; border-radius: 5px; }
+
+    /* TESTIMONIALS */
+    .testimonials-bg { background: var(--pale); }
+    .testimonials-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+    .testimonial { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+    .testimonial-stars { color: var(--yellow); font-size: 0.9rem; margin-bottom: 0.85rem; }
+    .testimonial-text { font-size: 0.87rem; color: var(--dark); line-height: 1.7; font-style: italic; margin-bottom: 1.25rem; opacity: 0.75; }
+    .testimonial-author { display: flex; align-items: center; gap: 0.75rem; }
+    .testimonial-avatar { width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--purple), var(--indigo)); display: flex; align-items: center; justify-content: center; font-size: 0.8rem; font-weight: 700; color: white; flex-shrink: 0; }
+    .testimonial-name { font-weight: 700; font-size: 0.85rem; color: var(--dark); }
+    .testimonial-loc { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* CTA */
+    .cta-section { background: var(--indigo); padding: 5.5rem 6vw; text-align: center; }
+    .cta-section h2 { font-size: clamp(1.8rem, 4.5vw, 3.2rem); font-weight: 800; color: white; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .cta-section p { font-size: 0.93rem; color: rgba(255,255,255,0.45); max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.75; }
+    .cta-form { display: flex; gap: 0.75rem; max-width: 460px; margin: 0 auto; flex-wrap: wrap; }
+    .cta-form input { flex: 1; padding: 0.9rem 1.25rem; border-radius: 9px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.06); color: white; font-size: 0.9rem; font-family: inherit; min-width: 180px; outline: none; }
+    .cta-form input::placeholder { color: rgba(255,255,255,0.25); }
+    .cta-form input:focus { border-color: var(--purple); }
+    .cta-form button { background: var(--purple); color: white; border: none; padding: 0.9rem 1.6rem; border-radius: 9px; font-size: 0.9rem; font-weight: 700; cursor: pointer; font-family: inherit; transition: all 0.2s; white-space: nowrap; }
+    .cta-form button:hover { background: var(--purple2); transform: translateY(-1px); }
+    .cta-sub { font-size: 0.75rem; color: rgba(255,255,255,0.25); margin-top: 1rem; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 2rem 6vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid rgba(255,255,255,0.05); }
+    .footer-brand { font-size: 1.05rem; font-weight: 800; color: white; }
+    .footer-meta { font-size: 0.73rem; color: rgba(255,255,255,0.3); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav-brand">Gather <span class="amp">&amp;</span> Order</a>
+    <ul class="nav-links">
+      <li><a href="#orders">Open orders</a></li>
+      <li><a href="#how">How it works</a></li>
+      <li><a href="#categories">Categories</a></li>
+    </ul>
+    <a href="#orders" class="nav-cta">Join a group order</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-shapes"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">🤝 Community buying · Better prices for everyone</div>
+      <h1>Buy together.<br><em>Save together.</em></h1>
+      <p class="hero-sub">Gather &amp; Order lets neighbours pool their buying power to get wholesale prices on local food, produce, and essentials. Join an open order, add what you need, and we'll coordinate the rest.</p>
+      <div class="hero-ctas">
+        <a href="#orders" class="btn-purple">See open orders →</a>
+        <a href="#how" class="btn-ghost-indigo">How does it work?</a>
+      </div>
+      <div class="hero-social-proof">
+        <div class="avatars">
+          <div class="avatar">SB</div>
+          <div class="avatar">MK</div>
+          <div class="avatar">DF</div>
+          <div class="avatar">CE</div>
+          <div class="avatar">+</div>
+        </div>
+        <div class="social-text"><strong>184 households</strong> in Millbrook are already buying together</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURRENT OPEN ORDERS -->
+  <section class="section current-order" id="orders">
+    <div class="section-eyebrow">Open now</div>
+    <h2 class="section-heading reveal">Current group orders</h2>
+    <p class="section-sub reveal">These orders are open for additions. Once we hit the minimum, we place the order. Delivery to a local pickup point — or directly to you if you're on a route.</p>
+    <div class="order-cards">
+
+      <div class="order-card open reveal">
+        <div class="order-card-top">
+          <div>
+            <div class="order-card-title">🥩 Clonliffe Farm Meat Box</div>
+            <div class="order-card-supplier">Clonliffe Farm · Grass-fed, local</div>
+          </div>
+          <div class="order-status status-open">Open</div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-label">
+            <span class="spots-left">8 spots left</span>
+            <span class="spots-total">17/25 joined</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width:68%"></div></div>
+        </div>
+        <div class="order-meta">
+          <div class="order-meta-item">💰 Save <span>€12 vs retail</span></div>
+          <div class="order-meta-item">🚚 Delivery <span>Fri 18 Jul</span></div>
+          <div class="order-meta-item">📦 Min. <span>25 households</span></div>
+        </div>
+        <div class="deadline-timer">⏱️ Closes in 3 days</div>
+        <a href="#" class="join-btn">Add me to this order</a>
+      </div>
+
+      <div class="order-card open reveal">
+        <div class="order-card-top">
+          <div>
+            <div class="order-card-title">🧴 Household Cleaning Bundle</div>
+            <div class="order-card-supplier">CleanCo Direct · Bulk wholesale</div>
+          </div>
+          <div class="order-status status-open">Open</div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-label">
+            <span class="spots-left">22 spots left</span>
+            <span class="spots-total">28/50 joined</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width:56%"></div></div>
+        </div>
+        <div class="order-meta">
+          <div class="order-meta-item">💰 Save <span>€9.50 vs retail</span></div>
+          <div class="order-meta-item">🚚 Delivery <span>Thu 24 Jul</span></div>
+          <div class="order-meta-item">📦 Min. <span>50 households</span></div>
+        </div>
+        <div class="deadline-timer">⏱️ Closes in 8 days</div>
+        <a href="#" class="join-btn">Add me to this order</a>
+      </div>
+
+      <div class="order-card reveal">
+        <div class="order-card-top">
+          <div>
+            <div class="order-card-title">🥖 Bakehouse Bread Subscription</div>
+            <div class="order-card-supplier">Brennan's Bakehouse · Sourdough</div>
+          </div>
+          <div class="order-status status-full">Full</div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-label">
+            <span class="spots-left" style="color:#fbbf24;">Order placed!</span>
+            <span class="spots-total">30/30 joined</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill full" style="width:100%"></div></div>
+        </div>
+        <div class="order-meta">
+          <div class="order-meta-item">💰 Saved <span>€4.50 vs retail</span></div>
+          <div class="order-meta-item">🚚 Delivery <span>Sat 12 Jul</span></div>
+        </div>
+        <a href="#" class="join-btn disabled">Join waitlist for next order</a>
+      </div>
+
+      <div class="order-card reveal">
+        <div class="order-card-top">
+          <div>
+            <div class="order-card-title">☕ Ferndale Coffee Roasters Drop</div>
+            <div class="order-card-supplier">Ferndale Roasters · Specialty</div>
+          </div>
+          <div class="order-status status-open">Open</div>
+        </div>
+        <div class="progress-bar-wrap">
+          <div class="progress-label">
+            <span class="spots-left">14 spots left</span>
+            <span class="spots-total">6/20 joined</span>
+          </div>
+          <div class="progress-bar"><div class="progress-fill" style="width:30%"></div></div>
+        </div>
+        <div class="order-meta">
+          <div class="order-meta-item">💰 Save <span>€6 vs retail (250g)</span></div>
+          <div class="order-meta-item">🚚 Delivery <span>Sat 26 Jul</span></div>
+        </div>
+        <div class="deadline-timer">⏱️ Closes in 12 days</div>
+        <a href="#" class="join-btn">Add me to this order</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section" id="how" style="background:var(--pale)">
+    <div class="section-eyebrow">Simple process</div>
+    <h2 class="section-heading reveal">How group ordering works</h2>
+    <p class="section-sub reveal">Five steps, no faff. You'll be in your first order within minutes of signing up.</p>
+    <div class="how-grid">
+      <div class="how-step reveal">
+        <div class="step-num">1</div>
+        <div class="step-emoji">👋</div>
+        <div class="step-title">Sign up for free</div>
+        <div class="step-desc">Create an account with your name, address, and postcode. No payment needed upfront. Takes about 90 seconds.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">2</div>
+        <div class="step-emoji">🔍</div>
+        <div class="step-title">Browse open orders</div>
+        <div class="step-desc">See what's currently being organised by category, producer, or delivery area. Click any open order to see full details and pricing.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">3</div>
+        <div class="step-emoji">✅</div>
+        <div class="step-title">Join and add your share</div>
+        <div class="step-desc">Tell us how much you want. We don't charge your card until the group minimum is hit. If we don't fill the order, you're never charged.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">4</div>
+        <div class="step-emoji">📦</div>
+        <div class="step-title">We place the order</div>
+        <div class="step-desc">Once minimum numbers are reached, we place the bulk order with the producer and confirm your delivery date and pickup point.</div>
+      </div>
+      <div class="how-step reveal">
+        <div class="step-num">5</div>
+        <div class="step-emoji">🎉</div>
+        <div class="step-title">Collect or get delivered</div>
+        <div class="step-desc">Pick up from your local drop point (usually within 1km), or opt into home delivery if your address is on the route. That's it!</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS SPLIT -->
+  <section class="section benefits" id="why">
+    <div class="benefits-grid">
+      <div>
+        <div class="section-eyebrow">Why it works</div>
+        <h2 class="section-heading reveal">Shop like a wholesale buyer,<br>even as a household</h2>
+        <div class="benefit-list">
+          <div class="benefit-item reveal">
+            <div class="benefit-icon">💶</div>
+            <div>
+              <div class="benefit-title">Wholesale prices</div>
+              <div class="benefit-desc">Producers give us bulk discounts when we order in volume. That saving goes directly to you — we only add a small coordination fee.</div>
+            </div>
+          </div>
+          <div class="benefit-item reveal">
+            <div class="benefit-icon">🌿</div>
+            <div>
+              <div class="benefit-title">Less waste, less packaging</div>
+              <div class="benefit-desc">Bulk deliveries mean fewer trips, fewer boxes, and less plastic than individual orders. Better for your wallet, better for the planet.</div>
+            </div>
+          </div>
+          <div class="benefit-item reveal">
+            <div class="benefit-icon">🤝</div>
+            <div>
+              <div class="benefit-title">Support local producers</div>
+              <div class="benefit-desc">Most of our suppliers are small businesses. Your group order may represent 20–30% of their weekly revenue. That matters to them.</div>
+            </div>
+          </div>
+          <div class="benefit-item reveal">
+            <div class="benefit-icon">🛡️</div>
+            <div>
+              <div class="benefit-title">No charge if order doesn't fill</div>
+              <div class="benefit-desc">We only charge your card when we've hit the minimum needed to place the order. If we can't fill it, you're not charged — ever.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="benefit-visual reveal">
+        <div class="saving-demo">
+          <div class="saving-label">Price comparison — Clonliffe meat box</div>
+          <div class="saving-comparison">
+            <div class="saving-row">
+              <div class="saving-row-label">Supermarket (individual)</div>
+              <div class="saving-row-price">€58.00</div>
+            </div>
+            <div class="saving-row">
+              <div class="saving-row-label">Online delivery (boxed)</div>
+              <div class="saving-row-price">€54.50</div>
+            </div>
+            <hr class="saving-divider">
+            <div class="saving-row win">
+              <div class="saving-row-label">✓ Gather & Order group price</div>
+              <div class="saving-row-price">€46.00</div>
+            </div>
+          </div>
+        </div>
+        <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:1.25rem">
+          <div class="saving-total">
+            <div class="saving-total-label">You save per order</div>
+            <div class="saving-total-val">€12.00</div>
+          </div>
+          <div style="font-size:0.74rem;color:rgba(255,255,255,0.3);margin-top:0.5rem">Based on average Millbrook members saving in 2025</div>
+        </div>
+        <div style="background:rgba(91,79,207,0.15);border:1px solid rgba(91,79,207,0.3);border-radius:10px;padding:1rem;margin-top:0.5rem">
+          <div style="font-size:0.8rem;font-weight:700;color:#a5b4fc;margin-bottom:4px">Average member saving</div>
+          <div style="font-size:1.6rem;font-weight:800;color:white">€34 <span style="font-size:0.85rem;font-weight:500;color:rgba(255,255,255,0.4)">per month</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CATEGORIES -->
+  <section class="section" id="categories">
+    <div class="section-eyebrow">What we organise</div>
+    <h2 class="section-heading reveal">Order categories</h2>
+    <p class="section-sub reveal">We run group orders across all these categories. New suppliers are added regularly. Suggest a producer through your account.</p>
+    <div class="cat-grid">
+      <div class="cat-card reveal"><div class="cat-icon">🥩</div><div class="cat-name">Meat & Poultry</div><div class="cat-freq">Monthly</div><div class="cat-active">● Active order</div></div>
+      <div class="cat-card reveal"><div class="cat-icon">🥖</div><div class="cat-name">Bakery & Bread</div><div class="cat-freq">Weekly</div><div class="cat-active">● Active order</div></div>
+      <div class="cat-card reveal"><div class="cat-icon">🥦</div><div class="cat-name">Seasonal Veg</div><div class="cat-freq">Bi-weekly</div></div>
+      <div class="cat-card reveal"><div class="cat-icon">🧴</div><div class="cat-name">Cleaning & Hygiene</div><div class="cat-freq">Monthly</div><div class="cat-active">● Active order</div></div>
+      <div class="cat-card reveal"><div class="cat-icon">☕</div><div class="cat-name">Coffee & Tea</div><div class="cat-freq">Monthly</div><div class="cat-active">● Active order</div></div>
+      <div class="cat-card reveal"><div class="cat-icon">🍺</div><div class="cat-name">Local Drinks</div><div class="cat-freq">Quarterly</div></div>
+      <div class="cat-card reveal"><div class="cat-icon">🫙</div><div class="cat-name">Pantry & Dry Goods</div><div class="cat-freq">Bi-monthly</div></div>
+      <div class="cat-card reveal"><div class="cat-icon">🌿</div><div class="cat-name">Fresh Herbs & Plants</div><div class="cat-freq">Seasonal</div></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section testimonials-bg">
+    <div class="section-eyebrow">What members say</div>
+    <h2 class="section-heading reveal">A community that saves money together</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"I was sceptical at first but the savings on the meat box alone are worth it. I've also started buying from producers I'd never have found on my own."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MK</div>
+          <div><div class="testimonial-name">Michelle K.</div><div class="testimonial-loc">Millbrook · joined Feb 2025</div></div>
+        </div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"The coffee order is what got me in the door. €6 cheaper per bag than the supermarket for better quality coffee. I've told everyone I know."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DF</div>
+          <div><div class="testimonial-name">Declan F.</div><div class="testimonial-loc">Castleton · joined Jan 2025</div></div>
+        </div>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">★★★★★</div>
+        <div class="testimonial-text">"I run a small childminder service and the cleaning supplies bulk order helps me manage costs now that everything has gone up. Really wish I'd found this sooner."</div>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SE</div>
+          <div><div class="testimonial-name">Sarah E.</div><div class="testimonial-loc">Ferndale · joined Mar 2025</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Join your neighbours.<br>Start saving today.</h2>
+    <p>It takes 2 minutes to sign up. Your first order could save you money this week.</p>
+    <div class="cta-form">
+      <input type="email" placeholder="your@email.com">
+      <button type="button">Join for free →</button>
+    </div>
+    <div class="cta-sub">No payment required to sign up. Browse all open orders immediately.</div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Gather &amp; Order</div>
+      <div class="footer-meta">Community group buying · Millbrook &amp; surrounding areas</div>
+    </div>
+    <div class="footer-meta">© 2025 Gather &amp; Order · All rights reserved</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

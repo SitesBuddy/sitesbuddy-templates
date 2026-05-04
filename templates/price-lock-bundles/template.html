@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LockedIn — Price-Stable Essential Bundles</title>
+  <meta name="description" content="Lock in today's prices on household essentials. Monthly bundles, stable pricing, and local delivery.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --navy:    #0d1f38;
+      --navy2:   #142947;
+      --blue:    #1e4080;
+      --green:   #00c853;
+      --green2:  #00e676;
+      --green-bg:#041a0e;
+      --light:   #f0f4ff;
+      --border:  #1e3158;
+      --muted:   #6e8cb0;
+      --dark:    #060e1a;
+      --white:   #ffffff;
+      --yellow:  #ffd600;
+    }
+    body { font-family: 'Space Grotesk', system-ui, sans-serif; background: var(--navy); color: var(--white); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+    /* NAV */
+    .nav { background: rgba(13,31,56,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); padding: 0 6vw; height: 68px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .nav-brand { font-size: 1.35rem; font-weight: 700; color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; }
+    .nav-brand .lock { color: var(--green); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.84rem; font-weight: 500; color: var(--muted); text-decoration: none; transition: color 0.15s; }
+    .nav-links a:hover { color: white; }
+    .nav-cta { background: var(--green); color: var(--dark); text-decoration: none; padding: 0.6rem 1.4rem; border-radius: 7px; font-size: 0.84rem; font-weight: 700; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--green2); }
+    @media(max-width:640px){ .nav-links { display: none; } }
+
+    /* HERO */
+    .hero { padding: 6rem 6vw 5rem; position: relative; overflow: hidden; }
+    .hero-glow { position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 70%; height: 70%; background: radial-gradient(ellipse, rgba(0,200,83,0.08) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { max-width: 720px; margin: 0 auto; text-align: center; position: relative; animation: fadeUp 0.9s ease both; }
+    .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(0,200,83,0.1); border: 1px solid rgba(0,200,83,0.25); color: var(--green); padding: 0.45rem 1.1rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 700; color: white; line-height: 1.08; margin-bottom: 1.5rem; letter-spacing: -0.025em; }
+    .hero h1 .accent { color: var(--green); }
+    .hero-sub { font-family: 'Inter', sans-serif; font-size: 1rem; color: var(--muted); line-height: 1.8; max-width: 540px; margin: 0 auto 3rem; }
+    .hero-ctas { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+    .btn-green { display: inline-flex; align-items: center; gap: 8px; background: var(--green); color: var(--dark); text-decoration: none; padding: 0.95rem 2.1rem; border-radius: 9px; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; }
+    .btn-green:hover { background: var(--green2); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,200,83,0.3); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--muted); text-decoration: none; padding: 0.95rem 1.75rem; border-radius: 9px; font-weight: 600; font-size: 0.9rem; border: 1px solid var(--border); transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--muted); color: white; }
+    .hero-note { margin-top: 1.5rem; font-size: 0.78rem; color: rgba(255,255,255,0.25); font-family: 'Inter', sans-serif; }
+
+    /* URGENCY BANNER */
+    .urgency-banner { background: linear-gradient(90deg, rgba(0,200,83,0.08) 0%, rgba(0,200,83,0.04) 100%); border: 1px solid rgba(0,200,83,0.2); border-radius: 12px; padding: 1.25rem 2rem; margin: 3rem 6vw 0; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; }
+    .urgency-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .urgency-text { flex: 1; min-width: 220px; }
+    .urgency-text strong { display: block; font-size: 0.95rem; color: white; margin-bottom: 4px; }
+    .urgency-text span { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+    .urgency-cta { background: var(--green); color: var(--dark); text-decoration: none; padding: 0.65rem 1.4rem; border-radius: 7px; font-size: 0.84rem; font-weight: 700; white-space: nowrap; transition: all 0.2s; }
+    .urgency-cta:hover { background: var(--green2); }
+
+    /* SECTION */
+    .section { padding: clamp(4rem, 8vw, 6rem) 6vw; }
+    .section-eyebrow { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--green); margin-bottom: 0.75rem; }
+    .section-heading { font-size: clamp(1.75rem, 4vw, 2.8rem); font-weight: 700; color: white; line-height: 1.2; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .section-sub { font-family: 'Inter', sans-serif; font-size: 0.92rem; color: var(--muted); line-height: 1.75; max-width: 520px; margin-bottom: 2.5rem; }
+
+    /* WHY NOW */
+    .why-now { background: var(--navy2); }
+    .why-now-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+    .why-card { background: var(--navy); border: 1px solid var(--border); border-radius: 12px; padding: 1.75rem; }
+    .why-icon { font-size: 1.5rem; margin-bottom: 1rem; }
+    .why-title { font-size: 0.95rem; font-weight: 600; color: white; margin-bottom: 0.5rem; }
+    .why-desc { font-family: 'Inter', sans-serif; font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+    .why-stat { display: inline-flex; align-items: baseline; gap: 4px; background: rgba(0,200,83,0.08); border: 1px solid rgba(0,200,83,0.2); color: var(--green); padding: 0.3rem 0.7rem; border-radius: 6px; font-size: 0.75rem; font-weight: 700; margin-top: 0.75rem; }
+
+    /* PRICING */
+    .pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; max-width: 1000px; margin: 0 auto; }
+    .plan { background: var(--navy2); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; display: flex; flex-direction: column; position: relative; overflow: hidden; }
+    .plan.featured { border-color: var(--green); background: linear-gradient(160deg, rgba(0,200,83,0.06) 0%, var(--navy2) 60%); }
+    .plan-badge { position: absolute; top: 1.25rem; right: 1.25rem; background: var(--green); color: var(--dark); font-size: 0.65rem; font-weight: 700; padding: 0.25rem 0.65rem; border-radius: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+    .plan-name { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 0.75rem; }
+    .plan.featured .plan-name { color: var(--green); }
+    .plan-price { display: flex; align-items: baseline; gap: 4px; margin-bottom: 0.4rem; }
+    .plan-price-num { font-size: 2.8rem; font-weight: 700; color: white; letter-spacing: -0.03em; }
+    .plan-price-unit { font-family: 'Inter', sans-serif; font-size: 0.82rem; color: var(--muted); }
+    .plan-tagline { font-family: 'Inter', sans-serif; font-size: 0.83rem; color: var(--muted); margin-bottom: 1.75rem; line-height: 1.5; }
+    .plan-items { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2rem; flex: 1; }
+    .plan-item { display: flex; align-items: flex-start; gap: 0.6rem; font-family: 'Inter', sans-serif; font-size: 0.83rem; color: rgba(255,255,255,0.65); line-height: 1.5; }
+    .plan-item .chk { color: var(--green); flex-shrink: 0; margin-top: 1px; font-size: 0.75rem; }
+    .plan-item .no { color: var(--border); flex-shrink: 0; margin-top: 1px; font-size: 0.75rem; }
+    .plan-item.dim { color: rgba(255,255,255,0.25); }
+    .plan-cta { display: block; text-align: center; background: var(--border); color: rgba(255,255,255,0.7); text-decoration: none; padding: 0.85rem; border-radius: 9px; font-size: 0.87rem; font-weight: 700; transition: all 0.2s; }
+    .plan.featured .plan-cta { background: var(--green); color: var(--dark); }
+    .plan-cta:hover { transform: translateY(-1px); opacity: 0.9; }
+    .plan.featured .plan-cta:hover { box-shadow: 0 6px 20px rgba(0,200,83,0.3); }
+    .pricing-note { text-align: center; margin-top: 1.5rem; font-family: 'Inter', sans-serif; font-size: 0.78rem; color: var(--muted); }
+
+    /* CONTENTS GRID */
+    .contents { background: var(--navy2); }
+    .contents-header { display: grid; grid-template-columns: 1fr 1fr; gap: 4vw; align-items: start; margin-bottom: 2.5rem; }
+    .contents-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 0.75rem; }
+    .content-item { background: var(--navy); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 0.75rem; }
+    .content-emoji { font-size: 1.4rem; flex-shrink: 0; }
+    .content-name { font-size: 0.84rem; font-weight: 600; color: white; }
+    .content-qty { font-family: 'Inter', sans-serif; font-size: 0.74rem; color: var(--muted); margin-top: 2px; }
+    @media(max-width:680px){ .contents-header { grid-template-columns: 1fr; } }
+
+    /* GUARANTEE ROW */
+    .guarantee-row { display: flex; gap: 1rem; flex-wrap: wrap; padding: 2.5rem 6vw; background: var(--dark); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .guarantee-item { flex: 1; min-width: 180px; display: flex; align-items: center; gap: 0.75rem; }
+    .g-icon { width: 36px; height: 36px; border-radius: 9px; background: rgba(0,200,83,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: var(--green); }
+    .g-label { font-size: 0.8rem; font-weight: 600; color: white; }
+    .g-sub { font-family: 'Inter', sans-serif; font-size: 0.72rem; color: var(--muted); margin-top: 2px; }
+
+    /* FAQ */
+    .faq { background: var(--navy2); }
+    .faq-list { display: flex; flex-direction: column; gap: 1px; max-width: 720px; }
+    .faq-item { border: 1px solid var(--border); border-radius: 10px; overflow: hidden; margin-bottom: 0.5rem; }
+    .faq-q { display: flex; align-items: center; justify-content: space-between; padding: 1.1rem 1.5rem; cursor: pointer; font-size: 0.9rem; font-weight: 600; color: white; gap: 1rem; }
+    .faq-q:hover { background: rgba(255,255,255,0.03); }
+    .faq-q .arrow { flex-shrink: 0; transition: transform 0.2s; color: var(--muted); }
+    .faq-item.open .arrow { transform: rotate(180deg); }
+    .faq-a { display: none; padding: 0 1.5rem 1.25rem; font-family: 'Inter', sans-serif; font-size: 0.84rem; color: var(--muted); line-height: 1.7; }
+    .faq-item.open .faq-a { display: block; }
+
+    /* CTA FINAL */
+    .cta-section { background: linear-gradient(160deg, #051208 0%, var(--navy) 60%); padding: 5.5rem 6vw; text-align: center; border-top: 1px solid rgba(0,200,83,0.15); }
+    .cta-section h2 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 700; color: white; margin-bottom: 1rem; letter-spacing: -0.02em; }
+    .cta-section p { font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--muted); max-width: 460px; margin: 0 auto 2.5rem; line-height: 1.75; }
+    .cta-counter { display: inline-flex; align-items: center; gap: 12px; background: rgba(0,200,83,0.08); border: 1px solid rgba(0,200,83,0.2); color: var(--green); padding: 0.6rem 1.25rem; border-radius: 9999px; font-size: 0.8rem; font-weight: 700; margin-bottom: 2rem; }
+    .cta-blinker { width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: blink 1.2s infinite; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 2rem 6vw; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; border-top: 1px solid var(--border); }
+    .footer-brand { font-size: 1.05rem; font-weight: 700; color: white; }
+    .footer-meta { font-family: 'Inter', sans-serif; font-size: 0.74rem; color: rgba(255,255,255,0.3); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
+    @keyframes blink { 0%,100% { opacity: 1; } 50% { opacity: 0.2; } }
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <a href="#" class="nav-brand"><span class="lock">🔒</span> LockedIn</a>
+    <ul class="nav-links">
+      <li><a href="#why">Why now</a></li>
+      <li><a href="#bundles">Bundles</a></li>
+      <li><a href="#contents">What's inside</a></li>
+      <li><a href="#faq">FAQ</a></li>
+    </ul>
+    <a href="#bundles" class="nav-cta">Lock in my price</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-glow"></div>
+    <div class="hero-inner">
+      <div class="hero-badge">🛡️ Price guarantee · Cancel anytime</div>
+      <h1>Prices going up.<br><span class="accent">Your bill won't.</span></h1>
+      <p class="hero-sub">Monthly essential bundles delivered to your door at a price we lock in at sign-up. No silent price hikes. No surprise invoice. Just the same rate, month after month.</p>
+      <div class="hero-ctas">
+        <a href="#bundles" class="btn-green">See bundle prices →</a>
+        <a href="#contents" class="btn-outline">What's included</a>
+      </div>
+      <div class="hero-note">No contracts. Cancel online, anytime. Starts from €39/month.</div>
+    </div>
+  </section>
+
+  <!-- URGENCY BANNER -->
+  <div class="urgency-banner reveal">
+    <div class="urgency-icon">📈</div>
+    <div class="urgency-text">
+      <strong>Grocery prices up 18% since 2022 — and still rising</strong>
+      <span>Energy, fuel, and transport costs are feeding through into everyday goods. Locking in now means insulating yourself from the next wave of price increases.</span>
+    </div>
+    <a href="#bundles" class="urgency-cta">Lock in today</a>
+  </div>
+
+  <!-- WHY NOW -->
+  <section class="section why-now" id="why">
+    <div class="section-eyebrow">The case for locking in</div>
+    <h2 class="section-heading reveal">Why this is the right time</h2>
+    <p class="section-sub reveal">Supply chain stress, energy market turbulence, and currency pressure are pushing consumer prices up faster than wages. This is how you get ahead of it.</p>
+    <div class="why-now-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">⛽</div>
+        <div class="why-title">Oil prices driving costs</div>
+        <div class="why-desc">Transport and production costs are tied to fuel. When oil spikes, grocery prices follow within weeks. We buy in volume to absorb that spike for you.</div>
+        <div class="why-stat">+22% fuel costs in 2025</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🚢</div>
+        <div class="why-title">Global supply disruption</div>
+        <div class="why-desc">Shipping delays, port bottlenecks, and geopolitical tensions are causing unpredictable shortages. Local sourcing and pre-ordering hedges against this.</div>
+        <div class="why-stat">Shipping up 40% YoY</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">💸</div>
+        <div class="why-title">Inflation still running hot</div>
+        <div class="why-desc">Core inflation is above target in most markets. That means every month you don't lock in a price, you're likely paying more for the same thing next month.</div>
+        <div class="why-stat">CPI +6.1% annualised</div>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🔒</div>
+        <div class="why-title">Locking in is a financial move</div>
+        <div class="why-desc">Think of it like a fixed-rate mortgage for your grocery bill. Predictable, budgeable, and insulated from market volatility.</div>
+        <div class="why-stat">Avg. savings €18/mo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="section" id="bundles" style="text-align:center">
+    <div class="section-eyebrow">Choose your bundle</div>
+    <h2 class="section-heading reveal">One price. Every month. Guaranteed.</h2>
+    <p class="section-sub reveal" style="margin-inline:auto">Pick the bundle that fits your household. The price you see today is the price you pay for as long as you're subscribed.</p>
+    <div class="pricing-grid">
+      <div class="plan reveal">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><span class="plan-price-num">€39</span><span class="plan-price-unit">/month</span></div>
+        <div class="plan-tagline">For 1–2 people. Covers the basics — fridge and pantry staples.</div>
+        <div class="plan-items">
+          <div class="plan-item"><span class="chk">✓</span> 12 essential pantry items</div>
+          <div class="plan-item"><span class="chk">✓</span> Weekly milk delivery (4 × 2L)</div>
+          <div class="plan-item"><span class="chk">✓</span> Eggs (2 dozen/month)</div>
+          <div class="plan-item"><span class="chk">✓</span> Bread (3 loaves/month)</div>
+          <div class="plan-item"><span class="chk">✓</span> Free local delivery</div>
+          <div class="plan-item dim"><span class="no">✕</span> Premium extras</div>
+          <div class="plan-item dim"><span class="no">✕</span> Household cleaning</div>
+        </div>
+        <a href="#" class="plan-cta">Start Starter bundle</a>
+      </div>
+      <div class="plan featured reveal">
+        <div class="plan-badge">Most popular</div>
+        <div class="plan-name">Family</div>
+        <div class="plan-price"><span class="plan-price-num">€69</span><span class="plan-price-unit">/month</span></div>
+        <div class="plan-tagline">For 3–5 people. Groceries, cleaning, and household staples — all covered.</div>
+        <div class="plan-items">
+          <div class="plan-item"><span class="chk">✓</span> 28 essential pantry items</div>
+          <div class="plan-item"><span class="chk">✓</span> Weekly milk (8 × 2L)</div>
+          <div class="plan-item"><span class="chk">✓</span> Eggs (4 dozen/month)</div>
+          <div class="plan-item"><span class="chk">✓</span> Bread (6 loaves/month)</div>
+          <div class="plan-item"><span class="chk">✓</span> Cleaning & household bundle</div>
+          <div class="plan-item"><span class="chk">✓</span> Free priority delivery</div>
+          <div class="plan-item"><span class="chk">✓</span> Optional add-ons</div>
+        </div>
+        <a href="#" class="plan-cta">Start Family bundle</a>
+      </div>
+      <div class="plan reveal">
+        <div class="plan-name">Community</div>
+        <div class="plan-price"><span class="plan-price-num">€119</span><span class="plan-price-unit">/month</span></div>
+        <div class="plan-tagline">For groups, shared houses, or small offices. Maximum value per item.</div>
+        <div class="plan-items">
+          <div class="plan-item"><span class="chk">✓</span> Everything in Family</div>
+          <div class="plan-item"><span class="chk">✓</span> Double quantities on all items</div>
+          <div class="plan-item"><span class="chk">✓</span> Bulk dry goods (rice, pasta, etc.)</div>
+          <div class="plan-item"><span class="chk">✓</span> Free bi-weekly delivery</div>
+          <div class="plan-item"><span class="chk">✓</span> Custom item swaps available</div>
+          <div class="plan-item"><span class="chk">✓</span> Dedicated account manager</div>
+          <div class="plan-item"><span class="chk">✓</span> Locked price for 24 months</div>
+        </div>
+        <a href="#" class="plan-cta">Start Community bundle</a>
+      </div>
+    </div>
+    <p class="pricing-note reveal">All prices are locked at sign-up date. Price guarantee subject to <a href="#" style="color:var(--muted)">fair use terms</a>. Cancel at any time for free.</p>
+  </section>
+
+  <!-- WHAT'S INSIDE -->
+  <section class="section contents" id="contents">
+    <div class="section-eyebrow">Bundle contents</div>
+    <div class="contents-header">
+      <div>
+        <h2 class="section-heading reveal">What's in the Family bundle</h2>
+        <p class="section-sub reveal" style="margin-bottom:0">28 carefully chosen essentials, sourced locally where possible and priced at today's rate — forever.</p>
+      </div>
+      <div class="reveal" style="padding-top:1rem">
+        <p style="font-family:'Inter',sans-serif;font-size:0.82rem;color:var(--muted);line-height:1.7">Items rotate slightly by season but always from the same categories. You'll always get the same quantity — we swap like-for-like if a product is unavailable.</p>
+      </div>
+    </div>
+    <div class="contents-grid">
+      <div class="content-item reveal"><div class="content-emoji">🥛</div><div><div class="content-name">Full-fat milk</div><div class="content-qty">8 × 2L per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🥚</div><div><div class="content-name">Free-range eggs</div><div class="content-qty">4 dozen per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🍞</div><div><div class="content-name">Sliced pan</div><div class="content-qty">6 loaves per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🧈</div><div><div class="content-name">Butter (250g)</div><div class="content-qty">4 blocks per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🍚</div><div><div class="content-name">Long-grain rice (2kg)</div><div class="content-qty">2 bags per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🍝</div><div><div class="content-name">Pasta (500g)</div><div class="content-qty">4 packs per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🥫</div><div><div class="content-name">Tinned tomatoes</div><div class="content-qty">8 tins per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🫘</div><div><div class="content-name">Mixed beans (400g)</div><div class="content-qty">6 tins per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🧻</div><div><div class="content-name">Toilet rolls</div><div class="content-qty">18 rolls per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🧼</div><div><div class="content-name">Washing up liquid</div><div class="content-qty">2 × 500ml per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">☕</div><div><div class="content-name">Coffee (200g)</div><div class="content-qty">2 jars per month</div></div></div>
+      <div class="content-item reveal"><div class="content-emoji">🧹</div><div><div class="content-name">All-purpose cleaner</div><div class="content-qty">2 bottles per month</div></div></div>
+    </div>
+  </section>
+
+  <!-- GUARANTEE ROW -->
+  <div class="guarantee-row">
+    <div class="guarantee-item reveal">
+      <div class="g-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+      <div><div class="g-label">Price guarantee</div><div class="g-sub">Your rate is locked at sign-up</div></div>
+    </div>
+    <div class="guarantee-item reveal">
+      <div class="g-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+      <div><div class="g-label">No commitment</div><div class="g-sub">Cancel any time, no fees</div></div>
+    </div>
+    <div class="guarantee-item reveal">
+      <div class="g-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+      <div><div class="g-label">Local delivery</div><div class="g-sub">Delivered within 25km</div></div>
+    </div>
+    <div class="guarantee-item reveal">
+      <div class="g-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+      <div><div class="g-label">Replacement guarantee</div><div class="g-sub">Missing item? We replace it</div></div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <section class="section faq" id="faq">
+    <div class="section-eyebrow">Common questions</div>
+    <h2 class="section-heading reveal">FAQ</h2>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How exactly does the price lock work?
+          <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">When you sign up, we record your bundle price. That price will not increase as long as your subscription is active, regardless of what happens to our underlying costs. We absorb standard market movements — you only ever pay your locked-in rate.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          Can I change the items in my bundle?
+          <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">Community bundle subscribers can request up to 4 item swaps per month at no charge. Starter and Family bundle holders can swap 1 item per month. Some premium substitutions may have a small additional charge.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          How do I cancel?
+          <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">You can cancel at any time from your account page. There are no cancellation fees, no notice period for month-to-month plans, and no retention pressure. If you cancel mid-month, we'll still deliver your current month's bundle.</div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-q" onclick="this.parentElement.classList.toggle('open')">
+          What's your delivery area?
+          <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </div>
+        <div class="faq-a">We deliver within 25km of our base in Millbrook. If you're outside that radius, enter your postcode at checkout and we'll confirm availability. We're expanding the delivery area every quarter.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="cta-section">
+    <div class="cta-counter"><div class="cta-blinker"></div> 43 people locked in their price this week</div>
+    <h2>Stop watching prices rise.</h2>
+    <p>Lock in today's price and start your first bundle delivery this week. No commitment. No surprises. Just stable, predictable groceries.</p>
+    <a href="#bundles" class="btn-green" style="display:inline-flex;font-size:1rem;padding:1rem 2.25rem">Lock in my price now →</a>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-brand">🔒 LockedIn</div>
+      <div class="footer-meta">Price-stable essentials · Millbrook · hello@lockedin.ie</div>
+    </div>
+    <div class="footer-meta">© 2025 LockedIn Bundles Ltd · All rights reserved</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.08 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>

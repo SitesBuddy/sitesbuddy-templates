@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Greenfield Farm — Fresh From Our Fields</title>
+  <meta name="description" content="Order seasonal produce, eggs, and farm goods directly from us. Pick-up every Saturday.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    :root {
+      --green:   #1d3a28;
+      --sage:    #4a7c59;
+      --amber:   #c8711a;
+      --cream:   #f5f0e5;
+      --warm:    #fdf9f2;
+      --dark:    #1a1a18;
+      --muted:   #6b6b58;
+      --border:  rgba(29,58,40,0.15);
+    }
+    body { font-family: 'Inter', system-ui, sans-serif; background: var(--warm); color: var(--dark); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 0 6vw; height: 64px; background: var(--green); }
+    .nav-brand { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 600; color: var(--cream); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: rgba(245,240,229,0.7); text-decoration: none; font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--cream); }
+    .nav-order { background: var(--amber); color: white; text-decoration: none; padding: 0.5rem 1.25rem; border-radius: 6px; font-size: 0.85rem; font-weight: 600; transition: all 0.2s; }
+    .nav-order:hover { background: #b06218; transform: translateY(-1px); }
+    @media(max-width:640px) { .nav-links { display: none; } }
+
+    /* HERO */
+    .hero { min-height: 92vh; display: flex; align-items: center; background: var(--green); padding: 100px 6vw 6vw; position: relative; overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 50%, rgba(74,124,89,0.35) 0%, transparent 70%); pointer-events: none; }
+    .hero-content { position: relative; z-index: 1; max-width: 640px; animation: fadeUp 0.9s ease both; }
+    .hero-tag { display: inline-flex; align-items: center; gap: 8px; background: rgba(200,113,26,0.15); border: 1px solid rgba(200,113,26,0.3); color: #e8953a; padding: 0.35rem 0.9rem; border-radius: 9999px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 2rem; }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #e8953a; animation: pulse 2s infinite; }
+    .hero-h1 { font-family: 'Playfair Display', serif; font-size: clamp(2.8rem, 6vw, 5rem); font-weight: 700; color: var(--cream); line-height: 1.05; margin-bottom: 1.5rem; }
+    .hero-h1 em { font-style: italic; color: #d4956a; }
+    .hero-sub { font-size: 1.05rem; color: rgba(245,240,229,0.65); line-height: 1.75; max-width: 480px; margin-bottom: 2.5rem; }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-primary { display: inline-flex; align-items: center; gap: 8px; background: var(--amber); color: white; text-decoration: none; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: all 0.2s; }
+    .btn-primary:hover { background: #b06218; transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,113,26,0.35); }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; background: transparent; color: var(--cream); text-decoration: none; padding: 0.9rem 2rem; border-radius: 8px; font-weight: 600; font-size: 0.9rem; border: 1px solid rgba(245,240,229,0.3); transition: all 0.2s; }
+    .btn-outline:hover { background: rgba(245,240,229,0.08); border-color: rgba(245,240,229,0.6); }
+    .hero-stats { display: flex; gap: 3rem; margin-top: 4rem; padding-top: 2.5rem; border-top: 1px solid rgba(245,240,229,0.12); animation: fadeUp 0.9s 0.3s ease both; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--cream); display: block; }
+    .stat-label { font-size: 0.78rem; color: rgba(245,240,229,0.5); margin-top: 2px; letter-spacing: 0.04em; }
+
+    /* HARVEST SECTION */
+    .section { padding: clamp(4rem, 8vw, 7rem) 6vw; }
+    .section-eyebrow { font-family: 'Inter', sans-serif; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--amber); margin-bottom: 1rem; }
+    .section-heading { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; color: var(--dark); line-height: 1.2; margin-bottom: 1rem; }
+    .section-sub { font-size: 1rem; color: var(--muted); line-height: 1.7; max-width: 520px; margin-bottom: 3rem; }
+    .harvest-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.25rem; }
+    .harvest-card { background: white; border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: all 0.25s; }
+    .harvest-card:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(29,58,40,0.12); border-color: var(--sage); }
+    .harvest-thumb { height: 160px; background: linear-gradient(135deg, #c8e6c9, #a5d6a7); display: flex; align-items: center; justify-content: center; font-size: 3rem; }
+    .harvest-info { padding: 1.25rem; }
+    .harvest-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+    .badge-fresh { background: rgba(29,58,40,0.08); color: var(--green); }
+    .badge-limited { background: rgba(200,113,26,0.1); color: var(--amber); }
+    .badge-seasonal { background: rgba(74,124,89,0.1); color: var(--sage); }
+    .harvest-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 600; color: var(--dark); margin-bottom: 0.35rem; }
+    .harvest-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.55; margin-bottom: 1rem; }
+    .harvest-price { font-size: 1rem; font-weight: 700; color: var(--dark); }
+    .harvest-price span { font-size: 0.78rem; font-weight: 400; color: var(--muted); margin-left: 4px; }
+
+    /* HOW IT WORKS */
+    .how { background: var(--cream); }
+    .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 2rem; margin-top: 3rem; }
+    .step { display: flex; flex-direction: column; gap: 1rem; }
+    .step-num { width: 48px; height: 48px; border-radius: 12px; background: var(--green); color: var(--cream); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; flex-shrink: 0; }
+    .step-title { font-size: 1rem; font-weight: 700; color: var(--dark); }
+    .step-desc { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* INFO BAND */
+    .info-band { background: var(--green); padding: 3.5rem 6vw; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+    .info-item { display: flex; gap: 1rem; align-items: flex-start; }
+    .info-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(245,240,229,0.1); display: flex; align-items: center; justify-content: center; flex-shrink: 0; color: #d4956a; }
+    .info-label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: rgba(245,240,229,0.5); margin-bottom: 0.35rem; }
+    .info-value { font-size: 0.95rem; font-weight: 600; color: var(--cream); line-height: 1.4; }
+
+    /* ABOUT */
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 5vw; align-items: center; }
+    .about-img { border-radius: 20px; background: linear-gradient(140deg, #2e5e3e, #4a7c59); aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center; font-size: 5rem; }
+    .about-quote { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 2.5vw, 1.6rem); font-style: italic; color: var(--dark); line-height: 1.5; margin-bottom: 1.5rem; }
+    .about-text { font-size: 0.9rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.75rem; }
+    .about-sig { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: var(--green); }
+    @media(max-width:720px) { .about { grid-template-columns: 1fr; } .about-img { order: -1; } }
+
+    /* REVIEWS */
+    .reviews { background: var(--cream); }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.25rem; }
+    .review { background: white; border: 1px solid var(--border); border-radius: 14px; padding: 1.75rem; }
+    .review-stars { color: var(--amber); font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1rem; }
+    .review-text { font-size: 0.9rem; color: var(--dark); line-height: 1.7; margin-bottom: 1.25rem; font-style: italic; }
+    .review-author { font-size: 0.82rem; font-weight: 600; color: var(--dark); }
+    .review-location { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+
+    /* ORDER CTA */
+    .cta { background: var(--green); text-align: center; padding: clamp(5rem, 8vw, 8rem) 6vw; }
+    .cta h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.5rem); color: var(--cream); margin-bottom: 0.75rem; }
+    .cta h2 em { font-style: italic; color: #d4956a; }
+    .cta p { font-size: 1rem; color: rgba(245,240,229,0.6); max-width: 440px; margin: 0 auto 2.5rem; line-height: 1.7; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* FOOTER */
+    footer { background: var(--dark); padding: 3rem 6vw 2rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+    .footer-brand { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-style: italic; color: var(--cream); }
+    .footer-note { font-size: 0.78rem; color: rgba(245,240,229,0.35); margin-top: 4px; }
+    .footer-live { display: flex; align-items: center; gap: 8px; font-size: 0.72rem; color: rgba(245,240,229,0.4); letter-spacing: 0.05em; }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: #4caf7d; animation: pulse 2s infinite; }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+  </style>
+</head>
+<body>
+
+  <nav class="nav">
+    <a href="#" class="nav-brand">Greenfield Farm</a>
+    <ul class="nav-links">
+      <li><a href="#harvest">This Week</a></li>
+      <li><a href="#how">How It Works</a></li>
+      <li><a href="#about">Our Story</a></li>
+    </ul>
+    <a href="#order" class="nav-order">Order Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div class="hero-tag">Pickup every Saturday · Now taking orders</div>
+      <h1 class="hero-h1">Farm-fresh food,<br><em>straight to your table.</em></h1>
+      <p class="hero-sub">Skip the supermarket. Order directly from our farm and pick up your seasonal box every Saturday morning. Grown without compromise, delivered with care.</p>
+      <div class="hero-actions">
+        <a href="#order" class="btn-primary">Order this week's box →</a>
+        <a href="#harvest" class="btn-outline">See what's growing</a>
+      </div>
+      <div class="hero-stats">
+        <div><span class="stat-num">12+</span><span class="stat-label">Years farming</span></div>
+        <div><span class="stat-num">340</span><span class="stat-label">Families served</span></div>
+        <div><span class="stat-num">100%</span><span class="stat-label">No pesticides</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THIS WEEK'S HARVEST -->
+  <section class="section" id="harvest">
+    <div class="section-eyebrow">This week · May 2026</div>
+    <h2 class="section-heading reveal">What's ready in the fields</h2>
+    <p class="section-sub reveal">Everything below was either picked yesterday or will be harvested the morning of pickup. No cold-storage, no long supply chains.</p>
+    <div class="harvest-grid">
+      <div class="harvest-card reveal">
+        <div class="harvest-thumb">🥬</div>
+        <div class="harvest-info">
+          <span class="harvest-badge badge-fresh">Fresh today</span>
+          <div class="harvest-name">Mixed Salad Greens</div>
+          <div class="harvest-desc">Butterhead, rocket, red leaf — a hand-mixed bag of whatever's best this week.</div>
+          <div class="harvest-price">€3.50 <span>/ 200g bag</span></div>
+        </div>
+      </div>
+      <div class="harvest-card reveal">
+        <div class="harvest-thumb">🥕</div>
+        <div class="harvest-info">
+          <span class="harvest-badge badge-seasonal">Seasonal</span>
+          <div class="harvest-name">Baby Carrots</div>
+          <div class="harvest-desc">Young and sweet. These go fast — first-come, first-served at pickup.</div>
+          <div class="harvest-price">€2.80 <span>/ 500g bunch</span></div>
+        </div>
+      </div>
+      <div class="harvest-card reveal">
+        <div class="harvest-thumb">🥚</div>
+        <div class="harvest-info">
+          <span class="harvest-badge badge-limited">Limited</span>
+          <div class="harvest-name">Free-Range Eggs</div>
+          <div class="harvest-desc">Our hens roam the orchard all day. Six eggs per customer to keep it fair.</div>
+          <div class="harvest-price">€4.20 <span>/ half-dozen</span></div>
+        </div>
+      </div>
+      <div class="harvest-card reveal">
+        <div class="harvest-thumb">🧅</div>
+        <div class="harvest-info">
+          <span class="harvest-badge badge-fresh">Fresh today</span>
+          <div class="harvest-name">Spring Onions</div>
+          <div class="harvest-desc">Mild and vibrant. Great raw in salads or in a quick stir-fry.</div>
+          <div class="harvest-price">€1.80 <span>/ bunch</span></div>
+        </div>
+      </div>
+      <div class="harvest-card reveal">
+        <div class="harvest-thumb">🌿</div>
+        <div class="harvest-info">
+          <span class="harvest-badge badge-seasonal">Seasonal</span>
+          <div class="harvest-name">Fresh Herbs Bundle</div>
+          <div class="harvest-desc">Basil, flat-leaf parsley, and chives. Cut to order on pickup day.</div>
+          <div class="harvest-price">€2.50 <span>/ bundle</span></div>
+        </div>
+      </div>
+      <div class="harvest-card reveal">
+        <div class="harvest-thumb">🧄</div>
+        <div class="harvest-info">
+          <span class="harvest-badge badge-limited">Ends this month</span>
+          <div class="harvest-name">New Season Garlic</div>
+          <div class="harvest-desc">Freshly cured and ready. Milder than dried, perfect for everything.</div>
+          <div class="harvest-price">€3.00 <span>/ 3-head bag</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section how" id="how">
+    <div class="section-eyebrow">Simple process</div>
+    <h2 class="section-heading reveal">How to get your order</h2>
+    <p class="section-sub reveal">No subscription required. Order what you want, pick it up Saturday, come back whenever you like.</p>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">1</div>
+        <div>
+          <div class="step-title">Place your order by Thursday night</div>
+          <div class="step-desc">Browse what's available this week and submit your order before midnight Thursday. Orders placed after that go to the following week.</div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">2</div>
+        <div>
+          <div class="step-title">We harvest and pack on Friday</div>
+          <div class="step-desc">Your order is picked fresh on Friday morning and packed into labelled bags. Nothing sits around — it's timed for peak freshness.</div>
+        </div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">3</div>
+        <div>
+          <div class="step-title">Collect Saturday 8am–12pm</div>
+          <div class="step-desc">Come to the farm gate at your convenience Saturday morning. Cash or card welcome. Bring your own bags if you can.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO BAND -->
+  <div class="info-band">
+    <div class="info-item reveal">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div>
+        <div class="info-label">Pickup hours</div>
+        <div class="info-value">Saturday 8am–12pm</div>
+      </div>
+    </div>
+    <div class="info-item reveal">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <div>
+        <div class="info-label">Location</div>
+        <div class="info-value">123 Farm Lane, Millbrook</div>
+      </div>
+    </div>
+    <div class="info-item reveal">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.22h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.96a16 16 0 0 0 6.13 6.13l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      </div>
+      <div>
+        <div class="info-label">Questions</div>
+        <div class="info-value">+353 87 000 0000</div>
+      </div>
+    </div>
+    <div class="info-item reveal">
+      <div class="info-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </div>
+      <div>
+        <div class="info-label">Order by email / WhatsApp</div>
+        <div class="info-value">farm@greenfield.ie</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="about">
+      <div class="about-img">🌾</div>
+      <div>
+        <div class="section-eyebrow">Our story</div>
+        <blockquote class="about-quote reveal">"We got tired of eating food that had been on a truck for three days. So we started growing our own — and then our neighbours wanted some too."</blockquote>
+        <p class="about-text reveal">Greenfield Farm started as a hobby plot in 2014. Today we grow on 4 acres, raise a small flock of hens, and sell directly to families in the area every Saturday. No middlemen, no cold storage, no compromise on quality.</p>
+        <p class="about-text reveal">We grow using traditional and sustainable methods — no synthetic pesticides, no artificial fertilisers. Just good soil, good seed, and good timing.</p>
+        <div class="about-sig reveal">— Tom & Aoife, Greenfield Farm</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="section reviews">
+    <div class="section-eyebrow">What customers say</div>
+    <h2 class="section-heading reveal">People love the difference</h2>
+    <div class="reviews-grid" style="margin-top:2.5rem">
+      <div class="review reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The tomatoes this summer were incredible. Nothing in the supermarket comes close. We've been ordering every week since July."</p>
+        <div class="review-author">Sarah M.</div>
+        <div class="review-location">Millbrook village</div>
+      </div>
+      <div class="review reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I love that I know exactly where my food comes from. The kids now actually look forward to vegetables — I never thought I'd say that."</p>
+        <div class="review-author">Declan F.</div>
+        <div class="review-location">Castlewood</div>
+      </div>
+      <div class="review reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"The eggs alone are worth the trip. Rich orange yolks, completely different to shop eggs. We won't buy from anywhere else now."</p>
+        <div class="review-author">Claire O'S.</div>
+        <div class="review-location">Upper Millbrook</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORDER CTA -->
+  <section class="cta" id="order">
+    <h2 class="reveal">Order this week's<br><em>harvest now.</em></h2>
+    <p class="reveal">Orders close Thursday midnight. Saturday pickup 8am–12pm. Pay at the gate — cash or card.</p>
+    <div class="cta-actions">
+      <a href="mailto:farm@greenfield.ie?subject=Order%20this%20week" class="btn-primary reveal">Email your order →</a>
+      <a href="tel:+353870000000" class="btn-outline reveal">Call us to order</a>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <div class="footer-brand">Greenfield Farm</div>
+      <div class="footer-note">123 Farm Lane, Millbrook · farm@greenfield.ie</div>
+    </div>
+    <div class="footer-live"><div class="live-dot"></div>Taking orders for this Saturday</div>
+  </footer>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => io.observe(el));
+  </script>
+</body>
+</html>
