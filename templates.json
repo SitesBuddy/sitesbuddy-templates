@@ -76,6 +76,7 @@
 		"html": "templates/bandcamp-discography/template.html",
 		"prompt": "templates/bandcamp-discography/prompt.md"
 	},
+	{
 			"id": "bandcamp-discography",
 		"name": "Bandcamp Discography",
 		"category": "Music",
