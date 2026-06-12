@@ -11,6 +11,28 @@
 		"prompt": "templates/midnight-luxe/prompt.md"
 	},
 	{
+		"id": "midnight-luxe",
+		"name": "Midnight Luxe",
+		"category": "Landing Page",
+		"description": "Premium dark editorial landing page - exclusive, high-end",
+		"version": "1.0.0",
+		"tags": ["dark", "luxury", "editorial", "minimal", "premium"],
+		"thumbnail": "templates/midnight-luxe/preview.jpg",
+		"html": "templates/midnight-luxe/template.html",
+		"prompt": "templates/midnight-luxe/prompt.md"
+	},
+	{
+		"id": "midnight-luxe",
+		"name": "Midnight Luxe",
+		"category": "Landing Page",
+		"description": "Premium dark editorial landing page - exclusive, high-end",
+		"version": "1.0.0",
+		"tags": ["dark", "luxury", "editorial", "minimal", "premium"],
+		"thumbnail": "templates/midnight-luxe/preview.jpg",
+		"html": "templates/midnight-luxe/template.html",
+		"prompt": "templates/midnight-luxe/prompt.md"
+	},
+	{
 		"id": "organic-tech",
 		"name": "Organic Tech",
 		"category": "Landing Page",
