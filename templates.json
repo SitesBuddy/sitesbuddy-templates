@@ -76,6 +76,16 @@
 		"html": "templates/bandcamp-discography/template.html",
 		"prompt": "templates/bandcamp-discography/prompt.md"
 	},
+			"id": "bandcamp-discography",
+		"name": "Bandcamp Discography",
+		"category": "Music",
+		"description": "Dark music discography page — album grid with detail view",
+		"version": "1.0.0",
+		"tags": ["music", "bandcamp", "dark", "discography", "albums", "artist"],
+		"thumbnail": "templates/bandcamp-discography/preview.jpg",
+		"html": "templates/bandcamp-discography/template.html",
+		"prompt": "templates/bandcamp-discography/prompt.md"
+	},
 	{
 		"id": "farm-direct",
 		"name": "Farm Direct",
