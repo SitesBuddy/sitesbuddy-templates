@@ -77,28 +77,6 @@
 		"prompt": "templates/bandcamp-discography/prompt.md"
 	},
 	{
-			"id": "bandcamp-discography",
-		"name": "Bandcamp Discography",
-		"category": "Music",
-		"description": "Dark music discography page — album grid with detail view",
-		"version": "1.0.0",
-		"tags": ["music", "bandcamp", "dark", "discography", "albums", "artist"],
-		"thumbnail": "templates/bandcamp-discography/preview.jpg",
-		"html": "templates/bandcamp-discography/template.html",
-		"prompt": "templates/bandcamp-discography/prompt.md"
-	},
-	{
-		"id": "farm-direct",
-		"name": "Farm Direct",
-		"category": "Local Business",
-		"description": "Farm-to-table sales page — seasonal produce, eggs, CSA pickup",
-		"version": "1.0.0",
-		"tags": ["farm", "local", "food", "seasonal", "earthy", "green", "produce"],
-		"thumbnail": "templates/farm-direct/preview.jpg",
-		"html": "templates/farm-direct/template.html",
-		"prompt": "templates/farm-direct/prompt.md"
-	},
-	{
 		"id": "local-essentials",
 		"name": "Local Essentials",
 		"category": "Local Business",
