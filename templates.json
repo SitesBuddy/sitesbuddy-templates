@@ -145,7 +145,7 @@
 	{
 		"id": "rock-band-live-2008",
 		"name": "Rock Band Live 2008",
-		"category": "Live Music & Events",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A ticket-selling rock band site with live photography, new release, video, tour dates, merch, and social links.",
 		"version": "1.0.0",
 		"tags": ["rock", "band", "tickets", "tour", "merch", "music"],
@@ -156,7 +156,7 @@
 	{
 		"id": "dj-residency-2008",
 		"name": "DJ Residency 2008",
-		"category": "Live Music & Events",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A recurring DJ night with guest-list CTA, venue detail, mixes, timetable, partners, and social links.",
 		"version": "1.0.0",
 		"tags": ["dj", "club", "guest-list", "residency", "nightlife", "music"],
@@ -167,7 +167,7 @@
 	{
 		"id": "goa-festival-2008",
 		"name": "Goa Festival 2008",
-		"category": "Live Music & Events",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A destination festival site with passes, lineup, stage timetable, stay and travel guide, media, and social links.",
 		"version": "1.0.0",
 		"tags": ["festival", "goa", "passes", "lineup", "travel", "electronic"],
@@ -178,7 +178,7 @@
 	{
 		"id": "top-friends-2005",
 		"name": "Top Friends 2005",
-		"category": "Retro Profiles",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A MySpace-era identity page with Top Friends, music and a guestbook. People loved making the page look and sound like them.",
 		"version": "1.0.0",
 		"tags": ["retro", "myspace-era", "profile", "top-friends", "guestbook", "personal"],
@@ -189,7 +189,7 @@
 	{
 		"id": "garage-band-2006",
 		"name": "Garage Band 2006",
-		"category": "Retro Profiles",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A MySpace-era band page with music, show dates and fan comments. It gave music scenes a home before algorithmic feeds.",
 		"version": "1.0.0",
 		"tags": ["retro", "myspace-era", "band", "music", "shows", "comments"],
@@ -200,7 +200,7 @@
 	{
 		"id": "dj-profile-2008",
 		"name": "DJ Profile 2008",
-		"category": "Retro Profiles",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A MySpace-era DJ profile with mixes, flyers and a guest wall. It worked as a digital flyer, playlist and crew board in one place.",
 		"version": "1.0.0",
 		"tags": ["retro", "myspace-era", "dj", "mixes", "nightlife", "guestbook"],
@@ -211,7 +211,7 @@
 	{
 		"id": "indie-artist-2007",
 		"name": "Indie Artist 2007",
-		"category": "Retro Profiles",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A handmade artist profile with demos, a release, journal notes and collaborators. Fans used pages like this to discover scenes through taste.",
 		"version": "1.0.0",
 		"tags": ["retro", "myspace-era", "indie", "artist", "music", "journal"],
@@ -222,7 +222,7 @@
 	{
 		"id": "nightclub-profile-2006",
 		"name": "Nightclub Profile 2006",
-		"category": "Retro Profiles",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A nightlife profile with events, tickets, video, a playlist and a venue wall. It turns a club page into a shareable digital flyer.",
 		"version": "1.0.0",
 		"tags": ["retro", "myspace-era", "club", "events", "tickets", "nightlife"],
@@ -233,7 +233,7 @@
 	{
 		"id": "mega-festival-2007",
 		"name": "Mega Festival 2007",
-		"category": "Retro Profiles",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "A huge festival profile with lineup, stages, trailer, playlist and guide. The era made event pages feel like an invitation into a scene.",
 		"version": "1.0.0",
 		"tags": ["retro", "myspace-era", "festival", "lineup", "stages", "event"],
@@ -244,7 +244,7 @@
 	{
 		"id": "turntable-dj-2008",
 		"name": "Turntable DJ 2008",
-		"category": "Retro Profiles",
+		"category": "Retro MySpace Inspired Pages",
 		"description": "An underground DJ profile with mixes, dates, booth photos, gear and crew. It keeps the personal, hand-curated feel people loved.",
 		"version": "1.0.0",
 		"tags": ["retro", "myspace-era", "dj", "turntables", "mixes", "crew"],
