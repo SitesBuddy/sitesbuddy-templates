@@ -295,5 +295,125 @@
 		"thumbnail": "templates/pop-fan-club-2004/preview.jpg",
 		"html": "templates/pop-fan-club-2004/index.html",
 		"preview": { "background": "#8bd9ff", "surface": "#ffffff", "accent": "#287be8", "highlight": "#ffe05d", "layout": "profile" }
+	},
+{
+	"id": "kindergarten-family-hq-2005",
+	"name": "Kindergarten Family HQ",
+	"category": "Retro MySpace Inspired Pages",
+	"description": "A warm parent-update page for a kindergarten class, with daily rhythm, reminders, family notes and upcoming dates.",
+	"version": "1.0.0",
+	"tags": [
+		"retro",
+		"myspace-era",
+		"kindergarten",
+		"parents",
+		"school",
+		"classroom"
+	],
+	"thumbnail": "templates/kindergarten-family-hq-2005/preview.jpg",
+	"html": "templates/kindergarten-family-hq-2005/index.html",
+	"preview": {
+		"background": "#fff8ea",
+		"surface": "#fffdf7",
+		"accent": "#59a8e8",
+		"highlight": "#ffb52b",
+		"layout": "profile"
 	}
+},
+{
+	"id": "platformer-crew-1992",
+	"name": "Platformer Crew",
+	"category": "Retro MySpace Inspired Pages",
+	"description": "A pixel-arcade gaming profile for speedruns, level routes, crew roles and live stream updates.",
+	"version": "1.0.0",
+	"tags": [
+		"retro",
+		"myspace-era",
+		"gaming",
+		"platformer",
+		"streaming",
+		"arcade"
+	],
+	"thumbnail": "templates/platformer-crew-1992/preview.jpg",
+	"html": "templates/platformer-crew-1992/index.html",
+	"preview": {
+		"background": "#111d48",
+		"surface": "#07122c",
+		"accent": "#6ee7ff",
+		"highlight": "#ffe447",
+		"layout": "profile"
+	}
+},
+{
+	"id": "maze-arcade-1983",
+	"name": "Maze Arcade",
+	"category": "Retro MySpace Inspired Pages",
+	"description": "A maze-chase arcade profile for leaderboards, route cards, run roles and stream updates.",
+	"version": "1.0.0",
+	"tags": [
+		"retro",
+		"myspace-era",
+		"gaming",
+		"arcade",
+		"leaderboard",
+		"streaming"
+	],
+	"thumbnail": "templates/maze-arcade-1983/preview.jpg",
+	"html": "templates/maze-arcade-1983/index.html",
+	"preview": {
+		"background": "#07112a",
+		"surface": "#07122c",
+		"accent": "#1be7ff",
+		"highlight": "#ffe447",
+		"layout": "profile"
+	}
+},
+{
+	"id": "science-lab-2007",
+	"name": "Science Lab",
+	"category": "Retro MySpace Inspired Pages",
+	"description": "A classroom science page with investigation plans, notebook prompts, safety reminders and family material notes.",
+	"version": "1.0.0",
+	"tags": [
+		"retro",
+		"myspace-era",
+		"science",
+		"teacher",
+		"classroom",
+		"school"
+	],
+	"thumbnail": "templates/science-lab-2007/preview.jpg",
+	"html": "templates/science-lab-2007/index.html",
+	"preview": {
+		"background": "#eafffa",
+		"surface": "#effffc",
+		"accent": "#0a9d9a",
+		"highlight": "#c9ff5a",
+		"layout": "profile"
+	}
+},
+{
+	"id": "classroom-hq-2006",
+	"name": "Classroom HQ",
+	"category": "Retro MySpace Inspired Pages",
+	"description": "A family-friendly classroom page with daily schedule, learning updates, reminders and parent notes.",
+	"version": "1.0.0",
+	"tags": [
+		"retro",
+		"myspace-era",
+		"teacher",
+		"classroom",
+		"parents",
+		"school"
+	],
+	"thumbnail": "templates/classroom-hq-2006/preview.jpg",
+	"html": "templates/classroom-hq-2006/index.html",
+	"preview": {
+		"background": "#f4f8ff",
+		"surface": "#fffdfa",
+		"accent": "#3178cf",
+		"highlight": "#ffe469",
+		"layout": "profile"
+	}
+}
 ]
