@@ -251,5 +251,49 @@
 		"thumbnail": "templates/turntable-dj-2008/preview.jpg",
 		"html": "templates/turntable-dj-2008/index.html",
 		"preview": { "background": "#020806", "surface": "#0a1d18", "accent": "#87ff38", "highlight": "#3aa7ff", "layout": "profile" }
+	},
+	{
+		"id": "y2k-pop-2004",
+		"name": "Y2K Pop 2004",
+		"category": "Retro MySpace Inspired Pages",
+		"description": "A glossy Y2K profile with a dreamy pink background, translucent cards, favorite links and a tiny personal blog.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "y2k", "pop", "personal", "blog"],
+		"thumbnail": "templates/y2k-pop-2004/preview.jpg",
+		"html": "templates/y2k-pop-2004/index.html",
+		"preview": { "background": "#e8c9ff", "surface": "#ffffff", "accent": "#ff218c", "highlight": "#49cbff", "layout": "profile" }
+	},
+	{
+		"id": "cyber-angel-2002",
+		"name": "Cyber Angel 2002",
+		"category": "Retro MySpace Inspired Pages",
+		"description": "A lavender cyber-pop profile with a glowing illustrated background, glass cards, orbit links and a transmission log.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "y2k", "cyber", "personal", "blog"],
+		"thumbnail": "templates/cyber-angel-2002/preview.jpg",
+		"html": "templates/cyber-angel-2002/index.html",
+		"preview": { "background": "#b5c9ff", "surface": "#f5f7ff", "accent": "#8658ee", "highlight": "#5eeeff", "layout": "profile" }
+	},
+	{
+		"id": "glitter-diary-2004",
+		"name": "Glitter Diary 2004",
+		"category": "Retro MySpace Inspired Pages",
+		"description": "A sparkly pink personal diary with a glittering background, transparent cards, favorite things and a guest wall.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "y2k", "diary", "personal", "guestbook"],
+		"thumbnail": "templates/glitter-diary-2004/preview.jpg",
+		"html": "templates/glitter-diary-2004/index.html",
+		"preview": { "background": "#ffc8e2", "surface": "#fff8fd", "accent": "#ff3d9b", "highlight": "#ffbc8f", "layout": "profile" }
+	},
+	{
+		"id": "pop-fan-club-2004",
+		"name": "Pop Fan Club 2004",
+		"category": "Retro MySpace Inspired Pages",
+		"description": "A sunny Y2K community page with a bright illustrated background, translucent cards, fan updates and a gallery.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "y2k", "fan-club", "community", "gallery"],
+		"thumbnail": "templates/pop-fan-club-2004/preview.jpg",
+		"html": "templates/pop-fan-club-2004/index.html",
+		"preview": { "background": "#8bd9ff", "surface": "#ffffff", "accent": "#287be8", "highlight": "#ffe05d", "layout": "profile" }
 	}
 ]
