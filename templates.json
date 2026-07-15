@@ -207,5 +207,49 @@
 		"thumbnail": "templates/dj-profile-2008/preview.jpg",
 		"html": "templates/dj-profile-2008/index.html",
 		"preview": { "background": "#070713", "surface": "#111329", "accent": "#35e9f2", "highlight": "#ff3ea8", "layout": "profile" }
+	},
+	{
+		"id": "indie-artist-2007",
+		"name": "Indie Artist 2007",
+		"category": "Retro Profiles",
+		"description": "A handmade artist profile with demos, a release, journal notes and collaborators. Fans used pages like this to discover scenes through taste.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "indie", "artist", "music", "journal"],
+		"thumbnail": "templates/indie-artist-2007/preview.jpg",
+		"html": "templates/indie-artist-2007/index.html",
+		"preview": { "background": "#c6d2c1", "surface": "#fffdf4", "accent": "#bd6d73", "highlight": "#e8d69d", "layout": "profile" }
+	},
+	{
+		"id": "nightclub-profile-2006",
+		"name": "Nightclub Profile 2006",
+		"category": "Retro Profiles",
+		"description": "A nightlife profile with events, tickets, video, a playlist and a venue wall. It turns a club page into a shareable digital flyer.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "club", "events", "tickets", "nightlife"],
+		"thumbnail": "templates/nightclub-profile-2006/preview.jpg",
+		"html": "templates/nightclub-profile-2006/index.html",
+		"preview": { "background": "#08050f", "surface": "#1b0e2b", "accent": "#ff3ca6", "highlight": "#39e6ff", "layout": "profile" }
+	},
+	{
+		"id": "mega-festival-2007",
+		"name": "Mega Festival 2007",
+		"category": "Retro Profiles",
+		"description": "A huge festival profile with lineup, stages, trailer, playlist and guide. The era made event pages feel like an invitation into a scene.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "festival", "lineup", "stages", "event"],
+		"thumbnail": "templates/mega-festival-2007/preview.jpg",
+		"html": "templates/mega-festival-2007/index.html",
+		"preview": { "background": "#10234d", "surface": "#fffcef", "accent": "#ff6b35", "highlight": "#ffd451", "layout": "profile" }
+	},
+	{
+		"id": "turntable-dj-2008",
+		"name": "Turntable DJ 2008",
+		"category": "Retro Profiles",
+		"description": "An underground DJ profile with mixes, dates, booth photos, gear and crew. It keeps the personal, hand-curated feel people loved.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "dj", "turntables", "mixes", "crew"],
+		"thumbnail": "templates/turntable-dj-2008/preview.jpg",
+		"html": "templates/turntable-dj-2008/index.html",
+		"preview": { "background": "#020806", "surface": "#0a1d18", "accent": "#87ff38", "highlight": "#3aa7ff", "layout": "profile" }
 	}
 ]

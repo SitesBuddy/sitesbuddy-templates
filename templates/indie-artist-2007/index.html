@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Indie Artist 2007</title>
+  <meta name="description" content="A handmade retro artist profile with SoundCloud demos, a release shelf, journal notes, inspirations, and collaborators.">
+  <style>
+    :root { --cream:#f6f0df; --paper:#fffdf4; --ink:#2c2925; --muted:#756c63; --sage:#6f8268; --rose:#bd6d73; --blue:#6b8296; --tape:#e8d69d; --line:#9b8e7e; --max:1000px; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin:0; color:var(--ink); background-color:#c6d2c1; background-image:linear-gradient(rgba(255,255,255,.32) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,.32) 1px,transparent 1px); background-size:22px 22px; font:13px Georgia,"Times New Roman",serif; }
+    a { color:#6c3a42; }
+    img,iframe { display:block; max-width:100%; }
+    img[src^="data:image/gif"] { opacity:0; }
+    .page { width:min(calc(100% - 20px),var(--max)); margin:16px auto 42px; background:var(--cream); border:1px solid #635c54; box-shadow:7px 8px 0 rgba(63,73,60,.24); }
+    .topbar { display:flex; align-items:center; gap:18px; padding:8px 13px; color:#fff; background:var(--sage); border-bottom:5px solid var(--rose); font-family:Arial,Helvetica,sans-serif; }
+    .brand { color:#fff; text-decoration:none; font-size:22px; font-weight:900; letter-spacing:-.06em; }
+    .brand span { color:#ffe1c4; }
+    nav { display:flex; flex-wrap:wrap; gap:13px; margin-left:auto; }
+    nav a { color:#fff; text-decoration:none; font-size:11px; font-weight:700; }
+    .banner { position:relative; min-height:190px; display:flex; align-items:flex-end; padding:24px; overflow:hidden; background:linear-gradient(120deg,rgba(250,238,212,.95),rgba(222,183,185,.82)),repeating-linear-gradient(45deg,#e6dcbf 0 14px,#f5ecd5 14px 28px); border-bottom:1px solid var(--line); }
+    .banner::before,.banner::after { content:""; position:absolute; width:120px; height:28px; background:rgba(232,214,157,.8); transform:rotate(-7deg); }
+    .banner::before { top:18px; left:-20px; } .banner::after { right:-18px; bottom:22px; transform:rotate(8deg); }
+    .banner h1 { position:relative; margin:0; font:italic 700 clamp(40px,8vw,73px)/.9 Georgia,serif; color:#54383d; letter-spacing:-.055em; }
+    .banner p { position:relative; margin:12px 0 0; color:#64504f; font-size:15px; }
+    .layout { display:grid; grid-template-columns:276px minmax(0,1fr); gap:15px; padding:15px; align-items:start; }
+    .column { display:grid; gap:13px; min-width:0; }
+    .card { position:relative; min-width:0; background:var(--paper); border:1px solid var(--line); box-shadow:2px 3px 0 rgba(105,94,80,.17); }
+    .card h2 { margin:0; padding:7px 9px; color:#fff; background:var(--rose); font:700 15px Arial,Helvetica,sans-serif; letter-spacing:.02em; }
+    .card h2.sage { background:var(--sage); }
+    .inside { padding:11px; }
+    .polaroid { width:100%; padding:9px 9px 30px; background:#fff; border:1px solid #aaa096; box-shadow:3px 4px 0 rgba(0,0,0,.15); transform:rotate(-1.3deg); }
+    .photo { position:relative; aspect-ratio:1/1.04; overflow:hidden; display:grid; place-items:center; color:#fff; background:linear-gradient(145deg,#899a86,#d8aaa8); font-size:38px; }
+    .photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .caption { margin:-23px 0 0; position:relative; text-align:center; font-style:italic; }
+    .status { margin-top:14px; padding:8px; background:#fff2c8; border:1px dashed #a89155; line-height:1.45; }
+    .details { display:grid; grid-template-columns:66px 1fr; gap:5px 8px; margin:10px 0 0; }
+    .details dt { color:var(--muted); font-weight:700; } .details dd { margin:0; }
+    .links { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+    .links a { padding:7px; background:#eef1e9; border:1px solid #b4c0ae; text-align:center; text-decoration:none; font-family:Arial,sans-serif; font-size:11px; font-weight:700; }
+    .inspiration-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+    .inspiration { padding:7px; text-align:center; background:#f4eee0; border:1px solid #c9bda9; }
+    .inspiration b { display:block; margin-bottom:3px; color:#6c3a42; }
+    .note { padding:15px 17px; background:#fff7c9; border:1px solid #b9a96d; box-shadow:3px 4px 0 rgba(102,87,50,.12); transform:rotate(.25deg); font-size:15px; line-height:1.55; }
+    .note strong { color:var(--rose); }
+    .embed-wrap { padding:10px; background:#e8ebe4; border:1px dashed var(--sage); }
+    .embed-head { display:flex; justify-content:space-between; gap:10px; margin-bottom:8px; font-family:Arial,sans-serif; font-size:11px; font-weight:700; }
+    .embed-head span { color:var(--rose); }
+    iframe { width:100%; border:0; }
+    .soundcloud { height:166px; }
+    .spotify { height:152px; border-radius:10px; }
+    .embed-tip { margin:7px 0 0; color:var(--muted); font-size:10px; line-height:1.4; }
+    .release { display:grid; grid-template-columns:132px 1fr; gap:13px; align-items:start; }
+    .cover { position:relative; aspect-ratio:1; overflow:hidden; display:grid; place-items:center; color:#fff; background:linear-gradient(135deg,var(--blue),var(--rose)); border:5px solid #fff; outline:1px solid var(--line); font-size:29px; font-style:italic; }
+    .cover img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .release h3 { margin:0 0 6px; color:#644047; font-size:21px; }
+    .release p { line-height:1.45; }
+    .buy { display:inline-block; padding:7px 10px; color:#fff; background:var(--rose); border:1px solid #7d4146; text-decoration:none; font-family:Arial,sans-serif; font-size:11px; font-weight:900; }
+    .entry { padding:11px 0; border-bottom:1px dashed #b8aa97; }
+    .entry:last-child { border-bottom:0; }
+    .entry h3 { margin:0; color:#6c3a42; font-size:17px; }
+    .entry p { margin:5px 0 0; line-height:1.5; }
+    .meta { color:var(--muted); font-size:10px; }
+    .collabs { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+    .person { min-width:0; text-align:center; font-family:Arial,sans-serif; font-size:10px; font-weight:700; }
+    .person-art { position:relative; aspect-ratio:1; overflow:hidden; display:grid; place-items:center; color:#fff; background:var(--blue); border:2px solid #fff; outline:1px solid var(--line); font:900 22px Arial,sans-serif; }
+    .person-art img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .person span { display:block; margin-top:5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    footer { padding:17px; color:#fff; background:var(--sage); border-top:5px solid var(--rose); text-align:center; font-family:Arial,sans-serif; }
+    footer p { margin:0; }
+    @media(max-width:720px){.page{width:100%;margin:0;border-left:0;border-right:0;box-shadow:none}.topbar{align-items:flex-start;flex-direction:column;gap:6px}.topbar nav{margin-left:0}.layout{grid-template-columns:1fr;padding:9px}.banner{min-height:165px;padding:18px 13px}.polaroid{max-width:290px}.collabs{grid-template-columns:repeat(4,minmax(66px,1fr));overflow-x:auto}}
+    @media(max-width:440px){.release{grid-template-columns:1fr}.cover{width:150px}.collabs{grid-template-columns:repeat(2,1fr);overflow:visible}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+    <header>
+      <div class="topbar"><a class="brand" href="#top" data-sb-role="brand">friend<span>space</span></a><nav data-sb-component="nav" aria-label="Artist profile navigation"><a href="#listen">Listen</a><a href="#release">Release</a><a href="#journal">Journal</a><a href="#collabs">Friends</a></nav></div>
+      <div class="banner"><div><h1 data-sb-role="section-heading">June Lantern</h1><p>bedroom songs, field recordings & small feelings</p></div></div>
+    </header>
+    <main class="layout">
+      <aside class="column">
+        <section class="card" data-sb-role="section" aria-labelledby="artist-title"><h2 id="artist-title">June is making something...</h2><div class="inside"><div class="polaroid"><div class="photo">JL<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="indie singer songwriter portrait polaroid warm bedroom" data-sbai-image-shape="square" alt="June Lantern portrait"></div><p class="caption">somewhere between songs</p></div><div class="status"><strong>Current mood:</strong> recording the sound of rain against the kitchen window.</div><dl class="details"><dt>From</dt><dd>Your town</dd><dt>Sounds</dt><dd>Indie folk / dream pop</dd><dt>Plays</dt><dd>31,602</dd><dt>Here for</dt><dd>Songs, swaps, pen pals</dd></dl></div></section>
+        <section class="card" data-sb-role="section" aria-labelledby="links-title"><h2 class="sage" id="links-title">Leave a little note</h2><div class="inside links"><a href="mailto:june@example.com">Message</a><a href="#listen">Add song</a><a href="#collabs">Add friend</a><a href="https://example.com">Mailing list</a></div></section>
+        <section class="card" data-sb-role="section" aria-labelledby="insp-title"><h2 id="insp-title">Things I keep nearby</h2><div class="inside inspiration-grid"><div class="inspiration"><b>Records</b>slow, dusty ones</div><div class="inspiration"><b>Books</b>underlined poems</div><div class="inspiration"><b>Sounds</b>train stations</div><div class="inspiration"><b>Tools</b>tape + cheap keys</div></div></section>
+      </aside>
+      <div class="column">
+        <section class="note" data-sb-role="section"><strong>Hello, internet.</strong> This page is my tiny record shop, listening room, notebook and bulletin board—all in one place.</section>
+        <section class="card" id="listen" data-sb-role="section" aria-labelledby="listen-title"><h2 class="sage" id="listen-title">Newest demo on SoundCloud</h2><div class="inside embed-wrap" data-sb-component="media-embed"><div class="embed-head">SoundCloud HTML5 player <span>Paste your own track embed</span></div><iframe class="soundcloud" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/293&amp;color=%23bd6d73&amp;auto_play=false&amp;show_artwork=true&amp;show_playcount=true&amp;show_user=true" title="SoundCloud track player" loading="lazy" allow="autoplay"></iframe><p class="embed-tip">Editor tip: copy the iframe URL from SoundCloud’s Share → Embed panel and replace this source.</p></div></section>
+        <section class="card" id="release" data-sb-role="section" aria-labelledby="release-title"><h2 id="release-title">New release: Rooms With the Lights Off</h2><div class="inside"><div class="release"><div class="cover">ROOMS<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="dreamy indie album cover empty room warm film grain" data-sbai-image-shape="square" alt="Rooms With the Lights Off cover"></div><div><h3>six songs for quiet evenings</h3><p>Recorded at home with one microphone, an old keyboard and the radiator humming in the background.</p><a class="buy" href="https://example.com">Buy on Bandcamp</a></div></div><div class="embed-wrap" style="margin-top:12px" data-sb-component="media-embed"><div class="embed-head">Spotify release player <span>Replace with your album or EP</span></div><iframe class="spotify" src="https://open.spotify.com/embed/album/2up3OPMp9Tb4dAKM2erWXQ?utm_source=generator" title="Spotify release player" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe><p class="embed-tip">Spotify supports album, track, artist and playlist embed URLs. Replace this example with the embed copied from your release.</p></div></div></section>
+        <section class="card" id="journal" data-sb-role="section" aria-labelledby="journal-title"><h2 class="sage" id="journal-title">Notebook</h2><div class="inside"><article class="entry" data-sb-role="card"><h3>a song recorded after midnight</h3><span class="meta">October 14 · 7 comments</span><p>I left the window open during the last take. You can hear a bus stop outside right before the second chorus.</p></article><article class="entry" data-sb-role="card"><h3>tiny tour, big feelings</h3><span class="meta">September 29 · 12 comments</span><p>Three living rooms, one bookstore and a very patient borrowed car. Dates soon.</p></article></div></section>
+        <section class="card" id="collabs" data-sb-role="section" aria-labelledby="collabs-title"><h2 id="collabs-title">Favorite collaborators</h2><div class="inside collabs">
+          <div class="person" data-sb-role="card"><div class="person-art">MO<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="indie musician collaborator portrait polaroid" data-sbai-image-shape="square" alt="Moss"></div><span>Moss Choir</span></div>
+          <div class="person" data-sb-role="card"><div class="person-art">PA<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="indie musician producer portrait polaroid" data-sbai-image-shape="square" alt="Paper Atlas"></div><span>Paper Atlas</span></div>
+          <div class="person" data-sb-role="card"><div class="person-art">LW<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="indie musician singer portrait polaroid" data-sbai-image-shape="square" alt="Low Weather"></div><span>Low Weather</span></div>
+          <div class="person" data-sb-role="card"><div class="person-art">SG<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="indie musician cellist portrait polaroid" data-sbai-image-shape="square" alt="Soft Geometry"></div><span>Soft Geometry</span></div>
+        </div></section>
+      </div>
+    </main>
+    <footer><p>June Lantern on FriendSpace · a handmade corner of the web.</p></footer>
+  </div>
+</body>
+</html>
