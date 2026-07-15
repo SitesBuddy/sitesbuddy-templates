@@ -149,6 +149,7 @@
 		"description": "A ticket-selling rock band site with live photography, new release, video, tour dates, merch, and social links.",
 		"version": "1.0.0",
 		"tags": ["rock", "band", "tickets", "tour", "merch", "music"],
+		"thumbnail": "templates/rock-band-live-2008/preview.jpg",
 		"html": "templates/rock-band-live-2008/index.html",
 		"preview": { "background": "#170d09", "surface": "#f7f0df", "accent": "#da3128", "highlight": "#ff9a34", "layout": "profile", "scene": "rock" }
 	},
@@ -159,6 +160,7 @@
 		"description": "A recurring DJ night with guest-list CTA, venue detail, mixes, timetable, partners, and social links.",
 		"version": "1.0.0",
 		"tags": ["dj", "club", "guest-list", "residency", "nightlife", "music"],
+		"thumbnail": "templates/dj-residency-2008/preview.jpg",
 		"html": "templates/dj-residency-2008/index.html",
 		"preview": { "background": "#050613", "surface": "#11133a", "accent": "#35b8ff", "highlight": "#fa49ae", "layout": "profile", "scene": "club" }
 	},
@@ -169,6 +171,7 @@
 		"description": "A destination festival site with passes, lineup, stage timetable, stay and travel guide, media, and social links.",
 		"version": "1.0.0",
 		"tags": ["festival", "goa", "passes", "lineup", "travel", "electronic"],
+		"thumbnail": "templates/goa-festival-2008/preview.jpg",
 		"html": "templates/goa-festival-2008/index.html",
 		"preview": { "background": "#20122f", "surface": "#fffdef", "accent": "#6a35a4", "highlight": "#ffd55a", "layout": "profile", "scene": "goa" }
 	}
