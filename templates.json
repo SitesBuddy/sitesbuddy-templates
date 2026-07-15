@@ -174,5 +174,38 @@
 		"thumbnail": "templates/goa-festival-2008/preview.jpg",
 		"html": "templates/goa-festival-2008/index.html",
 		"preview": { "background": "#20122f", "surface": "#fffdef", "accent": "#6a35a4", "highlight": "#ffd55a", "layout": "profile", "scene": "goa" }
+	},
+	{
+		"id": "top-friends-2005",
+		"name": "Top Friends 2005",
+		"category": "Retro Profiles",
+		"description": "A MySpace-era identity page with Top Friends, music and a guestbook. People loved making the page look and sound like them.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "profile", "top-friends", "guestbook", "personal"],
+		"thumbnail": "templates/top-friends-2005/preview.jpg",
+		"html": "templates/top-friends-2005/index.html",
+		"preview": { "background": "#dce8f5", "surface": "#ffffff", "accent": "#1f5c99", "highlight": "#ff8b2d", "layout": "profile" }
+	},
+	{
+		"id": "garage-band-2006",
+		"name": "Garage Band 2006",
+		"category": "Retro Profiles",
+		"description": "A MySpace-era band page with music, show dates and fan comments. It gave music scenes a home before algorithmic feeds.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "band", "music", "shows", "comments"],
+		"thumbnail": "templates/garage-band-2006/preview.jpg",
+		"html": "templates/garage-band-2006/index.html",
+		"preview": { "background": "#171717", "surface": "#f5f0df", "accent": "#c32026", "highlight": "#e0b44d", "layout": "profile" }
+	},
+	{
+		"id": "dj-profile-2008",
+		"name": "DJ Profile 2008",
+		"category": "Retro Profiles",
+		"description": "A MySpace-era DJ profile with mixes, flyers and a guest wall. It worked as a digital flyer, playlist and crew board in one place.",
+		"version": "1.0.0",
+		"tags": ["retro", "myspace-era", "dj", "mixes", "nightlife", "guestbook"],
+		"thumbnail": "templates/dj-profile-2008/preview.jpg",
+		"html": "templates/dj-profile-2008/index.html",
+		"preview": { "background": "#070713", "surface": "#111329", "accent": "#35e9f2", "highlight": "#ff3ea8", "layout": "profile" }
 	}
 ]

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Top Friends 2005</title>
+  <meta name="description" content="A highly customizable early-social-web profile with Top Friends, music, journal posts, and a guestbook.">
+  <style>
+    :root {
+      --sb-bg: #dce8f5;
+      --sb-pattern: rgba(255, 255, 255, .44);
+      --sb-surface: #ffffff;
+      --sb-surface-soft: #f3f8fc;
+      --sb-text: #111111;
+      --sb-muted: #536273;
+      --sb-primary: #1f5c99;
+      --sb-primary-dark: #123f70;
+      --sb-secondary: #ff8b2d;
+      --sb-border: #6e9fc9;
+      --sb-border-soft: #bed4e7;
+      --sb-link: #125fa7;
+      --sb-radius: 0;
+      --sb-max-width: 960px;
+      --sb-section-x: clamp(10px, 3vw, 22px);
+      --sb-section-y: clamp(18px, 4vw, 36px);
+      --sb-shadow: 0 2px 0 rgba(25, 66, 105, .18);
+      --sb-font: Arial, Helvetica, sans-serif;
+    }
+
+    [data-theme="pink-glitter"] {
+      --sb-bg: #ffd9ec;
+      --sb-pattern: rgba(255, 255, 255, .55);
+      --sb-primary: #8c2b68;
+      --sb-primary-dark: #5f1645;
+      --sb-secondary: #ff56ae;
+      --sb-border: #ca6aa1;
+      --sb-border-soft: #efb8d6;
+      --sb-link: #8a1f61;
+    }
+
+    [data-theme="midnight"] {
+      --sb-bg: #15172b;
+      --sb-pattern: rgba(115, 133, 255, .09);
+      --sb-surface: #f8f9ff;
+      --sb-surface-soft: #eceeff;
+      --sb-primary: #343b87;
+      --sb-primary-dark: #151a54;
+      --sb-secondary: #9ca5ff;
+      --sb-border: #6f79d8;
+      --sb-border-soft: #c6caf4;
+      --sb-link: #313b9b;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--sb-text);
+      background-color: var(--sb-bg);
+      background-image:
+        linear-gradient(45deg, var(--sb-pattern) 25%, transparent 25%),
+        linear-gradient(-45deg, var(--sb-pattern) 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, var(--sb-pattern) 75%),
+        linear-gradient(-45deg, transparent 75%, var(--sb-pattern) 75%);
+      background-size: 24px 24px;
+      background-position: 0 0, 0 12px, 12px -12px, -12px 0;
+      font-family: var(--sb-font);
+      font-size: 13px;
+    }
+
+    a { color: var(--sb-link); }
+    button, input, textarea { font: inherit; }
+    [hidden] { display: none !important; }
+    .sb-page { width: 100%; min-height: 760px; padding: 16px 0 42px; }
+    .sb-shell { width: min(calc(100% - 20px), var(--sb-max-width)); margin: 0 auto; background: var(--sb-surface); border: 1px solid var(--sb-primary-dark); box-shadow: 7px 7px 0 rgba(0, 0, 0, .16); }
+
+    .sb-nav { display: flex; align-items: center; gap: 18px; min-height: 42px; padding: 7px 12px; color: #fff; background: var(--sb-primary-dark); border-bottom: 4px solid var(--sb-secondary); }
+    .sb-brand { color: #fff; text-decoration: none; font-size: 23px; font-weight: 900; letter-spacing: -.05em; white-space: nowrap; }
+    .sb-brand span { color: var(--sb-secondary); }
+    .sb-nav-links { display: flex; flex-wrap: wrap; gap: 6px 14px; margin-left: auto; }
+    .sb-nav-links a { color: #fff; font-size: 12px; font-weight: 700; text-decoration: none; }
+    .sb-nav-links a:hover { text-decoration: underline; }
+
+    .sb-profile-banner { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 14px var(--sb-section-x); background: var(--sb-surface-soft); border-bottom: 1px solid var(--sb-border); }
+    .sb-profile-banner h1 { margin: 0; font-size: clamp(22px, 4vw, 32px); line-height: 1; }
+    .sb-profile-banner p { margin: 6px 0 0; color: var(--sb-muted); font-weight: 700; }
+    .sb-theme-picker { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+    .sb-theme-picker button { padding: 5px 8px; border: 1px solid var(--sb-primary); background: var(--sb-surface); color: var(--sb-primary-dark); cursor: pointer; font-weight: 700; box-shadow: 2px 2px 0 var(--sb-border-soft); }
+    .sb-theme-picker button[aria-pressed="true"] { background: var(--sb-secondary); color: #111; box-shadow: none; transform: translate(1px, 1px); }
+
+    .sb-profile-grid { display: grid; grid-template-columns: minmax(250px, 300px) minmax(0, 1fr); gap: 14px; padding: 14px; align-items: start; }
+    .sb-column { display: grid; gap: 12px; min-width: 0; }
+    .sb-box { min-width: 0; background: var(--sb-surface); border: 1px solid var(--sb-border); box-shadow: var(--sb-shadow); }
+    .sb-box-title { margin: 0; padding: 5px 8px; color: #fff; background: var(--sb-primary); font-size: 14px; line-height: 1.2; }
+    .sb-box-title.sb-orange { color: #111; background: var(--sb-secondary); }
+    .sb-box-body { padding: 9px; }
+    .sb-box p { margin: 0 0 9px; line-height: 1.45; }
+    .sb-box p:last-child { margin-bottom: 0; }
+
+    .sb-profile-card { display: grid; grid-template-columns: 122px 1fr; gap: 10px; align-items: start; }
+    .sb-profile-photo { position: relative; width: 122px; aspect-ratio: 1 / 1.1; overflow: hidden; background: #d7e7f1; border: 2px solid var(--sb-primary-dark); }
+    .sb-profile-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .sb-profile-photo::after { content: "YOUR PHOTO"; position: absolute; left: 0; right: 0; bottom: 0; padding: 5px; color: #fff; background: rgba(0, 0, 0, .68); font-size: 10px; font-weight: 900; text-align: center; letter-spacing: .08em; }
+    .sb-status { margin-bottom: 8px; padding: 7px; background: #fff6d8; border: 1px solid #e5c665; line-height: 1.35; }
+    .sb-online { color: #168043; font-weight: 900; }
+    .sb-detail-list { display: grid; grid-template-columns: 82px 1fr; gap: 4px 8px; margin: 0; }
+    .sb-detail-list dt { color: var(--sb-muted); font-weight: 700; }
+    .sb-detail-list dd { margin: 0; overflow-wrap: anywhere; }
+
+    .sb-contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5px; }
+    .sb-contact-grid a { display: block; padding: 6px 7px; background: var(--sb-surface-soft); border: 1px solid var(--sb-border-soft); text-decoration: none; font-weight: 700; }
+    .sb-contact-grid a:hover { background: #fff8d9; }
+
+    .sb-music-player { display: grid; grid-template-columns: 46px 1fr; gap: 9px; align-items: center; padding: 8px; color: #fff; background: #202020; border: 3px ridge #b5b5b5; }
+    .sb-album { width: 46px; aspect-ratio: 1; display: grid; place-items: center; background: var(--sb-secondary); color: #111; font-size: 20px; font-weight: 900; }
+    .sb-track strong, .sb-track span { display: block; }
+    .sb-track span { margin-top: 3px; color: #c9c9c9; font-size: 11px; }
+    .sb-track-bar { height: 7px; margin-top: 7px; background: #555; border: 1px inset #8a8a8a; }
+    .sb-track-bar span { width: 43%; height: 100%; display: block; margin: 0; background: var(--sb-secondary); }
+
+    .sb-about-table { width: 100%; border-collapse: collapse; }
+    .sb-about-table th, .sb-about-table td { padding: 7px; border-bottom: 1px solid var(--sb-border-soft); vertical-align: top; text-align: left; }
+    .sb-about-table th { width: 116px; color: var(--sb-primary-dark); background: var(--sb-surface-soft); }
+
+    .sb-friends-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 9px; }
+    .sb-friends-head p { margin: 0; }
+    .sb-link-button { padding: 4px 7px; color: var(--sb-link); background: #fff; border: 1px solid var(--sb-border); cursor: pointer; font-weight: 700; }
+    .sb-friend-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+    .sb-friend { min-width: 0; text-align: center; }
+    .sb-friend-avatar { position: relative; width: 100%; aspect-ratio: 1; display: grid; place-items: center; margin-bottom: 4px; overflow: hidden; color: #fff; background: var(--sb-primary); border: 2px solid var(--sb-primary-dark); font-size: clamp(16px, 3vw, 24px); font-weight: 900; }
+    .sb-friend-avatar img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+    .sb-friend-avatar span { position: relative; z-index: 0; }
+    .sb-friend:nth-child(2n) .sb-friend-avatar { color: #111; background: var(--sb-secondary); }
+    .sb-friend:nth-child(3n) .sb-friend-avatar { background: #5b9b72; }
+    .sb-friend a { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; font-weight: 700; }
+
+    .sb-journal-post { padding: 10px 0; border-bottom: 1px dashed var(--sb-border); }
+    .sb-journal-post:first-child { padding-top: 0; }
+    .sb-journal-post:last-child { padding-bottom: 0; border-bottom: 0; }
+    .sb-journal-post h3 { margin: 0; color: var(--sb-link); font-size: 15px; }
+    .sb-post-meta { margin: 3px 0 7px !important; color: var(--sb-muted); font-size: 11px; }
+    .sb-comments { color: var(--sb-link); font-weight: 700; }
+
+    .sb-guest-entry { display: grid; grid-template-columns: 48px 1fr; gap: 9px; padding: 9px 0; border-bottom: 1px solid var(--sb-border-soft); }
+    .sb-guest-entry:last-child { border-bottom: 0; }
+    .sb-guest-avatar { width: 48px; aspect-ratio: 1; display: grid; place-items: center; color: #fff; background: var(--sb-primary-dark); border: 1px solid var(--sb-primary); font-weight: 900; }
+    .sb-guest-entry p { margin: 3px 0 0; }
+    .sb-guest-meta { color: var(--sb-muted); font-size: 10px; }
+
+    .sb-footer { padding: 16px; color: #fff; background: var(--sb-primary-dark); border-top: 4px solid var(--sb-secondary); text-align: center; }
+    .sb-footer p { margin: 0; }
+
+    @media (max-width: 720px) {
+      .sb-page { padding-top: 0; }
+      .sb-shell { width: 100%; border-left: 0; border-right: 0; box-shadow: none; }
+      .sb-nav { align-items: flex-start; flex-direction: column; gap: 7px; }
+      .sb-nav-links { margin-left: 0; }
+      .sb-profile-banner { align-items: flex-start; flex-direction: column; }
+      .sb-theme-picker { justify-content: flex-start; }
+      .sb-profile-grid { grid-template-columns: 1fr; padding: 9px; }
+      .sb-profile-card { grid-template-columns: 106px 1fr; }
+      .sb-profile-photo { width: 106px; }
+    }
+
+    @media (max-width: 430px) {
+      .sb-profile-card { grid-template-columns: 1fr; }
+      .sb-profile-photo { width: 150px; }
+      .sb-friend-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sb-about-table, .sb-about-table tbody, .sb-about-table tr, .sb-about-table th, .sb-about-table td { display: block; width: 100%; }
+      .sb-about-table th { border-bottom: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body data-theme="classic-blue">
+  <div class="sb-page" id="top">
+    <div class="sb-shell">
+      <nav class="sb-nav" data-sb-component="nav" aria-label="Profile navigation">
+        <a class="sb-brand" data-sb-role="brand" href="#top">friend<span>space</span></a>
+        <div class="sb-nav-links" data-sb-role="nav-links">
+          <a href="#about">About</a>
+          <a href="#friends">Top Friends</a>
+          <a href="#journal">Journal</a>
+          <a href="#guestbook">Guestbook</a>
+        </div>
+      </nav>
+
+      <header class="sb-profile-banner">
+        <div>
+          <h1 data-sb-role="section-heading">Jamie’s internet corner</h1>
+          <p>Last login: somewhere around midnight ✦ Profile views: 12,408</p>
+        </div>
+        <div class="sb-theme-picker" data-sb-component="theme-picker" aria-label="Profile theme">
+          <button type="button" data-theme-choice="classic-blue" aria-pressed="true">Classic blue</button>
+          <button type="button" data-theme-choice="pink-glitter" aria-pressed="false">Pink glitter</button>
+          <button type="button" data-theme-choice="midnight" aria-pressed="false">Midnight</button>
+        </div>
+      </header>
+
+      <main class="sb-profile-grid">
+        <div class="sb-column">
+          <section class="sb-box" data-sb-role="section" aria-labelledby="profile-title">
+            <h2 class="sb-box-title sb-orange" id="profile-title">Jamie ★ Online now!</h2>
+            <div class="sb-box-body sb-profile-card">
+              <div class="sb-profile-photo">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="creative young adult retro profile portrait flash photography" data-sbai-image-shape="square" alt="Jamie’s profile portrait">
+              </div>
+              <div>
+                <div class="sb-status"><strong>Jamie is:</strong> making a playlist for a drive that may never happen.</div>
+                <p class="sb-online">● Online</p>
+                <dl class="sb-detail-list">
+                  <dt>Age</dt><dd>24</dd>
+                  <dt>City</dt><dd>Your town</dd>
+                  <dt>Sign</dt><dd>Gemini</dd>
+                  <dt>Here for</dt><dd>Friends, music, weird art</dd>
+                </dl>
+              </div>
+            </div>
+          </section>
+
+          <section class="sb-box" data-sb-role="section" aria-labelledby="contact-title">
+            <h2 class="sb-box-title" id="contact-title">Contacting Jamie</h2>
+            <div class="sb-box-body sb-contact-grid">
+              <a href="mailto:hello@example.com">✉ Send message</a>
+              <a href="#friends">＋ Add friend</a>
+              <a href="#guestbook">✎ Sign guestbook</a>
+              <a href="#journal">★ Subscribe</a>
+            </div>
+          </section>
+
+          <section class="sb-box" data-sb-role="section" aria-labelledby="music-title">
+            <h2 class="sb-box-title sb-orange" id="music-title">Jamie’s profile song</h2>
+            <div class="sb-box-body">
+              <div class="sb-music-player" data-sb-component="music-card">
+                <div class="sb-album" aria-hidden="true">♪</div>
+                <div class="sb-track">
+                  <strong>Your favorite song</strong>
+                  <span>Your favorite artist · add an embed here</span>
+                  <div class="sb-track-bar" aria-hidden="true"><span></span></div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <section class="sb-box" data-sb-role="section" aria-labelledby="details-title">
+            <h2 class="sb-box-title" id="details-title">Jamie’s details</h2>
+            <div class="sb-box-body">
+              <dl class="sb-detail-list">
+                <dt>Status</dt><dd>It’s complicated</dd>
+                <dt>Occupation</dt><dd>Designer / daydreamer</dd>
+                <dt>Heroes</dt><dd>People who make things</dd>
+                <dt>Website</dt><dd><a href="https://example.com">example.com</a></dd>
+              </dl>
+            </div>
+          </section>
+        </div>
+
+        <div class="sb-column">
+          <section class="sb-box" id="about" data-sb-role="section" aria-labelledby="about-title">
+            <h2 class="sb-box-title sb-orange" id="about-title" data-sb-role="section-heading">Jamie’s blurbs</h2>
+            <div class="sb-box-body">
+              <table class="sb-about-table">
+                <tbody>
+                  <tr>
+                    <th>About me</th>
+                    <td>I collect concert tickets, make tiny websites, and take too many photographs of ordinary things. This page is allowed to be messy because the internet should feel personal.</td>
+                  </tr>
+                  <tr>
+                    <th>Who I’d like to meet</th>
+                    <td>People who share songs without being asked, people building strange projects, and anyone who remembers their first screen name.</td>
+                  </tr>
+                  <tr>
+                    <th>Interests</th>
+                    <td>Indie music, midnight drives, zines, old cameras, pixel art, thrift stores, and making lists.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section class="sb-box" id="friends" data-sb-role="section" aria-labelledby="friends-title">
+            <h2 class="sb-box-title" id="friends-title" data-sb-role="section-heading">Jamie’s Top Friends</h2>
+            <div class="sb-box-body">
+              <div class="sb-friends-head">
+                <p>Jamie has <strong>184</strong> friends.</p>
+                <button class="sb-link-button" id="shuffle-friends" type="button">Shuffle the Top 8</button>
+              </div>
+              <div class="sb-friend-grid" id="friend-grid">
+                <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>A</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="retro candid friend portrait Alex" data-sbai-image-shape="square" alt="Alex"></div><a href="#">Alex</a></article>
+                <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>M</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="retro candid friend portrait Maya" data-sbai-image-shape="square" alt="Maya"></div><a href="#">Maya</a></article>
+                <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>R</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="retro candid friend portrait Riley" data-sbai-image-shape="square" alt="Riley"></div><a href="#">Riley</a></article>
+                <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>S</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="retro candid friend portrait Sam" data-sbai-image-shape="square" alt="Sam"></div><a href="#">Sam</a></article>
+                <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>J</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="retro candid friend portrait Jordan" data-sbai-image-shape="square" alt="Jordan"></div><a href="#">Jordan</a></article>
+                <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>K</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="retro candid friend portrait Kai" data-sbai-image-shape="square" alt="Kai"></div><a href="#">Kai</a></article>
+                <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>N</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="retro candid friend portrait Noa" data-sbai-image-shape="square" alt="Noa"></div><a href="#">Noa</a></article>
+                <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>D</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="retro candid friend portrait Dev" data-sbai-image-shape="square" alt="Dev"></div><a href="#">Dev</a></article>
+              </div>
+            </div>
+          </section>
+
+          <section class="sb-box" id="journal" data-sb-role="section" aria-labelledby="journal-title">
+            <h2 class="sb-box-title sb-orange" id="journal-title" data-sb-role="section-heading">Jamie’s latest journal entries</h2>
+            <div class="sb-box-body">
+              <article class="sb-journal-post" data-sb-role="card">
+                <h3><a href="#">Songs for the long way home</a></h3>
+                <p class="sb-post-meta">Thursday, 11:48 PM · Current mood: restless</p>
+                <p>I made a playlist that starts loud, gets sentimental halfway through, and ends with the windows down.</p>
+                <a class="sb-comments" href="#guestbook">4 comments</a>
+              </article>
+              <article class="sb-journal-post" data-sb-role="card">
+                <h3><a href="#">New photos from Saturday</a></h3>
+                <p class="sb-post-meta">Sunday, 2:14 PM · Current mood: nostalgic</p>
+                <p>Blurry lights, a diner booth, and one photo where everyone somehow looked at the camera.</p>
+                <a class="sb-comments" href="#guestbook">7 comments</a>
+              </article>
+            </div>
+          </section>
+
+          <section class="sb-box" id="guestbook" data-sb-role="section" aria-labelledby="guestbook-title">
+            <h2 class="sb-box-title" id="guestbook-title" data-sb-role="section-heading">Friend comments</h2>
+            <div class="sb-box-body">
+              <article class="sb-guest-entry" data-sb-role="card">
+                <div class="sb-guest-avatar">M</div>
+                <div><strong><a href="#">Maya</a></strong><span class="sb-guest-meta"> · Monday at 9:32 PM</span><p>Your new theme is perfect. Send me that playlist!</p></div>
+              </article>
+              <article class="sb-guest-entry" data-sb-role="card">
+                <div class="sb-guest-avatar">A</div>
+                <div><strong><a href="#">Alex</a></strong><span class="sb-guest-meta"> · Friday at 5:06 PM</span><p>Thanks for putting me back in the Top 8. We’re good again.</p></div>
+              </article>
+              <p><strong>Want a real guestbook?</strong> Replace this section with an embedded Google Form so approved visitors can leave messages.</p>
+            </div>
+          </section>
+        </div>
+      </main>
+
+      <footer class="sb-footer">
+        <p>Jamie’s profile · Made for the personal web · Best viewed with your own taste</p>
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const body = document.body;
+      const themeButtons = [...document.querySelectorAll('[data-theme-choice]')];
+      themeButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const theme = button.dataset.themeChoice;
+          body.dataset.theme = theme;
+          themeButtons.forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+        });
+      });
+
+      const shuffleButton = document.getElementById('shuffle-friends');
+      const friendGrid = document.getElementById('friend-grid');
+      if (shuffleButton && friendGrid) {
+        shuffleButton.addEventListener('click', () => {
+          const friends = [...friendGrid.children];
+          for (let index = friends.length - 1; index > 0; index -= 1) {
+            const swapIndex = Math.floor(Math.random() * (index + 1));
+            [friends[index], friends[swapIndex]] = [friends[swapIndex], friends[index]];
+          }
+          friends.forEach((friend) => friendGrid.appendChild(friend));
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

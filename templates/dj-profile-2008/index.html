@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DJ Profile 2008</title>
+  <meta name="description" content="A neon retro DJ profile with Mixcloud and Spotify embeds, upcoming sets, flyers, crew, and a guest wall.">
+  <style>
+    :root { --bg:#070713; --panel:#111329; --panel2:#19163b; --text:#f3f2ff; --muted:#aaa8c8; --cyan:#35e9f2; --pink:#ff3ea8; --lime:#c8ff4c; --line:#555286; --max:1040px; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--text); background-color:var(--bg); background-image:linear-gradient(rgba(53,233,242,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(53,233,242,.06) 1px,transparent 1px),radial-gradient(circle at 50% -10%,#302064,transparent 45%); background-size:30px 30px,30px 30px,100% 100%; font:13px Arial,Helvetica,sans-serif; }
+    a { color:var(--cyan); }
+    img,iframe { display:block; max-width:100%; }
+    img[src^="data:image/gif"] { opacity:0; }
+    .page { width:min(calc(100% - 20px),var(--max)); margin:14px auto 42px; background:rgba(8,9,25,.96); border:2px solid var(--cyan); box-shadow:0 0 22px rgba(53,233,242,.32),8px 8px 0 rgba(255,62,168,.22); }
+    .nav { display:flex; align-items:center; gap:18px; padding:8px 12px; background:#05050c; border-bottom:4px solid var(--pink); }
+    .brand { color:#fff; text-decoration:none; font-size:23px; font-weight:900; letter-spacing:-.06em; text-shadow:0 0 8px var(--cyan); }
+    .brand span { color:var(--pink); }
+    .nav-links { display:flex; flex-wrap:wrap; gap:13px; margin-left:auto; }
+    .nav-links a { color:#fff; text-decoration:none; font-size:11px; font-weight:700; }
+    .hero { position:relative; min-height:210px; display:grid; align-items:end; padding:23px; overflow:hidden; background:linear-gradient(100deg,rgba(3,3,12,.98),rgba(11,8,39,.45)),repeating-linear-gradient(110deg,#351f76 0 22px,#091935 22px 44px); border-bottom:1px solid var(--line); }
+    .hero::after { content:"NEW MIX ONLINE"; position:absolute; right:18px; top:18px; padding:8px 12px; color:#070713; background:var(--lime); border:2px solid #fff; box-shadow:4px 4px 0 var(--pink); transform:rotate(3deg); font-weight:900; letter-spacing:.08em; }
+    .hero h1 { margin:0; font-size:clamp(45px,10vw,88px); line-height:.82; letter-spacing:-.08em; text-transform:uppercase; text-shadow:3px 3px 0 var(--pink),0 0 16px var(--cyan); }
+    .hero p { margin:14px 0 0; color:var(--cyan); font-size:15px; font-weight:900; letter-spacing:.16em; text-transform:uppercase; }
+    .layout { display:grid; grid-template-columns:285px minmax(0,1fr); gap:13px; padding:13px; align-items:start; }
+    .column { display:grid; gap:12px; min-width:0; }
+    .box { min-width:0; background:var(--panel); border:1px solid var(--line); box-shadow:3px 3px 0 rgba(53,233,242,.13); }
+    .box h2 { margin:0; padding:7px 9px; color:#080812; background:var(--cyan); font-size:14px; text-transform:uppercase; letter-spacing:.06em; }
+    .box h2.pink { background:var(--pink); }
+    .inside { padding:10px; }
+    .profile-photo { position:relative; aspect-ratio:1; overflow:hidden; display:grid; place-items:center; background:linear-gradient(135deg,#25186b,#d21d88); border:3px solid var(--cyan); box-shadow:inset 0 0 28px #05050c; font-size:50px; font-weight:900; }
+    .profile-photo img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .profile-photo::after { content:"REPLACE WITH PRESS SHOT"; position:absolute; inset:auto 0 0; padding:7px; color:#fff; background:rgba(4,4,12,.78); text-align:center; font-size:9px; letter-spacing:.1em; }
+    .status { margin-top:9px; padding:8px; color:#111; background:var(--lime); border:1px dashed #526c17; line-height:1.4; }
+    .facts { display:grid; grid-template-columns:62px 1fr; gap:5px 8px; margin:10px 0 0; }
+    .facts dt { color:var(--muted); font-weight:700; } .facts dd { margin:0; }
+    .actions { display:grid; grid-template-columns:1fr 1fr; gap:5px; }
+    .actions a { padding:7px; color:#fff; background:var(--panel2); border:1px solid var(--pink); text-align:center; text-decoration:none; font-size:11px; font-weight:700; }
+    .actions a:hover { color:#090912; background:var(--pink); }
+    .tools { display:flex; flex-wrap:wrap; gap:6px; }
+    .tools span { padding:5px 7px; color:#0a0a14; background:var(--cyan); border:1px solid #fff; font-size:10px; font-weight:900; }
+    .tools span:nth-child(2n) { background:var(--pink); }
+    .tools span:nth-child(3n) { background:var(--lime); }
+    .intro { padding:14px; background:linear-gradient(110deg,#19143e,#111c37); border:1px dashed var(--cyan); font-size:15px; line-height:1.5; }
+    .intro strong { color:var(--pink); }
+    .embed { padding:10px; background:#05050d; border:3px ridge #57577d; }
+    .embed-head { display:flex; justify-content:space-between; gap:10px; margin-bottom:8px; font-size:11px; font-weight:700; }
+    .embed-head span { color:var(--lime); }
+    iframe { width:100%; border:0; }
+    .mixcloud { height:180px; background:#fff; }
+    .spotify { height:352px; border-radius:8px; }
+    .embed-tip { margin:7px 0 0; color:var(--muted); font-size:10px; line-height:1.4; }
+    .events { display:grid; gap:7px; }
+    .event { display:grid; grid-template-columns:62px 1fr auto; gap:10px; align-items:center; padding:8px; background:var(--panel2); border-left:5px solid var(--pink); }
+    .date { color:var(--lime); font-weight:900; text-align:center; }
+    .event strong,.event span { display:block; } .event span { margin-top:2px; color:var(--muted); font-size:10px; }
+    .event a { padding:5px 7px; color:#080812; background:var(--cyan); text-decoration:none; font-size:10px; font-weight:900; }
+    .flyers { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:9px; }
+    .flyer { position:relative; aspect-ratio:3/4; overflow:hidden; display:grid; place-items:center; padding:8px; color:#fff; background:linear-gradient(145deg,#de1684,#25175f); border:2px solid #fff; text-align:center; font-weight:900; text-transform:uppercase; }
+    .flyer:nth-child(2) { color:#080812; background:linear-gradient(145deg,var(--lime),var(--cyan)); transform:rotate(1.4deg); }
+    .flyer:nth-child(3) { background:linear-gradient(145deg,#171724,#784ee4); transform:rotate(-1.2deg); }
+    .flyer img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .flyer span { position:relative; z-index:1; text-shadow:1px 1px 0 #000; }
+    .crew { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:8px; }
+    .crew-card { min-width:0; text-align:center; font-size:10px; font-weight:700; }
+    .crew-pic { position:relative; aspect-ratio:1; overflow:hidden; display:grid; place-items:center; color:#0b0b14; background:var(--cyan); border:2px solid var(--pink); font-size:22px; font-weight:900; }
+    .crew-pic img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+    .crew-card span { display:block; margin-top:4px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+    .wall-post { display:grid; grid-template-columns:48px 1fr; gap:9px; padding:9px 0; border-bottom:1px solid var(--line); }
+    .wall-post:last-child { border-bottom:0; }
+    .avatar { width:48px; aspect-ratio:1; display:grid; place-items:center; color:#090912; background:var(--pink); border:2px solid var(--cyan); font-weight:900; }
+    .wall-post p { margin:4px 0 0; line-height:1.4; }
+    .meta { color:var(--muted); font-size:10px; }
+    footer { padding:17px; color:#fff; background:#05050c; border-top:4px solid var(--pink); text-align:center; }
+    footer p { margin:0; }
+    @media(max-width:740px){.page{width:100%;margin:0;border-left:0;border-right:0;box-shadow:none}.nav{align-items:flex-start;flex-direction:column;gap:6px}.nav-links{margin-left:0}.hero{min-height:175px;padding:18px 13px}.hero::after{display:none}.layout{grid-template-columns:1fr;padding:9px}.profile-photo{max-width:300px}.spotify{height:260px}}
+    @media(max-width:460px){.event{grid-template-columns:55px 1fr}.event a{grid-column:2}.flyers{grid-template-columns:1fr 1fr}.flyer:last-child{display:none}.crew{grid-template-columns:repeat(2,1fr)}}
+    @media(prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+  </style>
+</head>
+<body>
+  <div class="page" id="top">
+    <header><div class="nav"><a class="brand" href="#top" data-sb-role="brand">friend<span>space</span></a><nav class="nav-links" data-sb-component="nav" aria-label="DJ profile navigation"><a href="#mix">New Mix</a><a href="#playlist">Playlist</a><a href="#dates">Dates</a><a href="#crew">Crew</a></nav></div><div class="hero"><div><h1 data-sb-role="section-heading">Neon Static</h1><p>after-hours frequencies</p></div></div></header>
+    <main class="layout">
+      <aside class="column">
+        <section class="box" data-sb-role="section" aria-labelledby="dj-title"><h2 class="pink" id="dj-title">Neon Static is online</h2><div class="inside"><div class="profile-photo">NS<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="underground club DJ portrait neon flash photography" data-sbai-image-shape="square" alt="Neon Static press portrait"></div><div class="status"><strong>Tonight:</strong> testing a three-hour set built for dark rooms and bad decisions.</div><dl class="facts"><dt>From</dt><dd>Your city</dd><dt>Sound</dt><dd>Electro / house / breaks</dd><dt>Plays</dt><dd>126,880</dd><dt>Booking</dt><dd>Worldwide</dd></dl></div></section>
+        <section class="box" data-sb-role="section" aria-labelledby="actions-title"><h2 id="actions-title">Connect</h2><div class="inside actions"><a href="mailto:dj@example.com">Book me</a><a href="#mix">Add mix</a><a href="#crew">Add friend</a><a href="https://example.com">Guest list</a></div></section>
+        <section class="box" data-sb-role="section" aria-labelledby="tools-title"><h2 class="pink" id="tools-title">In the booth</h2><div class="inside tools"><span>CDJ</span><span>VINYL</span><span>DRUM MACHINE</span><span>USB</span><span>ACID</span><span>LASERS</span></div></section>
+      </aside>
+      <div class="column">
+        <section class="intro" data-sb-role="section"><strong>WELCOME TO THE FREQUENCY.</strong> New mixes, party flyers, current rotations and where to hear them too loud.</section>
+        <section class="box" id="mix" data-sb-role="section" aria-labelledby="mix-title"><h2 class="pink" id="mix-title">Latest set: 02:17 AM</h2><div class="inside embed" data-sb-component="media-embed"><div class="embed-head">Mixcloud show player <span>Replace with your show or profile feed</span></div><iframe class="mixcloud" src="https://www.mixcloud.com/widget/iframe/?hide_cover=1&amp;light=1&amp;feed=%2FNTSRadio%2F" title="Mixcloud show player" loading="lazy" allow="autoplay"></iframe><p class="embed-tip">Editor tip: on Mixcloud desktop, choose Share → Embed player and replace this iframe source with the generated widget URL.</p></div></section>
+        <section class="box" id="playlist" data-sb-role="section" aria-labelledby="playlist-title"><h2 id="playlist-title">Current rotation</h2><div class="inside embed" data-sb-component="media-embed"><div class="embed-head">Spotify playlist player <span>Paste your own playlist embed</span></div><iframe class="spotify" src="https://open.spotify.com/embed/album/2up3OPMp9Tb4dAKM2erWXQ?utm_source=generator&amp;theme=0" title="Spotify playlist player" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe><p class="embed-tip">Spotify’s embed can display a playlist, album, artist or track. Replace the iframe source with your copied embed URL.</p></div></section>
+        <section class="box" id="dates" data-sb-role="section" aria-labelledby="dates-title"><h2 class="pink" id="dates-title">Next transmissions</h2><div class="inside events"><article class="event" data-sb-role="card"><div class="date">SEP<br>20</div><div><strong>Signal Basement</strong><span>Your City · midnight–close</span></div><a href="https://example.com">RSVP</a></article><article class="event" data-sb-role="card"><div class="date">OCT<br>04</div><div><strong>Warehouse Channel 3</strong><span>Next City · with Night Service</span></div><a href="https://example.com">Tickets</a></article><article class="event" data-sb-role="card"><div class="date">OCT<br>31</div><div><strong>Afterimage</strong><span>Secret location · costume required</span></div><a href="https://example.com">Info</a></article></div></section>
+        <section class="box" data-sb-role="section" aria-labelledby="flyers-title"><h2 id="flyers-title">Flyer archive</h2><div class="inside flyers"><div class="flyer" data-sb-role="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="neon underground club flyer typography magenta cyan" data-sbai-image-shape="portrait" alt="Signal flyer"><span>Signal<br>Basement</span></div><div class="flyer" data-sb-role="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="y2k rave flyer lime cyan experimental typography" data-sbai-image-shape="portrait" alt="Channel 3 flyer"><span>Channel<br>03</span></div><div class="flyer" data-sb-role="card"><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="dark techno event flyer ultraviolet typography" data-sbai-image-shape="portrait" alt="Afterimage flyer"><span>After<br>Image</span></div></div></section>
+        <section class="box" id="crew" data-sb-role="section" aria-labelledby="crew-title"><h2 class="pink" id="crew-title">Top crew</h2><div class="inside crew">
+          <div class="crew-card" data-sb-role="card"><div class="crew-pic">DV<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="underground DJ friend portrait club flash" data-sbai-image-shape="square" alt="Data Veil"></div><span>Data Veil</span></div><div class="crew-card" data-sb-role="card"><div class="crew-pic">CC<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="club promoter friend portrait neon flash" data-sbai-image-shape="square" alt="Club Codec"></div><span>Club Codec</span></div><div class="crew-card" data-sb-role="card"><div class="crew-pic">MF<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="electronic musician friend portrait club flash" data-sbai-image-shape="square" alt="Mono Flora"></div><span>Mono Flora</span></div><div class="crew-card" data-sb-role="card"><div class="crew-pic">99<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="raver friend portrait disposable camera" data-sbai-image-shape="square" alt="Room 99"></div><span>Room 99</span></div>
+        </div></section>
+        <section class="box" data-sb-role="section" aria-labelledby="wall-title"><h2 id="wall-title">Wall transmissions</h2><div class="inside"><article class="wall-post" data-sb-role="card"><div class="avatar">VX</div><div><strong>VexMode</strong> <span class="meta">· 3:04 AM</span><p>That closing track last night was unreal. Upload the set!</p></div></article><article class="wall-post" data-sb-role="card"><div class="avatar">LU</div><div><strong>Lumen</strong> <span class="meta">· Sunday</span><p>Flyers are printed. See you in the basement.</p></div></article></div></section>
+      </div>
+    </main>
+    <footer><p>Neon Static on FriendSpace · streaming from the after-hours internet.</p></footer>
+  </div>
+</body>
+</html>
