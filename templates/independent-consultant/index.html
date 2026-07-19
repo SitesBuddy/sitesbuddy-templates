@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Independent Consultant Template</title>
+  <style>
+    :root {
+      --sb-bg: #f3efe8;
+      --sb-surface: #fbfaf7;
+      --sb-surface-soft: #e6ddd0;
+      --sb-text: #252b27;
+      --sb-muted: #616963;
+      --sb-primary: #253b32;
+      --sb-secondary: #b96343;
+      --sb-border: rgba(37, 43, 39, .16);
+      --sb-radius: 2px;
+      --sb-max-width: 1220px;
+      --sb-section-y: clamp(64px, 9vw, 126px);
+      --sb-section-x: clamp(20px, 5vw, 62px);
+      --sb-display: Georgia, 'Times New Roman', serif;
+      --sb-body: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--sb-text); background: var(--sb-bg); font-family: var(--sb-body); }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { font: inherit; }
+    [hidden] { display: none !important; }
+    .sb-page { overflow: hidden; }
+    .sb-section { width: 100%; }
+    .sb-section-inner { width: min(100%, var(--sb-max-width)); margin: 0 auto; padding: var(--sb-section-y) var(--sb-section-x); }
+    .sb-nav-wrap { border-bottom: 1px solid var(--sb-border); }
+    .sb-nav { width: min(100%, var(--sb-max-width)); min-height: 76px; margin: 0 auto; padding: 0 var(--sb-section-x); display: flex; align-items: center; gap: 26px; }
+    .sb-brand { font: 700 22px/1 var(--sb-display); letter-spacing: -.04em; margin-right: auto; }
+    .sb-brand span { color: var(--sb-secondary); font-style: italic; }
+    .sb-nav-links { display: flex; align-items: center; gap: 22px; font-size: 13px; }
+    .sb-nav-links a { color: var(--sb-muted); }
+    .sb-nav-links a:hover { color: var(--sb-text); }
+    .sb-nav-actions { display: flex; align-items: center; }
+    .sb-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 45px; padding: 12px 18px; border: 1px solid transparent; font-size: 13px; font-weight: 700; letter-spacing: .01em; transition: transform .2s ease, background .2s ease; }
+    .sb-btn:hover { transform: translateY(-2px); }
+    .sb-btn-primary { color: #fff; background: var(--sb-primary); border-color: var(--sb-primary); }
+    .sb-btn-secondary { color: var(--sb-primary); border-color: var(--sb-primary); }
+    .sb-nav-toggle { display: none; width: 42px; height: 42px; border: 0; background: transparent; color: var(--sb-primary); font-size: 22px; }
+    .sb-mobile-menu { padding: 16px var(--sb-section-x) 24px; border-bottom: 1px solid var(--sb-border); background: var(--sb-surface); }
+    .sb-mobile-menu a { display: block; padding: 12px 0; color: var(--sb-muted); }
+    .eyebrow { margin: 0 0 19px; color: var(--sb-secondary); font-size: 11px; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2 { font-family: var(--sb-display); font-weight: 400; letter-spacing: -.055em; }
+    h1 { max-width: 790px; margin-bottom: 25px; font-size: clamp(48px, 7.1vw, 92px); line-height: .96; }
+    h2 { margin-bottom: 22px; font-size: clamp(37px, 5vw, 64px); line-height: 1; }
+    h3 { font-size: 17px; margin-bottom: 8px; }
+    .lead { max-width: 560px; color: var(--sb-muted); font-size: 18px; line-height: 1.65; }
+    .sb-hero-inner { padding-top: clamp(72px, 11vw, 150px); display: grid; grid-template-columns: 1.2fr .8fr; gap: clamp(40px, 7vw, 100px); align-items: end; }
+    .sb-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+    .hero-note { margin-top: 28px; color: var(--sb-muted); font-size: 13px; }
+    .sb-portrait { position: relative; margin-bottom: 10px; }
+    .sb-portrait::before { content: ''; position: absolute; z-index: 0; inset: -18px 18px 18px -18px; background: var(--sb-secondary); }
+    .sb-portrait img { position: relative; z-index: 1; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: var(--sb-surface-soft); }
+    .sb-portrait-caption { position: relative; z-index: 2; width: 78%; margin: -34px 0 0 auto; padding: 17px 20px; background: var(--sb-surface); color: var(--sb-primary); font: 400 20px/1.12 var(--sb-display); }
+    .sb-intro { background: var(--sb-primary); color: #f7f2ea; }
+    .sb-intro .sb-section-inner { display: grid; grid-template-columns: .75fr 1.25fr; gap: 60px; }
+    .sb-intro h2 { color: #fff; }
+    .sb-intro p { max-width: 700px; margin-bottom: 0; color: rgba(255,255,255,.76); font-size: 20px; line-height: 1.5; }
+    .sb-intro .eyebrow { color: #e2a98c; }
+    .sb-services { background: var(--sb-surface); }
+    .sb-services-head { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: end; border-bottom: 1px solid var(--sb-border); }
+    .sb-services-head .sb-section-inner { padding-bottom: 34px; }
+    .services-intro { color: var(--sb-muted); line-height: 1.65; }
+    .service-list { counter-reset: service; }
+    .service { display: grid; grid-template-columns: 72px 1fr auto; gap: 24px; align-items: start; padding: 29px 0; border-bottom: 1px solid var(--sb-border); }
+    .service::before { counter-increment: service; content: '0' counter(service); color: var(--sb-secondary); font: 400 21px var(--sb-display); }
+    .service p { max-width: 500px; margin: 0; color: var(--sb-muted); line-height: 1.55; }
+    .service a { color: var(--sb-primary); font-size: 13px; font-weight: 700; white-space: nowrap; }
+    .sb-proof { background: var(--sb-bg); }
+    .proof-grid { display: grid; grid-template-columns: 1.02fr .98fr; gap: clamp(40px, 8vw, 120px); align-items: center; }
+    .quote { margin: 0; color: var(--sb-primary); font: 400 clamp(31px, 4vw, 52px)/1.04 var(--sb-display); letter-spacing: -.045em; }
+    .quote-credit { margin-top: 23px; color: var(--sb-muted); font-size: 13px; }
+    .proof-facts { display: grid; grid-template-columns: repeat(2, 1fr); border-top: 1px solid var(--sb-border); border-left: 1px solid var(--sb-border); }
+    .fact { min-height: 142px; padding: 22px; border-right: 1px solid var(--sb-border); border-bottom: 1px solid var(--sb-border); }
+    .fact strong { display: block; color: var(--sb-secondary); font: 400 42px var(--sb-display); }
+    .fact span { display: block; margin-top: 8px; color: var(--sb-muted); font-size: 13px; line-height: 1.4; }
+    .sb-process { background: #ded3c2; }
+    .process-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 46px; }
+    .process-step { padding-top: 17px; border-top: 2px solid var(--sb-primary); }
+    .process-step span { color: var(--sb-secondary); font: 700 11px var(--sb-body); letter-spacing: .12em; }
+    .process-step p { margin: 0; color: var(--sb-muted); line-height: 1.55; }
+    .sb-contact { background: var(--sb-surface); }
+    .contact-wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 50px; align-items: end; }
+    .contact-wrap .lead { margin-bottom: 0; }
+    .contact-meta { padding: 24px; border: 1px solid var(--sb-border); }
+    .contact-meta p { margin: 0 0 13px; color: var(--sb-muted); font-size: 14px; line-height: 1.5; }
+    .contact-meta p:last-child { margin-bottom: 0; }
+    footer { padding: 26px var(--sb-section-x); color: var(--sb-muted); font-size: 12px; text-align: center; }
+    @media (max-width: 760px) {
+      .sb-nav { min-height: 66px; }
+      .sb-nav-links, .sb-nav-actions { display: none; }
+      .sb-nav-toggle { display: block; }
+      .sb-hero-inner, .sb-intro .sb-section-inner, .proof-grid, .contact-wrap, .sb-services-head .sb-section-inner { grid-template-columns: 1fr; }
+      .sb-hero-inner { padding-top: 72px; }
+      .sb-portrait { width: min(88%, 430px); margin: 18px 0 0 auto; }
+      .service { grid-template-columns: 48px 1fr; }
+      .service a { grid-column: 2; }
+      .process-grid { grid-template-columns: 1fr; gap: 28px; }
+      h1 { font-size: clamp(47px, 14vw, 70px); }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <div class="sb-page" id="top">
+    <div class="sb-nav-wrap">
+      <nav class="sb-nav" data-sb-component="nav" aria-label="Primary navigation">
+        <a class="sb-brand" data-sb-role="brand" href="#top">Mara <span>Ellis</span></a>
+        <div class="sb-nav-links" data-sb-role="nav-links"><a href="#about">About</a><a href="#services">Services</a><a href="#approach">Approach</a></div>
+        <div class="sb-nav-actions"><a class="sb-btn sb-btn-primary" href="#contact">See if we are a fit</a></div>
+        <button class="sb-nav-toggle" type="button" aria-label="Open menu" aria-controls="sb-mobile-menu" aria-expanded="false">☰</button>
+      </nav>
+      <div id="sb-mobile-menu" class="sb-mobile-menu" data-sb-component="mobile-menu" hidden><a href="#about">About</a><a href="#services">Services</a><a href="#approach">Approach</a></div>
+    </div>
+    <main>
+      <section class="sb-section sb-hero" data-sb-role="section">
+        <div class="sb-section-inner sb-hero-inner">
+          <div><p class="eyebrow">For founders at a turning point</p><h1 data-sb-role="section-heading">Get the next decision on solid ground.</h1><p class="lead">When the path ahead feels crowded, I help you choose where to focus, what to leave alone, and how to bring your team with you.</p><div class="sb-hero-actions"><a class="sb-btn sb-btn-primary" href="#contact">Tell me what is changing</a><a class="sb-btn sb-btn-secondary" href="#services">How I can help</a></div><p class="hero-note">Amsterdam based · Working with teams across Europe and beyond</p></div>
+          <figure class="sb-portrait"><img src="assets/consultant-portrait.png" data-sbai-image-query="editorial portrait independent business consultant warm studio" data-sbai-image-shape="portrait" alt="Independent consultant in a warm studio" loading="eager"><figcaption class="sb-portrait-caption">A room for the hard questions.</figcaption></figure>
+        </div>
+      </section>
+      <section id="about" class="sb-section sb-intro" data-sb-role="section"><div class="sb-section-inner"><div><p class="eyebrow">An outside view when it counts</p><h2 data-sb-role="section-heading">Make the call you have been circling.</h2></div><p>I work with leadership teams during the messy middle: a new offer, a growing team, a stalled decision. We name the problem, test the options, and leave with a plan people can use on Monday.</p></div></section>
+      <section id="services" class="sb-section sb-services" data-sb-role="section"><div class="sb-services-head"><div class="sb-section-inner"><div><p class="eyebrow">Ways to work together</p><h2 data-sb-role="section-heading">Work that earns its place on the calendar.</h2></div><p class="services-intro">Most engagements start with one focused session. We keep going when the work needs a steady hand.</p></div></div><div class="sb-section-inner"><div class="service-list"><article class="service sb-card" data-sb-role="card"><div><h3>Strategy intensives</h3><p>Spend a day on the decision you keep pushing to the next meeting. Leave with priorities for the next ninety days.</p></div><a href="#contact">Talk through an intensive →</a></article><article class="service sb-card" data-sb-role="card"><div><h3>Positioning & offers</h3><p>Put clear language around what you sell, who it helps, and why someone should choose it.</p></div><a href="#contact">Work on your offer →</a></article><article class="service sb-card" data-sb-role="card"><div><h3>Leadership advisory</h3><p>Bring the decisions you cannot hand off to a trusted sounding board who knows the context.</p></div><a href="#contact">Ask about advisory →</a></article></div></div></section>
+      <section class="sb-section sb-proof" data-sb-role="section"><div class="sb-section-inner proof-grid"><div><p class="eyebrow">A client perspective</p><blockquote class="quote">“Mara found the words for what we already knew, then helped us act on it.”</blockquote><p class="quote-credit">Leah Nelson · Co-founder, Northline Studio</p></div><div class="proof-facts"><div class="fact"><strong>14</strong><span>years helping teams make difficult choices</span></div><div class="fact"><strong>32</strong><span>strategy engagements across Europe and North America</span></div><div class="fact"><strong>1:1</strong><span>senior attention from the first call to follow-through</span></div><div class="fact"><strong>90</strong><span>days of focus after an intensive</span></div></div></div></section>
+      <section id="approach" class="sb-section sb-process" data-sb-role="section"><div class="sb-section-inner"><p class="eyebrow">How we work</p><h2 data-sb-role="section-heading">Start with the real problem.</h2><div class="process-grid"><article class="process-step sb-card" data-sb-role="card"><span>01 / Listen</span><h3>Get the full picture</h3><p>We look at the context, the pressure points, and the stakes before choosing a direction.</p></article><article class="process-step sb-card" data-sb-role="card"><span>02 / Decide</span><h3>Make the trade-offs clear</h3><p>We sort the useful signal from the noise and put the important choice on the table.</p></article><article class="process-step sb-card" data-sb-role="card"><span>03 / Act</span><h3>Leave with the next moves</h3><p>You get a direction, language your team can use, and actions with owners.</p></article></div></div></section>
+      <section id="contact" class="sb-section sb-contact" data-sb-role="section"><div class="sb-section-inner contact-wrap"><div><p class="eyebrow">Start here</p><h2 data-sb-role="section-heading">Talk it through.</h2><p class="lead">Tell me what is stuck, shifting, or coming up. I will get back to you within two working days.</p></div><div class="contact-meta"><p><strong>Email</strong><br><a href="mailto:hello@maraellis.example">hello@maraellis.example</a></p><p><strong>Format</strong><br>Online worldwide · Selected in-person work in Europe</p><p><a class="sb-btn sb-btn-primary" href="mailto:hello@maraellis.example">Email Mara</a></p></div></div></section>
+    </main>
+    <footer>© 2026 Mara Ellis. Independent strategy consultant.</footer>
+  </div>
+  <script>
+    const toggle = document.querySelector('.sb-nav-toggle');
+    const menu = document.getElementById('sb-mobile-menu');
+    toggle?.addEventListener('click', () => { const open = toggle.getAttribute('aria-expanded') === 'true'; toggle.setAttribute('aria-expanded', String(!open)); menu.hidden = open; });
+    menu?.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => { menu.hidden = true; toggle?.setAttribute('aria-expanded', 'false'); }));
+  </script>
+</body>
+</html>
