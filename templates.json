@@ -694,7 +694,7 @@
     "name": "Independent Consultant",
     "category": "Professional Services",
     "description": "An editorial personal-brand website for consultants, advisors, and fractional leaders.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "consultant",
       "advisory",
@@ -705,7 +705,7 @@
     "goals": [
       "calls"
     ],
-    "thumbnail": "templates/independent-consultant/preview.jpg",
+    "thumbnail": "templates/independent-consultant/preview.jpg?v=1.0.2",
     "html": "templates/independent-consultant/index.html",
     "prompt": "templates/independent-consultant/prompt.md"
   },
@@ -714,7 +714,7 @@
     "name": "Luxury Realtor",
     "category": "Real Estate",
     "description": "A cinematic property-led website for premium real estate advisors and boutique agencies.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "realtor",
       "property",
@@ -726,7 +726,7 @@
       "calls",
       "showcase"
     ],
-    "thumbnail": "templates/luxury-realtor/preview.jpg",
+    "thumbnail": "templates/luxury-realtor/preview.jpg?v=1.0.2",
     "html": "templates/luxury-realtor/index.html",
     "prompt": "templates/luxury-realtor/prompt.md"
   },
@@ -735,7 +735,7 @@
     "name": "Modern Restaurant",
     "category": "Food & Hospitality",
     "description": "A warm, reservation-focused restaurant website with a menu, gallery, hours, and location.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "restaurant",
       "food",
@@ -746,7 +746,7 @@
     "goals": [
       "bookings"
     ],
-    "thumbnail": "templates/modern-restaurant/preview.jpg",
+    "thumbnail": "templates/modern-restaurant/preview.jpg?v=1.0.2",
     "html": "templates/modern-restaurant/index.html",
     "prompt": "templates/modern-restaurant/prompt.md"
   },
@@ -755,7 +755,7 @@
     "name": "Boutique Salon",
     "category": "Beauty & Wellness",
     "description": "A warm, appointment-led editorial site for independent hair salons and stylists.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "salon",
       "hair",
@@ -766,7 +766,7 @@
     "goals": [
       "bookings"
     ],
-    "thumbnail": "templates/boutique-salon/preview.jpg",
+    "thumbnail": "templates/boutique-salon/preview.jpg?v=1.0.2",
     "html": "templates/boutique-salon/index.html",
     "prompt": "templates/boutique-salon/prompt.md"
   },
@@ -775,7 +775,7 @@
     "name": "Wedding Photographer",
     "category": "Portfolio",
     "description": "An image-first documentary wedding portfolio for photographers booking stories across Europe.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "photographer",
       "wedding",
@@ -787,7 +787,7 @@
       "showcase",
       "calls"
     ],
-    "thumbnail": "templates/wedding-photographer/preview.jpg",
+    "thumbnail": "templates/wedding-photographer/preview.jpg?v=1.0.2",
     "html": "templates/wedding-photographer/index.html",
     "prompt": "templates/wedding-photographer/prompt.md"
   },
@@ -796,7 +796,7 @@
     "name": "Community Nonprofit",
     "category": "Community & Nonprofit",
     "description": "A practical, welcoming site for food networks, volunteer groups, and local mutual-aid organisations.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "nonprofit",
       "community",
@@ -807,7 +807,7 @@
     "goals": [
       "event"
     ],
-    "thumbnail": "templates/community-nonprofit/preview.jpg",
+    "thumbnail": "templates/community-nonprofit/preview.jpg?v=1.0.2",
     "html": "templates/community-nonprofit/index.html",
     "prompt": "templates/community-nonprofit/prompt.md"
   },
@@ -816,7 +816,7 @@
     "name": "Personal Trainer",
     "category": "Fitness & Wellness",
     "description": "A consultation-led strength coaching website for personal trainers who sell practical, sustainable support.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "personal-trainer",
       "fitness",
@@ -827,7 +827,7 @@
     "goals": [
       "bookings"
     ],
-    "thumbnail": "templates/personal-trainer/preview.jpg",
+    "thumbnail": "templates/personal-trainer/preview.jpg?v=1.0.2",
     "html": "templates/personal-trainer/index.html",
     "prompt": "templates/personal-trainer/prompt.md"
   },
@@ -836,7 +836,7 @@
     "name": "Home Renovation Contractor",
     "category": "Home Services",
     "description": "A project-led renovation site for contractors who need qualified site-visit and quote requests.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "contractor",
       "renovation",
@@ -847,7 +847,7 @@
     "goals": [
       "calls"
     ],
-    "thumbnail": "templates/home-renovation-contractor/preview.jpg",
+    "thumbnail": "templates/home-renovation-contractor/preview.jpg?v=1.0.2",
     "html": "templates/home-renovation-contractor/index.html",
     "prompt": "templates/home-renovation-contractor/prompt.md"
   },
@@ -856,7 +856,7 @@
     "name": "Dental Clinic",
     "category": "Healthcare",
     "description": "A reassuring new-patient dental site with appointment, care, and practical visit information.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "dental",
       "dentist",
@@ -867,7 +867,7 @@
     "goals": [
       "bookings"
     ],
-    "thumbnail": "templates/dental-clinic/preview.jpg",
+    "thumbnail": "templates/dental-clinic/preview.jpg?v=1.0.2",
     "html": "templates/dental-clinic/index.html",
     "prompt": "templates/dental-clinic/prompt.md"
   },
@@ -876,7 +876,7 @@
     "name": "Emergency Electrician",
     "category": "Home Services",
     "description": "A 24/7 electrician site built around an urgent click-to-call path, plus planned home and renovation work.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "electrician",
       "electrical",
@@ -887,7 +887,7 @@
     "goals": [
       "calls"
     ],
-    "thumbnail": "templates/emergency-electrician/preview.jpg",
+    "thumbnail": "templates/emergency-electrician/preview.jpg?v=1.0.2",
     "html": "templates/emergency-electrician/index.html",
     "prompt": "templates/emergency-electrician/prompt.md"
   },
@@ -896,7 +896,7 @@
     "name": "Interior Designer",
     "category": "Portfolio",
     "description": "An image-led interior design studio site that turns a considered home project into a clear enquiry.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "interior-design",
       "designer",
@@ -908,7 +908,7 @@
       "showcase",
       "calls"
     ],
-    "thumbnail": "templates/interior-designer/preview.jpg",
+    "thumbnail": "templates/interior-designer/preview.jpg?v=1.0.2",
     "html": "templates/interior-designer/index.html",
     "prompt": "templates/interior-designer/prompt.md"
   },
@@ -917,7 +917,7 @@
     "name": "Bookkeeping Firm",
     "category": "Professional Services",
     "description": "A calm, discovery-call-led bookkeeping site for small businesses needing regular support or a practical catch-up.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "bookkeeping",
       "accounting",
@@ -928,7 +928,7 @@
     "goals": [
       "calls"
     ],
-    "thumbnail": "templates/bookkeeping-firm/preview.jpg",
+    "thumbnail": "templates/bookkeeping-firm/preview.jpg?v=1.0.2",
     "html": "templates/bookkeeping-firm/index.html",
     "prompt": "templates/bookkeeping-firm/prompt.md"
   }
