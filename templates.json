@@ -937,7 +937,7 @@
     "name": "Handmade Skincare Shop",
     "category": "Beauty & Wellness",
     "description": "A product-led skincare shop that helps customers choose a short routine, understand the ingredients, and place an order.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "tags": [
       "skincare",
       "beauty",
@@ -957,7 +957,7 @@
     "name": "SaaS Product Launch",
     "category": "Landing Page",
     "description": "A product-led SaaS launch page that shows the software early and drives visitors toward a sample-project signup.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "tags": [
       "saas",
       "software",
@@ -977,7 +977,7 @@
     "name": "Wedding & Event Venue",
     "category": "Food & Hospitality",
     "description": "A cinematic venue site that shows the spaces, capacity, package starting prices, and a clear date-and-tour inquiry path.",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "tags": [
       "wedding",
       "event",
