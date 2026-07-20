@@ -1,563 +1,935 @@
 [
-	{
-		"id": "midnight-luxe",
-		"name": "Midnight Luxe",
-		"category": "Landing Page",
-		"description": "Premium dark editorial landing page - exclusive, high-end",
-		"version": "1.0.0",
-		"tags": ["dark", "luxury", "editorial", "minimal", "premium"],
-		"thumbnail": "templates/midnight-luxe/preview.jpg",
-		"html": "templates/midnight-luxe/template.html",
-		"prompt": "templates/midnight-luxe/prompt.md"
-	},
-	{
-		"id": "midnight-luxe",
-		"name": "Midnight Luxe",
-		"category": "Landing Page",
-		"description": "Premium dark editorial landing page - exclusive, high-end",
-		"version": "1.0.0",
-		"tags": ["dark", "luxury", "editorial", "minimal", "premium"],
-		"thumbnail": "templates/midnight-luxe/preview.jpg",
-		"html": "templates/midnight-luxe/template.html",
-		"prompt": "templates/midnight-luxe/prompt.md"
-	},
-	{
-		"id": "midnight-luxe",
-		"name": "Midnight Luxe",
-		"category": "Landing Page",
-		"description": "Premium dark editorial landing page - exclusive, high-end",
-		"version": "1.0.0",
-		"tags": ["dark", "luxury", "editorial", "minimal", "premium"],
-		"thumbnail": "templates/midnight-luxe/preview.jpg",
-		"html": "templates/midnight-luxe/template.html",
-		"prompt": "templates/midnight-luxe/prompt.md"
-	},
-	{
-		"id": "organic-tech",
-		"name": "Organic Tech",
-		"category": "Landing Page",
-		"description": "Clinical boutique - lab meets luxury magazine",
-		"version": "1.0.0",
-		"tags": ["light", "organic", "earthy", "clinical", "boutique"],
-		"thumbnail": "templates/organic-tech/preview.jpg",
-		"html": "templates/organic-tech/template.html",
-		"prompt": "templates/organic-tech/prompt.md"
-	},
-	{
-		"id": "brutalist-signal",
-		"name": "Brutalist Signal",
-		"category": "Landing Page",
-		"description": "Raw precision - bold, direct, information-first",
-		"version": "1.0.0",
-		"tags": ["brutalist", "bold", "minimal", "stark", "monospace"],
-		"thumbnail": "templates/brutalist-signal/preview.jpg",
-		"html": "templates/brutalist-signal/template.html",
-		"prompt": "templates/brutalist-signal/prompt.md"
-	},
-	{
-		"id": "vapor-clinic",
-		"name": "Vapor Clinic",
-		"category": "Landing Page",
-		"description": "Neon biotech - futuristic, electric, dark",
-		"version": "1.0.0",
-		"tags": ["dark", "neon", "futuristic", "biotech", "gradient"],
-		"thumbnail": "templates/vapor-clinic/preview.jpg",
-		"html": "templates/vapor-clinic/template.html",
-		"prompt": "templates/vapor-clinic/prompt.md"
-	},
-	{
-		"id": "playful-social",
-		"name": "Playful Social",
-		"category": "Bio Page",
-		"description": "Bold & bubbly - fun personality pages",
-		"version": "1.0.0",
-		"tags": ["colorful", "playful", "rounded", "bio", "social"],
-		"thumbnail": "templates/playful-social/preview.jpg",
-		"html": "templates/playful-social/template.html",
-		"prompt": "templates/playful-social/prompt.md"
-	},
-	{
-		"id": "social-maestro",
-		"name": "Social Maestro",
-		"category": "Portfolio",
-		"description": "Bold editorial - social media manager portfolio",
-		"version": "1.0.0",
-		"tags": ["portfolio", "editorial", "dark", "social-media", "professional"],
-		"thumbnail": "templates/social-maestro/preview.jpg",
-		"html": "templates/social-maestro/template.html",
-		"prompt": "templates/social-maestro/prompt.md"
-	},
-	{
-		"id": "local-essentials",
-		"name": "Local Essentials",
-		"category": "Local Business",
-		"description": "Neighbourhood convenience shop — hours, departments, weekly specials",
-		"version": "1.0.0",
-		"tags": ["shop", "local", "convenience", "grocery", "community", "navy", "retail"],
-		"thumbnail": "templates/local-essentials/preview.jpg",
-		"html": "templates/local-essentials/template.html",
-		"prompt": "templates/local-essentials/prompt.md"
-	},
-	{
-		"id": "neighborhood-services",
-		"name": "Neighborhood Services",
-		"category": "Local Business",
-		"description": "Local tradesperson site — plumbing, electrical, home maintenance",
-		"version": "1.0.0",
-		"tags": ["tradesperson", "services", "local", "professional", "plumber", "orange", "navy"],
-		"thumbnail": "templates/neighborhood-services/preview.jpg",
-		"html": "templates/neighborhood-services/template.html",
-		"prompt": "templates/neighborhood-services/prompt.md"
-	},
-	{
-		"id": "local-alternatives",
-		"name": "Local Alternatives",
-		"category": "Local Business",
-		"description": "Artisan marketplace — locally made food, crafts, and goods",
-		"version": "1.0.0",
-		"tags": ["artisan", "local", "makers", "marketplace", "earthy", "community", "handmade"],
-		"thumbnail": "templates/local-alternatives/preview.jpg",
-		"html": "templates/local-alternatives/template.html",
-		"prompt": "templates/local-alternatives/prompt.md"
-	},
-	{
-		"id": "price-lock-bundles",
-		"name": "Price Lock Bundles",
-		"category": "Local Business",
-		"description": "Price-stable subscription bundles — lock in today's prices against inflation",
-		"version": "1.0.0",
-		"tags": ["subscription", "bundles", "inflation", "local", "grocery", "dark", "green"],
-		"thumbnail": "templates/price-lock-bundles/preview.jpg",
-		"html": "templates/price-lock-bundles/template.html",
-		"prompt": "templates/price-lock-bundles/prompt.md"
-	},
-	{
-		"id": "group-order",
-		"name": "Group Order",
-		"category": "Local Business",
-		"description": "Community group buying co-op — bulk orders, progress tracking, local savings",
-		"version": "1.0.0",
-		"tags": ["community", "group-buy", "co-op", "local", "bulk", "purple", "savings"],
-		"thumbnail": "templates/group-order/preview.jpg",
-		"html": "templates/group-order/template.html",
-		"prompt": "templates/group-order/prompt.md"
-	},
-	{
-		"id": "rock-band-live-2008",
-		"name": "Rock Band Live 2008",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A ticket-selling rock band site with live photography, new release, video, tour dates, merch, and social links.",
-		"version": "1.0.0",
-		"tags": ["rock", "band", "tickets", "tour", "merch", "music"],
-		"thumbnail": "templates/rock-band-live-2008/preview.jpg",
-		"html": "templates/rock-band-live-2008/index.html",
-		"preview": { "background": "#170d09", "surface": "#f7f0df", "accent": "#da3128", "highlight": "#ff9a34", "layout": "profile", "scene": "rock" }
-	},
-	{
-		"id": "dj-residency-2008",
-		"name": "DJ Residency 2008",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A recurring DJ night with guest-list CTA, venue detail, mixes, timetable, partners, and social links.",
-		"version": "1.0.0",
-		"tags": ["dj", "club", "guest-list", "residency", "nightlife", "music"],
-		"thumbnail": "templates/dj-residency-2008/preview.jpg",
-		"html": "templates/dj-residency-2008/index.html",
-		"preview": { "background": "#050613", "surface": "#11133a", "accent": "#35b8ff", "highlight": "#fa49ae", "layout": "profile", "scene": "club" }
-	},
-	{
-		"id": "goa-festival-2008",
-		"name": "Goa Festival 2008",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A destination festival site with passes, lineup, stage timetable, stay and travel guide, media, and social links.",
-		"version": "1.0.0",
-		"tags": ["festival", "goa", "passes", "lineup", "travel", "electronic"],
-		"thumbnail": "templates/goa-festival-2008/preview.jpg",
-		"html": "templates/goa-festival-2008/index.html",
-		"preview": { "background": "#20122f", "surface": "#fffdef", "accent": "#6a35a4", "highlight": "#ffd55a", "layout": "profile", "scene": "goa" }
-	},
-	{
-		"id": "top-friends-2005",
-		"name": "Top Friends 2005",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A MySpace-era identity page with Top Friends, music and a guestbook. People loved making the page look and sound like them.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "profile", "top-friends", "guestbook", "personal"],
-		"thumbnail": "templates/top-friends-2005/preview.jpg",
-		"html": "templates/top-friends-2005/index.html",
-		"preview": { "background": "#dce8f5", "surface": "#ffffff", "accent": "#1f5c99", "highlight": "#ff8b2d", "layout": "profile" }
-	},
-	{
-		"id": "garage-band-2006",
-		"name": "Garage Band 2006",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A MySpace-era band page with music, show dates and fan comments. It gave music scenes a home before algorithmic feeds.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "band", "music", "shows", "comments"],
-		"thumbnail": "templates/garage-band-2006/preview.jpg",
-		"html": "templates/garage-band-2006/index.html",
-		"preview": { "background": "#171717", "surface": "#f5f0df", "accent": "#c32026", "highlight": "#e0b44d", "layout": "profile" }
-	},
-	{
-		"id": "dj-profile-2008",
-		"name": "DJ Profile 2008",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A MySpace-era DJ profile with mixes, flyers and a guest wall. It worked as a digital flyer, playlist and crew board in one place.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "dj", "mixes", "nightlife", "guestbook"],
-		"thumbnail": "templates/dj-profile-2008/preview.jpg",
-		"html": "templates/dj-profile-2008/index.html",
-		"preview": { "background": "#070713", "surface": "#111329", "accent": "#35e9f2", "highlight": "#ff3ea8", "layout": "profile" }
-	},
-	{
-		"id": "indie-artist-2007",
-		"name": "Indie Artist 2007",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A handmade artist profile with demos, a release, journal notes and collaborators. Fans used pages like this to discover scenes through taste.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "indie", "artist", "music", "journal"],
-		"thumbnail": "templates/indie-artist-2007/preview.jpg",
-		"html": "templates/indie-artist-2007/index.html",
-		"preview": { "background": "#c6d2c1", "surface": "#fffdf4", "accent": "#bd6d73", "highlight": "#e8d69d", "layout": "profile" }
-	},
-	{
-		"id": "nightclub-profile-2006",
-		"name": "Nightclub Profile 2006",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A nightlife profile with events, tickets, video, a playlist and a venue wall. It turns a club page into a shareable digital flyer.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "club", "events", "tickets", "nightlife"],
-		"thumbnail": "templates/nightclub-profile-2006/preview.jpg",
-		"html": "templates/nightclub-profile-2006/index.html",
-		"preview": { "background": "#08050f", "surface": "#1b0e2b", "accent": "#ff3ca6", "highlight": "#39e6ff", "layout": "profile" }
-	},
-	{
-		"id": "mega-festival-2007",
-		"name": "Mega Festival 2007",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A huge festival profile with lineup, stages, trailer, playlist and guide. The era made event pages feel like an invitation into a scene.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "festival", "lineup", "stages", "event"],
-		"thumbnail": "templates/mega-festival-2007/preview.jpg",
-		"html": "templates/mega-festival-2007/index.html",
-		"preview": { "background": "#10234d", "surface": "#fffcef", "accent": "#ff6b35", "highlight": "#ffd451", "layout": "profile" }
-	},
-	{
-		"id": "turntable-dj-2008",
-		"name": "Turntable DJ 2008",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "An underground DJ profile with mixes, dates, booth photos, gear and crew. It keeps the personal, hand-curated feel people loved.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "dj", "turntables", "mixes", "crew"],
-		"thumbnail": "templates/turntable-dj-2008/preview.jpg",
-		"html": "templates/turntable-dj-2008/index.html",
-		"preview": { "background": "#020806", "surface": "#0a1d18", "accent": "#87ff38", "highlight": "#3aa7ff", "layout": "profile" }
-	},
-	{
-		"id": "y2k-pop-2004",
-		"name": "Y2K Pop 2004",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A glossy Y2K profile with a dreamy pink background, translucent cards, favorite links and a tiny personal blog.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "y2k", "pop", "personal", "blog"],
-		"thumbnail": "templates/y2k-pop-2004/preview.jpg",
-		"html": "templates/y2k-pop-2004/index.html",
-		"preview": { "background": "#e8c9ff", "surface": "#ffffff", "accent": "#ff218c", "highlight": "#49cbff", "layout": "profile" }
-	},
-	{
-		"id": "cyber-angel-2002",
-		"name": "Cyber Angel 2002",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A lavender cyber-pop profile with a glowing illustrated background, glass cards, orbit links and a transmission log.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "y2k", "cyber", "personal", "blog"],
-		"thumbnail": "templates/cyber-angel-2002/preview.jpg",
-		"html": "templates/cyber-angel-2002/index.html",
-		"preview": { "background": "#b5c9ff", "surface": "#f5f7ff", "accent": "#8658ee", "highlight": "#5eeeff", "layout": "profile" }
-	},
-	{
-		"id": "glitter-diary-2004",
-		"name": "Glitter Diary 2004",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A sparkly pink personal diary with a glittering background, transparent cards, favorite things and a guest wall.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "y2k", "diary", "personal", "guestbook"],
-		"thumbnail": "templates/glitter-diary-2004/preview.jpg",
-		"html": "templates/glitter-diary-2004/index.html",
-		"preview": { "background": "#ffc8e2", "surface": "#fff8fd", "accent": "#ff3d9b", "highlight": "#ffbc8f", "layout": "profile" }
-	},
-	{
-		"id": "pop-fan-club-2004",
-		"name": "Pop Fan Club 2004",
-		"category": "Retro MySpace Inspired Pages",
-		"description": "A sunny Y2K community page with a bright illustrated background, translucent cards, fan updates and a gallery.",
-		"version": "1.0.0",
-		"tags": ["retro", "myspace-era", "y2k", "fan-club", "community", "gallery"],
-		"thumbnail": "templates/pop-fan-club-2004/preview.jpg",
-		"html": "templates/pop-fan-club-2004/index.html",
-		"preview": { "background": "#8bd9ff", "surface": "#ffffff", "accent": "#287be8", "highlight": "#ffe05d", "layout": "profile" }
-	},
-{
-	"id": "kindergarten-family-hq-2005",
-	"name": "Kindergarten Family HQ",
-	"category": "Retro MySpace Inspired Pages",
-	"description": "A warm parent-update page for a kindergarten class, with daily rhythm, reminders, family notes and upcoming dates.",
-	"version": "1.0.0",
-	"tags": [
-		"retro",
-		"myspace-era",
-		"kindergarten",
-		"parents",
-		"school",
-		"classroom"
-	],
-	"thumbnail": "templates/kindergarten-family-hq-2005/preview.jpg",
-	"html": "templates/kindergarten-family-hq-2005/index.html",
-	"preview": {
-		"background": "#fff8ea",
-		"surface": "#fffdf7",
-		"accent": "#59a8e8",
-		"highlight": "#ffb52b",
-		"layout": "profile"
-	}
-},
-{
-	"id": "platformer-crew-1992",
-	"name": "Platformer Crew",
-	"category": "Retro MySpace Inspired Pages",
-	"description": "A pixel-arcade gaming profile for speedruns, level routes, crew roles and live stream updates.",
-	"version": "1.0.0",
-	"tags": [
-		"retro",
-		"myspace-era",
-		"gaming",
-		"platformer",
-		"streaming",
-		"arcade"
-	],
-	"thumbnail": "templates/platformer-crew-1992/preview.jpg",
-	"html": "templates/platformer-crew-1992/index.html",
-	"preview": {
-		"background": "#111d48",
-		"surface": "#07122c",
-		"accent": "#6ee7ff",
-		"highlight": "#ffe447",
-		"layout": "profile"
-	}
-},
-{
-	"id": "maze-arcade-1983",
-	"name": "Maze Arcade",
-	"category": "Retro MySpace Inspired Pages",
-	"description": "A maze-chase arcade profile for leaderboards, route cards, run roles and stream updates.",
-	"version": "1.0.0",
-	"tags": [
-		"retro",
-		"myspace-era",
-		"gaming",
-		"arcade",
-		"leaderboard",
-		"streaming"
-	],
-	"thumbnail": "templates/maze-arcade-1983/preview.jpg",
-	"html": "templates/maze-arcade-1983/index.html",
-	"preview": {
-		"background": "#07112a",
-		"surface": "#07122c",
-		"accent": "#1be7ff",
-		"highlight": "#ffe447",
-		"layout": "profile"
-	}
-},
-{
-	"id": "science-lab-2007",
-	"name": "Science Lab",
-	"category": "Retro MySpace Inspired Pages",
-	"description": "A classroom science page with investigation plans, notebook prompts, safety reminders and family material notes.",
-	"version": "1.0.0",
-	"tags": [
-		"retro",
-		"myspace-era",
-		"science",
-		"teacher",
-		"classroom",
-		"school"
-	],
-	"thumbnail": "templates/science-lab-2007/preview.jpg",
-	"html": "templates/science-lab-2007/index.html",
-	"preview": {
-		"background": "#eafffa",
-		"surface": "#effffc",
-		"accent": "#0a9d9a",
-		"highlight": "#c9ff5a",
-		"layout": "profile"
-	}
-},
-{
-	"id": "classroom-hq-2006",
-	"name": "Classroom HQ",
-	"category": "Retro MySpace Inspired Pages",
-	"description": "A family-friendly classroom page with daily schedule, learning updates, reminders and parent notes.",
-	"version": "1.0.0",
-	"tags": [
-		"retro",
-		"myspace-era",
-		"teacher",
-		"classroom",
-		"parents",
-		"school"
-	],
-	"thumbnail": "templates/classroom-hq-2006/preview.jpg",
-	"html": "templates/classroom-hq-2006/index.html",
-	"preview": {
-		"background": "#f4f8ff",
-		"surface": "#fffdfa",
-		"accent": "#3178cf",
-		"highlight": "#ffe469",
-		"layout": "profile"
-	}
-},
-{
-  "id": "independent-consultant",
-  "name": "Independent Consultant",
-  "category": "Professional Services",
-  "description": "An editorial personal-brand website for consultants, advisors, and fractional leaders.",
-  "version": "1.0.0",
-  "tags": ["consultant", "advisory", "professional", "strategy", "editorial"],
-  "goals": ["calls"],
-  "thumbnail": "templates/independent-consultant/preview.jpg",
-  "html": "templates/independent-consultant/index.html",
-  "prompt": "templates/independent-consultant/prompt.md"
-},
-{
-  "id": "luxury-realtor",
-  "name": "Luxury Realtor",
-  "category": "Real Estate",
-  "description": "A cinematic property-led website for premium real estate advisors and boutique agencies.",
-  "version": "1.0.0",
-  "tags": ["realtor", "property", "real-estate", "listings", "premium"],
-  "goals": ["calls", "showcase"],
-  "thumbnail": "templates/luxury-realtor/preview.jpg",
-  "html": "templates/luxury-realtor/index.html",
-  "prompt": "templates/luxury-realtor/prompt.md"
-},
-{
-  "id": "modern-restaurant",
-  "name": "Modern Restaurant",
-  "category": "Food & Hospitality",
-  "description": "A warm, reservation-focused restaurant website with a menu, gallery, hours, and location.",
-  "version": "1.0.0",
-  "tags": ["restaurant", "food", "menu", "reservation", "hospitality"],
-  "goals": ["bookings"],
-  "thumbnail": "templates/modern-restaurant/preview.jpg",
-  "html": "templates/modern-restaurant/index.html",
-  "prompt": "templates/modern-restaurant/prompt.md"
-},
-{
-  "id": "boutique-salon",
-  "name": "Boutique Salon",
-  "category": "Beauty & Wellness",
-  "description": "A warm, appointment-led editorial site for independent hair salons and stylists.",
-  "version": "1.0.0",
-  "tags": ["salon", "hair", "beauty", "stylist", "appointment"],
-  "goals": ["bookings"],
-  "thumbnail": "templates/boutique-salon/preview.jpg",
-  "html": "templates/boutique-salon/index.html",
-  "prompt": "templates/boutique-salon/prompt.md"
-},
-{
-  "id": "wedding-photographer",
-  "name": "Wedding Photographer",
-  "category": "Portfolio",
-  "description": "An image-first documentary wedding portfolio for photographers booking stories across Europe.",
-  "version": "1.0.0",
-  "tags": ["photographer", "wedding", "portfolio", "photography", "creative"],
-  "goals": ["showcase", "calls"],
-  "thumbnail": "templates/wedding-photographer/preview.jpg",
-  "html": "templates/wedding-photographer/index.html",
-  "prompt": "templates/wedding-photographer/prompt.md"
-},
-{
-  "id": "community-nonprofit",
-  "name": "Community Nonprofit",
-  "category": "Community & Nonprofit",
-  "description": "A practical, welcoming site for food networks, volunteer groups, and local mutual-aid organisations.",
-  "version": "1.0.0",
-  "tags": ["nonprofit", "community", "volunteer", "food", "mutual-aid"],
-  "goals": ["event"],
-  "thumbnail": "templates/community-nonprofit/preview.jpg",
-  "html": "templates/community-nonprofit/index.html",
-  "prompt": "templates/community-nonprofit/prompt.md"
-},
-{
-  "id": "personal-trainer",
-  "name": "Personal Trainer",
-  "category": "Fitness & Wellness",
-  "description": "A consultation-led strength coaching website for personal trainers who sell practical, sustainable support.",
-  "version": "1.0.0",
-  "tags": ["personal-trainer", "fitness", "coaching", "strength", "consultation"],
-  "goals": ["bookings"],
-  "thumbnail": "templates/personal-trainer/preview.jpg",
-  "html": "templates/personal-trainer/index.html",
-  "prompt": "templates/personal-trainer/prompt.md"
-},
-{
-  "id": "home-renovation-contractor",
-  "name": "Home Renovation Contractor",
-  "category": "Home Services",
-  "description": "A project-led renovation site for contractors who need qualified site-visit and quote requests.",
-  "version": "1.0.0",
-  "tags": ["contractor", "renovation", "home", "construction", "quote"],
-  "goals": ["calls"],
-  "thumbnail": "templates/home-renovation-contractor/preview.jpg",
-  "html": "templates/home-renovation-contractor/index.html",
-  "prompt": "templates/home-renovation-contractor/prompt.md"
-},
-{
-  "id": "dental-clinic",
-  "name": "Dental Clinic",
-  "category": "Healthcare",
-  "description": "A reassuring new-patient dental site with appointment, care, and practical visit information.",
-  "version": "1.0.0",
-  "tags": ["dental", "dentist", "healthcare", "clinic", "appointment"],
-  "goals": ["bookings"],
-  "thumbnail": "templates/dental-clinic/preview.jpg",
-  "html": "templates/dental-clinic/index.html",
-  "prompt": "templates/dental-clinic/prompt.md"
-},
-{
-  "id": "emergency-electrician",
-  "name": "Emergency Electrician",
-  "category": "Home Services",
-  "description": "A 24/7 electrician site built around an urgent click-to-call path, plus planned home and renovation work.",
-  "version": "1.0.0",
-  "tags": ["electrician", "electrical", "emergency", "home-service", "call-now"],
-  "goals": ["calls"],
-  "thumbnail": "templates/emergency-electrician/preview.jpg",
-  "html": "templates/emergency-electrician/index.html",
-  "prompt": "templates/emergency-electrician/prompt.md"
-},
-{
-  "id": "interior-designer",
-  "name": "Interior Designer",
-  "category": "Portfolio",
-  "description": "An image-led interior design studio site that turns a considered home project into a clear enquiry.",
-  "version": "1.0.0",
-  "tags": ["interior-design", "designer", "home", "portfolio", "renovation"],
-  "goals": ["showcase", "calls"],
-  "thumbnail": "templates/interior-designer/preview.jpg",
-  "html": "templates/interior-designer/index.html",
-  "prompt": "templates/interior-designer/prompt.md"
-},
-{
-  "id": "bookkeeping-firm",
-  "name": "Bookkeeping Firm",
-  "category": "Professional Services",
-  "description": "A calm, discovery-call-led bookkeeping site for small businesses needing regular support or a practical catch-up.",
-  "version": "1.0.0",
-  "tags": ["bookkeeping", "accounting", "small-business", "finance", "discovery-call"],
-  "goals": ["calls"],
-  "thumbnail": "templates/bookkeeping-firm/preview.jpg",
-  "html": "templates/bookkeeping-firm/index.html",
-  "prompt": "templates/bookkeeping-firm/prompt.md"
-}
+  {
+    "id": "midnight-luxe",
+    "name": "Midnight Luxe",
+    "category": "Landing Page",
+    "description": "Premium dark editorial landing page - exclusive, high-end",
+    "version": "1.0.0",
+    "tags": [
+      "dark",
+      "luxury",
+      "editorial",
+      "minimal",
+      "premium"
+    ],
+    "thumbnail": "templates/midnight-luxe/preview.jpg",
+    "html": "templates/midnight-luxe/template.html",
+    "prompt": "templates/midnight-luxe/prompt.md"
+  },
+  {
+    "id": "midnight-luxe",
+    "name": "Midnight Luxe",
+    "category": "Landing Page",
+    "description": "Premium dark editorial landing page - exclusive, high-end",
+    "version": "1.0.0",
+    "tags": [
+      "dark",
+      "luxury",
+      "editorial",
+      "minimal",
+      "premium"
+    ],
+    "thumbnail": "templates/midnight-luxe/preview.jpg",
+    "html": "templates/midnight-luxe/template.html",
+    "prompt": "templates/midnight-luxe/prompt.md"
+  },
+  {
+    "id": "midnight-luxe",
+    "name": "Midnight Luxe",
+    "category": "Landing Page",
+    "description": "Premium dark editorial landing page - exclusive, high-end",
+    "version": "1.0.0",
+    "tags": [
+      "dark",
+      "luxury",
+      "editorial",
+      "minimal",
+      "premium"
+    ],
+    "thumbnail": "templates/midnight-luxe/preview.jpg",
+    "html": "templates/midnight-luxe/template.html",
+    "prompt": "templates/midnight-luxe/prompt.md"
+  },
+  {
+    "id": "organic-tech",
+    "name": "Organic Tech",
+    "category": "Landing Page",
+    "description": "Clinical boutique - lab meets luxury magazine",
+    "version": "1.0.0",
+    "tags": [
+      "light",
+      "organic",
+      "earthy",
+      "clinical",
+      "boutique"
+    ],
+    "thumbnail": "templates/organic-tech/preview.jpg",
+    "html": "templates/organic-tech/template.html",
+    "prompt": "templates/organic-tech/prompt.md"
+  },
+  {
+    "id": "brutalist-signal",
+    "name": "Brutalist Signal",
+    "category": "Landing Page",
+    "description": "Raw precision - bold, direct, information-first",
+    "version": "1.0.0",
+    "tags": [
+      "brutalist",
+      "bold",
+      "minimal",
+      "stark",
+      "monospace"
+    ],
+    "thumbnail": "templates/brutalist-signal/preview.jpg",
+    "html": "templates/brutalist-signal/template.html",
+    "prompt": "templates/brutalist-signal/prompt.md"
+  },
+  {
+    "id": "vapor-clinic",
+    "name": "Vapor Clinic",
+    "category": "Landing Page",
+    "description": "Neon biotech - futuristic, electric, dark",
+    "version": "1.0.0",
+    "tags": [
+      "dark",
+      "neon",
+      "futuristic",
+      "biotech",
+      "gradient"
+    ],
+    "thumbnail": "templates/vapor-clinic/preview.jpg",
+    "html": "templates/vapor-clinic/template.html",
+    "prompt": "templates/vapor-clinic/prompt.md"
+  },
+  {
+    "id": "playful-social",
+    "name": "Playful Social",
+    "category": "Bio Page",
+    "description": "Bold & bubbly - fun personality pages",
+    "version": "1.0.0",
+    "tags": [
+      "colorful",
+      "playful",
+      "rounded",
+      "bio",
+      "social"
+    ],
+    "thumbnail": "templates/playful-social/preview.jpg",
+    "html": "templates/playful-social/template.html",
+    "prompt": "templates/playful-social/prompt.md"
+  },
+  {
+    "id": "social-maestro",
+    "name": "Social Maestro",
+    "category": "Portfolio",
+    "description": "Bold editorial - social media manager portfolio",
+    "version": "1.0.0",
+    "tags": [
+      "portfolio",
+      "editorial",
+      "dark",
+      "social-media",
+      "professional"
+    ],
+    "thumbnail": "templates/social-maestro/preview.jpg",
+    "html": "templates/social-maestro/template.html",
+    "prompt": "templates/social-maestro/prompt.md"
+  },
+  {
+    "id": "local-essentials",
+    "name": "Local Essentials",
+    "category": "Local Business",
+    "description": "Neighbourhood convenience shop — hours, departments, weekly specials",
+    "version": "1.0.0",
+    "tags": [
+      "shop",
+      "local",
+      "convenience",
+      "grocery",
+      "community",
+      "navy",
+      "retail"
+    ],
+    "thumbnail": "templates/local-essentials/preview.jpg",
+    "html": "templates/local-essentials/template.html",
+    "prompt": "templates/local-essentials/prompt.md"
+  },
+  {
+    "id": "neighborhood-services",
+    "name": "Neighborhood Services",
+    "category": "Local Business",
+    "description": "Local tradesperson site — plumbing, electrical, home maintenance",
+    "version": "1.0.0",
+    "tags": [
+      "tradesperson",
+      "services",
+      "local",
+      "professional",
+      "plumber",
+      "orange",
+      "navy"
+    ],
+    "thumbnail": "templates/neighborhood-services/preview.jpg",
+    "html": "templates/neighborhood-services/template.html",
+    "prompt": "templates/neighborhood-services/prompt.md"
+  },
+  {
+    "id": "local-alternatives",
+    "name": "Local Alternatives",
+    "category": "Local Business",
+    "description": "Artisan marketplace — locally made food, crafts, and goods",
+    "version": "1.0.0",
+    "tags": [
+      "artisan",
+      "local",
+      "makers",
+      "marketplace",
+      "earthy",
+      "community",
+      "handmade"
+    ],
+    "thumbnail": "templates/local-alternatives/preview.jpg",
+    "html": "templates/local-alternatives/template.html",
+    "prompt": "templates/local-alternatives/prompt.md"
+  },
+  {
+    "id": "price-lock-bundles",
+    "name": "Price Lock Bundles",
+    "category": "Local Business",
+    "description": "Price-stable subscription bundles — lock in today's prices against inflation",
+    "version": "1.0.0",
+    "tags": [
+      "subscription",
+      "bundles",
+      "inflation",
+      "local",
+      "grocery",
+      "dark",
+      "green"
+    ],
+    "thumbnail": "templates/price-lock-bundles/preview.jpg",
+    "html": "templates/price-lock-bundles/template.html",
+    "prompt": "templates/price-lock-bundles/prompt.md"
+  },
+  {
+    "id": "group-order",
+    "name": "Group Order",
+    "category": "Local Business",
+    "description": "Community group buying co-op — bulk orders, progress tracking, local savings",
+    "version": "1.0.0",
+    "tags": [
+      "community",
+      "group-buy",
+      "co-op",
+      "local",
+      "bulk",
+      "purple",
+      "savings"
+    ],
+    "thumbnail": "templates/group-order/preview.jpg",
+    "html": "templates/group-order/template.html",
+    "prompt": "templates/group-order/prompt.md"
+  },
+  {
+    "id": "rock-band-live-2008",
+    "name": "Rock Band Live 2008",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A ticket-selling rock band site with live photography, new release, video, tour dates, merch, and social links.",
+    "version": "1.0.0",
+    "tags": [
+      "rock",
+      "band",
+      "tickets",
+      "tour",
+      "merch",
+      "music"
+    ],
+    "thumbnail": "templates/rock-band-live-2008/preview.jpg",
+    "html": "templates/rock-band-live-2008/index.html",
+    "preview": {
+      "background": "#170d09",
+      "surface": "#f7f0df",
+      "accent": "#da3128",
+      "highlight": "#ff9a34",
+      "layout": "profile",
+      "scene": "rock"
+    }
+  },
+  {
+    "id": "dj-residency-2008",
+    "name": "DJ Residency 2008",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A recurring DJ night with guest-list CTA, venue detail, mixes, timetable, partners, and social links.",
+    "version": "1.0.0",
+    "tags": [
+      "dj",
+      "club",
+      "guest-list",
+      "residency",
+      "nightlife",
+      "music"
+    ],
+    "thumbnail": "templates/dj-residency-2008/preview.jpg",
+    "html": "templates/dj-residency-2008/index.html",
+    "preview": {
+      "background": "#050613",
+      "surface": "#11133a",
+      "accent": "#35b8ff",
+      "highlight": "#fa49ae",
+      "layout": "profile",
+      "scene": "club"
+    }
+  },
+  {
+    "id": "goa-festival-2008",
+    "name": "Goa Festival 2008",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A destination festival site with passes, lineup, stage timetable, stay and travel guide, media, and social links.",
+    "version": "1.0.0",
+    "tags": [
+      "festival",
+      "goa",
+      "passes",
+      "lineup",
+      "travel",
+      "electronic"
+    ],
+    "thumbnail": "templates/goa-festival-2008/preview.jpg",
+    "html": "templates/goa-festival-2008/index.html",
+    "preview": {
+      "background": "#20122f",
+      "surface": "#fffdef",
+      "accent": "#6a35a4",
+      "highlight": "#ffd55a",
+      "layout": "profile",
+      "scene": "goa"
+    }
+  },
+  {
+    "id": "top-friends-2005",
+    "name": "Top Friends 2005",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A MySpace-era identity page with Top Friends, music and a guestbook. People loved making the page look and sound like them.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "profile",
+      "top-friends",
+      "guestbook",
+      "personal"
+    ],
+    "thumbnail": "templates/top-friends-2005/preview.jpg",
+    "html": "templates/top-friends-2005/index.html",
+    "preview": {
+      "background": "#dce8f5",
+      "surface": "#ffffff",
+      "accent": "#1f5c99",
+      "highlight": "#ff8b2d",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "garage-band-2006",
+    "name": "Garage Band 2006",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A MySpace-era band page with music, show dates and fan comments. It gave music scenes a home before algorithmic feeds.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "band",
+      "music",
+      "shows",
+      "comments"
+    ],
+    "thumbnail": "templates/garage-band-2006/preview.jpg",
+    "html": "templates/garage-band-2006/index.html",
+    "preview": {
+      "background": "#171717",
+      "surface": "#f5f0df",
+      "accent": "#c32026",
+      "highlight": "#e0b44d",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "dj-profile-2008",
+    "name": "DJ Profile 2008",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A MySpace-era DJ profile with mixes, flyers and a guest wall. It worked as a digital flyer, playlist and crew board in one place.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "dj",
+      "mixes",
+      "nightlife",
+      "guestbook"
+    ],
+    "thumbnail": "templates/dj-profile-2008/preview.jpg",
+    "html": "templates/dj-profile-2008/index.html",
+    "preview": {
+      "background": "#070713",
+      "surface": "#111329",
+      "accent": "#35e9f2",
+      "highlight": "#ff3ea8",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "indie-artist-2007",
+    "name": "Indie Artist 2007",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A handmade artist profile with demos, a release, journal notes and collaborators. Fans used pages like this to discover scenes through taste.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "indie",
+      "artist",
+      "music",
+      "journal"
+    ],
+    "thumbnail": "templates/indie-artist-2007/preview.jpg",
+    "html": "templates/indie-artist-2007/index.html",
+    "preview": {
+      "background": "#c6d2c1",
+      "surface": "#fffdf4",
+      "accent": "#bd6d73",
+      "highlight": "#e8d69d",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "nightclub-profile-2006",
+    "name": "Nightclub Profile 2006",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A nightlife profile with events, tickets, video, a playlist and a venue wall. It turns a club page into a shareable digital flyer.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "club",
+      "events",
+      "tickets",
+      "nightlife"
+    ],
+    "thumbnail": "templates/nightclub-profile-2006/preview.jpg",
+    "html": "templates/nightclub-profile-2006/index.html",
+    "preview": {
+      "background": "#08050f",
+      "surface": "#1b0e2b",
+      "accent": "#ff3ca6",
+      "highlight": "#39e6ff",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "mega-festival-2007",
+    "name": "Mega Festival 2007",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A huge festival profile with lineup, stages, trailer, playlist and guide. The era made event pages feel like an invitation into a scene.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "festival",
+      "lineup",
+      "stages",
+      "event"
+    ],
+    "thumbnail": "templates/mega-festival-2007/preview.jpg",
+    "html": "templates/mega-festival-2007/index.html",
+    "preview": {
+      "background": "#10234d",
+      "surface": "#fffcef",
+      "accent": "#ff6b35",
+      "highlight": "#ffd451",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "turntable-dj-2008",
+    "name": "Turntable DJ 2008",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "An underground DJ profile with mixes, dates, booth photos, gear and crew. It keeps the personal, hand-curated feel people loved.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "dj",
+      "turntables",
+      "mixes",
+      "crew"
+    ],
+    "thumbnail": "templates/turntable-dj-2008/preview.jpg",
+    "html": "templates/turntable-dj-2008/index.html",
+    "preview": {
+      "background": "#020806",
+      "surface": "#0a1d18",
+      "accent": "#87ff38",
+      "highlight": "#3aa7ff",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "y2k-pop-2004",
+    "name": "Y2K Pop 2004",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A glossy Y2K profile with a dreamy pink background, translucent cards, favorite links and a tiny personal blog.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "y2k",
+      "pop",
+      "personal",
+      "blog"
+    ],
+    "thumbnail": "templates/y2k-pop-2004/preview.jpg",
+    "html": "templates/y2k-pop-2004/index.html",
+    "preview": {
+      "background": "#e8c9ff",
+      "surface": "#ffffff",
+      "accent": "#ff218c",
+      "highlight": "#49cbff",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "cyber-angel-2002",
+    "name": "Cyber Angel 2002",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A lavender cyber-pop profile with a glowing illustrated background, glass cards, orbit links and a transmission log.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "y2k",
+      "cyber",
+      "personal",
+      "blog"
+    ],
+    "thumbnail": "templates/cyber-angel-2002/preview.jpg",
+    "html": "templates/cyber-angel-2002/index.html",
+    "preview": {
+      "background": "#b5c9ff",
+      "surface": "#f5f7ff",
+      "accent": "#8658ee",
+      "highlight": "#5eeeff",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "glitter-diary-2004",
+    "name": "Glitter Diary 2004",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A sparkly pink personal diary with a glittering background, transparent cards, favorite things and a guest wall.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "y2k",
+      "diary",
+      "personal",
+      "guestbook"
+    ],
+    "thumbnail": "templates/glitter-diary-2004/preview.jpg",
+    "html": "templates/glitter-diary-2004/index.html",
+    "preview": {
+      "background": "#ffc8e2",
+      "surface": "#fff8fd",
+      "accent": "#ff3d9b",
+      "highlight": "#ffbc8f",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "pop-fan-club-2004",
+    "name": "Pop Fan Club 2004",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A sunny Y2K community page with a bright illustrated background, translucent cards, fan updates and a gallery.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "y2k",
+      "fan-club",
+      "community",
+      "gallery"
+    ],
+    "thumbnail": "templates/pop-fan-club-2004/preview.jpg",
+    "html": "templates/pop-fan-club-2004/index.html",
+    "preview": {
+      "background": "#8bd9ff",
+      "surface": "#ffffff",
+      "accent": "#287be8",
+      "highlight": "#ffe05d",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "kindergarten-family-hq-2005",
+    "name": "Kindergarten Family HQ",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A warm parent-update page for a kindergarten class, with daily rhythm, reminders, family notes and upcoming dates.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "kindergarten",
+      "parents",
+      "school",
+      "classroom"
+    ],
+    "thumbnail": "templates/kindergarten-family-hq-2005/preview.jpg",
+    "html": "templates/kindergarten-family-hq-2005/index.html",
+    "preview": {
+      "background": "#fff8ea",
+      "surface": "#fffdf7",
+      "accent": "#59a8e8",
+      "highlight": "#ffb52b",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "platformer-crew-1992",
+    "name": "Platformer Crew",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A pixel-arcade gaming profile for speedruns, level routes, crew roles and live stream updates.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "gaming",
+      "platformer",
+      "streaming",
+      "arcade"
+    ],
+    "thumbnail": "templates/platformer-crew-1992/preview.jpg",
+    "html": "templates/platformer-crew-1992/index.html",
+    "preview": {
+      "background": "#111d48",
+      "surface": "#07122c",
+      "accent": "#6ee7ff",
+      "highlight": "#ffe447",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "maze-arcade-1983",
+    "name": "Maze Arcade",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A maze-chase arcade profile for leaderboards, route cards, run roles and stream updates.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "gaming",
+      "arcade",
+      "leaderboard",
+      "streaming"
+    ],
+    "thumbnail": "templates/maze-arcade-1983/preview.jpg",
+    "html": "templates/maze-arcade-1983/index.html",
+    "preview": {
+      "background": "#07112a",
+      "surface": "#07122c",
+      "accent": "#1be7ff",
+      "highlight": "#ffe447",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "science-lab-2007",
+    "name": "Science Lab",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A classroom science page with investigation plans, notebook prompts, safety reminders and family material notes.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "science",
+      "teacher",
+      "classroom",
+      "school"
+    ],
+    "thumbnail": "templates/science-lab-2007/preview.jpg",
+    "html": "templates/science-lab-2007/index.html",
+    "preview": {
+      "background": "#eafffa",
+      "surface": "#effffc",
+      "accent": "#0a9d9a",
+      "highlight": "#c9ff5a",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "classroom-hq-2006",
+    "name": "Classroom HQ",
+    "category": "Retro MySpace Inspired Pages",
+    "description": "A family-friendly classroom page with daily schedule, learning updates, reminders and parent notes.",
+    "version": "1.0.0",
+    "tags": [
+      "retro",
+      "myspace-era",
+      "teacher",
+      "classroom",
+      "parents",
+      "school"
+    ],
+    "thumbnail": "templates/classroom-hq-2006/preview.jpg",
+    "html": "templates/classroom-hq-2006/index.html",
+    "preview": {
+      "background": "#f4f8ff",
+      "surface": "#fffdfa",
+      "accent": "#3178cf",
+      "highlight": "#ffe469",
+      "layout": "profile"
+    }
+  },
+  {
+    "id": "independent-consultant",
+    "name": "Independent Consultant",
+    "category": "Professional Services",
+    "description": "An editorial personal-brand website for consultants, advisors, and fractional leaders.",
+    "version": "1.0.1",
+    "tags": [
+      "consultant",
+      "advisory",
+      "professional",
+      "strategy",
+      "editorial"
+    ],
+    "goals": [
+      "calls"
+    ],
+    "thumbnail": "templates/independent-consultant/preview.jpg",
+    "html": "templates/independent-consultant/index.html",
+    "prompt": "templates/independent-consultant/prompt.md"
+  },
+  {
+    "id": "luxury-realtor",
+    "name": "Luxury Realtor",
+    "category": "Real Estate",
+    "description": "A cinematic property-led website for premium real estate advisors and boutique agencies.",
+    "version": "1.0.1",
+    "tags": [
+      "realtor",
+      "property",
+      "real-estate",
+      "listings",
+      "premium"
+    ],
+    "goals": [
+      "calls",
+      "showcase"
+    ],
+    "thumbnail": "templates/luxury-realtor/preview.jpg",
+    "html": "templates/luxury-realtor/index.html",
+    "prompt": "templates/luxury-realtor/prompt.md"
+  },
+  {
+    "id": "modern-restaurant",
+    "name": "Modern Restaurant",
+    "category": "Food & Hospitality",
+    "description": "A warm, reservation-focused restaurant website with a menu, gallery, hours, and location.",
+    "version": "1.0.1",
+    "tags": [
+      "restaurant",
+      "food",
+      "menu",
+      "reservation",
+      "hospitality"
+    ],
+    "goals": [
+      "bookings"
+    ],
+    "thumbnail": "templates/modern-restaurant/preview.jpg",
+    "html": "templates/modern-restaurant/index.html",
+    "prompt": "templates/modern-restaurant/prompt.md"
+  },
+  {
+    "id": "boutique-salon",
+    "name": "Boutique Salon",
+    "category": "Beauty & Wellness",
+    "description": "A warm, appointment-led editorial site for independent hair salons and stylists.",
+    "version": "1.0.1",
+    "tags": [
+      "salon",
+      "hair",
+      "beauty",
+      "stylist",
+      "appointment"
+    ],
+    "goals": [
+      "bookings"
+    ],
+    "thumbnail": "templates/boutique-salon/preview.jpg",
+    "html": "templates/boutique-salon/index.html",
+    "prompt": "templates/boutique-salon/prompt.md"
+  },
+  {
+    "id": "wedding-photographer",
+    "name": "Wedding Photographer",
+    "category": "Portfolio",
+    "description": "An image-first documentary wedding portfolio for photographers booking stories across Europe.",
+    "version": "1.0.1",
+    "tags": [
+      "photographer",
+      "wedding",
+      "portfolio",
+      "photography",
+      "creative"
+    ],
+    "goals": [
+      "showcase",
+      "calls"
+    ],
+    "thumbnail": "templates/wedding-photographer/preview.jpg",
+    "html": "templates/wedding-photographer/index.html",
+    "prompt": "templates/wedding-photographer/prompt.md"
+  },
+  {
+    "id": "community-nonprofit",
+    "name": "Community Nonprofit",
+    "category": "Community & Nonprofit",
+    "description": "A practical, welcoming site for food networks, volunteer groups, and local mutual-aid organisations.",
+    "version": "1.0.1",
+    "tags": [
+      "nonprofit",
+      "community",
+      "volunteer",
+      "food",
+      "mutual-aid"
+    ],
+    "goals": [
+      "event"
+    ],
+    "thumbnail": "templates/community-nonprofit/preview.jpg",
+    "html": "templates/community-nonprofit/index.html",
+    "prompt": "templates/community-nonprofit/prompt.md"
+  },
+  {
+    "id": "personal-trainer",
+    "name": "Personal Trainer",
+    "category": "Fitness & Wellness",
+    "description": "A consultation-led strength coaching website for personal trainers who sell practical, sustainable support.",
+    "version": "1.0.1",
+    "tags": [
+      "personal-trainer",
+      "fitness",
+      "coaching",
+      "strength",
+      "consultation"
+    ],
+    "goals": [
+      "bookings"
+    ],
+    "thumbnail": "templates/personal-trainer/preview.jpg",
+    "html": "templates/personal-trainer/index.html",
+    "prompt": "templates/personal-trainer/prompt.md"
+  },
+  {
+    "id": "home-renovation-contractor",
+    "name": "Home Renovation Contractor",
+    "category": "Home Services",
+    "description": "A project-led renovation site for contractors who need qualified site-visit and quote requests.",
+    "version": "1.0.1",
+    "tags": [
+      "contractor",
+      "renovation",
+      "home",
+      "construction",
+      "quote"
+    ],
+    "goals": [
+      "calls"
+    ],
+    "thumbnail": "templates/home-renovation-contractor/preview.jpg",
+    "html": "templates/home-renovation-contractor/index.html",
+    "prompt": "templates/home-renovation-contractor/prompt.md"
+  },
+  {
+    "id": "dental-clinic",
+    "name": "Dental Clinic",
+    "category": "Healthcare",
+    "description": "A reassuring new-patient dental site with appointment, care, and practical visit information.",
+    "version": "1.0.1",
+    "tags": [
+      "dental",
+      "dentist",
+      "healthcare",
+      "clinic",
+      "appointment"
+    ],
+    "goals": [
+      "bookings"
+    ],
+    "thumbnail": "templates/dental-clinic/preview.jpg",
+    "html": "templates/dental-clinic/index.html",
+    "prompt": "templates/dental-clinic/prompt.md"
+  },
+  {
+    "id": "emergency-electrician",
+    "name": "Emergency Electrician",
+    "category": "Home Services",
+    "description": "A 24/7 electrician site built around an urgent click-to-call path, plus planned home and renovation work.",
+    "version": "1.0.1",
+    "tags": [
+      "electrician",
+      "electrical",
+      "emergency",
+      "home-service",
+      "call-now"
+    ],
+    "goals": [
+      "calls"
+    ],
+    "thumbnail": "templates/emergency-electrician/preview.jpg",
+    "html": "templates/emergency-electrician/index.html",
+    "prompt": "templates/emergency-electrician/prompt.md"
+  },
+  {
+    "id": "interior-designer",
+    "name": "Interior Designer",
+    "category": "Portfolio",
+    "description": "An image-led interior design studio site that turns a considered home project into a clear enquiry.",
+    "version": "1.0.1",
+    "tags": [
+      "interior-design",
+      "designer",
+      "home",
+      "portfolio",
+      "renovation"
+    ],
+    "goals": [
+      "showcase",
+      "calls"
+    ],
+    "thumbnail": "templates/interior-designer/preview.jpg",
+    "html": "templates/interior-designer/index.html",
+    "prompt": "templates/interior-designer/prompt.md"
+  },
+  {
+    "id": "bookkeeping-firm",
+    "name": "Bookkeeping Firm",
+    "category": "Professional Services",
+    "description": "A calm, discovery-call-led bookkeeping site for small businesses needing regular support or a practical catch-up.",
+    "version": "1.0.1",
+    "tags": [
+      "bookkeeping",
+      "accounting",
+      "small-business",
+      "finance",
+      "discovery-call"
+    ],
+    "goals": [
+      "calls"
+    ],
+    "thumbnail": "templates/bookkeeping-firm/preview.jpg",
+    "html": "templates/bookkeeping-firm/index.html",
+    "prompt": "templates/bookkeeping-firm/prompt.md"
+  }
 ]
