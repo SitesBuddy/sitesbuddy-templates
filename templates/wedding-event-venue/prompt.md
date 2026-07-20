@@ -1,0 +1,1 @@
+Create a cinematic wedding and event venue page that helps couples qualify the estate before visiting. Show capacity, accommodation, spaces, package starting prices, and a date-and-guest-count inquiry that leads to a private tour.

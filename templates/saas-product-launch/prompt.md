@@ -1,0 +1,1 @@
+Create a focused SaaS launch page that shows the product above the fold, proves one operational outcome, and repeats one low-friction CTA: start with a sample project. Keep the dashboard editable in HTML and use customer photography only as supporting proof.

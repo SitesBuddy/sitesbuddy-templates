@@ -931,5 +931,66 @@
     "thumbnail": "templates/bookkeeping-firm/preview.jpg",
     "html": "templates/bookkeeping-firm/index.html",
     "prompt": "templates/bookkeeping-firm/prompt.md"
+  },
+  {
+    "id": "handmade-skincare-shop",
+    "name": "Handmade Skincare Shop",
+    "category": "Beauty & Wellness",
+    "description": "A product-led skincare shop that helps customers choose a short routine, understand the ingredients, and place an order.",
+    "version": "1.0.0",
+    "tags": [
+      "skincare",
+      "beauty",
+      "shop",
+      "handmade",
+      "products"
+    ],
+    "goals": [
+      "sell"
+    ],
+    "thumbnail": "templates/handmade-skincare-shop/preview.jpg",
+    "html": "templates/handmade-skincare-shop/index.html",
+    "prompt": "templates/handmade-skincare-shop/prompt.md"
+  },
+  {
+    "id": "saas-product-launch",
+    "name": "SaaS Product Launch",
+    "category": "Landing Page",
+    "description": "A product-led SaaS launch page that shows the software early and drives visitors toward a sample-project signup.",
+    "version": "1.0.0",
+    "tags": [
+      "saas",
+      "software",
+      "startup",
+      "product",
+      "launch"
+    ],
+    "goals": [
+      "launch"
+    ],
+    "thumbnail": "templates/saas-product-launch/preview.jpg",
+    "html": "templates/saas-product-launch/index.html",
+    "prompt": "templates/saas-product-launch/prompt.md"
+  },
+  {
+    "id": "wedding-event-venue",
+    "name": "Wedding & Event Venue",
+    "category": "Food & Hospitality",
+    "description": "A cinematic venue site that shows the spaces, capacity, package starting prices, and a clear date-and-tour inquiry path.",
+    "version": "1.0.0",
+    "tags": [
+      "wedding",
+      "event",
+      "venue",
+      "hospitality",
+      "tour"
+    ],
+    "goals": [
+      "bookings",
+      "event"
+    ],
+    "thumbnail": "templates/wedding-event-venue/preview.jpg",
+    "html": "templates/wedding-event-venue/index.html",
+    "prompt": "templates/wedding-event-venue/prompt.md"
   }
 ]

@@ -1,0 +1,1 @@
+Create a warm, editorial ecommerce page for a small-batch skincare brand. Keep the shopping path short, explain ingredients in plain language, and lead visitors toward a three-product ritual or a personal routine recommendation.
