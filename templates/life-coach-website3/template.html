@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hannah Rivera Life Coaching</title>
+  <meta name="description" content="An elegant life coaching website for personal growth, confidence, relationships, and life direction.">
+  <meta property="og:title" content="Hannah Rivera Life Coaching">
+  <meta property="og:description" content="Premium coaching for women ready to reset direction, restore confidence, and move through life with more intention.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Great+Vibes&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sb-bg: #fbf7ef;
+      --sb-surface: #ffffff;
+      --sb-surface-soft: #f3ede3;
+      --sb-surface-warm: #eee4d7;
+      --sb-text: #2c2723;
+      --sb-text-soft: #5f554e;
+      --sb-muted: #756a62;
+      --sb-light-text: #ffffff;
+      --sb-primary: #4b4039;
+      --sb-primary-deep: #302a26;
+      --sb-secondary: #c8a66a;
+      --sb-secondary-dark: #a98446;
+      --sb-kicker: #b3915b;
+      --sb-border: rgba(75, 64, 57, .13);
+      --sb-border-strong: rgba(75, 64, 57, .22);
+      --sb-inverse-border: rgba(255, 255, 255, .16);
+      --sb-image-placeholder: #ded3c5;
+      --sb-radius: 6px;
+      --sb-panel-radius: 12px;
+      --sb-max-width: 1160px;
+      --sb-section-y: clamp(66px, 8vw, 106px);
+      --sb-section-x: clamp(20px, 5vw, 54px);
+      --sb-card-shadow: 0 16px 42px rgba(75, 64, 57, .08);
+      --sb-panel-shadow: 0 24px 58px rgba(38, 31, 27, .16);
+      --sb-nav-bg: rgba(48, 42, 38, .78);
+      --sb-menu-bg: rgba(48, 42, 38, .96);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: var(--sb-text); background: var(--sb-bg); }
+    a { color: inherit; }
+    [hidden] { display: none !important; }
+    .sb-page, .sb-section { width: 100%; }
+    .sb-section-inner { max-width: var(--sb-max-width); margin: 0 auto; padding: var(--sb-section-y) var(--sb-section-x); }
+    .sb-nav { position: fixed; inset: 0 0 auto 0; z-index: 1000; min-height: 72px; padding: 14px clamp(18px, 5vw, 56px); display: flex; align-items: center; gap: 22px; background: var(--sb-nav-bg); border-bottom: 1px solid var(--sb-inverse-border); backdrop-filter: blur(18px); color: var(--sb-light-text); }
+    .sb-brand { display: grid; line-height: 1; text-decoration: none; font-family: "Playfair Display", Georgia, serif; font-size: 18px; font-weight: 600; white-space: nowrap; }
+    .sb-brand span { margin-top: 3px; color: rgba(255,255,255,.72); font-family: Inter, sans-serif; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
+    .sb-nav-links { display: flex; align-items: center; gap: 22px; margin-left: auto; }
+    .sb-nav-links a { color: rgba(255,255,255,.82); text-decoration: none; font-size: 12px; font-weight: 800; text-transform: uppercase; transition: color .18s ease; }
+    .sb-nav-links a:hover { color: #fff; }
+    .sb-nav-actions { display: flex; align-items: center; gap: 10px; }
+    .sb-nav-toggle { display: none; width: 44px; height: 44px; border: 1px solid rgba(255,255,255,.28); border-radius: var(--sb-radius); background: rgba(255,255,255,.08); color: #fff; cursor: pointer; }
+    .sb-nav-toggle span { display: block; width: 18px; height: 2px; margin: 4px auto; background: currentColor; border-radius: 2px; }
+    .sb-mobile-menu { position: fixed; top: 72px; left: clamp(12px, 4vw, 24px); right: clamp(12px, 4vw, 24px); z-index: 999; padding: 10px; background: var(--sb-menu-bg); border: 1px solid var(--sb-inverse-border); border-top: 0; border-radius: 0 0 var(--sb-panel-radius) var(--sb-panel-radius); box-shadow: var(--sb-panel-shadow); backdrop-filter: blur(16px); }
+    .sb-mobile-menu.sb-is-open { display: grid; gap: 4px; }
+    .sb-mobile-menu a { display: flex; align-items: center; justify-content: space-between; min-height: 46px; padding: 0 14px; border-radius: var(--sb-radius); color: rgba(255,255,255,.84); text-decoration: none; font-size: 13px; font-weight: 850; text-transform: uppercase; }
+    .sb-mobile-menu a::after { content: ""; width: 7px; height: 7px; border-top: 2px solid currentColor; border-right: 2px solid currentColor; opacity: .42; transform: rotate(45deg); }
+    .sb-mobile-menu a:hover, .sb-mobile-menu a:focus-visible { background: rgba(255,255,255,.08); color: #fff; outline: none; }
+    .sb-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; padding: 0 20px; border-radius: 999px; border: 1px solid transparent; text-decoration: none; font-size: 12px; font-weight: 900; text-transform: uppercase; transition: transform .18s ease, box-shadow .18s ease, background .18s ease; }
+    .sb-btn:hover { transform: translateY(-1px); box-shadow: 0 12px 28px rgba(38, 31, 27, .18); }
+    .sb-btn-primary { background: var(--sb-secondary); color: var(--sb-primary-deep); border-color: var(--sb-secondary); }
+    .sb-btn-secondary { background: transparent; color: inherit; border-color: currentColor; }
+    .sb-btn-light { background: #fff; color: var(--sb-primary); border-color: #fff; }
+    .sb-kicker { margin: 0 0 12px; color: var(--sb-kicker); font-family: "Great Vibes", cursive; font-size: clamp(27px, 4vw, 42px); line-height: 1; font-weight: 400; }
+    h1, h2, h3, p { overflow-wrap: anywhere; }
+    h1, h2, h3 { font-family: "Playfair Display", Georgia, serif; font-weight: 600; }
+    h1 { margin: 0; max-width: 700px; color: var(--sb-light-text); font-size: clamp(47px, 7vw, 86px); line-height: .92; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(31px, 4.8vw, 58px); line-height: 1.02; text-transform: uppercase; }
+    h3 { margin: 0 0 10px; font-size: 23px; text-transform: uppercase; }
+    .sb-lead { margin: 20px 0 0; max-width: 650px; color: var(--sb-text-soft); font-size: clamp(16px, 1.8vw, 19px); line-height: 1.72; }
+    .sb-muted { color: var(--sb-muted); line-height: 1.72; }
+    .sb-eyebrow { margin: 0 0 16px; color: var(--sb-secondary); font-size: 12px; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
+    .sb-hero { position: relative; overflow: hidden; background: var(--sb-primary-deep); color: var(--sb-light-text); }
+    .sb-hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(29,25,22,.98) 0%, rgba(29,25,22,.94) 42%, rgba(29,25,22,.18) 100%); z-index: 1; }
+    .sb-hero-bg { position: absolute; top: 0; right: 0; bottom: 0; width: min(58%, 860px); height: 100%; min-height: 640px; object-fit: cover; object-position: center; opacity: .92; }
+    .sb-hero .sb-section-inner { position: relative; z-index: 2; min-height: 640px; display: grid; align-items: center; padding-top: clamp(128px, 13vw, 176px); padding-bottom: clamp(72px, 9vw, 118px); }
+    .sb-hero-content { max-width: 690px; }
+    .sb-hero .sb-lead { color: rgba(255,255,255,.82); max-width: 560px; }
+    .sb-hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .sb-proof-strip { background: var(--sb-bg); border-bottom: 1px solid var(--sb-border); }
+    .sb-proof-strip .sb-section-inner { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; padding-top: 30px; padding-bottom: 30px; text-align: center; }
+    .sb-proof-item strong { display: block; color: var(--sb-primary); font-family: "Playfair Display", Georgia, serif; font-size: 18px; text-transform: uppercase; }
+    .sb-proof-item span { display: block; margin-top: 7px; color: var(--sb-muted); font-size: 13px; line-height: 1.45; }
+    .sb-about { background: var(--sb-surface); }
+    .sb-about-grid { display: grid; grid-template-columns: minmax(250px, .75fr) minmax(0, 1fr); gap: clamp(32px, 6vw, 76px); align-items: center; }
+    .sb-portrait { width: 100%; aspect-ratio: 4 / 5; display: block; object-fit: cover; object-position: center; border-radius: 48% 48% 0 0; background: var(--sb-image-placeholder); box-shadow: var(--sb-card-shadow); }
+    .sb-signature { margin: 16px 0 0; color: var(--sb-kicker); font-family: "Great Vibes", cursive; font-size: 34px; line-height: 1; }
+    .sb-about-copy { display: grid; gap: 16px; }
+    .sb-about-list { display: grid; gap: 10px; margin: 18px 0 0; padding: 18px 0 0; list-style: none; border-top: 1px solid var(--sb-border); color: var(--sb-text-soft); }
+    .sb-about-list li { line-height: 1.55; }
+    .sb-story { background: var(--sb-bg); }
+    .sb-story-grid { display: grid; grid-template-columns: .72fr 1fr; gap: clamp(28px, 5vw, 54px); align-items: start; }
+    .sb-stat-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 32px; }
+    .sb-stat { text-align: center; }
+    .sb-stat strong { display: block; color: var(--sb-secondary-dark); font-family: "Playfair Display", Georgia, serif; font-size: clamp(36px, 5vw, 58px); line-height: .9; }
+    .sb-stat span { display: block; margin-top: 8px; color: var(--sb-muted); font-size: 12px; font-weight: 900; text-transform: uppercase; }
+    .sb-values { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .sb-value-card { padding: 28px; background: var(--sb-surface); box-shadow: var(--sb-card-shadow); }
+    .sb-services { background: var(--sb-surface); }
+    .sb-section-heading { max-width: 730px; margin: 0 auto 34px; text-align: center; }
+    .sb-service-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .sb-card { min-height: 100%; padding: 0; background: transparent; text-align: center; }
+    .sb-card-image { width: 100%; aspect-ratio: 4 / 5; display: block; object-fit: cover; border-radius: 48% 48% 0 0; background: var(--sb-image-placeholder); }
+    .sb-card-body { padding: 18px 10px 0; }
+    .sb-process { background: var(--sb-surface-soft); }
+    .sb-process-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px 42px; margin-top: 36px; }
+    .sb-step { display: grid; grid-template-columns: 52px 1fr; gap: 18px; padding-top: 24px; border-top: 1px solid var(--sb-border); }
+    .sb-step-mark { color: var(--sb-secondary-dark); font-family: "Playfair Display", Georgia, serif; font-size: 36px; line-height: 1; }
+    .sb-programs { background: var(--sb-bg); }
+    .sb-package-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 34px; }
+    .sb-package { display: flex; flex-direction: column; min-height: 100%; padding: 26px; background: var(--sb-surface); box-shadow: var(--sb-card-shadow); }
+    .sb-package img { width: 100%; aspect-ratio: 4 / 3; display: block; object-fit: cover; margin-bottom: 18px; background: var(--sb-image-placeholder); }
+    .sb-price { margin: auto 0 18px; color: var(--sb-secondary-dark); font-family: "Playfair Display", Georgia, serif; font-size: 34px; font-weight: 600; }
+    .sb-reviews { background: var(--sb-surface-warm); }
+    .sb-review-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(28px, 5vw, 62px); align-items: start; }
+    .sb-testimonials { display: grid; gap: 20px; }
+    .sb-testimonial { display: grid; grid-template-columns: 72px 1fr; gap: 16px; align-items: start; }
+    .sb-testimonial img { width: 72px; aspect-ratio: 1; display: block; object-fit: cover; border-radius: 50%; background: var(--sb-image-placeholder); }
+    .sb-testimonial p { margin: 0; color: var(--sb-text-soft); line-height: 1.62; }
+    .sb-testimonial cite { display: block; margin-top: 10px; color: var(--sb-primary); font-style: normal; font-weight: 900; }
+    .sb-faq { background: var(--sb-surface); }
+    .sb-faq .sb-section-inner { display: grid; grid-template-columns: .75fr 1.25fr; gap: 34px; align-items: start; }
+    .sb-accordion { display: grid; gap: 10px; }
+    .sb-accordion-item { overflow: hidden; border-top: 1px solid var(--sb-border); }
+    .sb-accordion-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; border: 0; background: transparent; color: var(--sb-text); font: inherit; font-weight: 900; text-align: left; cursor: pointer; }
+    .sb-accordion-icon { flex: 0 0 auto; color: var(--sb-secondary-dark); font-size: 22px; }
+    .sb-accordion-panel { padding: 0 0 20px; color: var(--sb-muted); line-height: 1.65; }
+    .sb-contact { background: var(--sb-primary-deep); color: var(--sb-light-text); }
+    .sb-contact .sb-section-inner { display: grid; grid-template-columns: minmax(0, .98fr) minmax(260px, .56fr); gap: clamp(34px, 7vw, 80px); align-items: center; padding-top: clamp(78px, 10vw, 126px); padding-bottom: clamp(76px, 10vw, 118px); }
+    .sb-contact h2 { color: #fff; }
+    .sb-contact .sb-lead, .sb-contact-methods { color: rgba(255,255,255,.78); }
+    .sb-contact-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 30px; }
+    .sb-contact-card { padding-left: 28px; border-left: 1px solid rgba(255,255,255,.24); }
+    .sb-contact-card img { width: 100%; max-width: 250px; aspect-ratio: 4 / 5; display: block; object-fit: cover; border-radius: 48% 48% 0 0; margin-bottom: 22px; background: var(--sb-image-placeholder); }
+    .sb-contact-card h3 { color: #fff; }
+    .sb-contact-methods { display: grid; gap: 9px; margin-top: 18px; line-height: 1.55; }
+    @media (max-width: 940px) {
+      .sb-nav { gap: 10px; }
+      .sb-brand { flex: 1 1 auto; min-width: 0; }
+      .sb-nav-links { display: none; }
+      .sb-nav-actions { margin-left: auto; }
+      .sb-nav-actions .sb-btn { min-height: 40px; padding: 0 14px; white-space: nowrap; }
+      .sb-nav-toggle { display: inline-block; flex: 0 0 auto; }
+      .sb-about-grid, .sb-story-grid, .sb-review-grid, .sb-faq .sb-section-inner, .sb-contact .sb-section-inner { grid-template-columns: 1fr; }
+      .sb-service-grid, .sb-package-grid, .sb-proof-strip .sb-section-inner { grid-template-columns: 1fr; }
+      .sb-process-grid, .sb-values { grid-template-columns: 1fr; }
+      .sb-contact-card { padding-left: 0; padding-top: 28px; border-left: 0; border-top: 1px solid rgba(255,255,255,.24); }
+    }
+    @media (max-width: 640px) {
+      .sb-nav { min-height: 66px; padding: 11px 16px; }
+      .sb-mobile-menu { top: 66px; }
+      .sb-nav-actions .sb-btn { min-height: 38px; padding: 0 12px; font-size: 11px; }
+      .sb-section-inner { padding-left: 18px; padding-right: 18px; }
+      .sb-hero .sb-section-inner { min-height: 620px; padding-top: 118px; }
+      .sb-hero::before { background: linear-gradient(90deg, rgba(29,25,22,.96), rgba(29,25,22,.74)); }
+      .sb-hero-bg { inset: 0; width: 100%; object-position: 65% center; opacity: .5; }
+      .sb-stat-row { grid-template-columns: 1fr; gap: 24px; }
+      .sb-step { grid-template-columns: 42px 1fr; }
+      .sb-testimonial { grid-template-columns: 58px 1fr; }
+      .sb-testimonial img { width: 58px; }
+    }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <nav class="sb-nav" data-sb-component="nav" aria-label="Primary navigation">
+    <a class="sb-brand" data-sb-role="brand" href="#hero">Life Coach<span>by Hannah Rivera</span></a>
+    <div class="sb-nav-links" data-sb-role="nav-links">
+      <a href="#about">About</a><a href="#services">Expertise</a><a href="#process">How it works</a><a href="#programs">Programs</a><a href="#reviews">Testimonials</a><a href="#faq">FAQ</a>
+    </div>
+    <div class="sb-nav-actions" data-sb-role="nav-actions"><a class="sb-btn sb-btn-primary" href="#contact">Contact</a></div>
+    <button class="sb-nav-toggle" type="button" aria-label="Open menu" aria-controls="sb-mobile-menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </nav>
+  <div id="sb-mobile-menu" class="sb-mobile-menu" data-sb-component="mobile-menu" hidden>
+    <a href="#about">About</a><a href="#services">Expertise</a><a href="#process">How it works</a><a href="#programs">Programs</a><a href="#reviews">Testimonials</a><a href="#faq">FAQ</a>
+  </div>
+  <main class="sb-page">
+    <section id="hero" class="sb-section sb-hero" data-sb-role="section">
+      <img class="sb-hero-bg" src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=1800" data-sbai-image-query="elegant female life coach portrait dark warm studio" data-sbai-image-shape="landscape" alt="Elegant female life coach portrait in a warm dark studio">
+      <div class="sb-section-inner">
+        <div class="sb-hero-content">
+          <p class="sb-kicker">Hannah Rivera</p>
+          <h1 data-sb-role="section-heading">Empower your journey to personal growth</h1>
+          <p class="sb-lead">Guiding women through life shifts, purpose, confidence, and emotional clarity with grounded coaching that makes the next step feel possible.</p>
+          <div class="sb-hero-actions" data-sb-component="cta" data-sb-role="cta">
+            <a class="sb-btn sb-btn-primary" href="#contact">Book a call</a>
+            <a class="sb-btn sb-btn-secondary" href="#programs">View programs</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="sb-proof-strip" aria-label="Coaching strengths">
+      <div class="sb-section-inner">
+        <div class="sb-proof-item"><strong>Certified Expertise</strong><span>Personal coaching rooted in practical tools and reflective guidance.</span></div>
+        <div class="sb-proof-item"><strong>Personalized Care</strong><span>Private sessions shaped around your season, values, and energy.</span></div>
+        <div class="sb-proof-item"><strong>Rewarding Results</strong><span>Clearer decisions, steadier habits, and confidence that lasts.</span></div>
+      </div>
+    </section>
+    <section id="about" class="sb-section sb-about" data-sb-role="section">
+      <div class="sb-section-inner sb-about-grid">
+        <figure>
+          <img class="sb-portrait" src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=1100" data-sbai-image-query="female life coach seated portrait warm neutral blazer" data-sbai-image-shape="portrait" alt="Hannah Rivera seated in a warm neutral coaching studio" loading="lazy">
+          <figcaption class="sb-signature">With care, Hannah</figcaption>
+        </figure>
+        <div class="sb-about-copy">
+          <p class="sb-kicker">Hello, I'm Hannah</p>
+          <h2 data-sb-role="section-heading">Your trusted life coach</h2>
+          <p class="sb-lead">I am here for women who are ready to stop negotiating with old patterns and start choosing a more honest version of their life.</p>
+          <p class="sb-muted">My work blends psychology-informed coaching, values-based planning, and steady accountability. We slow down the noise, name what matters, and build decisions you can actually live with.</p>
+          <ul class="sb-about-list">
+            <li>Certified life coach with 10+ years supporting personal transitions.</li>
+            <li>Specialized in confidence, boundaries, habits, and relationship clarity.</li>
+            <li>Online and local sessions for clients who want thoughtful, practical support.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <section id="fit" class="sb-section sb-story" data-sb-role="section">
+      <div class="sb-section-inner sb-story-grid">
+        <div>
+          <p class="sb-kicker">Why trust me?</p>
+          <h2 data-sb-role="section-heading">A calmer way to make serious change</h2>
+          <div class="sb-stat-row">
+            <div class="sb-stat"><strong>12+</strong><span>Years experience</span></div>
+            <div class="sb-stat"><strong>1k+</strong><span>Lives supported</span></div>
+            <div class="sb-stat"><strong>99%</strong><span>Satisfaction rate</span></div>
+          </div>
+        </div>
+        <div class="sb-values">
+          <article class="sb-value-card" data-sb-role="card"><h3>My life story</h3><p class="sb-muted">I know what it means to rebuild confidence after uncertainty. That is why this work stays practical, personal, and deeply human.</p></article>
+          <article class="sb-value-card" data-sb-role="card"><h3>My core values</h3><p class="sb-muted">Clarity, kindness, honesty, and real follow-through. Coaching should help you live better, not perform better.</p></article>
+        </div>
+      </div>
+    </section>
+    <section id="services" class="sb-section sb-services" data-sb-role="section">
+      <div class="sb-section-inner">
+        <div class="sb-section-heading"><p class="sb-kicker">My specialties</p><h2 data-sb-role="section-heading">Areas of expertise</h2><p class="sb-lead">Choose the support that matches the season you are in right now.</p></div>
+        <div class="sb-service-grid">
+          <article class="sb-card" data-sb-role="card"><img class="sb-card-image" src="https://images.pexels.com/photos/3768129/pexels-photo-3768129.jpeg?auto=compress&cs=tinysrgb&w=900" data-sbai-image-query="personal development coaching journal coffee warm desk" data-sbai-image-shape="portrait" alt="Personal development coaching journal and warm desk" loading="lazy"><div class="sb-card-body"><h3>Personal development</h3><p class="sb-muted">Goal setting, self-discovery, and daily rhythms that support your direction.</p></div></article>
+          <article class="sb-card" data-sb-role="card"><img class="sb-card-image" src="https://images.pexels.com/photos/1181717/pexels-photo-1181717.jpeg?auto=compress&cs=tinysrgb&w=900" data-sbai-image-query="confident woman coaching mindset motivation portrait" data-sbai-image-shape="portrait" alt="Confident woman reflecting during mindset coaching" loading="lazy"><div class="sb-card-body"><h3>Mindset and motivation</h3><p class="sb-muted">Breaking limiting beliefs and building internal trust for meaningful change.</p></div></article>
+          <article class="sb-card" data-sb-role="card"><img class="sb-card-image" src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=900" data-sbai-image-query="professional growth coaching laptop planning session" data-sbai-image-shape="portrait" alt="Professional growth coaching planning session" loading="lazy"><div class="sb-card-body"><h3>Professional growth</h3><p class="sb-muted">Career transitions, leadership confidence, and cleaner priorities.</p></div></article>
+        </div>
+      </div>
+    </section>
+    <section id="process" class="sb-section sb-process" data-sb-role="section">
+      <div class="sb-section-inner">
+        <p class="sb-kicker">How it works</p><h2 data-sb-role="section-heading">The 4 easy steps</h2>
+        <div class="sb-process-grid">
+          <article class="sb-step"><div class="sb-step-mark">1</div><div><h3>Discovery session</h3><p class="sb-muted">We clarify what feels stuck, what is changing, and what support would make the biggest difference.</p></div></article>
+          <article class="sb-step"><div class="sb-step-mark">2</div><div><h3>Tailored coaching</h3><p class="sb-muted">Your sessions focus on the real-life decisions, habits, and patterns that need attention.</p></div></article>
+          <article class="sb-step"><div class="sb-step-mark">3</div><div><h3>Weekly coaching</h3><p class="sb-muted">We meet consistently to turn reflection into progress, action, and steadier follow-through.</p></div></article>
+          <article class="sb-step"><div class="sb-step-mark">4</div><div><h3>Ongoing support</h3><p class="sb-muted">You leave with simple next steps, practical tools, and confidence in the choices ahead.</p></div></article>
+        </div>
+      </div>
+    </section>
+    <section id="programs" class="sb-section sb-programs" data-sb-role="section">
+      <div class="sb-section-inner">
+        <div class="sb-section-heading"><p class="sb-kicker">My programs</p><h2 data-sb-role="section-heading">Choose the level of support that fits</h2></div>
+        <div class="sb-package-grid">
+          <article class="sb-package" data-sb-role="card"><img src="https://images.pexels.com/photos/4473864/pexels-photo-4473864.jpeg?auto=compress&cs=tinysrgb&w=900" data-sbai-image-query="wellness coaching calm notebook tea neutral" data-sbai-image-shape="landscape" alt="Calm wellness coaching notebook and tea" loading="lazy"><h3>Revitalize</h3><p class="sb-muted">A focused reset for one decision, habit, or transition.</p><p class="sb-price">$299</p><a class="sb-btn sb-btn-secondary" href="#contact">Ask about Revitalize</a></article>
+          <article class="sb-package" data-sb-role="card"><img src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=900" data-sbai-image-query="personal coaching conversation two women warm office" data-sbai-image-shape="landscape" alt="Personal coaching conversation in a warm office" loading="lazy"><h3>Empower</h3><p class="sb-muted">Six weeks of coaching for clarity, confidence, and action.</p><p class="sb-price">$699</p><a class="sb-btn sb-btn-primary" href="#contact">Ask about Empower</a></article>
+          <article class="sb-package" data-sb-role="card"><img src="https://images.pexels.com/photos/3810792/pexels-photo-3810792.jpeg?auto=compress&cs=tinysrgb&w=900" data-sbai-image-query="life coach planning retreat journal laptop coffee" data-sbai-image-shape="landscape" alt="Life coaching planning retreat with journal and laptop" loading="lazy"><h3>Master</h3><p class="sb-muted">Three-month partnership for deeper transformation.</p><p class="sb-price">$1499</p><a class="sb-btn sb-btn-secondary" href="#contact">Ask about Master</a></article>
+        </div>
+      </div>
+    </section>
+    <section id="reviews" class="sb-section sb-reviews" data-sb-role="section">
+      <div class="sb-section-inner sb-review-grid">
+        <div><p class="sb-kicker">Testimonials</p><h2 data-sb-role="section-heading">What my clients say about working with me</h2></div>
+        <div class="sb-testimonials">
+          <article class="sb-testimonial"><img src="https://images.pexels.com/photos/3760854/pexels-photo-3760854.jpeg?auto=compress&cs=tinysrgb&w=300" data-sbai-image-query="female client portrait warm professional" data-sbai-image-shape="square" alt="Emily Lane testimonial portrait" loading="lazy"><div><p>"Hannah helped me stop overthinking every decision and trust what I already knew. The sessions were calm, honest, and incredibly practical."</p><cite>Emily Lane</cite></div></article>
+          <article class="sb-testimonial"><img src="https://images.pexels.com/photos/1181690/pexels-photo-1181690.jpeg?auto=compress&cs=tinysrgb&w=300" data-sbai-image-query="male client portrait warm professional" data-sbai-image-shape="square" alt="David Turner testimonial portrait" loading="lazy"><div><p>"I came in scattered and burned out. Within weeks I had a clearer plan, better boundaries, and more energy for my work."</p><cite>David Turner</cite></div></article>
+          <article class="sb-testimonial"><img src="https://images.pexels.com/photos/1181717/pexels-photo-1181717.jpeg?auto=compress&cs=tinysrgb&w=300" data-sbai-image-query="female client portrait smiling warm light" data-sbai-image-shape="square" alt="Sarah Evans testimonial portrait" loading="lazy"><div><p>"The biggest change was confidence. Hannah gave me language, structure, and support when I needed it most."</p><cite>Sarah Evans</cite></div></article>
+        </div>
+      </div>
+    </section>
+    <section id="faq" class="sb-section sb-faq" data-sb-role="section">
+      <div class="sb-section-inner">
+        <div><p class="sb-kicker">Got a little tangled?</p><h2 data-sb-role="section-heading">FAQ frequently asked questions</h2></div>
+        <div class="sb-accordion" data-sb-component="accordion">
+          <div class="sb-accordion-item"><button class="sb-accordion-trigger" type="button" aria-expanded="false" aria-controls="faq3-panel-1"><span>How does coaching work?</span><span class="sb-accordion-icon" aria-hidden="true">+</span></button><div id="faq3-panel-1" class="sb-accordion-panel" hidden>We meet online or locally, define your focus, and use each session to turn reflection into clear decisions and practical next steps.</div></div>
+          <div class="sb-accordion-item"><button class="sb-accordion-trigger" type="button" aria-expanded="false" aria-controls="faq3-panel-2"><span>Is this therapy?</span><span class="sb-accordion-icon" aria-hidden="true">+</span></button><div id="faq3-panel-2" class="sb-accordion-panel" hidden>No. Coaching is future-focused support for direction, goals, habits, confidence, and life transitions. It is not medical or mental health treatment.</div></div>
+          <div class="sb-accordion-item"><button class="sb-accordion-trigger" type="button" aria-expanded="false" aria-controls="faq3-panel-3"><span>Can I choose multiple focus areas?</span><span class="sb-accordion-icon" aria-hidden="true">+</span></button><div id="faq3-panel-3" class="sb-accordion-panel" hidden>Yes. Many clients work across confidence, career, relationships, boundaries, and stress. We choose a clear priority for each season.</div></div>
+        </div>
+      </div>
+    </section>
+    <section id="contact" class="sb-section sb-contact" data-sb-role="section">
+      <div class="sb-section-inner">
+        <div>
+          <p class="sb-kicker">Let's connect</p>
+          <h2 data-sb-role="section-heading">Let's get to know each other</h2>
+          <p class="sb-lead">Send a note or call directly. Bring the question you keep circling, and we will decide whether coaching is the right next step.</p>
+          <div class="sb-contact-actions" data-sb-component="cta" data-sb-role="cta"><a class="sb-btn sb-btn-primary" href="mailto:hannah@example.com">hannah@example.com</a><a class="sb-btn sb-btn-light" href="tel:+15551115511">+1 555 111 5511</a></div>
+        </div>
+        <aside class="sb-contact-card">
+          <img src="https://images.pexels.com/photos/1181686/pexels-photo-1181686.jpeg?auto=compress&cs=tinysrgb&w=900" data-sbai-image-query="elegant female life coach portrait warm studio" data-sbai-image-shape="portrait" alt="Hannah Rivera smiling in a warm coaching studio" loading="lazy">
+          <h3>Contact details</h3>
+          <div class="sb-contact-methods"><span>Hannah Rivera Coaching</span><span>Based in Denver, Colorado</span><span>Online sessions available across time zones</span></div>
+        </aside>
+      </div>
+    </section>
+  </main>
+  <script>
+    (function () {
+      const navToggle = document.querySelector('.sb-nav-toggle');
+      const mobileMenu = document.getElementById('sb-mobile-menu');
+      function closeMenu() {
+        if (!mobileMenu || !navToggle) return;
+        mobileMenu.hidden = true;
+        mobileMenu.classList.remove('sb-is-open');
+        navToggle.setAttribute('aria-expanded', 'false');
+      }
+      if (navToggle && mobileMenu) {
+        navToggle.addEventListener('click', function () {
+          const willOpen = mobileMenu.hidden;
+          mobileMenu.hidden = !willOpen;
+          mobileMenu.classList.toggle('sb-is-open', willOpen);
+          navToggle.setAttribute('aria-expanded', String(willOpen));
+        });
+        mobileMenu.querySelectorAll('a').forEach(function (link) { link.addEventListener('click', closeMenu); });
+      }
+      document.querySelectorAll('.sb-accordion-trigger').forEach(function (trigger) {
+        const panel = document.getElementById(trigger.getAttribute('aria-controls'));
+        trigger.addEventListener('click', function () {
+          if (!panel) return;
+          const willOpen = panel.hidden;
+          panel.hidden = !willOpen;
+          trigger.setAttribute('aria-expanded', String(willOpen));
+          const icon = trigger.querySelector('.sb-accordion-icon');
+          if (icon) icon.textContent = willOpen ? '-' : '+';
+        });
+      });
+      document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+        anchor.addEventListener('click', function (event) {
+          const id = anchor.getAttribute('href');
+          if (!id || id === '#') return;
+          const target = document.querySelector(id);
+          if (!target) return;
+          event.preventDefault();
+          closeMenu();
+          const navHeight = document.querySelector('.sb-nav')?.offsetHeight || 0;
+          const top = Math.max(0, target.getBoundingClientRect().top + window.pageYOffset - navHeight - 10);
+          window.scrollTo({ top: top, behavior: 'smooth' });
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

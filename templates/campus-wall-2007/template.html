@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Campus Wall 2007</title>
+  <meta name="description" content="A structured 2007-inspired social profile with a wall, personal information, photo albums, and friends.">
+  <style>
+    :root {
+      --sb-bg: #f2f2f2;
+      --sb-surface: #ffffff;
+      --sb-surface-soft: #f7f7f7;
+      --sb-text: #222222;
+      --sb-muted: #777777;
+      --sb-primary: #3b5998;
+      --sb-primary-dark: #263f75;
+      --sb-primary-soft: #d8dfea;
+      --sb-secondary: #eef3f8;
+      --sb-success: #3b7d23;
+      --sb-border: #b7c3d7;
+      --sb-border-soft: #d8dfea;
+      --sb-link: #3b5998;
+      --sb-radius: 0;
+      --sb-max-width: 980px;
+      --sb-section-x: clamp(10px, 2.5vw, 18px);
+      --sb-section-y: 16px;
+      --sb-shadow: 0 1px 2px rgba(0, 0, 0, .12);
+      --sb-font: "Lucida Grande", Tahoma, Verdana, Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; color: var(--sb-text); background: var(--sb-bg); font-family: var(--sb-font); font-size: 12px; }
+    a { color: var(--sb-link); }
+    button, input, textarea { font: inherit; }
+    [hidden] { display: none !important; }
+    .sb-page { width: 100%; min-height: 760px; }
+
+    .sb-nav { color: #fff; background: var(--sb-primary); border-bottom: 1px solid var(--sb-primary-dark); }
+    .sb-nav-inner { width: min(calc(100% - 18px), var(--sb-max-width)); min-height: 44px; display: flex; align-items: center; gap: 18px; margin: 0 auto; }
+    .sb-brand { color: #fff; text-decoration: none; font-size: 24px; font-weight: 900; letter-spacing: -1px; }
+    .sb-search { flex: 1; max-width: 300px; display: flex; }
+    .sb-search input { width: 100%; height: 25px; padding: 3px 7px; border: 1px solid var(--sb-primary-dark); background: #fff; color: var(--sb-text); }
+    .sb-search button { height: 25px; padding: 0 9px; border: 1px solid var(--sb-primary-dark); border-left: 0; background: #e7ebf2; color: var(--sb-primary-dark); cursor: pointer; font-weight: 700; }
+    .sb-nav-links { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+    .sb-nav-links a { color: #fff; text-decoration: none; font-weight: 700; }
+    .sb-nav-links a:hover { text-decoration: underline; }
+
+    .sb-shell { width: min(calc(100% - 18px), var(--sb-max-width)); margin: 0 auto; background: var(--sb-surface); border-right: 1px solid #ddd; border-left: 1px solid #ddd; box-shadow: var(--sb-shadow); }
+    .sb-profile-header { display: grid; grid-template-columns: 190px minmax(0, 1fr); border-bottom: 1px solid var(--sb-border); }
+    .sb-profile-name { grid-column: 2; padding: 18px 14px 11px; }
+    .sb-profile-name h1 { margin: 0; font-size: 22px; line-height: 1.15; }
+    .sb-profile-name p { margin: 5px 0 0; color: var(--sb-muted); }
+    .sb-profile-tabs { grid-column: 2; display: flex; align-items: end; gap: 3px; padding: 0 12px; }
+    .sb-profile-tabs button { min-height: 31px; padding: 6px 12px; border: 1px solid var(--sb-border); border-bottom: 0; background: var(--sb-secondary); color: var(--sb-link); cursor: pointer; font-weight: 700; }
+    .sb-profile-tabs button[aria-selected="true"] { position: relative; top: 1px; color: var(--sb-text); background: var(--sb-surface); }
+
+    .sb-layout { display: grid; grid-template-columns: 190px minmax(0, 1fr); min-height: 650px; }
+    .sb-sidebar { padding: 12px; background: var(--sb-surface-soft); border-right: 1px solid var(--sb-border-soft); }
+    .sb-profile-photo { position: relative; width: 100%; aspect-ratio: 4 / 5; overflow: hidden; background: #d9e2ef; border: 1px solid #999; }
+    .sb-profile-photo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .sb-profile-photo::after { content: "PROFILE PHOTO"; position: absolute; left: 0; right: 0; bottom: 0; padding: 7px; color: #fff; background: rgba(30, 49, 82, .75); text-align: center; font-size: 10px; font-weight: 700; }
+    .sb-side-actions { display: grid; gap: 5px; margin-top: 8px; }
+    .sb-side-actions a { padding: 5px 6px; background: #fff; border: 1px solid var(--sb-border-soft); text-decoration: none; font-weight: 700; }
+    .sb-side-actions a:hover { background: var(--sb-secondary); }
+    .sb-side-section { margin-top: 15px; padding-top: 8px; border-top: 1px solid var(--sb-border-soft); }
+    .sb-side-section h2 { margin: 0 0 7px; color: var(--sb-primary-dark); font-size: 12px; }
+    .sb-side-section p { margin: 0 0 5px; line-height: 1.4; }
+    .sb-side-section strong { color: #444; }
+
+    .sb-main { min-width: 0; padding: 12px; }
+    .sb-tab-panel { min-width: 0; }
+    .sb-main-grid { display: grid; grid-template-columns: minmax(0, 1.45fr) minmax(210px, .75fr); gap: 12px; align-items: start; }
+    .sb-column { display: grid; gap: 12px; min-width: 0; }
+    .sb-module { min-width: 0; border: 1px solid var(--sb-border); background: var(--sb-surface); }
+    .sb-module-title { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin: 0; padding: 6px 8px; color: var(--sb-primary-dark); background: var(--sb-primary-soft); border-bottom: 1px solid var(--sb-border); font-size: 12px; }
+    .sb-module-title a { font-size: 10px; font-weight: 400; }
+    .sb-module-body { padding: 9px; }
+
+    .sb-status { padding: 10px; background: #fffbe2; border: 1px solid #e5d784; }
+    .sb-status strong { color: var(--sb-primary-dark); }
+    .sb-status p { margin: 0; line-height: 1.45; }
+    .sb-status-meta { margin-top: 5px !important; color: var(--sb-muted); font-size: 10px; }
+
+    .sb-wall-composer label { display: block; margin-bottom: 5px; color: var(--sb-primary-dark); font-weight: 700; }
+    .sb-wall-composer textarea { width: 100%; min-height: 55px; resize: vertical; padding: 6px; border: 1px solid #9ca9bc; background: #fff; }
+    .sb-composer-actions { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-top: 6px; }
+    .sb-composer-actions span { color: var(--sb-muted); font-size: 10px; }
+    .sb-button { padding: 4px 10px; color: #fff; background: var(--sb-primary); border: 1px solid var(--sb-primary-dark); cursor: pointer; font-weight: 700; }
+    .sb-button:hover { background: var(--sb-primary-dark); }
+    .sb-link-button { padding: 0; color: var(--sb-link); background: transparent; border: 0; cursor: pointer; font-size: 10px; text-decoration: underline; }
+
+    .sb-wall-post { display: grid; grid-template-columns: 52px 1fr; gap: 8px; padding: 10px 0; border-bottom: 1px solid var(--sb-border-soft); }
+    .sb-wall-post:first-child { padding-top: 0; }
+    .sb-wall-post:last-child { padding-bottom: 0; border-bottom: 0; }
+    .sb-avatar { width: 52px; aspect-ratio: 1; display: grid; place-items: center; color: #fff; background: var(--sb-primary); border: 1px solid var(--sb-primary-dark); font-size: 17px; font-weight: 900; }
+    .sb-wall-post h3 { margin: 0; font-size: 12px; }
+    .sb-wall-post p { margin: 4px 0; line-height: 1.45; }
+    .sb-post-meta { color: var(--sb-muted); font-size: 10px; }
+    .sb-post-actions a { margin-right: 8px; font-size: 10px; }
+
+    .sb-info-list { display: grid; grid-template-columns: 78px 1fr; gap: 6px 8px; margin: 0; }
+    .sb-info-list dt { color: var(--sb-muted); }
+    .sb-info-list dd { margin: 0; overflow-wrap: anywhere; }
+    .sb-mini-feed { display: grid; gap: 7px; }
+    .sb-feed-item { padding-left: 18px; background: linear-gradient(90deg, var(--sb-primary-soft) 12px, transparent 12px); line-height: 1.4; }
+    .sb-feed-item span { display: block; color: var(--sb-muted); font-size: 10px; }
+
+    .sb-friend-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; }
+    .sb-friend { min-width: 0; text-align: center; }
+    .sb-friend-avatar { position: relative; width: 100%; aspect-ratio: 1; display: grid; place-items: center; margin-bottom: 3px; overflow: hidden; color: #fff; background: #879dc3; border: 1px solid var(--sb-primary-dark); font-weight: 900; }
+    .sb-friend-avatar img, .sb-photo-visual img { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; }
+    .sb-friend-avatar span, .sb-photo-visual span { position: relative; z-index: 0; }
+    .sb-friend:nth-child(2n) .sb-friend-avatar { background: #b3878e; }
+    .sb-friend a { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; }
+
+    .sb-photo-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 9px; }
+    .sb-photo { min-width: 0; padding: 4px; border: 1px solid var(--sb-border-soft); background: #fff; }
+    .sb-photo-visual { position: relative; aspect-ratio: 4 / 3; display: grid; place-items: center; overflow: hidden; color: var(--sb-primary-dark); background: var(--sb-secondary); border: 1px solid var(--sb-border); font-weight: 900; }
+    .sb-photo p { margin: 5px 0 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10px; }
+
+    .sb-info-section { margin-bottom: 15px; }
+    .sb-info-section:last-child { margin-bottom: 0; }
+    .sb-info-section h2 { margin: 0 0 7px; padding-bottom: 4px; color: var(--sb-primary-dark); border-bottom: 1px solid var(--sb-border-soft); font-size: 13px; }
+    .sb-info-table { width: 100%; border-collapse: collapse; }
+    .sb-info-table th, .sb-info-table td { padding: 6px 8px; border-bottom: 1px solid #eee; vertical-align: top; text-align: left; line-height: 1.45; }
+    .sb-info-table th { width: 145px; color: var(--sb-muted); background: var(--sb-surface-soft); }
+
+    .sb-footer { padding: 14px; color: var(--sb-muted); background: var(--sb-surface-soft); border-top: 1px solid var(--sb-border-soft); text-align: center; }
+
+    @media (max-width: 760px) {
+      .sb-nav-inner { flex-wrap: wrap; padding: 7px 0; }
+      .sb-search { order: 3; flex-basis: 100%; max-width: none; }
+      .sb-profile-header { display: block; }
+      .sb-profile-name { padding-bottom: 8px; }
+      .sb-profile-tabs { overflow-x: auto; }
+      .sb-layout { grid-template-columns: 150px minmax(0, 1fr); }
+      .sb-main-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 540px) {
+      .sb-nav-links { width: 100%; margin-left: 0; }
+      .sb-layout { display: block; }
+      .sb-sidebar { display: grid; grid-template-columns: 120px 1fr; gap: 10px; border-right: 0; border-bottom: 1px solid var(--sb-border-soft); }
+      .sb-profile-photo { grid-row: span 3; }
+      .sb-side-actions, .sb-side-section { margin-top: 0; }
+      .sb-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .sb-info-table, .sb-info-table tbody, .sb-info-table tr, .sb-info-table th, .sb-info-table td { display: block; width: 100%; }
+      .sb-info-table th { border-bottom: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sb-page" id="top">
+    <nav class="sb-nav" data-sb-component="nav" aria-label="Social profile navigation">
+      <div class="sb-nav-inner">
+        <a class="sb-brand" data-sb-role="brand" href="#top">circle</a>
+        <form class="sb-search" role="search" onsubmit="return false;">
+          <label for="profile-search" hidden>Search profiles</label>
+          <input id="profile-search" type="search" placeholder="Search people and pages">
+          <button type="submit">Search</button>
+        </form>
+        <div class="sb-nav-links" data-sb-role="nav-links">
+          <a href="#profile">Profile</a>
+          <a href="#friends">Friends</a>
+          <a href="#photos">Photos</a>
+          <a href="#">Inbox</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="sb-shell">
+      <header class="sb-profile-header" id="profile">
+        <div class="sb-profile-name">
+          <h1 data-sb-role="section-heading">Jamie Carter</h1>
+          <p>Jamie is figuring out what to do with the rest of the weekend.</p>
+        </div>
+        <div class="sb-profile-tabs" role="tablist" aria-label="Profile sections">
+          <button id="wall-tab" type="button" role="tab" aria-selected="true" aria-controls="wall-panel" data-tab="wall-panel">Wall</button>
+          <button id="info-tab" type="button" role="tab" aria-selected="false" aria-controls="info-panel" data-tab="info-panel">Info</button>
+          <button id="photos-tab" type="button" role="tab" aria-selected="false" aria-controls="photos-panel" data-tab="photos-panel">Photos</button>
+        </div>
+      </header>
+
+      <div class="sb-layout">
+        <aside class="sb-sidebar">
+          <div class="sb-profile-photo">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friendly young adult 2000s profile portrait natural flash" data-sbai-image-shape="portrait" alt="Jamie Carter’s profile portrait">
+          </div>
+          <div class="sb-side-actions">
+            <a href="mailto:hello@example.com">Send Jamie a message</a>
+            <a href="#friends">View Jamie’s friends</a>
+            <a href="#">Poke Jamie</a>
+          </div>
+          <section class="sb-side-section" data-sb-role="section">
+            <h2>Jamie’s information</h2>
+            <p><strong>Networks:</strong><br>Your City, Creatives</p>
+            <p><strong>Birthday:</strong><br>June 12</p>
+            <p><strong>Hometown:</strong><br>Your hometown</p>
+          </section>
+          <section class="sb-side-section" data-sb-role="section">
+            <h2>Mutual friends</h2>
+            <p><a href="#friends">You and Jamie have 6 friends in common.</a></p>
+          </section>
+        </aside>
+
+        <main class="sb-main">
+          <section class="sb-tab-panel" id="wall-panel" role="tabpanel" aria-labelledby="wall-tab">
+            <div class="sb-main-grid">
+              <div class="sb-column">
+                <div class="sb-status">
+                  <p><strong>Jamie Carter</strong> is listening to an album all the way through.</p>
+                  <p class="sb-status-meta">Updated 42 minutes ago · <a href="#">Comment</a></p>
+                </div>
+
+                <section class="sb-module" data-sb-role="section" aria-labelledby="write-wall-title">
+                  <h2 class="sb-module-title" id="write-wall-title">Write something on Jamie’s Wall</h2>
+                  <div class="sb-module-body sb-wall-composer">
+                    <label for="wall-message">Message</label>
+                    <textarea id="wall-message" placeholder="Connect an embedded Google Form here for a working private wall."></textarea>
+                    <div class="sb-composer-actions"><span>Visible to approved profile viewers</span><button class="sb-button" type="button">Share</button></div>
+                  </div>
+                </section>
+
+                <section class="sb-module" data-sb-role="section" aria-labelledby="wall-title">
+                  <h2 class="sb-module-title" id="wall-title" data-sb-role="section-heading"><span>The Wall</span><a href="#">See all posts</a></h2>
+                  <div class="sb-module-body">
+                    <article class="sb-wall-post" data-sb-role="card">
+                      <div class="sb-avatar">M</div>
+                      <div>
+                        <h3><a href="#">Maya Santos</a> wrote:</h3>
+                        <p>Saturday was excellent. Upload the diner photos before everyone forgets they exist.</p>
+                        <div class="sb-post-meta">Yesterday at 10:18 PM</div>
+                        <div class="sb-post-actions"><a href="#">Like</a><a href="#">Comment</a><a href="#">Remove</a></div>
+                      </div>
+                    </article>
+                    <article class="sb-wall-post" data-sb-role="card">
+                      <div class="sb-avatar">A</div>
+                      <div>
+                        <h3><a href="#">Alex Morgan</a> wrote:</h3>
+                        <p>Your profile says you’re free Thursday. Movie night?</p>
+                        <div class="sb-post-meta">Monday at 4:07 PM</div>
+                        <div class="sb-post-actions"><a href="#">Like</a><a href="#">Comment</a><a href="#">Remove</a></div>
+                      </div>
+                    </article>
+                    <article class="sb-wall-post" data-sb-role="card">
+                      <div class="sb-avatar">R</div>
+                      <div>
+                        <h3><a href="#">Riley Chen</a> shared a link:</h3>
+                        <p><strong>Twenty tiny websites worth visiting</strong><br>Thought you would like the one with the interactive moon calendar.</p>
+                        <div class="sb-post-meta">Last Friday at 8:31 AM</div>
+                        <div class="sb-post-actions"><a href="#">Like</a><a href="#">Comment</a><a href="#">Share</a></div>
+                      </div>
+                    </article>
+                  </div>
+                </section>
+              </div>
+
+              <div class="sb-column">
+                <section class="sb-module" data-sb-role="section" aria-labelledby="info-summary-title">
+                  <h2 class="sb-module-title" id="info-summary-title"><span>Information</span><button type="button" class="sb-link-button" data-open-tab="info-panel">See all</button></h2>
+                  <div class="sb-module-body">
+                    <dl class="sb-info-list">
+                      <dt>Lives in</dt><dd>Your City</dd>
+                      <dt>Works at</dt><dd>Studio North</dd>
+                      <dt>Studied</dt><dd>Design and media</dd>
+                      <dt>Interested in</dt><dd>Music, photography, independent web</dd>
+                    </dl>
+                  </div>
+                </section>
+
+                <section class="sb-module" id="friends" data-sb-role="section" aria-labelledby="friends-title">
+                  <h2 class="sb-module-title" id="friends-title"><span>Friends · 184</span><a href="#">See all</a></h2>
+                  <div class="sb-module-body sb-friend-grid">
+                    <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>M</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friendly candid portrait Maya" data-sbai-image-shape="square" alt="Maya"></div><a href="#">Maya</a></article>
+                    <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>A</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friendly candid portrait Alex" data-sbai-image-shape="square" alt="Alex"></div><a href="#">Alex</a></article>
+                    <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>R</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friendly candid portrait Riley" data-sbai-image-shape="square" alt="Riley"></div><a href="#">Riley</a></article>
+                    <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>N</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friendly candid portrait Noa" data-sbai-image-shape="square" alt="Noa"></div><a href="#">Noa</a></article>
+                    <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>K</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friendly candid portrait Kai" data-sbai-image-shape="square" alt="Kai"></div><a href="#">Kai</a></article>
+                    <article class="sb-friend" data-sb-role="card"><div class="sb-friend-avatar"><span>S</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friendly candid portrait Sam" data-sbai-image-shape="square" alt="Sam"></div><a href="#">Sam</a></article>
+                  </div>
+                </section>
+
+                <section class="sb-module" data-sb-role="section" aria-labelledby="feed-title">
+                  <h2 class="sb-module-title" id="feed-title">Mini-Feed</h2>
+                  <div class="sb-module-body sb-mini-feed">
+                    <div class="sb-feed-item">Jamie added 6 new photos.<span>2 hours ago</span></div>
+                    <div class="sb-feed-item">Jamie joined the group “People Who Still Make Mixes.”<span>Yesterday</span></div>
+                    <div class="sb-feed-item">Jamie and Maya are now friends.<span>Tuesday</span></div>
+                  </div>
+                </section>
+              </div>
+            </div>
+          </section>
+
+          <section class="sb-tab-panel" id="info-panel" role="tabpanel" aria-labelledby="info-tab" hidden>
+            <div class="sb-info-section">
+              <h2 data-sb-role="section-heading">Basic information</h2>
+              <table class="sb-info-table"><tbody>
+                <tr><th>About Jamie</th><td>I design things, photograph ordinary places, and keep a list of songs for every possible kind of weather.</td></tr>
+                <tr><th>Current city</th><td>Your City</td></tr>
+                <tr><th>Hometown</th><td>Your hometown</td></tr>
+                <tr><th>Relationship</th><td>It’s complicated</td></tr>
+              </tbody></table>
+            </div>
+            <div class="sb-info-section">
+              <h2>Education and work</h2>
+              <table class="sb-info-table"><tbody>
+                <tr><th>Work</th><td>Designer at Studio North · 2024 to present</td></tr>
+                <tr><th>College</th><td>Design and media · Class of 2022</td></tr>
+              </tbody></table>
+            </div>
+            <div class="sb-info-section">
+              <h2>Activities and interests</h2>
+              <table class="sb-info-table"><tbody>
+                <tr><th>Activities</th><td>Photography walks, tiny web projects, live music, collecting printed things</td></tr>
+                <tr><th>Favorite music</th><td>Add the artists, albums, and songs that actually mean something to you.</td></tr>
+                <tr><th>Favorite books</th><td>Add books, magazines, zines, and anything else you keep returning to.</td></tr>
+              </tbody></table>
+            </div>
+          </section>
+
+          <section class="sb-tab-panel" id="photos-panel" role="tabpanel" aria-labelledby="photos-tab" hidden>
+            <section class="sb-module" id="photos" data-sb-role="section" aria-labelledby="photos-title">
+              <h2 class="sb-module-title" id="photos-title" data-sb-role="section-heading"><span>Jamie’s photo albums</span><a href="#">Create album</a></h2>
+              <div class="sb-module-body sb-photo-grid">
+                <article class="sb-photo" data-sb-role="card"><div class="sb-photo-visual"><span>SAT</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friends at diner Saturday night candid flash" data-sbai-image-shape="landscape" alt="Saturday night album"></div><p>Saturday night · 18 photos</p></article>
+                <article class="sb-photo" data-sb-role="card"><div class="sb-photo-visual"><span>CITY</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="city street photo walk candid" data-sbai-image-shape="landscape" alt="Walks around town album"></div><p>Walks around town · 32 photos</p></article>
+                <article class="sb-photo" data-sb-role="card"><div class="sb-photo-visual"><span>LIVE</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="small live music concert crowd" data-sbai-image-shape="landscape" alt="Shows and concerts album"></div><p>Shows and concerts · 21 photos</p></article>
+                <article class="sb-photo" data-sb-role="card"><div class="sb-photo-visual"><span>HOME</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="cozy home desk personal snapshot" data-sbai-image-shape="landscape" alt="Home album"></div><p>Home · 14 photos</p></article>
+                <article class="sb-photo" data-sb-role="card"><div class="sb-photo-visual"><span>TRIP</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="friends weekend road trip snapshot" data-sbai-image-shape="landscape" alt="Weekend away album"></div><p>Weekend away · 27 photos</p></article>
+                <article class="sb-photo" data-sb-role="card"><div class="sb-photo-visual"><span>OLD</span><img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-sbai-image-query="nostalgic printed photographs collage" data-sbai-image-shape="landscape" alt="Old favorites album"></div><p>Old favorites · 43 photos</p></article>
+              </div>
+            </section>
+          </section>
+        </main>
+      </div>
+
+      <footer class="sb-footer">Jamie’s private profile · Shared with approved friends · Customize every field in SitesBuddyAI</footer>
+    </div>
+  </div>
+
+  <script>
+    (() => {
+      const tabs = [...document.querySelectorAll('[role="tab"]')];
+      const panels = [...document.querySelectorAll('[role="tabpanel"]')];
+
+      const activateTab = (panelId) => {
+        tabs.forEach((tab) => tab.setAttribute('aria-selected', String(tab.dataset.tab === panelId)));
+        panels.forEach((panel) => { panel.hidden = panel.id !== panelId; });
+      };
+
+      tabs.forEach((tab) => tab.addEventListener('click', () => activateTab(tab.dataset.tab)));
+      document.querySelectorAll('[data-open-tab]').forEach((button) => {
+        button.addEventListener('click', () => activateTab(button.dataset.openTab));
+      });
+
+      const shareButton = document.querySelector('.sb-wall-composer .sb-button');
+      if (shareButton) {
+        shareButton.addEventListener('click', () => {
+          const message = document.getElementById('wall-message');
+          if (message) message.placeholder = 'Connect a Google Form or backend before publishing visitor submissions.';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

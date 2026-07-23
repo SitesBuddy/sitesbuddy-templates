@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Portfolio Case Study</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #151515; background: #f6f7f4; }
+    main { overflow: hidden; }
+    .hero { min-height: 540px; padding: clamp(38px, 7vw, 90px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 520px); gap: 34px; align-items: end; background: #dfe8d8; }
+    .kicker { margin: 0 0 18px; color: #486458; font-size: 13px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(44px, 8vw, 92px); line-height: .92; letter-spacing: 0; }
+    .lead { max-width: 680px; color: #41504a; font-size: clamp(17px, 2vw, 22px); line-height: 1.55; }
+    .panel { border-radius: 8px; background: linear-gradient(180deg, rgba(18,24,21,.18), rgba(18,24,21,.78)), url('assets/portfolio-worktable.jpg') center/cover; color: #fff; padding: 24px; min-height: 320px; display: grid; align-content: space-between; box-shadow: 0 24px 70px rgba(0,0,0,.2); }
+    .panel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .tile { min-height: 92px; border-radius: 8px; background: rgba(248,214,109,.78); backdrop-filter: blur(2px); }
+    .tile:nth-child(2) { background: rgba(116,169,149,.78); }
+    .tile:nth-child(3) { background: rgba(239,127,98,.78); }
+    .tile:nth-child(4) { background: rgba(243,243,236,.78); }
+    section { padding: clamp(44px, 7vw, 82px) clamp(22px, 6vw, 76px); }
+    h2 { margin: 0 0 12px; font-size: clamp(30px, 4.5vw, 54px); line-height: 1.02; }
+    .muted { color: #63706b; line-height: 1.65; }
+    .meta { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid #cdd6cc; border-bottom: 1px solid #cdd6cc; }
+    .meta div { padding: 22px; border-right: 1px solid #cdd6cc; }
+    .meta div:last-child { border-right: 0; }
+    .meta strong { display: block; margin-bottom: 6px; }
+    .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .work-card { min-height: 260px; border-radius: 8px; padding: 22px; background: #fff; border: 1px solid #dfe4dd; display: flex; flex-direction: column; justify-content: flex-end; }
+    .work-card.feature { grid-row: span 2; min-height: 536px; background: linear-gradient(145deg, #151515, #34473f); color: #fff; }
+    .process { background: #151515; color: #fff; }
+    .process .muted { color: #cbd5d0; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px; }
+    .step { border: 1px solid rgba(255,255,255,.18); border-radius: 8px; padding: 22px; }
+    .contact { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; background: #f8d66d; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 46px; padding: 0 18px; border-radius: 8px; background: #151515; color: #fff; text-decoration: none; font-weight: 850; }
+    @media (max-width: 840px) { .hero, .work-grid { grid-template-columns: 1fr; } .meta, .steps { grid-template-columns: 1fr; } .meta div { border-right: 0; border-bottom: 1px solid #cdd6cc; } .work-card.feature { min-height: 320px; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="kicker">Independent portfolio</p>
+        <h1>Thoughtful work with clear outcomes.</h1>
+        <p class="lead">Use this page to present a personal brand, creative service, or case study without making visitors hunt for proof.</p>
+      </div>
+      <aside class="panel" aria-label="Designer arranging a tactile brand system on a studio worktable">
+        <div class="panel-grid"><div class="tile"></div><div class="tile"></div><div class="tile"></div><div class="tile"></div></div>
+        <p>Selected work across strategy, design, content, and launch support.</p>
+      </aside>
+    </section>
+    <section class="meta">
+      <div><strong>Role</strong><span class="muted">Designer / Consultant</span></div>
+      <div><strong>Focus</strong><span class="muted">Web presence</span></div>
+      <div><strong>Timeline</strong><span class="muted">4 weeks</span></div>
+      <div><strong>Result</strong><span class="muted">Clearer enquiries</span></div>
+    </section>
+    <section>
+      <h2>Featured projects.</h2>
+      <p class="muted">Replace these blocks with three real examples. Keep each summary specific: problem, move, outcome.</p>
+      <div class="work-grid">
+        <article class="work-card feature"><h3>Brand system refresh</h3><p>A complete visual cleanup for a growing service company.</p></article>
+        <article class="work-card"><h3>Launch page</h3><p class="muted">A focused page that turned vague interest into booked calls.</p></article>
+        <article class="work-card"><h3>Content structure</h3><p class="muted">A clearer story, better sections, and stronger proof throughout.</p></article>
+      </div>
+    </section>
+    <section class="process">
+      <h2>How the work happens.</h2>
+      <p class="muted">A simple process section helps clients understand what they are buying before they reach out.</p>
+      <div class="steps">
+        <div class="step"><h3>Discover</h3><p class="muted">Clarify the audience, offer, constraints, and current gaps.</p></div>
+        <div class="step"><h3>Shape</h3><p class="muted">Turn raw ideas into layout, copy, and visual direction.</p></div>
+        <div class="step"><h3>Launch</h3><p class="muted">Polish the page, hand it over, and support final changes.</p></div>
+      </div>
+    </section>
+    <section class="contact">
+      <div><h2>Have a project in mind?</h2><p class="muted">Adapt this CTA to an enquiry form, booking link, or email.</p></div>
+      <a class="btn" href="mailto:hello@example.com">Start a conversation</a>
+    </section>
+  </main>
+</body>
+</html>

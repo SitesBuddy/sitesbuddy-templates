@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Course Offer Page</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #202124; background: #f7f8fb; }
+    .hero { min-height: 560px; padding: clamp(38px, 7vw, 88px); display: grid; grid-template-columns: minmax(0, 1fr) minmax(280px, 440px); gap: 36px; align-items: center; background: #e9efff; }
+    .eyebrow { margin: 0 0 16px; color: #3f5fba; font-size: 13px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { margin: 0; font-size: clamp(44px, 8vw, 86px); line-height: .94; letter-spacing: 0; }
+    .lead { max-width: 680px; color: #4e596d; font-size: clamp(17px, 2vw, 22px); line-height: 1.55; }
+    .course-card { border-radius: 8px; background: #fff; padding: 24px; border: 1px solid #dfe5f8; box-shadow: 0 24px 70px rgba(51,77,150,.16); }
+    .cover { min-height: 210px; border-radius: 8px; background: linear-gradient(135deg, rgba(54,81,155,.14), rgba(104,195,163,.04)), url('assets/course-planning.jpg') center/cover; margin-bottom: 18px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 8px; background: #202124; color: #fff; text-decoration: none; font-weight: 900; }
+    section { padding: clamp(44px, 7vw, 82px) clamp(22px, 6vw, 76px); }
+    h2 { margin: 0 0 12px; font-size: clamp(30px, 4.6vw, 54px); line-height: 1.02; }
+    .muted { color: #647086; line-height: 1.65; }
+    .outcomes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .card { background: #fff; border: 1px solid #e0e5f0; border-radius: 8px; padding: 24px; }
+    .modules { background: #202124; color: #fff; }
+    .modules .muted { color: #d5dae5; }
+    .module-list { display: grid; gap: 12px; margin-top: 24px; }
+    .module { display: grid; grid-template-columns: 90px 1fr; gap: 18px; padding: 18px; border-radius: 8px; background: rgba(255,255,255,.08); }
+    .proof { display: grid; grid-template-columns: .9fr 1.1fr; gap: 24px; align-items: center; }
+    .quote { font-size: clamp(24px, 4vw, 42px); line-height: 1.12; margin: 0; }
+    .pricing { background: #fff; border-top: 1px solid #e0e5f0; display: grid; grid-template-columns: 1fr 340px; gap: 26px; align-items: center; }
+    .price-box { border-radius: 8px; border: 1px solid #dfe5f8; padding: 24px; background: #f7f8fb; }
+    .price { font-size: 48px; font-weight: 950; }
+    @media (max-width: 840px) { .hero, .proof, .pricing, .outcomes { grid-template-columns: 1fr; } .module { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Course offer template</p>
+        <h1>Teach a useful skill with a page that sells clearly.</h1>
+        <p class="lead">A structured page for courses, workshops, coaching programs, and digital products.</p>
+        <a class="btn" href="#enroll">Enroll now</a>
+      </div>
+      <aside class="course-card">
+        <div class="cover" role="img" aria-label="Independent teacher planning a practical course at a desk"></div>
+        <h3>Practical Website Planning</h3>
+        <p class="muted">A 4-module course for turning messy ideas into a confident page structure.</p>
+      </aside>
+    </section>
+    <section>
+      <h2>What students will be able to do.</h2>
+      <p class="muted">Outcome cards help users understand the transformation before they inspect the modules.</p>
+      <div class="outcomes">
+        <article class="card"><h3>Clarify the offer</h3><p class="muted">Turn rough knowledge into a specific promise.</p></article>
+        <article class="card"><h3>Build the structure</h3><p class="muted">Create sections that answer real buyer questions.</p></article>
+        <article class="card"><h3>Launch with confidence</h3><p class="muted">Publish with clear copy, proof, and a focused CTA.</p></article>
+      </div>
+    </section>
+    <section class="modules">
+      <h2>Inside the course.</h2>
+      <p class="muted">Keep modules concrete. Visitors should know what they receive and why it matters.</p>
+      <div class="module-list">
+        <div class="module"><strong>Module 01</strong><div><strong>Positioning</strong><p class="muted">Define the audience, promise, and page goal.</p></div></div>
+        <div class="module"><strong>Module 02</strong><div><strong>Page Map</strong><p class="muted">Plan hero, proof, offer, FAQ, and conversion sections.</p></div></div>
+        <div class="module"><strong>Module 03</strong><div><strong>Copy Drafting</strong><p class="muted">Write clear sections that sound human and useful.</p></div></div>
+        <div class="module"><strong>Module 04</strong><div><strong>Publish Checklist</strong><p class="muted">Review mobile layout, links, forms, and next steps.</p></div></div>
+      </div>
+    </section>
+    <section class="proof">
+      <p class="quote">“The course helped me turn a vague idea into a page I could actually publish.”</p>
+      <div class="card"><h3>Best for</h3><p class="muted">Creators, consultants, teachers, and small teams who need a clear offer page without a heavy website build.</p></div>
+    </section>
+    <section id="enroll" class="pricing">
+      <div><h2>Start the next cohort.</h2><p class="muted">Swap this block for your price, dates, guarantee, or application process.</p></div>
+      <div class="price-box"><div class="price">$149</div><p class="muted">One-time access, templates, and updates.</p><a class="btn" href="https://example.com" target="_blank" rel="noopener">Join the course</a></div>
+    </section>
+  </main>
+</body>
+</html>

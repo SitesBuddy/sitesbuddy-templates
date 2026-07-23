@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Event Launch Page</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #17171a; background: #fff; }
+    .hero { min-height: 560px; padding: clamp(38px, 7vw, 86px); display: grid; grid-template-columns: 1.1fr .9fr; gap: 34px; align-items: center; background: #fff4d7; }
+    .badge { display: inline-flex; width: fit-content; padding: 8px 12px; border-radius: 999px; background: #17171a; color: #fff; font-size: 13px; font-weight: 850; }
+    h1 { margin: 18px 0; font-size: clamp(46px, 8vw, 88px); line-height: .94; letter-spacing: 0; }
+    .lead { color: #565047; font-size: clamp(17px, 2vw, 22px); line-height: 1.55; max-width: 680px; }
+    .event-card { border-radius: 8px; background: #17171a; color: #fff; padding: clamp(24px, 4vw, 38px); box-shadow: 0 28px 80px rgba(23,23,26,.24); }
+    .event-photo { height: 170px; margin: -2px -2px 24px; border-radius: 7px; background: linear-gradient(180deg, rgba(23,23,26,.02), rgba(23,23,26,.34)), url('assets/design-workshop.jpg') center/cover; }
+    .date { display: grid; grid-template-columns: 86px 1fr; gap: 18px; align-items: center; padding-bottom: 24px; border-bottom: 1px solid rgba(255,255,255,.18); }
+    .day { display: grid; place-items: center; min-height: 86px; border-radius: 8px; background: #ff6b4a; font-size: 34px; font-weight: 950; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 18px; border-radius: 8px; background: #ff6b4a; color: #17171a; text-decoration: none; font-weight: 900; margin-top: 22px; }
+    section { padding: clamp(44px, 7vw, 82px) clamp(22px, 6vw, 76px); }
+    h2 { margin: 0 0 12px; font-size: clamp(30px, 4.6vw, 54px); line-height: 1.02; }
+    .muted { color: #69645d; line-height: 1.65; }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 26px; }
+    .card { border-radius: 8px; border: 1px solid #e8e1d0; padding: 24px; background: #fff; }
+    .schedule { background: #17171a; color: #fff; }
+    .schedule .muted { color: #d8d2c5; }
+    .agenda { display: grid; gap: 12px; margin-top: 24px; }
+    .agenda-row { display: grid; grid-template-columns: 120px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid rgba(255,255,255,.16); }
+    .speakers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .avatar { width: 64px; height: 64px; border-radius: 50%; background: linear-gradient(135deg, #ff6b4a, #ffe08a); margin-bottom: 16px; }
+    .cta { background: #d8f0e4; display: flex; justify-content: space-between; gap: 22px; align-items: center; flex-wrap: wrap; }
+    .cta .btn { margin-top: 0; background: #17171a; color: #fff; }
+    @media (max-width: 840px) { .hero, .cards, .speakers { grid-template-columns: 1fr; } .agenda-row { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <div>
+        <span class="badge">Live event template</span>
+        <h1>Launch an event people can understand fast.</h1>
+        <p class="lead">Use this template for workshops, conferences, webinars, community nights, and product launches.</p>
+      </div>
+      <aside class="event-card">
+        <div class="event-photo" role="img" aria-label="A small creative workshop in progress"></div>
+        <div class="date"><div class="day">18</div><div><strong>Thursday, 6:00 PM</strong><p>Online or venue name<br>Limited seats available</p></div></div>
+        <h2>Design Sprint Evening</h2>
+        <p>Replace this block with the event promise, location, and strongest reason to register.</p>
+        <a class="btn" href="#register">Reserve a seat</a>
+      </aside>
+    </section>
+    <section>
+      <h2>Why attend?</h2>
+      <p class="muted">Make the value obvious before the schedule. These cards work best as outcomes, not vague features.</p>
+      <div class="cards">
+        <article class="card"><h3>Learn the method</h3><p class="muted">Walk away with a practical framework you can reuse.</p></article>
+        <article class="card"><h3>Meet useful people</h3><p class="muted">Connect with people working on similar goals.</p></article>
+        <article class="card"><h3>Leave with next steps</h3><p class="muted">Turn ideas into a simple action plan before the event ends.</p></article>
+      </div>
+    </section>
+    <section class="schedule">
+      <h2>Schedule.</h2>
+      <p class="muted">Keep the agenda skimmable. Three to five rows is usually enough.</p>
+      <div class="agenda">
+        <div class="agenda-row"><strong>6:00 PM</strong><div><strong>Welcome and setup</strong><p class="muted">A short introduction and what to expect.</p></div></div>
+        <div class="agenda-row"><strong>6:30 PM</strong><div><strong>Main session</strong><p class="muted">The core talk, lesson, demo, or workshop activity.</p></div></div>
+        <div class="agenda-row"><strong>8:00 PM</strong><div><strong>Q&A and networking</strong><p class="muted">Discussion, wrap-up, and useful connections.</p></div></div>
+      </div>
+    </section>
+    <section>
+      <h2>Featured guests.</h2>
+      <div class="speakers">
+        <article class="card"><div class="avatar"></div><h3>Alex Morgan</h3><p class="muted">Host and facilitator</p></article>
+        <article class="card"><div class="avatar"></div><h3>Sam Rivera</h3><p class="muted">Guest speaker</p></article>
+        <article class="card"><div class="avatar"></div><h3>Jordan Lee</h3><p class="muted">Panel contributor</p></article>
+      </div>
+    </section>
+    <section id="register" class="cta">
+      <div><h2>Ready to join?</h2><p class="muted">Swap this link for your registration form or ticket page.</p></div>
+      <a class="btn" href="https://example.com" target="_blank" rel="noopener">Register now</a>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bluebird Class · Primary Classroom HQ</title>
+  <style>
+    :root {
+      --sb-bg: #f7f2e8;
+      --sb-surface: #fffdf7;
+      --sb-surface-soft: #e8f0ff;
+      --sb-text: #192841;
+      --sb-muted: #5f6873;
+      --sb-primary: #2453d4;
+      --sb-secondary: #ef644f;
+      --sb-highlight: #f5c844;
+      --sb-green: #3a8068;
+      --sb-border: rgba(25, 40, 65, .18);
+      --sb-radius: 18px;
+      --sb-max-width: 1220px;
+      --sb-section-y: clamp(72px, 9vw, 118px);
+      --sb-section-x: clamp(20px, 5vw, 64px);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--sb-bg); color: var(--sb-text); font-family: Arial, Helvetica, sans-serif; }
+    body.menu-open { overflow: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; width: 100%; }
+    button { font: inherit; }
+    [hidden] { display: none !important; }
+    .sb-page { overflow: hidden; padding-top: 74px; }
+    .sb-section { width: 100%; scroll-margin-top: 74px; }
+    .sb-section-inner { width: 100%; max-width: var(--sb-max-width); margin: auto; padding: var(--sb-section-y) var(--sb-section-x); }
+    .sb-nav-shell { position: fixed; z-index: 50; inset: 0 0 auto; border-bottom: 1px solid var(--sb-border); background: rgba(255, 253, 247, .96); backdrop-filter: blur(12px); }
+    .sb-nav { max-width: var(--sb-max-width); height: 74px; margin: auto; padding: 0 var(--sb-section-x); display: flex; align-items: center; gap: 30px; }
+    .sb-brand { display: inline-flex; align-items: center; gap: 10px; font-size: 15px; font-weight: 900; letter-spacing: -.03em; }
+    .sb-brand-mark { display: grid; width: 35px; height: 35px; place-items: center; border-radius: 10px 10px 10px 2px; background: var(--sb-primary); color: #fff; font-size: 13px; transform: rotate(-3deg); }
+    .sb-brand small { display: block; color: var(--sb-muted); font-size: 10px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    .sb-nav-links { display: flex; gap: 24px; margin-left: auto; font-size: 12px; font-weight: 800; }
+    .sb-nav-links a { border-bottom: 2px solid transparent; padding: 8px 0; }
+    .sb-nav-links a:hover { border-color: var(--sb-secondary); }
+    .sb-nav-actions { display: flex; }
+    .sb-btn { display: inline-flex; min-height: 46px; align-items: center; justify-content: center; gap: 8px; padding: 0 18px; border: 2px solid var(--sb-text); border-radius: 999px; font-size: 12px; font-weight: 900; transition: transform .2s, box-shadow .2s; }
+    .sb-btn:hover { transform: translateY(-2px); box-shadow: 0 5px 0 rgba(25, 40, 65, .2); }
+    .sb-btn-primary { border-color: var(--sb-primary); background: var(--sb-primary); color: #fff; }
+    .sb-btn-secondary { background: var(--sb-highlight); }
+    .sb-nav-toggle { display: none; width: 44px; height: 44px; margin-left: auto; border: 1px solid var(--sb-border); border-radius: 50%; background: var(--sb-surface); cursor: pointer; }
+    .sb-mobile-menu { position: fixed; z-index: 49; inset: 74px 0 auto; padding: 18px var(--sb-section-x) 24px; border-bottom: 1px solid var(--sb-border); background: var(--sb-surface); }
+    .sb-mobile-menu a { display: block; padding: 14px 0; border-bottom: 1px solid var(--sb-border); font-weight: 850; }
+    .sb-hero { min-height: 690px; display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); background: var(--sb-surface-soft); }
+    .sb-hero-copy { display: flex; flex-direction: column; justify-content: center; padding: clamp(70px, 9vw, 130px) var(--sb-section-x); }
+    .sb-kicker { margin: 0 0 18px; color: var(--sb-primary); font-size: 11px; font-weight: 950; letter-spacing: .16em; text-transform: uppercase; }
+    .sb-hero h1 { max-width: 760px; margin: 0; font-size: clamp(58px, 8vw, 112px); line-height: .88; letter-spacing: -.072em; }
+    .sb-hero h1 span { display: block; color: var(--sb-secondary); font-family: Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: -.05em; }
+    .sb-hero-lead { max-width: 580px; margin: 26px 0; color: #53606f; font-size: 18px; line-height: 1.58; }
+    .sb-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .sb-hero-media { position: relative; min-height: 610px; }
+    .sb-hero-media img { height: 100%; object-fit: cover; }
+    .sb-week-card { position: absolute; right: clamp(18px, 5vw, 54px); bottom: 34px; width: min(330px, calc(100% - 36px)); padding: 22px; border: 2px solid var(--sb-text); border-radius: 22px 22px 5px 22px; background: var(--sb-surface); box-shadow: 9px 9px 0 var(--sb-highlight); }
+    .sb-week-card p { margin: 0 0 7px; color: var(--sb-primary); font-size: 10px; font-weight: 950; letter-spacing: .12em; text-transform: uppercase; }
+    .sb-week-card strong { font-size: 21px; line-height: 1.1; }
+    .sb-marquee { display: flex; min-height: 64px; align-items: center; overflow: hidden; border-block: 2px solid var(--sb-text); background: var(--sb-highlight); }
+    .sb-marquee-track { display: flex; width: max-content; animation: classroom-scroll 58s linear infinite; will-change: transform; }
+    .sb-marquee-group { display: flex; flex-shrink: 0; align-items: center; }
+    .sb-marquee span { display: flex; min-height: 60px; align-items: center; flex: 0 0 auto; padding-right: 30px; white-space: nowrap; font-size: 13px; font-weight: 950; letter-spacing: .05em; text-transform: uppercase; }
+    .sb-marquee b { margin: 0 18px; color: var(--sb-secondary); font-size: 18px; }
+    @keyframes classroom-scroll { to { transform: translateX(-50%); } }
+    .sb-heading { display: grid; grid-template-columns: .8fr 1.2fr; gap: 44px; align-items: end; margin-bottom: 44px; }
+    .sb-heading h2 { margin: 0; font-size: clamp(43px, 6vw, 76px); line-height: .94; letter-spacing: -.06em; }
+    .sb-heading p { max-width: 570px; margin: 0; color: var(--sb-muted); font-size: 16px; line-height: 1.65; }
+    .sb-now { background: var(--sb-surface); }
+    .sb-now-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 22px; }
+    .sb-focus { padding: clamp(27px, 4vw, 48px); border: 2px solid var(--sb-text); border-radius: 4px 30px 30px 30px; background: var(--sb-primary); color: #fff; }
+    .sb-focus .sb-kicker { color: #cbd8ff; }
+    .sb-focus h3 { max-width: 720px; margin: 0 0 38px; font-family: Georgia, serif; font-size: clamp(38px, 5.3vw, 66px); font-weight: 400; line-height: 1; }
+    .sb-focus-list { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid rgba(255,255,255,.4); }
+    .sb-focus-item { padding: 18px 18px 0 0; }
+    .sb-focus-item b { display: block; margin-bottom: 7px; color: var(--sb-highlight); font-size: 11px; text-transform: uppercase; }
+    .sb-focus-item span { color: rgba(255,255,255,.8); font-size: 13px; line-height: 1.5; }
+    .sb-quick { display: grid; gap: 12px; }
+    .sb-card { border: 1px solid var(--sb-border); background: var(--sb-bg); }
+    .sb-quick-card { display: flex; min-height: 112px; align-items: center; justify-content: space-between; gap: 20px; padding: 20px; border-radius: 18px; }
+    .sb-quick-card:nth-child(2) { background: #f7dfd5; }
+    .sb-quick-card:nth-child(3) { background: #dfeee6; }
+    .sb-quick-card span { color: var(--sb-muted); font-size: 11px; font-weight: 850; text-transform: uppercase; }
+    .sb-quick-card strong { display: block; margin-top: 5px; font-size: 18px; }
+    .sb-quick-card i { font-size: 23px; font-style: normal; }
+    .sb-calendar { background: var(--sb-bg); }
+    .sb-days { border-top: 2px solid var(--sb-text); }
+    .sb-day { display: grid; grid-template-columns: 100px 1fr 180px; gap: 24px; align-items: center; padding: 22px 0; border-bottom: 1px solid var(--sb-border); }
+    .sb-day time { font-size: 14px; font-weight: 950; text-transform: uppercase; }
+    .sb-day h3 { margin: 0 0 4px; font-size: 19px; }
+    .sb-day p { margin: 0; color: var(--sb-muted); font-size: 13px; }
+    .sb-day a { justify-self: end; border-bottom: 2px solid var(--sb-primary); color: var(--sb-primary); font-size: 11px; font-weight: 900; }
+    .sb-family { background: var(--sb-green); color: #fff; }
+    .sb-family .sb-heading p { color: rgba(255,255,255,.75); }
+    .sb-family-grid { display: grid; grid-template-columns: repeat(3, 1fr); border: 1px solid rgba(255,255,255,.35); }
+    .sb-family-card { min-height: 270px; padding: 28px; border-right: 1px solid rgba(255,255,255,.35); }
+    .sb-family-card:last-child { border-right: 0; }
+    .sb-family-card small { color: #f5d981; font-size: 10px; font-weight: 900; letter-spacing: .12em; text-transform: uppercase; }
+    .sb-family-card h3 { margin: 65px 0 12px; font-family: Georgia, serif; font-size: 31px; font-weight: 400; }
+    .sb-family-card p { margin: 0; color: rgba(255,255,255,.75); font-size: 14px; line-height: 1.6; }
+    .sb-resources { background: var(--sb-surface); }
+    .sb-resource-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .sb-resource { display: grid; grid-template-columns: 55px 1fr auto; gap: 18px; align-items: center; padding: 19px; border: 1px solid var(--sb-border); border-radius: 14px; }
+    .sb-resource-num { display: grid; width: 48px; height: 48px; place-items: center; border-radius: 14px; background: var(--sb-surface-soft); color: var(--sb-primary); font-weight: 950; }
+    .sb-resource h3 { margin: 0 0 4px; font-size: 16px; }
+    .sb-resource p { margin: 0; color: var(--sb-muted); font-size: 12px; }
+    .sb-resource a { color: var(--sb-primary); font-size: 18px; }
+    .sb-contact { background: var(--sb-secondary); color: #fff; }
+    .sb-contact-grid { display: grid; grid-template-columns: 1fr .65fr; gap: 60px; align-items: end; }
+    .sb-contact h2 { max-width: 780px; margin: 0 0 22px; font-size: clamp(48px, 7vw, 92px); line-height: .91; letter-spacing: -.065em; }
+    .sb-contact p { max-width: 620px; color: rgba(255,255,255,.86); line-height: 1.65; }
+    .sb-contact-note { padding: 24px; border: 2px solid rgba(255,255,255,.8); border-radius: 20px 4px 20px 20px; }
+    .sb-contact-note strong { display: block; margin-bottom: 8px; font-size: 18px; }
+    .sb-contact .sb-btn { margin-top: 20px; border-color: var(--sb-text); background: var(--sb-highlight); color: var(--sb-text); }
+    footer { padding: 26px var(--sb-section-x); background: #13213a; color: rgba(255,255,255,.64); font-size: 11px; text-align: center; }
+    @media (max-width: 900px) {
+      .sb-nav-links { display: none; }
+      .sb-nav-toggle { display: inline-grid; place-items: center; }
+      .sb-hero, .sb-heading, .sb-now-grid, .sb-contact-grid { grid-template-columns: 1fr; }
+      .sb-hero-media { min-height: 520px; }
+      .sb-family-grid { grid-template-columns: 1fr; }
+      .sb-family-card { min-height: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.35); }
+      .sb-family-card:last-child { border-bottom: 0; }
+      .sb-family-card h3 { margin-top: 26px; }
+    }
+    @media (max-width: 640px) {
+      .sb-page { padding-top: 66px; }
+      .sb-nav { height: 66px; }
+      .sb-nav-shell { min-height: 66px; }
+      .sb-mobile-menu { top: 66px; }
+      .sb-brand small { display: none; }
+      .sb-nav-actions .sb-btn { min-height: 40px; padding: 0 12px; font-size: 10px; }
+      .sb-hero h1 { font-size: clamp(54px, 17vw, 78px); }
+      .sb-focus-list, .sb-resource-grid { grid-template-columns: 1fr; }
+      .sb-focus-item { padding-bottom: 14px; }
+      .sb-day { grid-template-columns: 76px 1fr; }
+      .sb-day a { grid-column: 2; justify-self: start; }
+      .sb-resource { grid-template-columns: 48px 1fr; }
+      .sb-resource a { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      * { scroll-behavior: auto !important; animation: none !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="sb-page" id="top">
+    <header class="sb-nav-shell">
+      <nav class="sb-nav" data-sb-component="nav" aria-label="Primary navigation">
+        <a class="sb-brand" data-sb-role="brand" href="#top"><span class="sb-brand-mark">4B</span><span>Bluebird Class<small>Ms. Carter · Room 4B</small></span></a>
+        <div class="sb-nav-links" data-sb-role="nav-links"><a href="#this-week">This week</a><a href="#calendar">Calendar</a><a href="#families">For families</a><a href="#resources">Resources</a></div>
+        <div class="sb-nav-actions" data-sb-role="nav-actions"><a class="sb-btn sb-btn-primary" href="https://workspace.google.com/products/forms/" target="_blank" rel="noopener noreferrer">Family form</a></div>
+        <button class="sb-nav-toggle" type="button" aria-label="Open menu" aria-controls="sb-mobile-menu" aria-expanded="false">☰</button>
+      </nav>
+      <div id="sb-mobile-menu" class="sb-mobile-menu" data-sb-component="mobile-menu" hidden><a href="#this-week">This week</a><a href="#calendar">Calendar</a><a href="#families">For families</a><a href="#resources">Resources</a></div>
+    </header>
+    <main>
+      <section class="sb-hero sb-section" data-sb-role="section">
+        <div class="sb-hero-copy">
+          <p class="sb-kicker">Welcome to Room 4B</p>
+          <h1>Know what we’re <span>learning now.</span></h1>
+          <p class="sb-hero-lead">One calm place for this week’s learning, important dates, classroom routines, and the resources families ask for most.</p>
+          <div class="sb-actions"><a class="sb-btn sb-btn-primary" href="#this-week">See this week</a><a class="sb-btn sb-btn-secondary" href="#calendar">Check dates</a></div>
+        </div>
+        <div class="sb-hero-media">
+          <img src="assets/classroom-hero.jpg" data-sbai-image-query="welcoming sunlit primary classroom prepared for learning no students" data-sbai-image-shape="landscape" alt="A welcoming primary classroom prepared for the day" loading="eager">
+          <aside class="sb-week-card"><p>Week of 14 September</p><strong>Stories, habitats, and making tens.</strong></aside>
+        </div>
+      </section>
+      <div class="sb-marquee" data-sb-component="marquee" aria-label="Classroom information summary">
+        <div class="sb-marquee-track">
+          <div class="sb-marquee-group"><span>Library books due Thursday <b>✦</b> Family reading morning Friday <b>✦</b> PE kit on Tuesday <b>✦</b> New maths help is in Resources <b>✦</b></span><span>Library books due Thursday <b>✦</b> Family reading morning Friday <b>✦</b> PE kit on Tuesday <b>✦</b> New maths help is in Resources <b>✦</b></span></div>
+          <div class="sb-marquee-group" aria-hidden="true"><span>Library books due Thursday <b>✦</b> Family reading morning Friday <b>✦</b> PE kit on Tuesday <b>✦</b> New maths help is in Resources <b>✦</b></span><span>Library books due Thursday <b>✦</b> Family reading morning Friday <b>✦</b> PE kit on Tuesday <b>✦</b> New maths help is in Resources <b>✦</b></span></div>
+        </div>
+      </div>
+      <section class="sb-section sb-now" id="this-week" data-sb-role="section">
+        <div class="sb-section-inner">
+          <header class="sb-heading" data-sb-role="section-heading"><h2>This week, at a glance.</h2><p>Start here before searching through messages. The most useful information stays visible and changes with the class.</p></header>
+          <div class="sb-now-grid">
+            <article class="sb-focus" data-sb-role="card"><p class="sb-kicker">Our big question</p><h3>How does a living thing find what it needs?</h3><div class="sb-focus-list"><div class="sb-focus-item"><b>Reading</b><span>Find evidence in an information text.</span></div><div class="sb-focus-item"><b>Maths</b><span>Build and partition numbers to 100.</span></div><div class="sb-focus-item"><b>Science</b><span>Compare three local habitats.</span></div></div></article>
+            <div class="sb-quick"><a class="sb-card sb-quick-card" data-sb-role="card" href="#calendar"><span>Next important date<strong>Reading morning · Fri 08:30</strong></span><i>↘</i></a><a class="sb-card sb-quick-card" data-sb-role="card" href="#resources"><span>Help at home<strong>10-minute number practice</strong></span><i>↘</i></a><a class="sb-card sb-quick-card" data-sb-role="card" href="#families"><span>Classroom routine<strong>What belongs in the school bag?</strong></span><i>↘</i></a></div>
+          </div>
+        </div>
+      </section>
+      <section class="sb-section sb-calendar" id="calendar" data-sb-role="section">
+        <div class="sb-section-inner">
+          <header class="sb-heading" data-sb-role="section-heading"><h2>Dates without the digging.</h2><p>Trips, due dates, and small reminders are grouped by day so families can scan the week in seconds.</p></header>
+          <div class="sb-days">
+            <article class="sb-day"><time>Tue 15</time><div><h3>PE day</h3><p>Children arrive in PE kit and bring a water bottle.</p></div><a href="#families">What to bring</a></article>
+            <article class="sb-day"><time>Thu 17</time><div><h3>Library return</h3><p>Return last week’s book before choosing a new one.</p></div><a href="#resources">Reading list</a></article>
+            <article class="sb-day"><time>Fri 18</time><div><h3>Family reading morning</h3><p>Families are welcome from 08:30 to 08:55.</p></div><a href="https://workspace.google.com/products/forms/" target="_blank" rel="noopener noreferrer">Tell us you’re coming</a></article>
+          </div>
+        </div>
+      </section>
+      <section class="sb-section sb-family" id="families" data-sb-role="section">
+        <div class="sb-section-inner">
+          <header class="sb-heading" data-sb-role="section-heading"><h2>The questions worth answering once.</h2><p>Clear routines reduce repeated messages and help every child arrive ready for the day.</p></header>
+          <div class="sb-family-grid">
+            <article class="sb-family-card" data-sb-role="card"><small>01 · Morning</small><h3>Drop-off and attendance</h3><p>Doors open at 08:35. Children enter independently. Report absence through the school office before 09:00.</p></article>
+            <article class="sb-family-card" data-sb-role="card"><small>02 · Learning</small><h3>Homework and extra practice</h3><p>Our weekly reading and maths habits are short by design. Extra practice is always optional and grouped in Resources.</p></article>
+            <article class="sb-family-card" data-sb-role="card"><small>03 · Contact</small><h3>When you need Ms. Carter</h3><p>Use the family form for non-urgent questions. Messages are checked after teaching and answered within two school days.</p></article>
+          </div>
+        </div>
+      </section>
+      <section class="sb-section sb-resources" id="resources" data-sb-role="section">
+        <div class="sb-section-inner">
+          <header class="sb-heading" data-sb-role="section-heading"><h2>Useful, not endless.</h2><p>A short, current resource shelf organized around what children are learning now.</p></header>
+          <div class="sb-resource-grid">
+            <article class="sb-resource" data-sb-role="card"><span class="sb-resource-num">01</span><div><h3>Our reading routine</h3><p>Questions to ask before, during, and after a book.</p></div><a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open reading routine">↗</a></article>
+            <article class="sb-resource" data-sb-role="card"><span class="sb-resource-num">02</span><div><h3>Making tens at home</h3><p>A quick number game using everyday objects.</p></div><a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open maths practice">↗</a></article>
+            <article class="sb-resource" data-sb-role="card"><span class="sb-resource-num">03</span><div><h3>Current spelling words</h3><p>Six patterns we are noticing in class this week.</p></div><a href="https://drive.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open spelling list">↗</a></article>
+            <article class="sb-resource" data-sb-role="card"><span class="sb-resource-num">04</span><div><h3>Where classwork lives</h3><p>A family guide to the school’s official learning platform.</p></div><a href="https://classroom.google.com/" target="_blank" rel="noopener noreferrer" aria-label="Open Google Classroom">↗</a></article>
+          </div>
+        </div>
+      </section>
+      <section class="sb-section sb-contact" data-sb-role="section">
+        <div class="sb-section-inner sb-contact-grid">
+          <div><p class="sb-kicker">A clear route for questions</p><h2>Tell me what your family needs.</h2><p>This public page shares general class information only. Private learning details, grades, and individual student information stay inside the school’s approved systems.</p><a class="sb-btn" href="https://workspace.google.com/products/forms/" target="_blank" rel="noopener noreferrer">Open the family form</a></div>
+          <aside class="sb-contact-note"><strong>Need an urgent response?</strong><span>Call the school office on (555) 014-2040 during school hours. The classroom form is for non-urgent questions.</span></aside>
+        </div>
+      </section>
+    </main>
+    <footer>© 2026 Bluebird Class · Demonstration content for a primary classroom website.</footer>
+  </div>
+  <script>
+    const toggle = document.querySelector('.sb-nav-toggle');
+    const mobileMenu = document.getElementById('sb-mobile-menu');
+    toggle.addEventListener('click', () => {
+      const open = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!open));
+      mobileMenu.hidden = open;
+      document.body.classList.toggle('menu-open', !open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+      toggle.setAttribute('aria-expanded', 'false');
+      mobileMenu.hidden = true;
+      document.body.classList.remove('menu-open');
+    }));
+  </script>
+</body>
+</html>
