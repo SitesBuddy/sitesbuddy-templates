@@ -4,7 +4,7 @@
     "name": "Playful Social",
     "category": "Bio Page",
     "description": "Bold & bubbly - fun personality pages",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "colorful",
       "playful",
@@ -21,7 +21,7 @@
     "name": "Social Maestro",
     "category": "Portfolio",
     "description": "Bold editorial - social media manager portfolio",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "portfolio",
       "editorial",
@@ -38,7 +38,7 @@
     "name": "Group Order",
     "category": "Local Business",
     "description": "Community group buying co-op — bulk orders, progress tracking, local savings",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "community",
       "group-buy",
@@ -57,7 +57,7 @@
     "name": "Rock Band Live 2008",
     "category": "Retro MySpace Inspired Pages",
     "description": "A ticket-selling rock band site with live photography, new release, video, tour dates, merch, and social links.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "rock",
       "band",
@@ -82,7 +82,7 @@
     "name": "DJ Residency 2008",
     "category": "Retro MySpace Inspired Pages",
     "description": "A recurring DJ night with guest-list CTA, venue detail, mixes, timetable, partners, and social links.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "dj",
       "club",
@@ -107,7 +107,7 @@
     "name": "Goa Festival 2008",
     "category": "Retro MySpace Inspired Pages",
     "description": "A destination festival site with passes, lineup, stage timetable, stay and travel guide, media, and social links.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "festival",
       "goa",
@@ -132,7 +132,7 @@
     "name": "Top Friends 2005",
     "category": "Retro MySpace Inspired Pages",
     "description": "A MySpace-era identity page with Top Friends, music and a guestbook. People loved making the page look and sound like them.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "retro",
       "myspace-era",
@@ -156,7 +156,7 @@
     "name": "Garage Band 2006",
     "category": "Retro MySpace Inspired Pages",
     "description": "A MySpace-era band page with music, show dates and fan comments. It gave music scenes a home before algorithmic feeds.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "retro",
       "myspace-era",
@@ -180,7 +180,7 @@
     "name": "DJ Profile 2008",
     "category": "Retro MySpace Inspired Pages",
     "description": "A MySpace-era DJ profile with mixes, flyers and a guest wall. It worked as a digital flyer, playlist and crew board in one place.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "retro",
       "myspace-era",
@@ -204,7 +204,7 @@
     "name": "Indie Artist 2007",
     "category": "Retro MySpace Inspired Pages",
     "description": "A handmade artist profile with demos, a release, journal notes and collaborators. Fans used pages like this to discover scenes through taste.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "retro",
       "myspace-era",
@@ -228,7 +228,7 @@
     "name": "Nightclub Profile 2006",
     "category": "Retro MySpace Inspired Pages",
     "description": "A nightlife profile with events, tickets, video, a playlist and a venue wall. It turns a club page into a shareable digital flyer.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "retro",
       "myspace-era",
@@ -252,7 +252,7 @@
     "name": "Mega Festival 2007",
     "category": "Retro MySpace Inspired Pages",
     "description": "A huge festival profile with lineup, stages, trailer, playlist and guide. The era made event pages feel like an invitation into a scene.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "retro",
       "myspace-era",
@@ -276,7 +276,7 @@
     "name": "Turntable DJ 2008",
     "category": "Retro MySpace Inspired Pages",
     "description": "An underground DJ profile with mixes, dates, booth photos, gear and crew. It keeps the personal, hand-curated feel people loved.",
-    "version": 1,
+    "version": 2,
     "tags": [
       "retro",
       "myspace-era",
@@ -300,7 +300,7 @@
     "name": "Y2K Pop 2004",
     "category": "Retro MySpace Inspired Pages",
     "description": "A glossy Y2K profile with a dreamy pink background, translucent cards, favorite links and a tiny personal blog.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -324,7 +324,7 @@
     "name": "Cyber Angel 2002",
     "category": "Retro MySpace Inspired Pages",
     "description": "A lavender cyber-pop profile with a glowing illustrated background, glass cards, orbit links and a transmission log.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -348,7 +348,7 @@
     "name": "Glitter Diary 2004",
     "category": "Retro MySpace Inspired Pages",
     "description": "A sparkly pink personal diary with a glittering background, transparent cards, favorite things and a guest wall.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -372,7 +372,7 @@
     "name": "Pop Fan Club 2004",
     "category": "Retro MySpace Inspired Pages",
     "description": "A sunny Y2K community page with a bright illustrated background, translucent cards, fan updates and a gallery.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -396,7 +396,7 @@
     "name": "Kindergarten Family HQ",
     "category": "Retro MySpace Inspired Pages",
     "description": "A warm parent-update page for a kindergarten class, with daily rhythm, reminders, family notes and upcoming dates.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -420,7 +420,7 @@
     "name": "Platformer Crew",
     "category": "Retro MySpace Inspired Pages",
     "description": "A pixel-arcade gaming profile for speedruns, level routes, crew roles and live stream updates.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -444,7 +444,7 @@
     "name": "Maze Arcade",
     "category": "Retro MySpace Inspired Pages",
     "description": "A maze-chase arcade profile for leaderboards, route cards, run roles and stream updates.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -468,7 +468,7 @@
     "name": "Science Lab",
     "category": "Retro MySpace Inspired Pages",
     "description": "A classroom science page with investigation plans, notebook prompts, safety reminders and family material notes.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -492,7 +492,7 @@
     "name": "Classroom HQ",
     "category": "Retro MySpace Inspired Pages",
     "description": "A family-friendly classroom page with daily schedule, learning updates, reminders and parent notes.",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "tags": [
       "retro",
       "myspace-era",
@@ -516,7 +516,7 @@
     "name": "Independent Consultant",
     "category": "Professional Services",
     "description": "An editorial personal-brand website for consultants, advisors, and fractional leaders.",
-    "version": 11,
+    "version": 12,
     "tags": [
       "consultant",
       "advisory",
@@ -536,7 +536,7 @@
     "name": "Luxury Realtor",
     "category": "Real Estate",
     "description": "A cinematic property-led website for premium real estate advisors and boutique agencies.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "realtor",
       "property",
@@ -557,7 +557,7 @@
     "name": "Modern Restaurant",
     "category": "Food & Hospitality",
     "description": "A warm, reservation-focused restaurant website with a menu, gallery, hours, and location.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "restaurant",
       "food",
@@ -577,7 +577,7 @@
     "name": "Boutique Salon",
     "category": "Beauty & Wellness",
     "description": "A warm, appointment-led editorial site for independent hair salons and stylists.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "salon",
       "hair",
@@ -597,7 +597,7 @@
     "name": "Wedding Photographer",
     "category": "Portfolio",
     "description": "An image-first documentary wedding portfolio for photographers booking stories across Europe.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "photographer",
       "wedding",
@@ -618,7 +618,7 @@
     "name": "Community Nonprofit",
     "category": "Community & Nonprofit",
     "description": "A practical, welcoming site for food networks, volunteer groups, and local mutual-aid organisations.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "nonprofit",
       "community",
@@ -638,7 +638,7 @@
     "name": "Personal Trainer",
     "category": "Fitness & Wellness",
     "description": "A consultation-led strength coaching website for personal trainers who sell practical, sustainable support.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "personal-trainer",
       "fitness",
@@ -658,7 +658,7 @@
     "name": "Home Renovation Contractor",
     "category": "Home Services",
     "description": "A project-led renovation site for contractors who need qualified site-visit and quote requests.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "contractor",
       "renovation",
@@ -678,7 +678,7 @@
     "name": "Dental Clinic",
     "category": "Healthcare",
     "description": "A reassuring new-patient dental site with appointment, care, and practical visit information.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "dental",
       "dentist",
@@ -698,7 +698,7 @@
     "name": "Emergency Electrician",
     "category": "Home Services",
     "description": "A 24/7 electrician site built around an urgent click-to-call path, plus planned home and renovation work.",
-    "version": 8,
+    "version": 9,
     "tags": [
       "electrician",
       "electrical",
@@ -718,7 +718,7 @@
     "name": "Interior Designer",
     "category": "Portfolio",
     "description": "An image-led interior design studio site that turns a considered home project into a clear enquiry.",
-    "version": 5,
+    "version": 6,
     "tags": [
       "interior-design",
       "designer",
@@ -739,7 +739,7 @@
     "name": "Bookkeeping Firm",
     "category": "Professional Services",
     "description": "A calm, discovery-call-led bookkeeping site for small businesses needing regular support or a practical catch-up.",
-    "version": 9,
+    "version": 10,
     "tags": [
       "bookkeeping",
       "accounting",
@@ -759,7 +759,7 @@
     "name": "Handmade Skincare Shop",
     "category": "Beauty & Wellness",
     "description": "A product-led skincare shop that helps customers choose a short routine, understand the ingredients, and place an order.",
-    "version": 4,
+    "version": 5,
     "tags": [
       "skincare",
       "beauty",
@@ -779,7 +779,7 @@
     "name": "SaaS Product Launch",
     "category": "Landing Page",
     "description": "A product-led SaaS launch page that shows the software early and drives visitors toward a sample-project signup.",
-    "version": 4,
+    "version": 5,
     "tags": [
       "saas",
       "software",
@@ -799,7 +799,7 @@
     "name": "Wedding & Event Venue",
     "category": "Food & Hospitality",
     "description": "A cinematic venue site that shows the spaces, capacity, package starting prices, and a clear date-and-tour inquiry path.",
-    "version": 3,
+    "version": 4,
     "tags": [
       "wedding",
       "event",
@@ -817,7 +817,7 @@
   },
   {
     "id": "local-service-studio",
-    "version": 2,
+    "version": 3,
     "name": "Local Service Studio",
     "category": "Business",
     "description": "A polished service page for local businesses, consultants, and studios.",
@@ -827,7 +827,7 @@
   },
   {
     "id": "portfolio-case-study",
-    "version": 2,
+    "version": 3,
     "name": "Portfolio Case Study",
     "category": "Portfolio",
     "description": "A clean personal portfolio with project proof, process, and contact CTA.",
@@ -837,7 +837,7 @@
   },
   {
     "id": "event-launch-page",
-    "version": 2,
+    "version": 3,
     "name": "Event Launch Page",
     "category": "Events",
     "description": "A conversion-focused event page with schedule, speakers, and registration CTA.",
@@ -847,7 +847,7 @@
   },
   {
     "id": "course-offer-page",
-    "version": 2,
+    "version": 3,
     "name": "Course Offer Page",
     "category": "Education",
     "description": "A structured course or coaching offer page with modules and outcomes.",
@@ -857,7 +857,7 @@
   },
   {
     "id": "life-coach-website",
-    "version": 1,
+    "version": 2,
     "name": "Life Coach Website",
     "category": "Coaching",
     "description": "A warm coaching website with services, process, testimonials, FAQ, and booking CTA.",
@@ -867,7 +867,7 @@
   },
   {
     "id": "life-coach-website2",
-    "version": 1,
+    "version": 2,
     "name": "Life Coach Website 2",
     "category": "Coaching",
     "description": "A fuller premium coaching website using SitesBuddyAI component recipes.",
@@ -877,7 +877,7 @@
   },
   {
     "id": "life-coach-website3",
-    "version": 1,
+    "version": 2,
     "name": "Life Coach Website 3",
     "category": "Coaching",
     "description": "An elegant editorial life coach website with warm luxury styling and arched portrait imagery.",
@@ -887,7 +887,7 @@
   },
   {
     "id": "campus-wall-2007",
-    "version": 1,
+    "version": 2,
     "name": "Campus Wall 2007",
     "category": "Retro Profiles",
     "description": "A structured social profile with a personal Wall, information, friends, photo albums, and classic blue chrome.",
@@ -903,7 +903,7 @@
   },
   {
     "id": "status-feed-2009",
-    "version": 1,
+    "version": 2,
     "name": "Status Feed 2009",
     "category": "Retro Profiles",
     "description": "A customizable 140-character microblog profile with posts, replies, favorites, followers, and themed backgrounds.",
@@ -919,7 +919,7 @@
   },
   {
     "id": "group-fitness-studio",
-    "version": 1,
+    "version": 2,
     "name": "Group Fitness Studio",
     "category": "Fitness & Wellness",
     "description": "An energetic class-led studio site with a readable timetable, intensity labels, first-visit guidance, and a seven-day trial offer.",
@@ -948,7 +948,7 @@
   },
   {
     "id": "independent-dance-school",
-    "version": 2,
+    "version": 3,
     "name": "Independent Dance School",
     "category": "Fitness & Wellness",
     "description": "An editorial dance-school site that helps families choose by age and level, see tuition and term dates, and request a trial class.",
@@ -977,7 +977,7 @@
   },
   {
     "id": "open-air-gym",
-    "version": 2,
+    "version": 3,
     "name": "Open-Air Gym",
     "category": "Fitness & Wellness",
     "description": "A rugged local outdoor-gym site with facility zones, weather details, transparent passes, a photo gallery, and first-visit directions.",
@@ -1007,7 +1007,7 @@
   },
   {
     "id": "public-golf-club",
-    "version": 2,
+    "version": 3,
     "name": "Public Golf Club",
     "category": "Fitness & Wellness",
     "description": "A visitor-first golf-club site with tee-time entry, green fees, course details, equipment hire, etiquette, and clubhouse information.",
@@ -1036,7 +1036,7 @@
   },
   {
     "id": "yoga-pilates-studio",
-    "version": 2,
+    "version": 3,
     "name": "Yoga & Pilates Studio",
     "category": "Fitness & Wellness",
     "description": "A calm beginner-friendly studio site with outcome-based class guidance, a clear schedule, first-visit answers, and a three-class intro pass.",
@@ -1065,7 +1065,7 @@
   },
   {
     "id": "primary-classroom-hq",
-    "version": 1,
+    "version": 2,
     "name": "Primary Classroom HQ",
     "category": "Education",
     "description": "A parent-facing primary classroom hub with this-week learning, important dates, routines, optional home practice, and a clear contact route.",
@@ -1094,7 +1094,7 @@
   },
   {
     "id": "teaching-portfolio",
-    "version": 1,
+    "version": 2,
     "name": "Teaching Portfolio",
     "category": "Education",
     "description": "An editorial teacher portfolio with a clear teaching philosophy, selected unit case studies, professional feedback, experience, and credentials.",
@@ -1123,7 +1123,7 @@
   },
   {
     "id": "independent-tutor",
-    "version": 1,
+    "version": 2,
     "name": "Independent Tutor",
     "category": "Education",
     "description": "A reassuring tutor website that explains support options, the first-session process, parent updates, transparent rates, and enquiry steps.",
