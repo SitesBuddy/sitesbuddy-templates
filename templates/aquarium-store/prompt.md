@@ -1,0 +1,3 @@
+# Blue Current Aquarium
+
+Adapt this template for an independent aquarium shop, aquascaping studio, fish breeder, or aquarium-maintenance service. Update the business name, address, hours, phone number, livestock details, service area, packages, and prices. Keep the calm underwater palette, beginner-friendly voice, clear visit path, and the fixed transparent aquarium at the bottom of the viewport. Preserve the bottom aquarium's `aria-hidden` and `pointer-events: none` behavior so it remains decorative and never blocks the page. Keep fish species, care claims, and tank-compatibility advice realistic.

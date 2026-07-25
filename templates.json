@@ -1150,5 +1150,36 @@
       "highlight": "#c76948",
       "layout": "tutoring"
     }
+  },
+  {
+    "id": "aquarium-store",
+    "version": 1,
+    "name": "Local Aquarium Store",
+    "category": "Retail & Local Business",
+    "description": "A calm local aquarium-shop site with starter tanks, livestock, care services, store details, and a live aquarium along the bottom of the screen.",
+    "thumbnail": "templates/aquarium-store/preview.jpg",
+    "html": "templates/aquarium-store/template.html",
+    "prompt": "templates/aquarium-store/prompt.md",
+    "isNew": true,
+    "tags": [
+      "aquarium",
+      "fish",
+      "pet shop",
+      "aquascaping",
+      "local business",
+      "retail"
+    ],
+    "goals": [
+      "sell",
+      "calls"
+    ],
+    "bestFor": "starter-tank sales and local aquarium services",
+    "preview": {
+      "background": "#fbf8ef",
+      "surface": "#fffef8",
+      "accent": "#087b83",
+      "highlight": "#ff7a57",
+      "layout": "retail"
+    }
   }
 ]
